@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard de Vagas</title>
+<style>
+:root{color-scheme:light dark;--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5d6672;--bd:#dde1e6;--ac:#1565c0;--ok:#1b7f3b;--md:#a66300;--er:#b3261e}
+@media(prefers-color-scheme:dark){:root{--bg:#14171a;--card:#1d2126;--tx:#e8eaed;--mut:#9aa3ad;--bd:#2e343b;--ac:#6ea8fe;--ok:#4cc277;--md:#e0a040;--er:#f2766b}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 40px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:28px 0 10px}
+.sub{color:var(--mut);font-size:13px}.bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.bar input,.bar select{padding:8px 10px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx);font:inherit}.bar input{flex:1;min-width:160px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}.card h3{font-size:15px;margin:0}
+.meta{color:var(--mut);font-size:13px}.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--bd);color:var(--mut);margin:2px 4px 0 0}
+.Alta{color:var(--ok);border-color:var(--ok)}.Média{color:var(--md);border-color:var(--md)}.nova{color:var(--ac);border-color:var(--ac)}
+a.go{color:var(--ac);font-weight:600;text-decoration:none;margin-top:auto}.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;min-width:600px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--bd);vertical-align:top}th{color:var(--mut)}.ok{color:var(--ok)}.er{color:var(--er)}
+</style></head><body><main>
+<h1>Dashboard de Vagas</h1><div class="sub" id="ger"></div>
+<div class="bar"><input id="q" placeholder="Buscar cargo ou empresa…"><select id="fs"><option value="">Todas as fontes</option></select>
+<select id="fc"><option value="">Toda compatibilidade</option><option>Alta</option><option>Média</option></select></div>
+<div class="grid" id="grid"></div>
+<h2>Situação de cada fonte nesta rodada</h2><div class="tw"><table id="tb"></table></div>
+<h2>Histórico das últimas rodadas</h2><div class="tw"><table id="hx"></table></div>
+</main><script>
+var D=__DADOS__;
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+document.getElementById("ger").textContent="Última busca: "+D.gerado+" (horário de Brasília). Compatibilidade estimada por palavras-chave do cargo.";
+var g=document.getElementById("grid"),q=document.getElementById("q"),fs=document.getElementById("fs"),fc=document.getElementById("fc");
+D.vagas.map(function(v){return v.fonte}).filter(function(x,i,a){return a.indexOf(x)==i}).forEach(function(f){var o=document.createElement("option");o.textContent=f;fs.appendChild(o)});
+function draw(){var t=q.value.toLowerCase(),h="";
+D.vagas.forEach(function(v){if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;if(t&&(v.titulo+" "+v.empresa).toLowerCase().indexOf(t)<0)return;
+h+='<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empresa||v.fonte)+'</div><div>'+
+'<span class="tag '+v.nivel+'">Compatibilidade '+v.nivel+'</span>'+(v.nova?'<span class="tag nova">Nova</span>':'')+
+'<span class="tag">'+esc(v.fonte)+'</span><span class="tag">'+(v.data?"Publicada: "+esc(v.data):"Sem data na página")+'</span>'+
+(v.prazo?'<span class="tag">Prazo: '+esc(v.prazo)+'</span>':'')+'<span class="tag">'+(v.verificada?"Link verificado":"Link não abriu")+'</span></div>'+
+'<a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir vaga →</a></div>'});
+g.innerHTML=h||'<div class="sub">Nenhuma vaga com esses filtros.</div>'}
+[q,fs,fc].forEach(function(e){e.addEventListener("input",draw)});draw();
+document.getElementById("tb").innerHTML="<tr><th>Fonte</th><th>Situação</th><th>Detalhe</th><th>Vagas</th></tr>"+D.fontes.map(function(r){
+var c=r.status.indexOf("OK")==0?"ok":(r.status=="Falhou"?"er":"");
+return "<tr><td>"+(r.url?'<a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.nome)+"</a>":esc(r.nome))+'</td><td class="'+c+'">'+esc(r.status)+"</td><td>"+esc(r.detalhe)+"</td><td>"+r.vagas+"</td></tr>"}).join("");
+document.getElementById("hx").innerHTML="<tr><th>Quando</th><th>Vagas</th><th>Fontes que carregaram</th></tr>"+D.execucoes.slice().reverse().map(function(e){return "<tr><td>"+esc(e.quando)+"</td><td>"+e.vagas+"</td><td>"+e.fontes_ok+"</td></tr>"}).join("");
+</script></body></html>
