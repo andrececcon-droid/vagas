@@ -1,7 +1,5 @@
 [
  {"nome":"Gupy (API pública, Porto Alegre)","tipo":"gupy"},
- {"nome":"BNE – Gerente de Controladoria POA","tipo":"pagina","url":"https://www.bne.com.br/vagas-de-emprego-para-gerente-de-controladoria-em-porto-alegre-rs"},
- {"nome":"BNE – Analista Financeiro POA","tipo":"pagina","url":"https://www.bne.com.br/vagas-de-emprego-para-analista-financeiro-em-porto-alegre-rs"},
  {"nome":"Michael Page – Rio Grande do Sul","tipo":"pagina","url":"https://www.michaelpage.com.br/jobs/rio-grande-do-sul"},
  {"nome":"Robert Half – Porto Alegre","tipo":"pagina","url":"https://www.roberthalf.com/br/pt/vagas/porto-alegre/all"},
  {"nome":"Hays","tipo":"pagina","url":"https://www.hays.com.br/"},

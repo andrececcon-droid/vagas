@@ -25,6 +25,40 @@ EXCLUIR = ["estágio", "estagiário", "estagiario", "aprendiz", "vendedor", "mot
            "segurança", "vigilante", "limpeza", "operador"]
 DATA_RE = re.compile(r"\d{2}/\d{2}/\d{4}|há \d+ (?:minutos?|horas?|dias?|semanas?|mês|meses)|hoje|ontem", re.I)
 
+# Local da vaga
+UF_FORA = "AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RO|RR|SC|SP|SE|TO"
+ESTADOS_FORA = ["minas gerais", "são paulo", "rio de janeiro", "santa catarina", "paraná", "bahia",
+                "pernambuco", "ceará", "goiás", "distrito federal", "espírito santo", "mato grosso"]
+GRANDE_POA = ["porto alegre", "canoas", "são leopoldo", "novo hamburgo", "gravataí", "cachoeirinha",
+              "alvorada", "viamão", "esteio", "sapucaia do sul", "guaíba", "eldorado do sul",
+              "campo bom", "sapiranga", "estância velha", "ivoti", "dois irmãos", "nova santa rita",
+              "charqueadas", "taquara", "parobé", "glorinha"]
+_W = r"[A-ZÁÉÍÓÚÂÊÔÃÕÇ][\wáéíóúâêôãõç']+"
+_CID = rf"((?:{_W}\s+(?:(?:do|de|da|dos|das)\s+)?){{0,2}}{_W})"
+CIDADE_UF = re.compile(_CID + rf"\s*[-–/,]\s*({UF_FORA})\b")
+CIDADE_RS = re.compile(_CID + r"\s*[-–/,]\s*RS\b")
+
+
+def detectar_local(ctx, titulo=""):
+    """Devolve (texto do local, região): poa, rs, remoto, fora ou ? (não informado)."""
+    txt = ctx.replace(titulo, " ") if titulo else ctx
+    low = txt.lower()
+    for c in GRANDE_POA:
+        if re.search(r"\b" + re.escape(c) + r"\b", low):
+            return c.title().replace(" Do ", " do "), "poa"
+    m = CIDADE_UF.search(txt)
+    if m:
+        return f"{m.group(1)} - {m.group(2)}", "fora"
+    for e in ESTADOS_FORA:
+        if e in low:
+            return e.title(), "fora"
+    m = CIDADE_RS.search(txt)
+    if m:
+        return f"{m.group(1)} - RS", "rs"
+    if re.search(r"remot|home.?office", (txt + " " + titulo).lower()):
+        return "Remoto", "remoto"
+    return "", "?"
+
 
 def nivel(titulo):
     t = titulo.lower()
@@ -53,6 +87,22 @@ def baixar(url, browser):
     return r.status_code, r.text, int((time.time() - t0) * 1000)
 
 
+def contexto(a, txt):
+    """Texto ao redor da vaga: sobe na página enquanto o bloco tiver só esta vaga."""
+    node, melhor = a.parent, txt
+    for _ in range(4):
+        if node is None:
+            break
+        cands = sum(1 for x in node.find_all("a", href=True)
+                    if nivel(" ".join(x.get_text(" ", strip=True).split())))
+        t = node.get_text(" ", strip=True)
+        if cands > 1 or len(t) > 300:
+            break
+        melhor = t
+        node = node.parent
+    return melhor
+
+
 def extrair(html, base):
     soup = BeautifulSoup(html, "html.parser")
     links = soup.find_all("a", href=True)
@@ -66,10 +116,11 @@ def extrair(html, base):
         if not n or href in vistos or href.startswith(("mailto:", "javascript:", "#")):
             continue
         vistos.add(href)
-        ctx = a.parent.get_text(" ", strip=True)[:400] if a.parent else txt
+        ctx = contexto(a, txt)
         m = DATA_RE.search(ctx)
+        local, regiao = detectar_local(ctx, txt)
         achadas.append({"titulo": txt, "empresa": "", "url": href, "nivel": n,
-                        "data": m.group(0) if m else None})
+                        "data": m.group(0) if m else None, "local": local, "regiao": regiao})
     return len(links), achadas
 
 
@@ -90,10 +141,16 @@ def gupy():
                 n = nivel(nome)
                 if not url or not n or (prazo and prazo < hoje):
                     continue
+                cid, uf = v.get("city") or "", v.get("state") or ""
+                if v.get("workplaceType") == "remote":
+                    loc, reg = "Remoto", "remoto"
+                else:
+                    loc = f"{cid} - {uf}".strip(" -")
+                    reg = "poa" if cid.lower() in GRANDE_POA else ("rs" if "rio grande do sul" in uf.lower() or uf.upper() == "RS" else ("fora" if uf else "?"))
                 pub = (v.get("publishedDate") or "")[:10]
                 achadas[url] = {"titulo": nome, "empresa": v.get("careerPageName", ""), "url": url,
                                 "nivel": n, "data": pub[8:10] + "/" + pub[5:7] + "/" + pub[:4] if pub else None,
-                                "prazo": prazo or None, "verificada": True}
+                                "prazo": prazo or None, "local": loc, "regiao": reg, "verificada": True}
         except Exception as e:  # noqa
             erro = str(e)[:120]
     return len(achadas), list(achadas.values()), erro
@@ -154,6 +211,13 @@ def main():
         if browser:
             browser.close()
 
+    fora = [{k: v.get(k, "") for k in ("titulo", "local", "fonte", "url")}
+            for v in vagas.values() if v.get("regiao") == "fora"]
+    vagas = {u: v for u, v in vagas.items() if v.get("regiao") != "fora"}
+    for r in resultado:
+        r["vagas"] = sum(1 for v in vagas.values() if v["fonte"] == r["nome"])
+        if r["status"].startswith("OK") and r["vagas"] == 0:
+            r["status"] = "Carregou, só vagas fora do RS"
     for v in list(vagas.values())[:80]:
         if "verificada" not in v:
             v["verificada"] = link_ok(v["url"])
@@ -169,7 +233,7 @@ def main():
                          "fontes_ok": sum(1 for r in resultado if r["status"].startswith(("OK", "Carregou, sem")))}])[-60:]
     hist_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1), "utf-8")
 
-    dados = {"gerado": carimbo, "vagas": lista, "fontes": resultado, "execucoes": hist["execucoes"][-14:]}
+    dados = {"gerado": carimbo, "vagas": lista, "fontes": resultado, "execucoes": hist["execucoes"][-14:], "fora": fora[:60]}
     html = (RAIZ / "modelo.html").read_text("utf-8").replace(
         "__DADOS__", json.dumps(dados, ensure_ascii=False).replace("</", "<\\/"))
     (RAIZ / "docs" / "index.html").write_text(html, "utf-8")
