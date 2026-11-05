@@ -19,14 +19,20 @@ a.go{color:var(--ac);font-weight:600;text-decoration:none}.ck{display:flex;gap:6
 .tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;min-width:600px}
 th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--bd);vertical-align:top}th{color:var(--mut)}.ok{color:var(--ok)}.er{color:var(--er)}
 #av{display:none;color:var(--er);font-size:13px}
+.btn{padding:8px 14px;border:0;border-radius:8px;background:var(--ac);color:#fff;font:inherit;font-weight:600;cursor:pointer}.btn:disabled{opacity:.6}
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}#cp{display:none;margin-top:8px}#cp input{padding:7px 9px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx);font:inherit;min-width:220px}
+#cp button{padding:7px 12px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx);font:inherit;cursor:pointer}
 </style></head><body><main>
 <h1>Dashboard de Vagas</h1><div class="sub" id="ger"></div>
+<div class="top"><button class="btn" id="up">🔄 Atualizar agora</button><a href="#" id="cfg" class="sub">Configurar botão</a><span class="sub" id="ust"></span></div>
+<div id="cp" class="sub">Cole aqui o token do GitHub. Ele fica salvo só neste navegador, não vai para a página pública.<br><input id="tk" type="password" placeholder="token do GitHub" autocomplete="off"> <button id="sv">Salvar</button> <button id="rm">Remover</button></div>
 <div class="bar"><input id="q" placeholder="Buscar cargo ou empresa…">
 <select id="fm"></select>
 <select id="fr"><option value="">Todos os locais</option><option value="poa">Grande Porto Alegre</option><option value="rs">Outras cidades do RS</option><option value="remoto">Remoto</option><option value="?">Local não informado</option></select>
 <select id="fs"><option value="">Todas as fontes</option></select>
 <select id="fc"><option value="">Toda compatibilidade</option><option>Alta</option><option>Média</option></select></div>
-<div class="sub">As marcações “Me candidatei” e “Não aplicável” ficam salvas neste aparelho e navegador. <span id="av">Não consegui gravar neste navegador.</span></div>
+<div class="sub">As marcações “Me candidatei” e “Não aplicável” ficam salvas neste aparelho e navegador. <span id="av">Não consegui gravar neste navegador.</span> <a href="#" id="lm">Limpar marcações deste aparelho</a></div>
+<div class="sub" id="cnt" style="margin-top:4px"></div>
 <div class="grid" id="grid" style="margin-top:12px"></div>
 <h2>Situação de cada fonte nesta rodada</h2><div class="tw"><table id="tb"></table></div>
 <h2>Descartadas por ficarem fora do RS</h2><div class="tw"><table id="fo"></table></div>
@@ -46,7 +52,7 @@ var g=document.getElementById("grid"),q=document.getElementById("q"),fm=document
 D.vagas.map(function(v){return v.fonte}).filter(function(x,i,a){return a.indexOf(x)==i}).forEach(function(f){var o=document.createElement("option");o.textContent=f;fs.appendChild(o)});
 var RN={poa:"Grande Porto Alegre",rs:"Outra cidade do RS",remoto:"Remoto"};
 function opcoes(){var c=0,n=0,p=0;D.vagas.forEach(function(v){var s=est(v);if(s=="c")c++;else if(s=="n")n++;else p++});
-var cur=fm.value;fm.innerHTML='<option value="">Pendentes ('+p+')</option><option value="c">Me candidatei ('+c+')</option><option value="n">Não aplicável ('+n+')</option>';fm.value=cur}
+var cur=fm.value;document.getElementById("cnt").textContent=D.vagas.length+" vagas nesta rodada · "+p+" pendentes · "+c+" marcadas como candidatei · "+n+" marcadas como não aplicável";fm.innerHTML='<option value="">Pendentes ('+p+')</option><option value="c">Me candidatei ('+c+')</option><option value="n">Não aplicável ('+n+')</option>';fm.value=cur}
 function draw(){opcoes();var t=q.value.toLowerCase(),h="";
 D.vagas.forEach(function(v,i){var s=est(v);if(s!=fm.value)return;if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;
 if(fr.value&&(v.regiao||"?")!=fr.value)return;if(t&&(v.titulo+" "+v.empresa).toLowerCase().indexOf(t)<0)return;
@@ -61,10 +67,30 @@ h+='<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empres
 g.innerHTML=h||'<div class="sub">Nenhuma vaga nesta lista.</div>'}
 g.addEventListener("change",function(e){var i=e.target.getAttribute("data-i");if(i==null)return;var v=D.vagas[i],t=e.target.getAttribute("data-t");
 marcar(v,e.target.checked?t:"");salvar();draw()});
+document.getElementById("lm").addEventListener("click",function(e){e.preventDefault();if(confirm("Apagar todas as marcações deste aparelho?")){E={};salvar();draw()}});
 [q,fm,fr,fs,fc].forEach(function(e){e.addEventListener("input",draw)});draw();
 document.getElementById("tb").innerHTML="<tr><th>Fonte</th><th>Situação</th><th>Detalhe</th><th>Vagas</th></tr>"+D.fontes.map(function(r){
 var c=r.status.indexOf("OK")==0?"ok":(r.status=="Falhou"?"er":"");
 return "<tr><td>"+(r.url?'<a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.nome)+"</a>":esc(r.nome))+'</td><td class="'+c+'">'+esc(r.status)+"</td><td>"+esc(r.detalhe)+"</td><td>"+r.vagas+"</td></tr>"}).join("");
 document.getElementById("fo").innerHTML=(D.fora&&D.fora.length)?"<tr><th>Vaga</th><th>Local</th><th>Fonte</th></tr>"+D.fora.map(function(r){return "<tr><td><a href=\""+esc(r.url)+"\" target=\"_blank\" rel=\"noopener\">"+esc(r.titulo)+"</a></td><td>"+esc(r.local)+"</td><td>"+esc(r.fonte)+"</td></tr>"}).join(""):"<tr><td>Nenhuma nesta rodada.</td></tr>";
 document.getElementById("hx").innerHTML="<tr><th>Quando</th><th>Vagas</th><th>Fontes que carregaram</th></tr>"+D.execucoes.slice().reverse().map(function(e){return "<tr><td>"+esc(e.quando)+"</td><td>"+e.vagas+"</td><td>"+e.fontes_ok+"</td></tr>"}).join("");
+
+var H=location.hostname,P=location.pathname.split("/")[1];
+var REPO=(H.indexOf(".github.io")>0&&P)?H.split(".")[0]+"/"+P:"andrececcon-droid/vagas",POLL=15000,DEPLOY=75000;
+var API="https://api.github.com/repos/"+REPO+"/actions/workflows/vagas.yml";
+var up=document.getElementById("up"),ust=document.getElementById("ust"),cp=document.getElementById("cp"),tk=document.getElementById("tk");
+function tok(){try{return localStorage.getItem("vagas_token")||""}catch(e){return ""}}
+function msg(t){ust.textContent=t}
+document.getElementById("cfg").addEventListener("click",function(e){e.preventDefault();cp.style.display=cp.style.display=="block"?"none":"block"});
+document.getElementById("sv").addEventListener("click",function(){try{localStorage.setItem("vagas_token",tk.value.trim());tk.value="";msg("Token salvo neste navegador.")}catch(e){msg("Não consegui salvar neste navegador.")}});
+document.getElementById("rm").addEventListener("click",function(){try{localStorage.removeItem("vagas_token")}catch(e){}msg("Token removido.")});
+function acomp(t0){var n=0;(function ciclo(){n++;fetch(API+"/runs?per_page=5&event=workflow_dispatch").then(function(r){return r.json()}).then(function(j){
+var r=(j.workflow_runs||[]).filter(function(x){return Date.parse(x.created_at)>=t0-60000})[0];
+if(r&&r.status=="completed"){if(r.conclusion=="success"){msg("Busca concluída. A página recarrega em instantes…");setTimeout(function(){location.reload()},DEPLOY)}else msg("A busca falhou. Veja o erro na aba Actions do GitHub.");return}
+msg(r?"Buscando vagas…":"Aguardando o GitHub iniciar…");if(n<50)setTimeout(ciclo,POLL);else msg("Demorou demais. Confira na aba Actions do GitHub.")}).catch(function(){if(n<50)setTimeout(ciclo,POLL)})})()}
+up.addEventListener("click",function(){var t=tok();
+if(!t){window.open("https://github.com/"+REPO+"/actions/workflows/vagas.yml","_blank");msg("Abri o GitHub: clique em Run workflow. Para rodar direto daqui, use Configurar botão.");return}
+up.disabled=true;msg("Enviando pedido…");var t0=Date.now();
+fetch(API+"/dispatches",{method:"POST",headers:{Accept:"application/vnd.github+json",Authorization:"Bearer "+t,"X-GitHub-Api-Version":"2022-11-28"},body:JSON.stringify({ref:"main"})}).then(function(r){up.disabled=false;
+if(r.status==204){msg("Busca iniciada. Leva uns 4 minutos.");acomp(t0)}else if(r.status==401||r.status==403||r.status==404)msg("O GitHub recusou o token (inválido, vencido ou sem permissão). Gere outro em Configurar botão.");else msg("Erro "+r.status+" ao chamar o GitHub.")}).catch(function(){up.disabled=false;msg("Sem conexão com o GitHub.")})});
 </script></body></html>

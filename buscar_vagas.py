@@ -124,36 +124,48 @@ def extrair(html, base):
     return len(links), achadas
 
 
+GUPY_APIS = [("https://employability-portal.gupy.io/api/v1/jobs", "jobName"),
+             ("https://portal.api.gupy.io/api/v1/jobs", "name"),
+             ("https://portal.api.gupy.io/api/v1/jobs", "jobName")]
+
+
 def gupy():
-    achadas, erro = {}, None
+    """Busca no portal público do Gupy. Tenta endereços conhecidos até um responder."""
+    achadas, erros, ok = {}, [], None
     hoje = dt.date.today().isoformat()
     for termo in ["analista financeiro", "fp&a", "controladoria", "coordenador financeiro",
                   "gerente financeiro", "administrativo financeiro", "controller"]:
-        try:
-            r = requests.get("https://portal.api.gupy.io/api/job",
-                             params={"name": termo, "city": "Porto Alegre",
-                                     "state": "Rio Grande do Sul", "limit": 50},
-                             headers={"User-Agent": UA}, timeout=30)
-            r.raise_for_status()
-            for v in r.json().get("data", []):
-                url, nome = v.get("jobUrl"), v.get("name", "")
-                prazo = (v.get("applicationDeadline") or "")[:10]
-                n = nivel(nome)
-                if not url or not n or (prazo and prazo < hoje):
-                    continue
-                cid, uf = v.get("city") or "", v.get("state") or ""
-                if v.get("workplaceType") == "remote":
-                    loc, reg = "Remoto", "remoto"
-                else:
-                    loc = f"{cid} - {uf}".strip(" -")
-                    reg = "poa" if cid.lower() in GRANDE_POA else ("rs" if "rio grande do sul" in uf.lower() or uf.upper() == "RS" else ("fora" if uf else "?"))
-                pub = (v.get("publishedDate") or "")[:10]
-                achadas[url] = {"titulo": nome, "empresa": v.get("careerPageName", ""), "url": url,
-                                "nivel": n, "data": pub[8:10] + "/" + pub[5:7] + "/" + pub[:4] if pub else None,
-                                "prazo": prazo or None, "local": loc, "regiao": reg, "verificada": True}
-        except Exception as e:  # noqa
-            erro = str(e)[:120]
-    return len(achadas), list(achadas.values()), erro
+        dados = None
+        for base, campo in ([ok] if ok else GUPY_APIS):
+            try:
+                r = requests.get(base, params={campo: termo, "city": "Porto Alegre",
+                                               "state": "Rio Grande do Sul", "limit": 50},
+                                 headers={"User-Agent": UA}, timeout=30)
+                if r.status_code == 200:
+                    dados, ok = r.json().get("data", []), (base, campo)
+                    break
+                erros.append(f"{base.split('//')[1].split('/')[0]}/{campo}: HTTP {r.status_code}")
+            except Exception as e:  # noqa
+                erros.append(str(e)[:60])
+        for v in dados or []:
+            url, nome = v.get("jobUrl"), v.get("name", "")
+            prazo = (v.get("applicationDeadline") or "")[:10]
+            n = nivel(nome)
+            if not url or not n or (prazo and prazo < hoje) or "internship" in (v.get("type") or ""):
+                continue
+            cid, uf = v.get("city") or "", v.get("state") or ""
+            if v.get("workplaceType") == "remote":
+                loc, reg = "Remoto", "remoto"
+            else:
+                loc = f"{cid} - {'RS' if 'rio grande do sul' in uf.lower() else uf}".strip(" -")
+                reg = "poa" if cid.lower() in GRANDE_POA else (
+                    "rs" if "rio grande do sul" in uf.lower() or uf.upper() == "RS" else ("fora" if uf else "?"))
+            pub = (v.get("publishedDate") or "")[:10]
+            achadas[url] = {"titulo": nome, "empresa": v.get("careerPageName", ""), "url": url,
+                            "nivel": n, "data": pub[8:10] + "/" + pub[5:7] + "/" + pub[:4] if pub else None,
+                            "prazo": prazo or None, "local": loc, "regiao": reg, "verificada": True}
+    erro = None if ok else ("; ".join(sorted(set(erros)))[:220] or "sem resposta")
+    return len(achadas), list(achadas.values()), erro, (ok[0].split("//")[1].split("/")[0] if ok else "")
 
 
 def link_ok(url):
@@ -181,9 +193,9 @@ def main():
                     r["status"] = "Não lida (exige login ou bloqueia robôs)"
                     r["detalhe"] = "Use alerta por e-mail nesse site"
                 elif f["tipo"] == "gupy":
-                    n, achadas, erro = gupy()
+                    n, achadas, erro, info = gupy()
                     r["status"] = "Falhou" if erro and not n else ("OK, com vagas compatíveis" if n else "Carregou, sem vaga compatível hoje")
-                    r["detalhe"] = erro or f"{n} vagas via API"
+                    r["detalhe"] = erro or f"{n} vagas via {info}"
                     for v in achadas:
                         v["fonte"] = f["nome"]; vagas[v["url"]] = v
                 elif not f.get("url"):
