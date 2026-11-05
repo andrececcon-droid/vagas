@@ -469,6 +469,36 @@
    "primeira": "2026-11-05",
    "titulo": "AUXILIAR CONTÁBIL Salário A combinar",
    "ultima": "2026-11-05"
+  },
+  "https://peopleware-recursos-humanos.tunni.com.br/vaga/analista-contabil-1793372003?src=site": {
+   "primeira": "2026-11-05",
+   "titulo": "Analista Contábil Cachoeirinha, RS CLT Presencial",
+   "ultima": "2026-11-05"
+  },
+  "https://peopleware-recursos-humanos.tunni.com.br/vaga/gerente-de-controladoria-1793377431?src=site": {
+   "primeira": "2026-11-05",
+   "titulo": "Gerente de Controladoria Cachoeirinha, RS CLT Presencial",
+   "ultima": "2026-11-05"
+  },
+  "https://rhftalentos.pandape.infojobs.com.br/Detail/3848678": {
+   "primeira": "2026-11-05",
+   "titulo": "Analista Fiscal Contábil Porto Alegre - RS Presencial Período Integral 1 Posição Efetivo – CLT R$ 6.000,00 - R$ 6.001,00 21 out",
+   "ultima": "2026-11-05"
+  },
+  "https://metassessoriaempresarial.vagas.solides.com.br/vaga/940876": {
+   "primeira": "2026-11-05",
+   "titulo": "Analista Contábil (Sapiranga)",
+   "ultima": "2026-11-05"
+  },
+  "https://metassessoriaempresarial.vagas.solides.com.br/vaga/934198": {
+   "primeira": "2026-11-05",
+   "titulo": "Analista Contábil",
+   "ultima": "2026-11-05"
+  },
+  "https://metassessoriaempresarial.vagas.solides.com.br/vaga/934071": {
+   "primeira": "2026-11-05",
+   "titulo": "Analista Contábil Sênior",
+   "ultima": "2026-11-05"
   }
  },
  "execucoes": [
@@ -480,6 +510,11 @@
   {
    "quando": "05/11/2026 08:29",
    "vagas": 40,
+   "fontes_ok": 24
+  },
+  {
+   "quando": "05/11/2026 08:48",
+   "vagas": 45,
    "fontes_ok": 24
   }
  ]
