@@ -35,15 +35,20 @@ th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--bd);vertical
 var D=__DADOS__,KEY="vagas_estado_v1",E={};
 try{E=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){E={}}
 function salvar(){try{localStorage.setItem(KEY,JSON.stringify(E))}catch(e){document.getElementById("av").style.display="inline"}}
+function nrm(u){try{var x=new URL(u);x.hash="";["utm_source","utm_medium","utm_campaign","jobBoardSource"].forEach(function(k){x.searchParams.delete(k)});return x.toString()}catch(e){return u}}
+function sem(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim()}
+function ks(v){return [nrm(v.url),"t:"+sem(v.titulo)+"|"+sem(v.empresa||v.fonte)+"|"+sem(v.local)]}
+function est(v){var k=ks(v);return E[k[0]]||E[k[1]]||""}
+function marcar(v,t){ks(v).forEach(function(k){if(t)E[k]=t;else delete E[k]})}
 function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
 document.getElementById("ger").textContent="Última busca: "+D.gerado+" (horário de Brasília). Compatibilidade estimada por palavras-chave do cargo.";
 var g=document.getElementById("grid"),q=document.getElementById("q"),fm=document.getElementById("fm"),fr=document.getElementById("fr"),fs=document.getElementById("fs"),fc=document.getElementById("fc");
 D.vagas.map(function(v){return v.fonte}).filter(function(x,i,a){return a.indexOf(x)==i}).forEach(function(f){var o=document.createElement("option");o.textContent=f;fs.appendChild(o)});
 var RN={poa:"Grande Porto Alegre",rs:"Outra cidade do RS",remoto:"Remoto"};
-function opcoes(){var c=0,n=0,p=0;D.vagas.forEach(function(v){var s=E[v.url];if(s=="c")c++;else if(s=="n")n++;else p++});
+function opcoes(){var c=0,n=0,p=0;D.vagas.forEach(function(v){var s=est(v);if(s=="c")c++;else if(s=="n")n++;else p++});
 var cur=fm.value;fm.innerHTML='<option value="">Pendentes ('+p+')</option><option value="c">Me candidatei ('+c+')</option><option value="n">Não aplicável ('+n+')</option>';fm.value=cur}
 function draw(){opcoes();var t=q.value.toLowerCase(),h="";
-D.vagas.forEach(function(v,i){var s=E[v.url]||"";if(s!=fm.value)return;if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;
+D.vagas.forEach(function(v,i){var s=est(v);if(s!=fm.value)return;if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;
 if(fr.value&&(v.regiao||"?")!=fr.value)return;if(t&&(v.titulo+" "+v.empresa).toLowerCase().indexOf(t)<0)return;
 var loc=v.local?'<div class="loc">📍 '+esc(v.local)+(RN[v.regiao]?" · "+RN[v.regiao]:"")+'</div>':'<div class="loc x">📍 Local não informado na página. Confira antes de se candidatar.</div>';
 h+='<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empresa||v.fonte)+'</div>'+loc+'<div>'+
@@ -54,8 +59,8 @@ h+='<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empres
 '<div class="acoes"><label class="ck"><input type="checkbox" data-i="'+i+'" data-t="c"'+(s=="c"?" checked":"")+'> Me candidatei</label>'+
 '<label class="ck"><input type="checkbox" data-i="'+i+'" data-t="n"'+(s=="n"?" checked":"")+'> Não aplicável</label></div></div>'});
 g.innerHTML=h||'<div class="sub">Nenhuma vaga nesta lista.</div>'}
-g.addEventListener("change",function(e){var i=e.target.getAttribute("data-i");if(i==null)return;var u=D.vagas[i].url,t=e.target.getAttribute("data-t");
-if(e.target.checked)E[u]=t;else delete E[u];salvar();draw()});
+g.addEventListener("change",function(e){var i=e.target.getAttribute("data-i");if(i==null)return;var v=D.vagas[i],t=e.target.getAttribute("data-t");
+marcar(v,e.target.checked?t:"");salvar();draw()});
 [q,fm,fr,fs,fc].forEach(function(e){e.addEventListener("input",draw)});draw();
 document.getElementById("tb").innerHTML="<tr><th>Fonte</th><th>Situação</th><th>Detalhe</th><th>Vagas</th></tr>"+D.fontes.map(function(r){
 var c=r.status.indexOf("OK")==0?"ok":(r.status=="Falhou"?"er":"");
