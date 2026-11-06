@@ -559,6 +559,16 @@
    "primeira": "2026-11-06",
    "titulo": "NOVA BM VAGAS Unidade Ropelatto ASSISTENTE ADMINISTRATIVO Curitiba / PR R$ 2.181,63 Presencial CLT Ver vaga",
    "ultima": "2026-11-06"
+  },
+  "https://grupozaffari.gupy.io/job/eyJqb2JJZCI6MTI4NDMzNzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal": {
+   "primeira": "2026-11-06",
+   "titulo": "Analista de Controladoria ",
+   "ultima": "2026-11-06"
+  },
+  "https://www.roberthalf.com/br/pt/vaga/sapucaia-do-sul/analista-administrativo-júnior/63670-0013539219-brpt": {
+   "primeira": "2026-11-06",
+   "titulo": "Analista Administrativo Júnior",
+   "ultima": "2026-11-06"
   }
  },
  "execucoes": [
@@ -611,6 +621,11 @@
    "quando": "06/11/2026 07:57",
    "vagas": 52,
    "fontes_ok": 26
+  },
+  {
+   "quando": "06/11/2026 12:45",
+   "vagas": 54,
+   "fontes_ok": 25
   }
  ]
 }
