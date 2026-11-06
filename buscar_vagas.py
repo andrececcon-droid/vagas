@@ -103,6 +103,23 @@ def contexto(a, txt):
     return melhor
 
 
+LINK_VAGAS = re.compile(r"\b(vagas?|oportunidades|trabalhe conosco|carreiras?|empregos?)\b", re.I)
+LINK_NAO = re.compile(r"anunci|divulg|public|empresa|cadastre sua|contrat", re.I)
+
+
+def link_vagas(html, base):
+    """Se o endereço for a página inicial do site, acha o link que leva à lista de vagas."""
+    soup = BeautifulSoup(html, "html.parser")
+    for a in soup.find_all("a", href=True):
+        txt = " ".join(a.get_text(" ", strip=True).split())
+        href = urljoin(base, a["href"])
+        if (3 <= len(txt) <= 40 and LINK_VAGAS.search(txt) and not LINK_NAO.search(txt)
+                and not href.startswith(("mailto:", "javascript:", "tel:"))
+                and href.split("#")[0] != base.split("#")[0]):
+            return href
+    return None
+
+
 def extrair(html, base):
     soup = BeautifulSoup(html, "html.parser")
     links = soup.find_all("a", href=True)
@@ -214,7 +231,18 @@ def main():
                 else:
                     status, html, ms = baixar(f["url"], browser)
                     n_links, achadas = extrair(html, f["url"])
-                    r["detalhe"] = f"HTTP {status} · {n_links} links · {ms / 1000:.1f}s"
+                    seguiu = ""
+                    if not achadas and n_links >= 5 and 0 < status < 400:
+                        prox = link_vagas(html, f["url"])
+                        if prox:
+                            try:
+                                st2, html2, _ = baixar(prox, browser)
+                                if 0 < st2 < 400:
+                                    n_links, achadas = extrair(html2, prox)
+                                    seguiu = " · seguiu " + prox[:70]
+                            except Exception:  # noqa
+                                pass
+                    r["detalhe"] = f"HTTP {status} · {n_links} links · {ms / 1000:.1f}s{seguiu}"
                     if status >= 400 or status == 0:
                         r["status"] = "Falhou"
                     elif n_links < 5:
