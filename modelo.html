@@ -57,10 +57,11 @@ function draw(){opcoes();var t=q.value.toLowerCase(),h="";
 D.vagas.forEach(function(v,i){var s=est(v);if(s!=fm.value)return;if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;
 if(fr.value&&(v.regiao||"?")!=fr.value)return;if(t&&(v.titulo+" "+v.empresa).toLowerCase().indexOf(t)<0)return;
 var loc=v.local?'<div class="loc">📍 '+esc(v.local)+(RN[v.regiao]?" · "+RN[v.regiao]:"")+'</div>':'<div class="loc x">📍 Local não informado na página. Confira antes de se candidatar.</div>';
-h+='<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empresa||v.fonte)+'</div>'+loc+'<div>'+
+var comp=(v.comp&&v.comp.length)?'<div style="font-size:13px">✔ Suas competências na vaga: '+v.comp.map(esc).join(", ")+'</div>':(v.lida?'<div class="meta">Descrição lida: nenhuma competência sua citada.</div>':'<div class="meta">Só o título foi lido (descrição indisponível).</div>');
+h+='<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empresa||v.fonte)+'</div>'+loc+comp+'<div>'+
 '<span class="tag '+v.nivel+'">Compatibilidade '+v.nivel+'</span>'+(v.nova?'<span class="tag nova">Nova</span>':'')+
 '<span class="tag">'+esc(v.fonte)+'</span><span class="tag">'+(v.data?"Publicada: "+esc(v.data):"Sem data na página")+'</span>'+
-(v.prazo?'<span class="tag">Prazo: '+esc(v.prazo)+'</span>':'')+'<span class="tag">'+(v.verificada?"Link verificado":"Link não abriu")+'</span></div>'+
+(v.prazo?'<span class="tag">Prazo: '+esc(v.prazo)+'</span>':'')+'<span class="tag">'+(v.verificada===true?"Link verificado":(v.verificada===false?"Link não abriu":"Link não testado"))+'</span></div>'+
 '<a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir vaga →</a>'+
 '<div class="acoes"><label class="ck"><input type="checkbox" data-i="'+i+'" data-t="c"'+(s=="c"?" checked":"")+'> Me candidatei</label>'+
 '<label class="ck"><input type="checkbox" data-i="'+i+'" data-t="n"'+(s=="n"?" checked":"")+'> Não aplicável</label></div></div>'});

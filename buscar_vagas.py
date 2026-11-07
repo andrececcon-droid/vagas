@@ -14,15 +14,40 @@ except ImportError:
 RAIZ = Path(__file__).parent
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
 BRT = dt.timezone(dt.timedelta(hours=-3))
-# Palavras-chave do perfil (edite à vontade)
-ALTA = ["fp&a", "fpa", "controladoria", "controller", "gerente financeiro", "gestor financeiro",
-        "coordenador financeiro", "coordenador administrativo", "gerente administrativo",
-        "analista financeiro", "planejamento financeiro", "tesouraria",
+# Cargos que o André procura (edite à vontade). ALTA = cargo-alvo; MEDIA = cargo parecido.
+ALTA = ["gerente administrativo financeiro", "gerente administrativo e financeiro", "gerente financeiro",
+        "gerente de controladoria", "controller", "controladoria", "coordenador financeiro",
+        "coordenador administrativo", "gestor financeiro", "gestor administrativo", "fp&a",
+        "planejamento financeiro", "analista financeiro", "analista de planejamento", "tesouraria",
         "administrativo financeiro", "administrativo e financeiro", "financeiro e administrativo"]
-MEDIA = ["financeiro", "financeira", "administrativo", "contas a pagar", "contas a receber",
-         "contábil", "contabil", "orçamento", "faturamento"]
-EXCLUIR = ["estágio", "estagiário", "estagiario", "aprendiz", "vendedor", "motorista",
-           "segurança", "vigilante", "limpeza", "operador"]
+MEDIA = ["financeiro", "financeira", "administrativo", "contas a pagar", "contas a receber", "contábil",
+         "contabil", "orçamento", "faturamento", "custos", "diretor financeiro"]
+# Cargos fora do nível dele (palavras inteiras)
+EXCLUIR = ["estágio", "estagiário", "estagiario", "aprendiz", "trainee", "júnior", "junior", "jr", "jr.",
+           "assistente", "auxiliar", "vendedor", "motorista", "segurança", "vigilante", "limpeza", "operador"]
+EXCL_RE = re.compile(r"\b(?:" + "|".join(re.escape(x) for x in EXCLUIR) + r")(?!\w)")
+
+# Competências do currículo: procuradas na descrição de cada vaga
+COMPETENCIAS = {
+    "Fluxo de caixa": r"fluxo de caixa",
+    "Conciliação": r"concilia",
+    "Contas a pagar e receber": r"contas a (?:pagar|receber)",
+    "Orçamento / forecast": r"orçament|budget|forecast",
+    "FP&A / planejamento financeiro": r"fp&a|planejamento financeiro|planejamento estratégico",
+    "Relatórios gerenciais e indicadores": r"relat[óo]rios gerenciais|informações gerenciais|\bdre\b|indicadores|\bkpis?\b",
+    "Custos e margem": r"custos|margem|rentabilidade|precifica",
+    "Faturamento e cobrança": r"faturamento|cobran[çc]a|notas fiscais",
+    "Contratos e convênios": r"contratos|conv[êe]nios|licita",
+    "ERP (Omie, Conta Azul, SAP...)": r"\berp\b|\bsap\b|omie|conta azul|totvs|protheus|bling|linx",
+    "Liderança de equipes": r"lideran[çc]a|gest[ãa]o de equipes?|liderar|coordenar equipes?",
+    "Fechamento contábil": r"fechamento (?:cont[áa]bil|mensal)|balancete",
+    "Excel / BI / dados": r"\bexcel\b|power ?bi|business intelligence|an[áa]lise de dados|\bsql\b|python",
+    "Compliance fiscal e trabalhista": r"compliance|obriga[çc][õo]es (?:fiscais|acess[óo]rias)|trabalhista",
+    "Tesouraria e crédito": r"tesouraria|capta[çc][ãa]o|negocia[çc][õo]es banc[áa]rias|cr[ée]dito",
+    "Fornecedores e compras": r"fornecedores|compras|suprimentos",
+    "Gestão de pessoas (folha, admissões)": r"folha de pagamento|admiss[õo]es|demiss[õo]es|departamento pessoal",
+}
+COMP_RE = {k: re.compile(v, re.I) for k, v in COMPETENCIAS.items()}
 DATA_RE = re.compile(r"\d{2}/\d{2}/\d{4}|há \d+ (?:minutos?|horas?|dias?|semanas?|mês|meses)|hoje|ontem", re.I)
 
 # Local da vaga
@@ -62,7 +87,7 @@ def detectar_local(ctx, titulo=""):
 
 def nivel(titulo):
     t = titulo.lower()
-    if any(x in t for x in EXCLUIR):
+    if EXCL_RE.search(t):
         return None
     if any(x in t for x in ALTA):
         return "Alta"
@@ -150,8 +175,9 @@ def gupy():
     """Busca no portal público do Gupy. Tenta os endereços conhecidos até um responder."""
     achadas, erros, ok = {}, [], None
     hoje = dt.date.today().isoformat()
-    for termo in ["analista financeiro", "fp&a", "controladoria", "coordenador financeiro",
-                  "gerente financeiro", "administrativo financeiro", "controller"]:
+    for termo in ["gerente administrativo financeiro", "gerente financeiro", "controller", "coordenador financeiro",
+                  "coordenador administrativo", "analista financeiro", "controladoria", "fp&a",
+                  "planejamento financeiro", "tesouraria", "administrativo financeiro", "gestor financeiro"]:
         dados = []
         for off in range(0, 600, 100):
             pagina = None
@@ -195,12 +221,39 @@ def gupy():
     return len(achadas), list(achadas.values()), erro, (ok[0].split("//")[1] if ok else "")
 
 
-def link_ok(url):
+def verificar(url):
+    """Testa se o link abre e devolve também o texto da página (descrição da vaga)."""
     try:
-        r = requests.get(url, headers={"User-Agent": UA}, timeout=15, stream=True)
-        return r.status_code < 400
+        r = requests.get(url, headers={"User-Agent": UA}, timeout=15)
+        ctype = r.headers.get("content-type", "").lower()
+        if r.status_code >= 400:
+            return False, ""
+        if "html" not in ctype:
+            return True, ""
+        if "charset" not in ctype:
+            r.encoding = "utf-8"
+        soup = BeautifulSoup(r.text, "html.parser")
+        for t in soup(["script", "style", "nav", "footer", "header"]):
+            t.decompose()
+        return True, " ".join(soup.get_text(" ", strip=True).split())[:6000]
     except Exception:
-        return False
+        return False, ""
+
+
+def competencias(texto):
+    return [k for k, rx in COMP_RE.items() if rx.search(texto)]
+
+
+def avaliar(v):
+    """Cruza a vaga com as competências do currículo e ajusta a compatibilidade."""
+    desc = v.get("descricao", "")
+    v["comp"] = competencias(v.get("titulo", "") + " " + desc)
+    v["lida"] = len(desc) > 300
+    v.setdefault("verificada", None)
+    if v["nivel"] == "Média" and len(v["comp"]) >= 4:
+        v["nivel"] = "Alta"
+    elif v["nivel"] == "Alta" and v["lida"] and not v["comp"]:
+        v["nivel"] = "Média"
 
 
 def main():
@@ -270,7 +323,9 @@ def main():
             r["status"] = "Carregou, só vagas fora do RS"
     for v in list(vagas.values())[:80]:
         if "verificada" not in v:
-            v["verificada"] = link_ok(v["url"])
+            v["verificada"], v["descricao"] = verificar(v["url"])
+    for v in vagas.values():
+        avaliar(v)
     lista = []
     for url, v in vagas.items():
         h = hist["vagas"].setdefault(url, {"primeira": dia})
@@ -278,7 +333,7 @@ def main():
         v["nova"] = h["primeira"] == dia
         v["primeira"] = h["primeira"]
         lista.append(v)
-    lista.sort(key=lambda v: (v["nivel"] != "Alta", not v["nova"]))
+    lista.sort(key=lambda v: (v["nivel"] != "Alta", -len(v.get("comp", [])), not v["nova"]))
     hist["execucoes"] = (hist["execucoes"] + [{"quando": carimbo, "vagas": len(lista),
                          "fontes_ok": sum(1 for r in resultado if r["status"].startswith(("OK", "Carregou, sem")))}])[-60:]
     hist_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1), "utf-8")
