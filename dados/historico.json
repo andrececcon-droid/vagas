@@ -744,6 +744,26 @@
    "primeira": "2026-11-07",
    "titulo": "Global Controller",
    "ultima": "2026-11-07"
+  },
+  "https://lojasrennersaplural.gupy.io/job/eyJqb2JJZCI6MTI3OTQyMDEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal": {
+   "primeira": "2026-11-07",
+   "titulo": "Analista de Controle de Tesouraria CSC I | Vaga Afirmativa para Pessoas com Deficiência (PcD)",
+   "ultima": "2026-11-07"
+  },
+  "https://lojasrennersaplural.gupy.io/job/eyJqb2JJZCI6MTI3NDc4MzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal": {
+   "primeira": "2026-11-07",
+   "titulo": "Analista de TI III | Tesouraria e Conciliação - Exclusiva para Pessoas com Deficiência",
+   "ultima": "2026-11-07"
+  },
+  "https://renner.gupy.io/job/eyJqb2JJZCI6MTI3NDczNDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal": {
+   "primeira": "2026-11-07",
+   "titulo": "Analista de Controle de Tesouraria CSC I | Vaga Afirmativa para Pessoas com Deficiência (PcD)",
+   "ultima": "2026-11-07"
+  },
+  "tel:94966-9300": {
+   "primeira": "2026-11-07",
+   "titulo": "Orçamento pelo Telefone",
+   "ultima": "2026-11-07"
   }
  },
  "execucoes": [
@@ -815,6 +835,11 @@
   {
    "quando": "07/11/2026 09:39",
    "vagas": 87,
+   "fontes_ok": 40
+  },
+  {
+   "quando": "07/11/2026 10:00",
+   "vagas": 73,
    "fontes_ok": 40
   }
  ]
