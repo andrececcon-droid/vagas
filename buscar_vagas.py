@@ -3,7 +3,7 @@
 import json, re, sys, time, datetime as dt
 from contextlib import nullcontext
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
 try:
@@ -129,20 +129,27 @@ def contexto(a, txt):
 
 
 LINK_VAGAS = re.compile(r"\b(vagas?|oportunidades|trabalhe conosco|carreiras?|empregos?)\b", re.I)
-LINK_NAO = re.compile(r"anunci|divulg|public|empresa|cadastre sua|contrat", re.I)
+LINK_NAO = re.compile(r"anunci|divulg|public|empresa|cadastre sua|contrat|alerta", re.I)
+HREF_NAO = re.compile(r"alerta|cadastr|curricul|newsletter|/vaga/|/vagas/\d|/job/|/jobs/\d", re.I)
+LINK_EXATO = re.compile(r"(ver |buscar |todas as |nossas |encontre )?(vagas|oportunidades|trabalhe conosco|carreiras?|empregos?)"
+                        r"( abertas| dispon[ií]veis)?", re.I)
 
 
 def link_vagas(html, base):
     """Se o endereço for a página inicial do site, acha o link que leva à lista de vagas."""
     soup = BeautifulSoup(html, "html.parser")
+    achados = []
     for a in soup.find_all("a", href=True):
         txt = " ".join(a.get_text(" ", strip=True).split())
         href = urljoin(base, a["href"])
-        if (3 <= len(txt) <= 40 and LINK_VAGAS.search(txt) and not LINK_NAO.search(txt)
-                and not href.startswith(("mailto:", "javascript:", "tel:"))
-                and href.split("#")[0] != base.split("#")[0]):
-            return href
-    return None
+        if not (3 <= len(txt) <= 40 and LINK_VAGAS.search(txt)) or LINK_NAO.search(txt):
+            continue
+        if href.startswith(("mailto:", "javascript:", "tel:")) or HREF_NAO.search(href):
+            continue
+        if not urlparse(href).path.strip("/") or href.split("#")[0] == base.split("#")[0]:
+            continue  # raiz do site ou a própria página
+        achados.append((0 if LINK_EXATO.fullmatch(txt) else 1, len(achados), href))
+    return min(achados)[2] if achados else None
 
 
 def extrair(html, base):
