@@ -764,6 +764,26 @@
    "primeira": "2026-11-07",
    "titulo": "Orçamento pelo Telefone",
    "ultima": "2026-11-08"
+  },
+  "https://www.vagas.com.br/vagas/v2840532/analista-de-planejamento-financeiro-pleno": {
+   "primeira": "2026-11-08",
+   "titulo": "Analista de Planejamento Financeiro Pleno",
+   "ultima": "2026-11-08"
+  },
+  "https://www.vagas.com.br/vagas/v2826099/analista-de-planejamento-e-controle-de-producao-sr": {
+   "primeira": "2026-11-08",
+   "titulo": "Analista de Planejamento e Controle de Produção Sr",
+   "ultima": "2026-11-08"
+  },
+  "https://www.vagas.com.br/vagas/v2839797/analista-de-tesouraria-senior": {
+   "primeira": "2026-11-08",
+   "titulo": "Analista de Tesouraria Sênior",
+   "ultima": "2026-11-08"
+  },
+  "https://www.vagas.com.br/vagas/v2836590/analista-de-orcamento-corporativo-pleno-sao-paulo": {
+   "primeira": "2026-11-08",
+   "titulo": "Analista de Orçamento Corporativo Pleno (São Paulo)",
+   "ultima": "2026-11-08"
   }
  },
  "execucoes": [
@@ -855,6 +875,11 @@
   {
    "quando": "08/11/2026 10:44",
    "vagas": 73,
+   "fontes_ok": 41
+  },
+  {
+   "quando": "08/11/2026 11:31",
+   "vagas": 75,
    "fontes_ok": 41
   }
  ]
