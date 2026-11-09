@@ -794,6 +794,81 @@
    "primeira": "2026-11-09",
    "titulo": "SUPERVISOR TÉCNICO ADMINISTRATIVO (HO... Supervisor Presencial Não informado Fundação ABC 4.59 Eu quero!",
    "ultima": "2026-11-09"
+  },
+  "https://sistema.neotempus.com.br/vagas/administrativo-porto-alegre-rs-dcd74c": {
+   "primeira": "2026-11-09",
+   "titulo": "Administrativo - Porto Alegre /RS Empresa confidencial Pleno Porto Alegre/RS Presencial CLT Publicada em 06 de nov. Ver vaga →",
+   "ultima": "2026-11-09"
+  },
+  "https://sistema.neotempus.com.br/vagas/faturamento-cachoeirinha-rs-565db1": {
+   "primeira": "2026-11-09",
+   "titulo": "FATURAMENTO - CACHOEIRINHA / RS Empresa confidencial Pleno Cachoeirinha/RS Presencial CLT Publicada em 26 de out. Ver vaga →",
+   "ultima": "2026-11-09"
+  },
+  "https://fgtas.rs.gov.br/relatorios-do": {
+   "primeira": "2026-11-09",
+   "titulo": "Custos e Produtividade",
+   "ultima": "2026-11-09"
+  },
+  "https://fgtas.rs.gov.br/financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Financeiro",
+   "ultima": "2026-11-09"
+  },
+  "https://randstad.com.br/vagas/s-financas-contabilidade-impostos/": {
+   "primeira": "2026-11-09",
+   "titulo": "vagas gestão financeira",
+   "ultima": "2026-11-09"
+  },
+  "https://randstad.com.br/vagas/s-administrativo-secretariado/": {
+   "primeira": "2026-11-09",
+   "titulo": "vagas suporte administrativo e de escritório",
+   "ultima": "2026-11-09"
+  },
+  "https://randstad.com.br/candidatos/professional/suporte-administrativo-e-de-escrit%C3%B3rio/": {
+   "primeira": "2026-11-09",
+   "titulo": "suporte administrativo e de escritório",
+   "ultima": "2026-11-09"
+  },
+  "https://randstad.com.br/candidatos/professional/gestao-financeira/": {
+   "primeira": "2026-11-09",
+   "titulo": "gestão financeira",
+   "ultima": "2026-11-09"
+  },
+  "https://randstad.com.br/empresas/solucoes/operational/": {
+   "primeira": "2026-11-09",
+   "titulo": "recrutamento operacional e administrativo",
+   "ultima": "2026-11-09"
+  },
+  "https://www.randstad.com.br/vagas/s-financas-contabilidade-impostos/": {
+   "primeira": "2026-11-09",
+   "titulo": "vagas gestão financeira",
+   "ultima": "2026-11-09"
+  },
+  "https://www.randstad.com.br/vagas/s-administrativo-secretariado/": {
+   "primeira": "2026-11-09",
+   "titulo": "vagas administrativo & secretariado",
+   "ultima": "2026-11-09"
+  },
+  "https://trabalhabrasil.com.br/vagas-de-emprego/contabilidade": {
+   "primeira": "2026-11-09",
+   "titulo": "Contabilidade",
+   "ultima": "2026-11-09"
+  },
+  "https://trabalhabrasil.com.br/vagas-de-emprego/financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Financeiro",
+   "ultima": "2026-11-09"
+  },
+  "https://trabalhabrasil.com.br/vagas-de-emprego/analista-contabil": {
+   "primeira": "2026-11-09",
+   "titulo": "Analista Contábil",
+   "ultima": "2026-11-09"
+  },
+  "https://trabalhabrasil.com.br/vagas-de-emprego/analista-financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Analista Financeiro",
+   "ultima": "2026-11-09"
   }
  },
  "execucoes": [
@@ -911,6 +986,11 @@
    "quando": "09/11/2026 09:19",
    "vagas": 71,
    "fontes_ok": 40
+  },
+  {
+   "quando": "09/11/2026 09:36",
+   "vagas": 86,
+   "fontes_ok": 57
   }
  ]
 }
