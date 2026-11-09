@@ -473,7 +473,7 @@
   "https://peopleware-recursos-humanos.tunni.com.br/vaga/analista-contabil-1793372003?src=site": {
    "primeira": "2026-11-05",
    "titulo": "Analista Contábil Cachoeirinha, RS CLT Presencial",
-   "ultima": "2026-11-05"
+   "ultima": "2026-11-09"
   },
   "https://peopleware-recursos-humanos.tunni.com.br/vaga/gerente-de-controladoria-1793377431?src=site": {
    "primeira": "2026-11-05",
@@ -909,6 +909,61 @@
    "primeira": "2026-11-09",
    "titulo": "ANALISTA CONTABIL Empresa confidencial Pleno Itajaí/SC Presencial PJ Publicada em 09 de nov. Ver vaga →",
    "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas-de-controladoria-em-porto-alegre?a%5B%5D=11": {
+   "primeira": "2026-11-09",
+   "titulo": "Controladoria",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2839708/gerente-administrativo-financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Administrativo Financeiro",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2840806/gerente-contabil": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Contábil",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2838491/gerente-financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Financeiro",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2831667/gerente-tributario-financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Tributário | Financeiro",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2841765/gerente-financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Financeiro",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2842210/gerente-financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Financeiro",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2829413/gerente-financeiro-e-controladoria": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Financeiro e Controladoria",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2842392/gerente-administrativo-obras-ferroviarias-sp": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Administrativo - Obras Ferroviárias - SP",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagas.com.br/vagas/v2842423/gerente-administrativo-financeiro": {
+   "primeira": "2026-11-09",
+   "titulo": "Gerente Administrativo - Financeiro",
+   "ultima": "2026-11-09"
+  },
+  "https://remotar.com.br/job/170448/jobgether/analista-de-suporte-em-software-contabilidade": {
+   "primeira": "2026-11-09",
+   "titulo": "Analista de Suporte em Software - Contabilidade",
+   "ultima": "2026-11-09"
   }
  },
  "execucoes": [
@@ -1040,6 +1095,11 @@
   {
    "quando": "09/11/2026 14:53",
    "vagas": 88,
+   "fontes_ok": 57
+  },
+  {
+   "quando": "09/11/2026 16:19",
+   "vagas": 97,
    "fontes_ok": 57
   }
  ]
