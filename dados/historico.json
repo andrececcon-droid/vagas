@@ -889,6 +889,26 @@
    "primeira": "2026-11-09",
    "titulo": "contábil / financeiro",
    "ultima": "2026-11-09"
+  },
+  "https://rendimentocarreiras.99jobs.com/vagas/504798-analista-financeiro-senior?utm_source=tagportal&utm_medium=ses_oportunis&utm_campaign=analista-financeiro-senior&utm_id=001": {
+   "primeira": "2026-11-09",
+   "titulo": "Analista Financeiro Sênior Sênior Presencial São Paulo, SP Banco Rendimento S/A 0.0 Eu quero!",
+   "ultima": "2026-11-09"
+  },
+  "https://remotar.com.br/company/27/contabilizei": {
+   "primeira": "2026-11-09",
+   "titulo": "Contabilizei",
+   "ultima": "2026-11-09"
+  },
+  "https://sistema.neotempus.com.br/vagas/analista-contabil-a9a235": {
+   "primeira": "2026-11-09",
+   "titulo": "ANALISTA CONTABIL Empresa confidencial Pleno Itajaí/SC Presencial CLT 2 vagas Publicada em 09 de nov. Ver vaga →",
+   "ultima": "2026-11-09"
+  },
+  "https://sistema.neotempus.com.br/vagas/analista-contabil-0e51ba": {
+   "primeira": "2026-11-09",
+   "titulo": "ANALISTA CONTABIL Empresa confidencial Pleno Itajaí/SC Presencial PJ Publicada em 09 de nov. Ver vaga →",
+   "ultima": "2026-11-09"
   }
  },
  "execucoes": [
@@ -1016,6 +1036,11 @@
    "quando": "09/11/2026 12:57",
    "vagas": 86,
    "fontes_ok": 56
+  },
+  {
+   "quando": "09/11/2026 14:53",
+   "vagas": 88,
+   "fontes_ok": 57
   }
  ]
 }
