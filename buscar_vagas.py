@@ -101,7 +101,7 @@ def baixar(url, browser):
     if browser:
         pg = browser.new_page(user_agent=UA)
         try:
-            r = pg.goto(url, wait_until="domcontentloaded", timeout=45000)
+            r = pg.goto(url, wait_until="domcontentloaded", timeout=30000)
             pg.wait_for_timeout(3500)
             return (r.status if r else 0), pg.content(), int((time.time() - t0) * 1000)
         finally:
@@ -257,9 +257,8 @@ def avaliar(v):
     v["comp"] = competencias(v.get("titulo", "") + " " + desc)
     v["lida"] = len(desc) > 300
     v.setdefault("verificada", None)
-    if v["nivel"] == "Média" and len(v["comp"]) >= 4:
-        v["nivel"] = "Alta"
-    elif v["nivel"] == "Alta" and v["lida"] and not v["comp"]:
+    # "Alta" só para cargos-alvo (lista ALTA). As competências nunca promovem um cargo parecido.
+    if v["nivel"] == "Alta" and v["lida"] and not v["comp"]:
         v["nivel"] = "Média"
 
 
