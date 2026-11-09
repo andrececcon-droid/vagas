@@ -869,6 +869,26 @@
    "primeira": "2026-11-09",
    "titulo": "Analista Financeiro",
    "ultima": "2026-11-09"
+  },
+  "https://app.jobconvo.com/job/MjE3Njg0OA-analista-administrativo-financeiro-pleno/ec48c70f-f9c4-4b84-85f4-db7f64f82bfd/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=Página de Carreiras": {
+   "primeira": "2026-11-09",
+   "titulo": "Analista Administrativo Financeiro Pleno (66435) São Paulo , Brasil N - Normal",
+   "ultima": "2026-11-09"
+  },
+  "https://app.jobconvo.com/job/Mzk1MzU4NQ-analista-administrativo-pleno/5f4562e5-28bc-4313-bb2a-c344047b0e97/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=Página de Carreiras": {
+   "primeira": "2026-11-09",
+   "titulo": "Analista Administrativo Pleno (66444) São Paulo , Brasil N - Normal",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagaspoa.com.br/consultora-de-solucoes-financeiras-modelo-pj-porto-alegre-rs/": {
+   "primeira": "2026-11-09",
+   "titulo": "Consultor(a) de Soluções Financeiras – Modelo PJ – Porto Alegre – RS",
+   "ultima": "2026-11-09"
+  },
+  "https://www.vagaspoa.com.br/category/vagas-por-area-2/contabil-financeiro-contabilista-contador-tecnico/": {
+   "primeira": "2026-11-09",
+   "titulo": "contábil / financeiro",
+   "ultima": "2026-11-09"
   }
  },
  "execucoes": [
@@ -991,6 +1011,11 @@
    "quando": "09/11/2026 09:36",
    "vagas": 86,
    "fontes_ok": 57
+  },
+  {
+   "quando": "09/11/2026 12:57",
+   "vagas": 86,
+   "fontes_ok": 56
   }
  ]
 }
