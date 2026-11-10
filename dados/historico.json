@@ -1174,6 +1174,31 @@
    "primeira": "2026-11-10",
    "titulo": "Portal do Aluno Acesse suas informações acadêmicas e financeiras.",
    "ultima": "2026-11-10"
+  },
+  "https://www.roberthalf.com/br/pt/vaga/novo-hamburgo/analista-contábil-financeiro-sênior/63670-0013541031-brpt": {
+   "primeira": "2026-11-10",
+   "titulo": "Analista Contábil Financeiro Sênior",
+   "ultima": "2026-11-10"
+  },
+  "https://app.jobconvo.com/job/Mzk1MzU4NQ-analista-administrativo-de-vendas/5360366a-89b9-4be6-8a53-4cded5853945/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=Página de Carreiras": {
+   "primeira": "2026-11-10",
+   "titulo": "Analista Administrativo de Vendas (66590) São Paulo , Brasil N - Normal",
+   "ultima": "2026-11-10"
+  },
+  "https://app.jobconvo.com/job/Mzk1MzU4NQ-analista-administrativo-de-vendas/ab7343e9-044e-4151-9933-0b6fdac09855/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=Página de Carreiras": {
+   "primeira": "2026-11-10",
+   "titulo": "Analista Administrativo de Vendas I (66593) São Paulo , Brasil N - Normal",
+   "ultima": "2026-11-10"
+  },
+  "https://sistema.neotempus.com.br/vagas/analista-contabil-pleno-2eab68": {
+   "primeira": "2026-11-10",
+   "titulo": "ANALISTA CONTABIL PLENO Empresa confidencial Pleno Sao Paulo/SP Presencial CLT 2 vagas Publicada em 10 de nov. Ver vaga →",
+   "ultima": "2026-11-10"
+  },
+  "https://www.randstad.com.br/vagas/q-analista-de-planejamento/": {
+   "primeira": "2026-11-10",
+   "titulo": "analista de planejamento",
+   "ultima": "2026-11-10"
   }
  },
  "execucoes": [
@@ -1326,6 +1351,11 @@
    "quando": "10/11/2026 12:44",
    "vagas": 119,
    "fontes_ok": 96
+  },
+  {
+   "quando": "10/11/2026 16:03",
+   "vagas": 47,
+   "fontes_ok": 100
   }
  ]
 }
