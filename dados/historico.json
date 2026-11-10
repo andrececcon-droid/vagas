@@ -653,7 +653,7 @@
   "https://www.vagas.com.br/vagas-de-controller": {
    "primeira": "2026-11-06",
    "titulo": "Vagas de controller em Todo o Brasil",
-   "ultima": "2026-11-09"
+   "ultima": "2026-11-10"
   },
   "https://rech.com.br/cases-de-sucesso/simone-da-silva-mattes/": {
    "primeira": "2026-11-06",
@@ -1154,6 +1154,26 @@
    "primeira": "2026-11-10",
    "titulo": "Orçamento de Eventos",
    "ultima": "2026-11-10"
+  },
+  "https://app.jobconvo.com/job/Mzk1MjkzNg-analista-administrativo-senior-i/ebfd6317-d998-4ca9-b4d0-03b3e120baef/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=Página de Carreiras": {
+   "primeira": "2026-11-10",
+   "titulo": "Analista Administrativo Sênior I (66562) Rio de Janeiro , Brasil N - Normal",
+   "ultima": "2026-11-10"
+  },
+  "https://portal.pucrs.br/sou-tecnico-administrativo/": {
+   "primeira": "2026-11-10",
+   "titulo": "Sou Técnico Administrativo",
+   "ultima": "2026-11-10"
+  },
+  "https://portal.pucrs.br/ensino/informacoes-financeiras/": {
+   "primeira": "2026-11-10",
+   "titulo": "Informações financeiras",
+   "ultima": "2026-11-10"
+  },
+  "https://webapp.pucrs.br/appgw/auth/portal": {
+   "primeira": "2026-11-10",
+   "titulo": "Portal do Aluno Acesse suas informações acadêmicas e financeiras.",
+   "ultima": "2026-11-10"
   }
  },
  "execucoes": [
@@ -1301,6 +1321,11 @@
    "quando": "10/11/2026 09:40",
    "vagas": 119,
    "fontes_ok": 99
+  },
+  {
+   "quando": "10/11/2026 12:44",
+   "vagas": 119,
+   "fontes_ok": 96
   }
  ]
 }
