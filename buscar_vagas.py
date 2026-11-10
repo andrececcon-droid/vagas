@@ -48,6 +48,16 @@ COMPETENCIAS = {
     "Gestão de pessoas (folha, admissões)": r"folha de pagamento|admiss[õo]es|demiss[õo]es|departamento pessoal",
 }
 COMP_RE = {k: re.compile(v, re.I) for k, v in COMPETENCIAS.items()}
+
+# Um título só vale como vaga se tiver nome de cargo e não for link de menu ("Solicite um orçamento"...)
+CARGO_RE = re.compile(r"\b(?:analista|assistente|auxiliar|gerente|coordenador|coordenadora|supervisor|supervisora|"
+                      r"gestor|gestora|diretor|diretora|controller|controlador|controladora|especialista|consultor|"
+                      r"consultora|contador|contadora|tesoureiro|tesoureira|executivo|executiva|l[ií]der|head|"
+                      r"business partner|encarregado|encarregada|t[ée]cnico|t[ée]cnica|comprador|compradora|"
+                      r"planejador|planejadora|auditor|auditora|or[çc]amentista|faturista|analyst|manager)\b", re.I)
+NAO_VAGA = re.compile(r"solicit|pe[çc]a um|fa[çc]a (?:seu|um)|fale conosco|seja (?:um )?(?:nosso )?fornecedor|"
+                      r"cadastro de fornecedor|[áa]rea do fornecedor|anuncie|cota[çc][ãa]o|portal d[oa]|acesse|segunda via|"
+                      r"boleto|mensalidade|[áa]rea d[oa] (?:aluno|cliente)|ouvidoria|transpar[êe]ncia|informa[çc][õo]es", re.I)
 DATA_RE = re.compile(r"\d{2}/\d{2}/\d{4}|há \d+ (?:minutos?|horas?|dias?|semanas?|mês|meses)|hoje|ontem", re.I)
 
 # Local da vaga
@@ -87,7 +97,7 @@ def detectar_local(ctx, titulo=""):
 
 def nivel(titulo):
     t = titulo.lower()
-    if EXCL_RE.search(t):
+    if EXCL_RE.search(t) or NAO_VAGA.search(t) or not CARGO_RE.search(t):
         return None
     if any(x in t for x in ALTA):
         return "Alta"
@@ -260,6 +270,11 @@ def avaliar(v):
     # "Alta" só para cargos-alvo (lista ALTA). As competências nunca promovem um cargo parecido.
     if v["nivel"] == "Alta" and v["lida"] and not v["comp"]:
         v["nivel"] = "Média"
+    v["descartar"] = ""
+    if v["nivel"] == "Média" and v["lida"] and len(v["comp"]) < 2:
+        v["descartar"] = f"Pouca aderência: cita {len(v['comp'])} das suas competências"
+    elif v["nivel"] == "Média" and not v["lida"] and v.get("grupo") == "Empresa":
+        v["descartar"] = "Cargo parecido, mas a página não tem descrição para conferir"
 
 
 def main():
@@ -283,7 +298,7 @@ def main():
                     r["status"] = "Falhou" if erro and not n else ("OK, com vagas compatíveis" if n else "Carregou, sem vaga compatível hoje")
                     r["detalhe"] = erro or f"{n} vagas via {info}"
                     for v in achadas:
-                        v["fonte"] = f["nome"]; vagas[v["url"]] = v
+                        v["fonte"], v["grupo"] = f["nome"], f.get("grupo", ""); vagas[v["url"]] = v
                 elif not f.get("url"):
                     r["status"] = "Sem link cadastrado"
                     r["detalhe"] = "Preencha o campo url em fontes.json"
@@ -311,7 +326,7 @@ def main():
                     else:
                         r["status"] = "Carregou, sem vaga compatível hoje"
                     for v in achadas:
-                        v["fonte"] = f["nome"]; vagas.setdefault(v["url"], v)
+                        v["fonte"], v["grupo"] = f["nome"], f.get("grupo", ""); vagas.setdefault(v["url"], v)
             except Exception as e:  # noqa
                 r["status"] = "Falhou"
                 r["detalhe"] = str(e)[:120]
@@ -320,18 +335,21 @@ def main():
         if browser:
             browser.close()
 
-    fora = [{k: v.get(k, "") for k in ("titulo", "local", "fonte", "url")}
+    fora = [{"titulo": v["titulo"], "motivo": "Fora do RS: " + v.get("local", ""), "fonte": v["fonte"], "url": v["url"]}
             for v in vagas.values() if v.get("regiao") == "fora"]
     vagas = {u: v for u, v in vagas.items() if v.get("regiao") != "fora"}
     for r in resultado:
         r["vagas"] = sum(1 for v in vagas.values() if v["fonte"] == r["nome"])
         if r["status"].startswith("OK") and r["vagas"] == 0:
             r["status"] = "Carregou, só vagas fora do RS"
-    for v in list(vagas.values())[:80]:
+    for v in list(vagas.values())[:250]:
         if "verificada" not in v:
             v["verificada"], v["descricao"] = verificar(v["url"])
     for v in vagas.values():
         avaliar(v)
+    fora += [{"titulo": v["titulo"], "motivo": v["descartar"],
+              "fonte": v["fonte"], "url": v["url"]} for v in vagas.values() if v.get("descartar")]
+    vagas = {u: v for u, v in vagas.items() if not v.get("descartar")}
     lista = []
     for url, v in vagas.items():
         h = hist["vagas"].setdefault(url, {"primeira": dia})

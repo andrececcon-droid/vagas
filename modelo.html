@@ -35,7 +35,7 @@ th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--bd);vertical
 <div class="sub" id="cnt" style="margin-top:4px"></div>
 <div class="grid" id="grid" style="margin-top:12px"></div>
 <h2>Situação de cada fonte nesta rodada</h2><div class="tw"><table id="tb"></table></div>
-<h2>Descartadas por ficarem fora do RS</h2><div class="tw"><table id="fo"></table></div>
+<h2>Descartadas (fora do RS ou pouca aderência)</h2><div class="tw"><table id="fo"></table></div>
 <h2>Histórico das últimas rodadas</h2><div class="tw"><table id="hx"></table></div>
 </main><script>
 var D=__DADOS__,KEY="vagas_estado_v1",E={};
@@ -73,7 +73,7 @@ document.getElementById("lm").addEventListener("click",function(e){e.preventDefa
 document.getElementById("tb").innerHTML="<tr><th>Fonte</th><th>Grupo</th><th>Situação</th><th>Detalhe</th><th>Vagas</th></tr>"+D.fontes.map(function(r){
 var c=r.status.indexOf("OK")==0?"ok":(r.status=="Falhou"?"er":"");
 return "<tr><td>"+(r.url?'<a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.nome)+"</a>":esc(r.nome))+'</td><td>'+esc(r.grupo)+'</td><td class="'+c+'">'+esc(r.status)+"</td><td>"+esc(r.detalhe)+"</td><td>"+r.vagas+"</td></tr>"}).join("");
-document.getElementById("fo").innerHTML=(D.fora&&D.fora.length)?"<tr><th>Vaga</th><th>Local</th><th>Fonte</th></tr>"+D.fora.map(function(r){return "<tr><td><a href=\""+esc(r.url)+"\" target=\"_blank\" rel=\"noopener\">"+esc(r.titulo)+"</a></td><td>"+esc(r.local)+"</td><td>"+esc(r.fonte)+"</td></tr>"}).join(""):"<tr><td>Nenhuma nesta rodada.</td></tr>";
+document.getElementById("fo").innerHTML=(D.fora&&D.fora.length)?"<tr><th>Vaga</th><th>Motivo</th><th>Fonte</th></tr>"+D.fora.map(function(r){return "<tr><td><a href=\""+esc(r.url)+"\" target=\"_blank\" rel=\"noopener\">"+esc(r.titulo)+"</a></td><td>"+esc(r.motivo||r.local)+"</td><td>"+esc(r.fonte)+"</td></tr>"}).join(""):"<tr><td>Nenhuma nesta rodada.</td></tr>";
 document.getElementById("hx").innerHTML="<tr><th>Quando</th><th>Vagas</th><th>Fontes que carregaram</th></tr>"+D.execucoes.slice().reverse().map(function(e){return "<tr><td>"+esc(e.quando)+"</td><td>"+e.vagas+"</td><td>"+e.fontes_ok+"</td></tr>"}).join("");
 
 var H=location.hostname,P=location.pathname.split("/")[1];
