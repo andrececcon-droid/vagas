@@ -273,7 +273,7 @@ def main():
     with (sync_playwright() if sync_playwright else nullcontext()) as pw:
         browser = pw.chromium.launch() if pw else None
         for f in fontes:
-            r = {"nome": f["nome"], "url": f.get("url", ""), "tipo": f["tipo"], "status": "", "detalhe": ""}
+            r = {"nome": f["nome"], "url": f.get("url", ""), "tipo": f["tipo"], "grupo": f.get("grupo", ""), "status": "", "detalhe": ""}
             try:
                 if f["tipo"] == "alerta":
                     r["status"] = "Não lida (exige login ou bloqueia robôs)"
