@@ -1,0 +1,17 @@
+ATUALIZACAO DA BUSCA DE VAGAS
+
+Este pacote tem so os arquivos que mudam: buscar_vagas.py, fontes.json, modelo.html
+e a pasta .github (agendador das 7h07, 12h07 e 16h07).
+
+NAO existem aqui as pastas "dados" e "docs" de proposito. Elas guardam o historico e o
+painel que ja estao no seu GitHub, e enviar de novo apagaria o historico.
+
+Como usar:
+1. Extraia este zip no computador.
+2. No GitHub, abra o repositorio "vagas", clique em Add file > Upload files.
+3. Arraste os 3 arquivos E a pasta ".github" para a pagina. Clique em Commit changes.
+4. Aba Actions > Buscar vagas > Run workflow, para testar.
+
+Se o GitHub nao aceitar a pasta .github: abra o arquivo .github/workflows/vagas.yml no
+repositorio, clique no lapis, apague tudo, cole o texto do vagas.yml deste pacote e
+clique em Commit changes.

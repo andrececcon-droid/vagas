@@ -88,7 +88,7 @@ document.getElementById("rm").addEventListener("click",function(){try{localStora
 function acomp(t0){var n=0;(function ciclo(){n++;fetch(API+"/runs?per_page=5&event=workflow_dispatch").then(function(r){return r.json()}).then(function(j){
 var r=(j.workflow_runs||[]).filter(function(x){return Date.parse(x.created_at)>=t0-60000})[0];
 if(r&&r.status=="completed"){if(r.conclusion=="success"){msg("Busca concluída. A página recarrega em instantes…");setTimeout(function(){location.reload()},DEPLOY)}else msg("A busca falhou. Veja o erro na aba Actions do GitHub.");return}
-msg(r?"Buscando vagas…":"Aguardando o GitHub iniciar…");if(n<160)setTimeout(ciclo,POLL);else msg("Demorou demais. Confira na aba Actions do GitHub.")}).catch(function(){if(n<160)setTimeout(ciclo,POLL)})})()}
+msg(r?"Buscando vagas…":"Aguardando o GitHub iniciar…");if(n<240)setTimeout(ciclo,POLL);else msg("Demorou demais. Confira na aba Actions do GitHub.")}).catch(function(){if(n<240)setTimeout(ciclo,POLL)})})()}
 up.addEventListener("click",function(){var t=tok();
 if(!t){window.open("https://github.com/"+REPO+"/actions/workflows/vagas.yml","_blank");msg("Abri o GitHub: clique em Run workflow. Para rodar direto daqui, use Configurar botão.");return}
 up.disabled=true;msg("Enviando pedido…");var t0=Date.now();

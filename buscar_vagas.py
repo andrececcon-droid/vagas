@@ -50,6 +50,22 @@ COMPETENCIAS = {
 COMP_RE = {k: re.compile(v, re.I) for k, v in COMPETENCIAS.items()}
 
 # Um título só vale como vaga se tiver nome de cargo e não for link de menu ("Solicite um orçamento"...)
+# Vagas de contabilidade pura (contador, analista contábil...) ficam fora
+CONTABIL_RE = re.compile(r"\b(?:contador(?:a)?|contabilista|"
+                         r"(?:analista|coordenador|coordenadora|gerente|supervisor|supervisora|especialista|"
+                         r"consultor|consultora|auditor|auditora|tributarista)\s+(?:de\s+|em\s+)?(?:cont[áa]bil|contabilidade)|"
+                         r"cont[áa]bil\s*(?:pleno|s[êe]nior|pl|sr)\b|cont[áa]bil\s*/\s*fiscal)", re.I)
+# Exigência de ser contador (registro no CRC) na descrição
+CRC_RE = re.compile(r"\bCRC\b|conselho regional de contabilidade", re.I)
+# Texto do cartão que vem junto com o título em alguns sites ("... Empresa confidencial Presencial CLT ...")
+CORTE_TITULO = re.compile(r"\s+(?:Empresa confidencial|Vaga confidencial|Presencial|H[ií]brido|Home ?office|CLT\b|PJ\b|"
+                          r"\d+ vagas?|Publicada|Ver vaga)", re.I)
+
+
+def limpar_titulo(t):
+    m = CORTE_TITULO.search(t)
+    return (t[:m.start()] if m else t).strip(" →-–|:·")
+
 CARGO_RE = re.compile(r"\b(?:analista|assistente|auxiliar|gerente|coordenador|coordenadora|supervisor|supervisora|"
                       r"gestor|gestora|diretor|diretora|controller|controlador|controladora|especialista|consultor|"
                       r"consultora|contador|contadora|tesoureiro|tesoureira|executivo|executiva|l[ií]der|head|"
@@ -58,7 +74,7 @@ CARGO_RE = re.compile(r"\b(?:analista|assistente|auxiliar|gerente|coordenador|co
 NAO_VAGA = re.compile(r"solicit|pe[çc]a um|fa[çc]a (?:seu|um)|fale conosco|seja (?:um )?(?:nosso )?fornecedor|"
                       r"cadastro de fornecedor|[áa]rea do fornecedor|anuncie|cota[çc][ãa]o|portal d[oa]|acesse|segunda via|"
                       r"boleto|mensalidade|[áa]rea d[oa] (?:aluno|cliente)|ouvidoria|transpar[êe]ncia|informa[çc][õo]es", re.I)
-DATA_RE = re.compile(r"\d{2}/\d{2}/\d{4}|há \d+ (?:minutos?|horas?|dias?|semanas?|mês|meses)|hoje|ontem", re.I)
+DATA_RE = re.compile(r"publicada em \d{1,2} de [a-zç]+\.?|\d{2}/\d{2}/\d{4}|há \d+ (?:minutos?|horas?|dias?|semanas?|mês|meses)|hoje|ontem", re.I)
 
 # Local da vaga
 UF_FORA = "AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RO|RR|SC|SP|SE|TO"
@@ -83,7 +99,7 @@ def detectar_local(ctx, titulo=""):
             return c.title().replace(" Do ", " do "), "poa"
     m = CIDADE_UF.search(txt)
     if m:
-        return f"{m.group(1)} - {m.group(2)}", "fora"
+        return f"{re.sub(r'^(?:Pleno|S[êe]nior|J[úu]nior)\s+', '', m.group(1))} - {m.group(2)}", "fora"
     for e in ESTADOS_FORA:
         if e in low:
             return e.title(), "fora"
@@ -97,7 +113,7 @@ def detectar_local(ctx, titulo=""):
 
 def nivel(titulo):
     t = titulo.lower()
-    if EXCL_RE.search(t) or NAO_VAGA.search(t) or not CARGO_RE.search(t):
+    if EXCL_RE.search(t) or CONTABIL_RE.search(t) or NAO_VAGA.search(t) or not CARGO_RE.search(t):
         return None
     if any(x in t for x in ALTA):
         return "Alta"
@@ -129,7 +145,7 @@ def contexto(a, txt):
         if node is None:
             break
         cands = sum(1 for x in node.find_all("a", href=True)
-                    if nivel(" ".join(x.get_text(" ", strip=True).split())))
+                    if nivel(limpar_titulo(" ".join(x.get_text(" ", strip=True).split()))))
         t = node.get_text(" ", strip=True)
         if cands > 1 or len(t) > 300:
             break
@@ -167,7 +183,10 @@ def extrair(html, base):
     links = soup.find_all("a", href=True)
     achadas, vistos = [], set()
     for a in links:
-        txt = " ".join(a.get_text(" ", strip=True).split())
+        bruto = " ".join(a.get_text(" ", strip=True).split())
+        if not 8 <= len(bruto) <= 260:
+            continue
+        txt = limpar_titulo(bruto)
         if not 8 <= len(txt) <= 140:
             continue
         n = nivel(txt)
@@ -177,7 +196,7 @@ def extrair(html, base):
         vistos.add(href)
         ctx = contexto(a, txt)
         m = DATA_RE.search(ctx)
-        local, regiao = detectar_local(ctx, txt)
+        local, regiao = detectar_local(ctx + " " + bruto, txt)
         achadas.append({"titulo": txt, "empresa": "", "url": href, "nivel": n,
                         "data": m.group(0) if m else None, "local": local, "regiao": regiao})
     return len(links), achadas
@@ -271,6 +290,9 @@ def avaliar(v):
     if v["nivel"] == "Alta" and v["lida"] and not v["comp"]:
         v["nivel"] = "Média"
     v["descartar"] = ""
+    if CRC_RE.search(desc):
+        v["descartar"] = "Exige ser contador (registro no CRC)"
+        return
     if v["nivel"] == "Média" and v["lida"] and len(v["comp"]) < 2:
         v["descartar"] = f"Pouca aderência: cita {len(v['comp'])} das suas competências"
     elif v["nivel"] == "Média" and not v["lida"] and v.get("grupo") == "Empresa":
