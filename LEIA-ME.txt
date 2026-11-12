@@ -1,7 +1,10 @@
-ATUALIZACAO DA BUSCA DE VAGAS
+ATUALIZACAO DA BUSCA DE VAGAS (versao com lotes)
 
-Este pacote tem so os arquivos que mudam: buscar_vagas.py, fontes.json, modelo.html
-e a pasta .github (agendador das 7h07, 12h07 e 16h07).
+O que muda: em vez de ler as fontes uma depois da outra (45 a 60 minutos), o GitHub divide
+em lotes de 30 fontes, roda todos ao mesmo tempo e junta no fim (uns 10 a 15 minutos).
+Continua rodando 3 vezes por dia: 7h07, 12h07 e 16h07 (horario de Brasilia).
+
+Arquivos: buscar_vagas.py, fontes.json, modelo.html e a pasta .github (agendador).
 
 NAO existem aqui as pastas "dados" e "docs" de proposito. Elas guardam o historico e o
 painel que ja estao no seu GitHub, e enviar de novo apagaria o historico.
@@ -10,7 +13,8 @@ Como usar:
 1. Extraia este zip no computador.
 2. No GitHub, abra o repositorio "vagas", clique em Add file > Upload files.
 3. Arraste os 3 arquivos E a pasta ".github" para a pagina. Clique em Commit changes.
-4. Aba Actions > Buscar vagas > Run workflow, para testar.
+4. Aba Actions > Buscar vagas > Run workflow, para testar. Vao aparecer varios "coletar"
+   ao mesmo tempo: e normal, cada um e um lote.
 
 Se o GitHub nao aceitar a pasta .github: abra o arquivo .github/workflows/vagas.yml no
 repositorio, clique no lapis, apague tudo, cole o texto do vagas.yml deste pacote e

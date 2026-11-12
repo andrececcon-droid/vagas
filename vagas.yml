@@ -8,21 +8,66 @@ permissions:
 concurrency:
   group: buscar-vagas
   cancel-in-progress: false
+
 jobs:
-  buscar:
+  # 1) Divide as fontes em lotes de 30
+  plano:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    outputs:
+      lotes: ${{ steps.p.outputs.lotes }}
+      total: ${{ steps.p.outputs.total }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - id: p
+        run: python buscar_vagas.py plano --tamanho 30 >> "$GITHUB_OUTPUT"
+
+  # 2) Roda todos os lotes ao mesmo tempo
+  coletar:
+    needs: plano
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        lote: ${{ fromJson(needs.plano.outputs.lotes) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4 playwright && playwright install --with-deps chromium
-      - run: python buscar_vagas.py
+      - run: python buscar_vagas.py coletar --lote ${{ matrix.lote }} --total ${{ needs.plano.outputs.total }} --saida parcial-${{ matrix.lote }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: parcial-${{ matrix.lote }}
+          path: parcial-${{ matrix.lote }}.json
+
+  # 3) Junta os lotes, atualiza o histórico e publica o painel
+  montar:
+    needs: [plano, coletar]
+    if: ${{ !cancelled() && needs.plano.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: parcial-*
+          merge-multiple: true
+          path: parciais
+      - run: python buscar_vagas.py montar --entrada parciais
       - run: |
           git config user.name "bot-vagas"
           git config user.email "bot-vagas@users.noreply.github.com"
-          git add -A
+          git add dados docs
           git commit -m "Atualização automática" || echo "sem mudanças"
           git pull --rebase
           git push
