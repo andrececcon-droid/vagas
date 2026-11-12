@@ -1426,6 +1426,11 @@
    "quando": "12/11/2026 09:27",
    "vagas": 40,
    "fontes_ok": 122
+  },
+  {
+   "quando": "12/11/2026 13:15",
+   "vagas": 38,
+   "fontes_ok": 121
   }
  ],
  "fontes": {
@@ -1502,7 +1507,7 @@
    "tentou": "2026-11-12"
   },
   "Viver RH": {
-   "falhas": 3,
+   "falhas": 4,
    "tentou": "2026-11-12"
   },
   "TKRH": {
@@ -1542,15 +1547,15 @@
    "tentou": "2026-11-12"
   },
   "Gelre": {
-   "falhas": 3,
+   "falhas": 4,
    "tentou": "2026-11-12"
   },
   "Grupo Foco": {
-   "falhas": 3,
+   "falhas": 4,
    "tentou": "2026-11-12"
   },
   "Cursor RH (antigo)": {
-   "falhas": 3,
+   "falhas": 4,
    "tentou": "2026-11-12"
   },
   "META Assessoria Empresarial (Solides)": {
@@ -1818,7 +1823,7 @@
    "tentou": "2026-11-12"
   },
   "Grupo Hospitalar Conceição": {
-   "falhas": 0,
+   "falhas": 1,
    "tentou": "2026-11-12"
   },
   "Instituto de Cardiologia (ICFUC)": {
@@ -1826,7 +1831,7 @@
    "tentou": "2026-11-12"
   },
   "Unimed Porto Alegre": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "PUCRS": {
@@ -1906,7 +1911,7 @@
    "tentou": "2026-11-12"
   },
   "Gerdau": {
-   "falhas": 2,
+   "falhas": 3,
    "tentou": "2026-11-12"
   },
   "Grupo RBS": {
