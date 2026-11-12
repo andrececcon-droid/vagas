@@ -1416,6 +1416,11 @@
    "quando": "12/11/2026 07:42",
    "vagas": 40,
    "fontes_ok": 124
+  },
+  {
+   "quando": "12/11/2026 08:17",
+   "vagas": 40,
+   "fontes_ok": 123
   }
  ],
  "fontes": {
@@ -1492,7 +1497,7 @@
    "tentou": "2026-11-12"
   },
   "Viver RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "TKRH": {
@@ -1532,15 +1537,15 @@
    "tentou": "2026-11-12"
   },
   "Gelre": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Grupo Foco": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Cursor RH (antigo)": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "META Assessoria Empresarial (Solides)": {
@@ -1612,7 +1617,7 @@
    "tentou": "2026-11-12"
   },
   "Funcional RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Peopleware RH (site)": {
@@ -1620,7 +1625,7 @@
    "tentou": "2026-11-12"
   },
   "Cursor RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Personal RH": {
@@ -1640,11 +1645,11 @@
    "tentou": "2026-11-12"
   },
   "Camilla Terra Consultoria": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Quartz RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Avante RH": {
@@ -1652,7 +1657,7 @@
    "tentou": "2026-11-12"
   },
   "AP RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "SINE Porto Alegre / FGTAS": {
@@ -1660,7 +1665,7 @@
    "tentou": "2026-11-12"
   },
   "Vagas POA": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Metta Capital Humano": {
@@ -1668,7 +1673,7 @@
    "tentou": "2026-11-12"
   },
   "Rhizoma RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Grupo Selpe": {
@@ -1680,15 +1685,15 @@
    "tentou": "2026-11-12"
   },
   "Serh Consultoria": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "RPO Talentos": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Talentos do Sul": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Lydians RH": {
@@ -1716,27 +1721,27 @@
    "tentou": "2026-11-12"
   },
   "Gruphet RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "RH Desenvolvimento": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Capta RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Base RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Lopes RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Desenvolver RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Humanos RH": {
@@ -1744,11 +1749,11 @@
    "tentou": "2026-11-12"
   },
   "Solução RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Rede Sul RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Integra RH": {
@@ -1776,7 +1781,7 @@
    "tentou": "2026-11-12"
   },
   "Talenses Group": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Exec": {
@@ -1784,7 +1789,7 @@
    "tentou": "2026-11-12"
   },
   "Mindsearch": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Hospital Moinhos de Vento": {
@@ -1856,7 +1861,7 @@
    "tentou": "2026-11-12"
   },
   "Sebrae RS": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Fecomércio-RS": {
@@ -1896,7 +1901,7 @@
    "tentou": "2026-11-12"
   },
   "Gerdau": {
-   "falhas": 0,
+   "falhas": 1,
    "tentou": "2026-11-12"
   },
   "Grupo RBS": {
@@ -1924,7 +1929,7 @@
    "tentou": "2026-11-12"
   },
   "Sulgás": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Ritter Hotéis": {
@@ -1972,7 +1977,7 @@
    "tentou": "2026-11-12"
   },
   "Fesa Group (.com.br)": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Flow Executive Finders": {
@@ -1984,23 +1989,23 @@
    "tentou": "2026-11-12"
   },
   "Asset Recruitment": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Fortus Group RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Scheffel RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Guma Gestão Estratégica": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Incentiva Recursos Humanos": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "HUNT IT": {
@@ -2008,15 +2013,15 @@
    "tentou": "2026-11-12"
   },
   "RHF Talentos Porto Alegre": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Cabalheiro Consultores": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Resilience Assessoria": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Right Management Brasil": {
@@ -2036,7 +2041,7 @@
    "tentou": "2026-11-12"
   },
   "Lippia RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Conexão RH Porto Alegre": {
@@ -2044,11 +2049,11 @@
    "tentou": "2026-11-12"
   },
   "Ser Recursos Humanos": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "RH Estratégico RS": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Solução Serviços Terceirizados e RH": {
@@ -2060,7 +2065,7 @@
    "tentou": "2026-11-12"
   },
   "Grupo Razão RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Wyser (Gi Group)": {
@@ -2076,11 +2081,11 @@
    "tentou": "2026-11-12"
   },
   "Profit RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Premium RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Target Recursos Humanos": {
@@ -2088,15 +2093,15 @@
    "tentou": "2026-11-12"
   },
   "Foco em Pessoas RH": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Talentos & Carreiras RS": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Sul Empregos": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Valor Humano Consultoria": {
@@ -2104,7 +2109,7 @@
    "tentou": "2026-11-12"
   },
   "Desenvolver Talentos RS": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   },
   "Estágio Sul": {
@@ -2116,7 +2121,7 @@
    "tentou": "2026-11-12"
   },
   "Seleção Humana RS": {
-   "falhas": 1,
+   "falhas": 2,
    "tentou": "2026-11-12"
   }
  }
