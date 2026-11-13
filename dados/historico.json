@@ -1446,6 +1446,11 @@
    "quando": "13/11/2026 13:03",
    "vagas": 38,
    "fontes_ok": 122
+  },
+  {
+   "quando": "13/11/2026 14:43",
+   "vagas": 37,
+   "fontes_ok": 122
   }
  ],
  "fontes": {
@@ -1522,7 +1527,7 @@
    "tentou": "2026-11-13"
   },
   "Viver RH": {
-   "falhas": 7,
+   "falhas": 8,
    "tentou": "2026-11-13"
   },
   "TKRH": {
@@ -1562,15 +1567,15 @@
    "tentou": "2026-11-13"
   },
   "Gelre": {
-   "falhas": 7,
+   "falhas": 8,
    "tentou": "2026-11-13"
   },
   "Grupo Foco": {
-   "falhas": 7,
+   "falhas": 8,
    "tentou": "2026-11-13"
   },
   "Cursor RH (antigo)": {
-   "falhas": 7,
+   "falhas": 8,
    "tentou": "2026-11-13"
   },
   "META Assessoria Empresarial (Solides)": {
