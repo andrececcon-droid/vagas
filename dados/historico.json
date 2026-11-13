@@ -1148,7 +1148,7 @@
   "https://melnick.inhire.app/vagas/07850f9e-cf3a-4843-944e-d22bfa77a69e/analista-de-planejamento-comercial-pl": {
    "primeira": "2026-11-10",
    "titulo": "Analista de Planejamento Comercial PL",
-   "ultima": "2026-11-12"
+   "ultima": "2026-11-13"
   },
   "https://www.ritterhoteis.com.br/salas-de-eventos/orcamentos": {
    "primeira": "2026-11-10",
@@ -1441,6 +1441,11 @@
    "quando": "13/11/2026 08:14",
    "vagas": 37,
    "fontes_ok": 117
+  },
+  {
+   "quando": "13/11/2026 13:03",
+   "vagas": 38,
+   "fontes_ok": 122
   }
  ],
  "fontes": {
@@ -1481,7 +1486,7 @@
    "tentou": "2026-11-13"
   },
   "Portal de Talentos Senior": {
-   "falhas": 1,
+   "falhas": 0,
    "tentou": "2026-11-13"
   },
   "Engenha": {
@@ -1513,11 +1518,11 @@
    "tentou": "2026-11-13"
   },
   "Recrutei – busca Porto Alegre": {
-   "falhas": 1,
+   "falhas": 0,
    "tentou": "2026-11-13"
   },
   "Viver RH": {
-   "falhas": 6,
+   "falhas": 7,
    "tentou": "2026-11-13"
   },
   "TKRH": {
@@ -1557,15 +1562,15 @@
    "tentou": "2026-11-13"
   },
   "Gelre": {
-   "falhas": 6,
+   "falhas": 7,
    "tentou": "2026-11-13"
   },
   "Grupo Foco": {
-   "falhas": 6,
+   "falhas": 7,
    "tentou": "2026-11-13"
   },
   "Cursor RH (antigo)": {
-   "falhas": 6,
+   "falhas": 7,
    "tentou": "2026-11-13"
   },
   "META Assessoria Empresarial (Solides)": {
@@ -1721,7 +1726,7 @@
    "tentou": "2026-11-13"
   },
   "CIEE-RS": {
-   "falhas": 1,
+   "falhas": 0,
    "tentou": "2026-11-13"
   },
   "Randstad Brasil (POA)": {
@@ -1841,7 +1846,7 @@
    "tentou": "2026-11-13"
   },
   "Unimed Porto Alegre": {
-   "falhas": 1,
+   "falhas": 0,
    "tentou": "2026-11-13"
   },
   "PUCRS": {
@@ -1929,7 +1934,7 @@
    "tentou": "2026-11-13"
   },
   "Melnick": {
-   "falhas": 1,
+   "falhas": 0,
    "tentou": "2026-11-13"
   },
   "Goldsztein": {
