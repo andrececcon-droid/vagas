@@ -195,6 +195,8 @@ def extrair(html, base):
         href = urljoin(base, a["href"])
         if not n or href in vistos or href.startswith(("mailto:", "javascript:", "#")):
             continue
+        if not urlparse(href).path.strip("/") or href.split("#")[0].rstrip("/") == base.split("#")[0].rstrip("/"):
+            continue                       # link para a página inicial ou para a própria lista: não é a vaga
         vistos.add(href)
         ctx = contexto(a, txt)
         m = DATA_RE.search(ctx)
@@ -339,7 +341,7 @@ def info_estruturada(html):
         end = (loc or {}).get("address", {}) if isinstance(loc, dict) else {}
         cidade, uf = ("", "") if not isinstance(end, dict) else (end.get("addressLocality", ""), end.get("addressRegion", ""))
         desc = BeautifulSoup(d.get("description") or "", "html.parser").get_text(" ", strip=True)
-        return {"empresa": empresa or "", "cidade": cidade or "", "uf": uf or "",
+        return {"titulo": d.get("title") or "", "empresa": empresa or "", "cidade": cidade or "", "uf": uf or "",
                 "remoto": str(d.get("jobLocationType", "")).upper() == "TELECOMMUTE",
                 "data_iso": normalizar_data(d.get("datePosted")), "validade": normalizar_data(d.get("validThrough")),
                 "descricao": desc}
@@ -381,23 +383,40 @@ def chave_dup(v):
 
 
 def verificar(url):
-    """Testa o link e devolve (abre?, texto da página, dado estruturado JobPosting ou None)."""
+    """Testa o link e devolve (abre?, texto da página, dado estruturado JobPosting, endereço final)."""
     try:
         r = requests.get(url, headers={"User-Agent": UA}, timeout=15)
         ctype = r.headers.get("content-type", "").lower()
         if r.status_code >= 400:
-            return False, "", None
+            return False, "", None, ""
         if "html" not in ctype:
-            return True, "", None
+            return True, "", None, r.url
         if "charset" not in ctype:
             r.encoding = "utf-8"
         info = info_estruturada(r.text)
         soup = BeautifulSoup(r.text, "html.parser")
         for t in soup(["script", "style", "nav", "footer", "header"]):
             t.decompose()
-        return True, " ".join(soup.get_text(" ", strip=True).split())[:6000], info
+        return True, " ".join(soup.get_text(" ", strip=True).split())[:6000], info, r.url
     except Exception:
-        return False, "", None
+        return False, "", None, ""
+
+
+def auditar_link(v, final, info, texto):
+    """Confere se o link leva mesmo à página da vaga (e não à página inicial, ao login ou a uma lista)."""
+    if not v.get("verificada"):
+        v["link_status"] = "nao_abre"
+        return
+    caminho = urlparse(final or v["url"]).path.strip("/").lower()
+    if not caminho:
+        v["link_status"] = "geral"                      # o link caiu na página inicial do site
+    elif re.search(r"login|signin|entrar|acesso|auth|cadastr", caminho):
+        v["link_status"] = "login"
+    else:
+        palavras = [w for w in sem_txt(v["titulo"]).split() if len(w) > 3][:3]
+        corpo = sem_txt((texto or "")[:6000])
+        achou_info = bool(info and info.get("titulo") and sem_txt(info["titulo"]).split()[:2] == sem_txt(v["titulo"]).split()[:2])
+        v["link_status"] = "ok" if (achou_info or (palavras and all(w in corpo for w in palavras))) else "incerto"
 
 
 def competencias(texto):
@@ -432,7 +451,9 @@ def avaliar(v):
                    else "; só o título foi lido (sem descrição)")
     v["porque"] = porque
     v["descartar"] = ""
-    if v.get("encerrada"):
+    if v.get("link_status") == "geral":
+        v["descartar"] = "O link leva à página inicial do site, e não à vaga"
+    elif v.get("encerrada"):
         v["descartar"] = "Vaga encerrada (prazo de inscrição vencido)"
     elif CRC_RE.search(desc):
         v["descartar"] = "Exige ser contador (registro no CRC)"
@@ -558,10 +579,13 @@ def coletar(fontes, indices):
     separar_fora(vagas, fora)
     for v in list(vagas.values())[:250]:
         if "verificada" not in v:
-            v["verificada"], v["descricao"], info = verificar(v["url"])
+            v["verificada"], v["descricao"], info, final = verificar(v["url"])
             aplicar_info(v, info)
+            auditar_link(v, final, info, v["descricao"])
     separar_fora(vagas, fora)          # o dado estruturado pode revelar que a vaga é de fora do RS
     for v in vagas.values():
+        if "link_status" not in v:       # Gupy vem da API oficial; o resto acima de 250 não foi testado
+            v["link_status"] = "ok" if v.get("verificada") else "nao_testado"
         avaliar(v)
     fora += [{"titulo": v["titulo"], "motivo": v["descartar"], "fonte": v["fonte"], "url": v["url"]}
              for v in vagas.values() if v.get("descartar")]
@@ -701,13 +725,32 @@ def montar(parciais, fontes):
                and hf[r["nome"]].get("rodadas", 0) >= 15 and hf[r["nome"]].get("vagas_total", 0) == 0
                and not r["status"].startswith(("Pausada", "Falhou"))]
 
+    aud = {}
+    for v in lista:
+        a = aud.setdefault(v["fonte"], {"fonte": v["fonte"], "total": 0, "ok": 0, "incerto": 0, "login": 0, "nao_abre": 0,
+                                        "nao_testado": 0, "geral": 0, "exemplos": []})
+        a["total"] += 1
+        a[v.get("link_status", "nao_testado")] = a.get(v.get("link_status", "nao_testado"), 0) + 1
+        if v.get("link_status") in ("incerto", "login", "nao_abre") and len(a["exemplos"]) < 3:
+            a["exemplos"].append({"titulo": v["titulo"], "url": v["url"], "status": v["link_status"]})
+    for x in fora:
+        if x["motivo"].startswith("O link leva"):
+            a = aud.setdefault(x["fonte"], {"fonte": x["fonte"], "total": 0, "ok": 0, "incerto": 0, "login": 0, "nao_abre": 0,
+                                            "nao_testado": 0, "geral": 0, "exemplos": []})
+            a["geral"] += 1
+            a["total"] += 1
+            if len(a["exemplos"]) < 3:
+                a["exemplos"].append({"titulo": x["titulo"], "url": x["url"], "status": "geral"})
+    auditoria = sorted((a for a in aud.values() if a["total"] - a["ok"] - a["nao_testado"] > 0),
+                       key=lambda a: -(a["total"] - a["ok"] - a["nao_testado"]))
+
     hist["execucoes"] = (hist["execucoes"] + [{"quando": carimbo, "vagas": len(lista),
                          "fontes_ok": sum(1 for r in resultado if r["status"].startswith(("OK", "Carregou, sem")))}])[-60:]
     hist_path.parent.mkdir(exist_ok=True)
     hist_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1), "utf-8")
 
     dados = {"gerado": carimbo, "vagas": lista, "fontes": resultado, "execucoes": hist["execucoes"][-14:],
-             "fora": fora[:60], "saude": saude, "limpeza": limpeza}
+             "fora": fora[:60], "saude": saude, "limpeza": limpeza, "auditoria_links": auditoria}
     html = (RAIZ / "modelo.html").read_text("utf-8").replace(
         "__DADOS__", json.dumps(dados, ensure_ascii=False).replace("</", "<\\/"))
     (RAIZ / "docs").mkdir(exist_ok=True)

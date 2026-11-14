@@ -48,7 +48,13 @@ textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:1
 <select id="fz"><option value="">Mais compatíveis</option><option value="recentes">Mais recentes</option><option value="novas">Novas primeiro</option></select>
 <select id="fr"><option value="">Todos os locais</option><option value="poa">Grande Porto Alegre</option><option value="rs">Outras cidades do RS</option><option value="remoto">Remoto</option><option value="?">Local não informado</option></select>
 <select id="fs"><option value="">Todas as fontes</option></select>
+<select id="fl"><option value="">Todos os links</option><option value="ok">Só links confirmados</option></select>
 <select id="fc"><option value="">Toda compatibilidade</option><option>Alta</option><option>Média</option></select></div></details>
+<details class="f" id="aprende"><summary>🧠 O que o painel aprendeu com as suas marcações</summary>
+<label class="ck"><input type="checkbox" id="auto"> Aprender e esconder sozinho (palavra marcada 3 vezes ou mais como “Não aplicável” e nunca como “Me candidatei”; vagas antigas se você marcar 3 ou mais)</label>
+<div id="regras"></div>
+<div class="row" style="margin-top:6px"><input id="novaPal" placeholder="Esconder vagas com a palavra…" style="padding:6px 8px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)"><button class="mini" id="addPal">Adicionar</button>
+<label class="meta">Esconder vagas publicadas há mais de <select id="selDias" class="mini"><option value="0">(automático)</option><option value="15">15 dias</option><option value="30">30 dias</option><option value="60">60 dias</option></select></label></div></details>
 <div class="sub">As marcações “Me candidatei” e “Não aplicável” ficam salvas neste aparelho (veja a aba Candidaturas para levar para outro). <span id="av">Não consegui gravar neste navegador.</span> <a href="#" id="lm">Limpar marcações deste aparelho</a></div>
 <div class="sub" id="cnt" style="margin-top:4px"></div>
 <div class="grid" id="grid" style="margin-top:12px"></div>
@@ -66,6 +72,7 @@ textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:1
 
 <section id="t-fontes" hidden>
 <h2>Situação de cada fonte nesta rodada</h2><div class="tw"><table id="tb"></table></div>
+<div id="audlinks"></div>
 <div id="limpeza"></div>
 <h2>Descartadas (fora do RS ou pouca aderência)</h2><div class="tw"><table id="fo"></table></div>
 <h2>Histórico das últimas rodadas</h2><div class="tw"><table id="hx"></table></div>
@@ -76,7 +83,10 @@ var D=__DADOS__,KEY="vagas_estado_v1",KC="vagas_cand_v1",E={},C={};
 function $(i){return document.getElementById(i)}
 try{E=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){E={}}
 try{C=JSON.parse(localStorage.getItem(KC)||"{}")||{}}catch(e){C={}}
-function salvar(){try{localStorage.setItem(KEY,JSON.stringify(E));localStorage.setItem(KC,JSON.stringify(C))}catch(e){$("av").style.display="inline"}}
+var KI="vagas_info_v1",KR="vagas_regras_v1",INFO={},R={auto:true,manual:[],dias:0,ignoradas:[],liberadas:{}},RG={pal:{},dias:0,ap:{palavras:[]}};
+try{INFO=JSON.parse(localStorage.getItem(KI)||"{}")||{}}catch(e){INFO={}}
+try{var r0=JSON.parse(localStorage.getItem(KR)||"null");if(r0)R=Object.assign(R,r0)}catch(e){}
+function salvar(){try{localStorage.setItem(KEY,JSON.stringify(E));localStorage.setItem(KC,JSON.stringify(C));localStorage.setItem(KI,JSON.stringify(INFO));localStorage.setItem(KR,JSON.stringify(R))}catch(e){$("av").style.display="inline"}}
 function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
 function nrm(u){try{var x=new URL(u);x.hash="";["utm_source","utm_medium","utm_campaign","jobBoardSource"].forEach(function(k){x.searchParams.delete(k)});return x.toString()}catch(e){return u}}
 function sem(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim()}
@@ -85,8 +95,21 @@ function est(v){var k=ks(v);return E[k[0]]||E[k[1]]||""}
 function hojeLocal(){var d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)}
 function marcar(v,t){var k=ks(v);k.forEach(function(x){if(t)E[x]=t;else delete E[x]});
  if(t==="c"&&!C[k[0]])C[k[0]]={titulo:v.titulo,empresa:v.empresa||v.fonte,local:v.local||"",fonte:v.fonte,url:v.url,data:hojeLocal(),status:"Enviado",obs:"",atualizado:Date.now()};
- if(!t&&C[k[0]]&&C[k[0]].status==="Enviado"&&!C[k[0]].obs)delete C[k[0]]}
+ if(!t&&C[k[0]]&&C[k[0]].status==="Enviado"&&!C[k[0]].obs)delete C[k[0]];
+ if(t==="c"||t==="n"){var dd=v.data_iso||"";INFO[k[0]]={t:sem(v.titulo),s:t,i:dd?Math.round(dias(hojeLocal(),dd)):null}}else delete INFO[k[0]]}
 var m0=/(\d{2})\/(\d{2})\/(\d{4})/.exec(D.gerado),HOJE=m0?m0[3]+"-"+m0[2]+"-"+m0[1]:hojeLocal();
+var PROT=["analista","gerente","financeiro","financeira","administrativo","administrativa","coordenador","coordenadora","controller","controladoria","gestor","gestora","planejamento","tesouraria","pleno","senior","junior","diretor","supervisor","especialista","consultor","contas","pagar","receber","empresa","confidencial","vaga","vagas","remoto","hibrido","presencial","para","com","sem","dos","das","uma","por"];
+function aprender(){var nN={},nC={},ex={};
+ Object.keys(INFO).forEach(function(k){var x=INFO[k];(x.t||"").split(" ").filter(function(w,i,a){return w.length>=4&&!/\d/.test(w)&&PROT.indexOf(w)<0&&a.indexOf(w)==i}).forEach(function(w){
+  if(x.s==="n"){nN[w]=(nN[w]||0)+1;ex[w]=ex[w]||[];if(ex[w].length<2)ex[w].push(x.t)}else nC[w]=(nC[w]||0)+1})});
+ var pal=Object.keys(nN).filter(function(w){return !nC[w]&&R.ignoradas.indexOf(w)<0&&R.manual.indexOf(w)<0}).map(function(w){return {p:w,n:nN[w],ex:ex[w]}}).sort(function(a,b){return b.n-a.n});
+ var vN=0,vC=0;Object.keys(INFO).forEach(function(k){var x=INFO[k];if(x.i!=null&&x.i>30){if(x.s==="n")vN++;else vC++}});return {palavras:pal,velhasN:vN,velhasC:vC}}
+function regras(){var ap=aprender(),pal={};R.manual.forEach(function(w){pal[w]="sua regra"});
+ if(R.auto)ap.palavras.filter(function(x){return x.n>=3}).forEach(function(x){pal[x.p]="aprendida"});
+ var d=+R.dias||0,o="sua regra";if(!d&&R.auto&&ap.velhasN>=3&&ap.velhasC===0){d=30;o="aprendida"}return {pal:pal,dias:d,diasOrigem:o,ap:ap}}
+function motivoOculta(v,rg){var t=sem(v.titulo).split(" ");for(var w in rg.pal){if(t.indexOf(w)>=0)return "contém “"+w+"” ("+rg.pal[w]+")"}
+ if(rg.dias&&v.data_iso&&dias(HOJE,v.data_iso)>rg.dias)return "publicada há mais de "+rg.dias+" dias ("+rg.diasOrigem+")";return ""}
+function vista(v){var s=est(v);if(s)return s;if(R.liberadas[ks(v)[0]])return "";return motivoOculta(v,RG)?"o":""}
 function fmtData(i){return i?i.slice(8,10)+"/"+i.slice(5,7)+"/"+i.slice(0,4):""}
 function dias(a,b){return (Date.parse(a)-Date.parse(b))/864e5}
 function dataRef(v){return v.data_iso||v.primeira||""}
@@ -98,26 +121,28 @@ function textoClaude(v){return "Quero me candidatar a esta vaga. Use o meu curr�
 
 $("ger").textContent="Última busca: "+D.gerado+" (horário de Brasília). Compatibilidade estimada pelo cargo e pelas suas competências.";
 var S=D.saude||{};$("saude").innerHTML=S.total?"<span class='ok'>"+S.ok+" fontes com vagas</span><span>"+S.sem_vaga+" sem vaga hoje</span><span class='er'>"+S.falhou+" falharam</span><span>"+S.pausadas+" pausadas</span><span>"+S.nao_lidas+" só por alerta/link</span><span>"+S.sem_leitura+" sem leitura (JavaScript)</span>":"";
-var g=$("grid"),q=$("q"),fm=$("fm"),fp=$("fp"),fz=$("fz"),fr=$("fr"),fs=$("fs"),fc=$("fc");
+var g=$("grid"),q=$("q"),fm=$("fm"),fp=$("fp"),fz=$("fz"),fr=$("fr"),fs=$("fs"),fc=$("fc"),fl=$("fl");
 D.vagas.map(function(v){return v.fonte}).filter(function(x,i,a){return a.indexOf(x)==i}).forEach(function(f){var o=document.createElement("option");o.textContent=f;fs.appendChild(o)});
 var RN={poa:"Grande Porto Alegre",rs:"Outra cidade do RS",remoto:"Remoto"};
 var CNT={c:0,n:0,p:0};
-function opcoes(){var c=0,n=0,p=0;D.vagas.forEach(function(v){var s=est(v);if(s=="c")c++;else if(s=="n")n++;else p++});
-CNT={c:c,n:n,p:p};$("cnt").textContent=D.vagas.length+" vagas nesta rodada · "+p+" pendentes · "+c+" marcadas como candidatei · "+n+" marcadas como não aplicável";
-var cur=fm.value;fm.innerHTML='<option value="">Pendentes ('+p+')</option><option value="c">Me candidatei ('+c+')</option><option value="n">Não aplicável ('+n+')</option>';fm.value=cur}
+function opcoes(){RG=regras();var c=0,n=0,p=0,o=0;D.vagas.forEach(function(v){var s=vista(v);if(s=="c")c++;else if(s=="n")n++;else if(s=="o")o++;else p++});
+CNT={c:c,n:n,p:p,o:o};$("cnt").textContent=D.vagas.length+" vagas nesta rodada · "+p+" pendentes · "+c+" marcadas como candidatei · "+n+" marcadas como não aplicável"+(o?" · "+o+" ocultas pelas suas regras":"");
+var cur=fm.value;fm.innerHTML='<option value="">Pendentes ('+p+')</option><option value="c">Me candidatei ('+c+')</option><option value="n">Não aplicável ('+n+')</option><option value="o">Ocultas por regras ('+o+')</option>';fm.value=cur}
 function card(v,i){var s=est(v),loc=v.local?'<div class="loc">📍 '+esc(v.local)+(RN[v.regiao]?" · "+RN[v.regiao]:"")+'</div>':'<div class="loc x">📍 Local não informado na página. Confira antes de se candidatar.</div>';
  var comp=(v.comp&&v.comp.length)?'<div style="font-size:13px">✔ Suas competências na vaga: '+v.comp.map(esc).join(", ")+'</div>':(v.lida?'<div class="meta">Descrição lida: nenhuma competência sua citada.</div>':'<div class="meta">Só o título foi lido (descrição indisponível).</div>');
- var por=v.porque?'<div class="meta">Por que '+esc(v.nivel)+': '+esc(v.porque)+'</div>':"";
+ var mo=(est(v)===""&&!R.liberadas[ks(v)[0]])?motivoOculta(v,RG):"";
+ var oc=mo?'<div class="meta">🧠 Oculta por regra: '+esc(mo)+' <button class="mini" data-lib="'+i+'">Liberar</button></div>':"";
+ var por=oc+(v.porque?'<div class="meta">Por que '+esc(v.nivel)+': '+esc(v.porque)+'</div>':"");
  var tb=(v.tambem&&v.tambem.length)?'<div class="meta">Também em: '+v.tambem.map(function(t){return '<a href="'+esc(t.url)+'" target="_blank" rel="noopener">'+esc(t.fonte)+'</a>'}).join(", ")+'</div>':"";
  var dt=v.data_iso?"Publicada: "+fmtData(v.data_iso):"Vista em "+fmtData(v.primeira);
  return '<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empresa||v.fonte)+'</div>'+loc+comp+por+tb+'<div>'+
  '<span class="tag '+v.nivel+'">Compatibilidade '+v.nivel+'</span>'+(v.nova?'<span class="tag nova">Nova</span>':'')+'<span class="tag">'+esc(v.fonte)+'</span><span class="tag">'+dt+'</span>'+
- (v.prazo?'<span class="tag">Prazo: '+esc(v.prazo)+'</span>':'')+'<span class="tag">'+(v.verificada===true?"Link verificado":(v.verificada===false?"Link não abriu":"Link não testado"))+'</span></div>'+
+ (v.prazo?'<span class="tag">Prazo: '+esc(v.prazo)+'</span>':'')+'<span class="tag">'+({ok:"Link da vaga confirmado ✓",incerto:"⚠ Link não confirmado (pode abrir a lista do site)",login:"⚠ O link pede login",nao_abre:"Link não abriu",nao_testado:"Link não testado"}[v.link_status]||(v.verificada===true?"Link verificado":"Link não testado"))+'</span></div>'+
  '<div class="row"><a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir vaga →</a><button class="mini" data-cp="'+i+'">📋 Copiar para o Claude</button></div>'+
  '<div class="acoes"><label class="ck"><input type="checkbox" data-i="'+i+'" data-t="c"'+(s=="c"?" checked":"")+'> Me candidatei</label>'+
  '<label class="ck"><input type="checkbox" data-i="'+i+'" data-t="n"'+(s=="n"?" checked":"")+'> Não aplicável</label></div></div>'}
 function draw(){opcoes();var t=q.value.toLowerCase(),per=fp.value,ord=fz.value,L=[];
- D.vagas.forEach(function(v,i){if(est(v)!=fm.value)return;if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;
+ D.vagas.forEach(function(v,i){if(vista(v)!=fm.value)return;if(fl.value==="ok"&&v.link_status!=="ok")return;if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;
  if(fr.value&&(v.regiao||"?")!=fr.value)return;if(t&&(v.titulo+" "+(v.empresa||"")).toLowerCase().indexOf(t)<0)return;
  var d=dataRef(v);if(per==="hoje"&&!v.nova)return;if(per==="7"&&!(d&&dias(HOJE,d)<=7))return;if(per==="30"&&!(d&&dias(HOJE,d)<=30))return;L.push([v,i])});
  if(ord==="recentes")L.sort(function(a,b){return dataRef(b[0]).localeCompare(dataRef(a[0]))||a[1]-b[1]});
@@ -127,8 +152,8 @@ function draw(){opcoes();var t=q.value.toLowerCase(),per=fp.value,ord=fz.value,L
   vazio='<div class="card"><b>Todas as '+D.vagas.length+' vagas desta rodada já foram marcadas por você.</b><div class="meta">Elas não sumiram: estão escondidas porque você marcou “Me candidatei” ou “Não aplicável”. Vagas novas aparecem aqui como pendentes.</div><div class="row"><button class="mini" data-ver="n">Ver as '+CNT.n+' “Não aplicável”</button><button class="mini" data-ver="c">Ver as '+CNT.c+' “Me candidatei”</button></div></div>';
  g.innerHTML=L.length?L.map(function(x){return card(x[0],x[1])}).join(""):vazio}
 g.addEventListener("change",function(e){var i=e.target.getAttribute("data-i");if(i==null)return;var v=D.vagas[i],t=e.target.getAttribute("data-t");marcar(v,e.target.checked?t:"");salvar();draw();drawCand()});
-g.addEventListener("click",function(e){var ver=e.target.getAttribute("data-ver");if(ver){fm.value=ver;draw();return}var i=e.target.getAttribute("data-cp");if(i==null)return;copiar(textoClaude(D.vagas[i]),function(){toast("Copiado! Cole no chat do Claude.")})});
-[q,fm,fp,fz,fr,fs,fc].forEach(function(e){e.addEventListener("input",draw)});
+g.addEventListener("click",function(e){var lib=e.target.getAttribute("data-lib");if(lib!=null){R.liberadas[ks(D.vagas[lib])[0]]=1;salvar();draw();drawRegras();return}var ver=e.target.getAttribute("data-ver");if(ver){fm.value=ver;draw();return}var i=e.target.getAttribute("data-cp");if(i==null)return;copiar(textoClaude(D.vagas[i]),function(){toast("Copiado! Cole no chat do Claude.")})});
+[q,fm,fp,fz,fr,fs,fc,fl].forEach(function(e){e.addEventListener("input",draw)});
 $("lm").addEventListener("click",function(e){e.preventDefault();if(confirm("Apagar todas as marcações deste aparelho? (as candidaturas anotadas continuam)")){E={};salvar();draw()}});
 
 /* ----- candidaturas ----- */
@@ -142,12 +167,14 @@ $("lc").addEventListener("click",function(e){if(!e.target.getAttribute("data-rm"
 $("csv").addEventListener("click",function(){var L=[["Data","Andamento","Cargo","Empresa","Local","Fonte","Link","Observações"]];
  Object.keys(C).map(function(k){return C[k]}).sort(function(a,b){return (b.data||"").localeCompare(a.data||"")}).forEach(function(r){L.push([fmtData(r.data),r.status,r.titulo,r.empresa,r.local,r.fonte,r.url,r.obs||""])});
  baixar("candidaturas.csv","\ufeff"+L.map(function(l){return l.map(function(c){return '"'+String(c==null?"":c).replace(/"/g,'""')+'"'}).join(";")}).join("\r\n"),"text/csv;charset=utf-8")});
-function exportar(){return JSON.stringify({v:1,marcas:E,candidaturas:C,em:new Date().toISOString()})}
+function exportar(){return JSON.stringify({v:2,marcas:E,candidaturas:C,info:INFO,regras:R,em:new Date().toISOString()})}
 function importar(txt){var o;try{o=JSON.parse(txt)}catch(e){alert("Esse código não é válido.");return}
  if(!o||typeof o.marcas!=="object"){alert("Esse código não é válido.");return}
  Object.keys(o.marcas).forEach(function(k){E[k]=o.marcas[k]});
  Object.keys(o.candidaturas||{}).forEach(function(k){var n=o.candidaturas[k],a=C[k];if(!a||(n.atualizado||0)>(a.atualizado||0))C[k]=n});
- salvar();draw();drawCand();toast("Dados importados e juntados.")}
+ Object.keys(o.info||{}).forEach(function(k){INFO[k]=o.info[k]});
+ if(o.regras){["manual","ignoradas"].forEach(function(c){(o.regras[c]||[]).forEach(function(w){if(R[c].indexOf(w)<0)R[c].push(w)})});if(o.regras.dias&&!R.dias)R.dias=o.regras.dias}
+ salvar();draw();drawCand();drawRegras();toast("Dados importados e juntados.")}
 $("bcopiar").addEventListener("click",function(){copiar(exportar(),function(){toast("Código copiado. Cole no outro aparelho.")})});
 $("bbaixar").addEventListener("click",function(){baixar("vagas-dados.json",exportar(),"application/json")});
 $("bimp").addEventListener("click",function(){importar($("dd").value.trim())});
@@ -160,6 +187,21 @@ $("limpeza").innerHTML=(D.limpeza&&D.limpeza.length)?"<h2>Sugestão de limpeza</
 $("fo").innerHTML=(D.fora&&D.fora.length)?"<tr><th>Vaga</th><th>Motivo</th><th>Fonte</th></tr>"+D.fora.map(function(r){return "<tr><td><a href=\""+esc(r.url)+"\" target=\"_blank\" rel=\"noopener\">"+esc(r.titulo)+"</a></td><td>"+esc(r.motivo||r.local)+"</td><td>"+esc(r.fonte)+"</td></tr>"}).join(""):"<tr><td>Nenhuma nesta rodada.</td></tr>";
 $("hx").innerHTML="<tr><th>Quando</th><th>Vagas</th><th>Fontes que carregaram</th></tr>"+D.execucoes.slice().reverse().map(function(e){return "<tr><td>"+esc(e.quando)+"</td><td>"+e.vagas+"</td><td>"+e.fontes_ok+"</td></tr>"}).join("");
 
+function drawRegras(){RG=regras();$("auto").checked=!!R.auto;$("selDias").value=String(R.dias||0);var h="",pal=Object.keys(RG.pal);
+ h+=pal.length?'<div class="meta" style="margin-top:6px">Regras ativas:</div><div>'+pal.map(function(w){return '<span class="tag">'+esc(w)+' · '+RG.pal[w]+' <a href="#" data-'+(RG.pal[w]==="aprendida"?"ign":"rmw")+'="'+esc(w)+'" title="Parar de esconder">✕</a></span>'}).join("")+'</div>':'<div class="meta" style="margin-top:6px">Nenhuma regra ativa ainda.</div>';
+ if(RG.dias)h+='<div class="meta">Vagas publicadas há mais de '+RG.dias+' dias estão ocultas ('+RG.diasOrigem+').</div>';
+ var sug=RG.ap.palavras.filter(function(x){return !RG.pal[x.p]&&x.n>=2});
+ if(sug.length)h+='<div class="meta" style="margin-top:6px">Sugestões (marcou como “Não aplicável” 2 vezes):</div>'+sug.slice(0,6).map(function(x){return '<div class="row"><span class="tag">'+esc(x.p)+'</span><span class="meta">ex.: '+esc(x.ex[0]||"")+'</span><button class="mini" data-add="'+esc(x.p)+'">Esconder</button></div>'}).join("");
+ if(!pal.length&&!sug.length)h+='<div class="meta">Marque algumas vagas como “Não aplicável” (por exemplo, vagas de contador ou antigas). Quando uma palavra do cargo se repetir 3 vezes, o painel passa a esconder as parecidas e mostra aqui o que escondeu.</div>';
+ $("regras").innerHTML=h}
+$("regras").addEventListener("click",function(e){var a=e.target,w;e.preventDefault();
+ if((w=a.getAttribute("data-rmw")))R.manual=R.manual.filter(function(x){return x!==w});
+ else if((w=a.getAttribute("data-ign"))){if(R.ignoradas.indexOf(w)<0)R.ignoradas.push(w)}
+ else if((w=a.getAttribute("data-add"))){if(R.manual.indexOf(w)<0)R.manual.push(w)}else return;salvar();draw();drawRegras()});
+$("auto").addEventListener("change",function(){R.auto=this.checked;salvar();draw();drawRegras()});
+$("selDias").addEventListener("change",function(){R.dias=+this.value;salvar();draw();drawRegras()});
+$("addPal").addEventListener("click",function(){var w=sem($("novaPal").value).split(" ")[0];if(w&&R.manual.indexOf(w)<0){R.manual.push(w);R.ignoradas=R.ignoradas.filter(function(x){return x!==w})}$("novaPal").value="";salvar();draw();drawRegras()});
+var AL=D.auditoria_links||[];$("audlinks").innerHTML=AL.length?"<h2>Auditoria de links</h2><div class='sub'>Confere se o link de cada vaga leva à página da vaga. “Página inicial” = o link caiu na home do site e a vaga foi descartada. “Não confirmado” = a página abriu, mas não menciona o cargo (pode ser uma lista).</div><div class='tw'><table><tr><th>Fonte</th><th>Vagas</th><th>Confirmados</th><th>Não confirmados</th><th>Página inicial</th><th>Pedem login</th><th>Exemplos</th></tr>"+AL.map(function(a){return "<tr><td>"+esc(a.fonte)+"</td><td>"+a.total+"</td><td>"+a.ok+"</td><td>"+a.incerto+"</td><td>"+a.geral+"</td><td>"+a.login+"</td><td>"+a.exemplos.map(function(x){return "<a href='"+esc(x.url)+"' target='_blank' rel='noopener'>"+esc(x.titulo)+"</a>"}).join("<br>")+"</td></tr>"}).join("")+"</table></div>":"<h2>Auditoria de links</h2><div class='sub'>Todos os links desta rodada foram confirmados.</div>";
 /* ----- abas ----- */
 function aba(n){["vagas","candidaturas","fontes"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
 document.querySelector(".tabs").addEventListener("click",function(e){var n=e.target.getAttribute("data-t");if(n){aba(n);try{history.replaceState(null,"","#"+n)}catch(x){}}});
@@ -191,5 +233,5 @@ if(!t){window.open("https://github.com/"+REPO+"/actions/workflows/vagas.yml","_b
 up.disabled=true;msg("Enviando pedido…");var t0=Date.now();
 fetch(API+"/dispatches",{method:"POST",headers:{Accept:"application/vnd.github+json",Authorization:"Bearer "+t,"X-GitHub-Api-Version":"2022-11-28"},body:JSON.stringify({ref:"main"})}).then(function(r){up.disabled=false;
 if(r.status==204){msg("Busca iniciada. Leva uns 10 a 15 minutos.");acomp(t0)}else if(r.status==401||r.status==403||r.status==404)msg("O GitHub recusou o token (inválido, vencido ou sem permissão). Gere outro em Configurar botão.");else msg("Erro "+r.status+" ao chamar o GitHub.")}).catch(function(){up.disabled=false;msg("Sem conexão com o GitHub.")})});
-draw();drawCand();
+draw();drawCand();drawRegras();
 </script></body></html>
