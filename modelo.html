@@ -31,6 +31,8 @@ a.go{color:var(--ac);font-weight:600;text-decoration:none}.ck{display:flex;gap:6
 th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--bd);vertical-align:top}th{color:var(--mut)}.ok{color:var(--ok)}.er{color:var(--er)}
 textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:13px}
 #toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#1b1f24;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;display:none;z-index:9}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:8px 0}.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px}
+.kpi .n{font-size:24px;font-weight:700}.kpi .n.ok{color:var(--ok)}.kpi .n.er{color:var(--er)}.bar2{display:flex;height:12px;border-radius:99px;overflow:hidden;background:var(--bd);margin:10px 0 4px}.bar2 span{display:block;height:100%}
 @media(max-width:640px){main{padding:10px 10px 60px}.grid{grid-template-columns:1fr;gap:8px}.card{padding:10px;gap:4px}h1{font-size:19px}.tabs button{padding:8px 10px}}
 </style></head><body><main>
 <h1>Dashboard de Vagas</h1><div class="sub" id="ger"></div>
@@ -38,7 +40,7 @@ textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:1
 <div id="cp" class="sub">Cole aqui o token do GitHub. Ele fica salvo só neste navegador, não vai para a página pública.<br><input id="tk" type="password" placeholder="token do GitHub" autocomplete="off"> <button class="mini" id="sv">Salvar</button> <button class="mini" id="rm">Remover</button></div>
 <div class="sub" id="ios" hidden>No iPhone: toque em Compartilhar e depois em “Adicionar à Tela de Início”.</div>
 
-<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="fontes">Fontes</button></nav>
+<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="cargos">Por cargo</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="fontes">Fontes</button></nav>
 
 <section id="t-vagas">
 <div class="saude" id="saude"></div>
@@ -60,6 +62,12 @@ textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:1
 <div class="grid" id="grid" style="margin-top:12px"></div>
 </section>
 
+<section id="t-cargos" hidden>
+<div class="sub">As mesmas vagas, organizadas pelo tipo de cargo. A situação mostra o que você já marcou.</div>
+<div class="saude" id="cargosChips"></div>
+<div class="row" style="margin:6px 0"><label class="ck"><input type="checkbox" id="soPend"> Só pendentes</label><label class="ck"><input type="checkbox" id="soLink"> Só links confirmados</label></div>
+<div id="cargosLista"></div></section>
+
 <section id="t-candidaturas" hidden>
 <div class="row" style="margin:8px 0"><button class="btn" id="csv">⬇ Exportar para Excel (.csv)</button><span class="sub">Cada vaga marcada como “Me candidatei” entra aqui. Anote o andamento.</span></div>
 <div class="grid" id="lc"></div>
@@ -71,6 +79,7 @@ textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:1
 </section>
 
 <section id="t-fontes" hidden>
+<div id="resumo"></div>
 <h2>Situação de cada fonte nesta rodada</h2><div class="tw"><table id="tb"></table></div>
 <div id="audlinks"></div>
 <div id="limpeza"></div>
@@ -120,7 +129,7 @@ function baixar(nome,txt,tipo){var a=document.createElement("a");a.href=URL.crea
 function textoClaude(v){return "Quero me candidatar a esta vaga. Use o meu currículo (já está nesta conversa ou no projeto) para:\n1) dizer se a vaga combina comigo e quais pontos do meu currículo destacar;\n2) adaptar o resumo e os principais resultados do currículo para esta vaga;\n3) escrever uma mensagem curta para o recrutador.\n\nVAGA: "+v.titulo+"\nEMPRESA: "+(v.empresa||v.fonte)+"\nLOCAL: "+(v.local||"não informado")+"\nPUBLICADA: "+(v.data_iso?fmtData(v.data_iso):"data não informada")+"\nLINK: "+v.url+"\nMINHAS COMPETÊNCIAS CITADAS NA VAGA: "+((v.comp||[]).join(", ")||"nenhuma identificada")+"\n\nDESCRIÇÃO:\n"+(v.descricao||"(a descrição não foi lida; abra o link, copie o texto da vaga e cole aqui)")}
 
 $("ger").textContent="Última busca: "+D.gerado+" (horário de Brasília). Compatibilidade estimada pelo cargo e pelas suas competências.";
-var S=D.saude||{};$("saude").innerHTML=S.total?"<span class='ok'>"+S.ok+" fontes com vagas</span><span>"+S.sem_vaga+" sem vaga hoje</span><span class='er'>"+S.falhou+" falharam</span><span>"+S.pausadas+" pausadas</span><span>"+S.nao_lidas+" só por alerta/link</span><span>"+S.sem_leitura+" sem leitura (JavaScript)</span>":"";
+var RS0=resumoFontes();$("saude").innerHTML=RS0.lidas?"<span class='ok'>✔ "+RS0.verificadas+" de "+RS0.lidas+" páginas verificadas ("+RS0.pct+"%)</span><span>"+RS0.com+" com vagas</span><span>"+RS0.sem+" sem vaga hoje</span><span>"+RS0.js+" sem lista (JS)</span><span class='er'>"+(RS0.falha+RS0.pausa+RS0.outro)+" não verificadas</span><span>"+RS0.alerta+" só por alerta</span><span><a href='#fontes' data-ir='fontes'>ver detalhes</a></span>":"";
 var g=$("grid"),q=$("q"),fm=$("fm"),fp=$("fp"),fz=$("fz"),fr=$("fr"),fs=$("fs"),fc=$("fc"),fl=$("fl");
 D.vagas.map(function(v){return v.fonte}).filter(function(x,i,a){return a.indexOf(x)==i}).forEach(function(f){var o=document.createElement("option");o.textContent=f;fs.appendChild(o)});
 var RN={poa:"Grande Porto Alegre",rs:"Outra cidade do RS",remoto:"Remoto"};
@@ -141,7 +150,7 @@ function card(v,i){var s=est(v),loc=v.local?'<div class="loc">📍 '+esc(v.local
  '<div class="row"><a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir vaga →</a><button class="mini" data-cp="'+i+'">📋 Copiar para o Claude</button></div>'+
  '<div class="acoes"><label class="ck"><input type="checkbox" data-i="'+i+'" data-t="c"'+(s=="c"?" checked":"")+'> Me candidatei</label>'+
  '<label class="ck"><input type="checkbox" data-i="'+i+'" data-t="n"'+(s=="n"?" checked":"")+'> Não aplicável</label></div></div>'}
-function draw(){opcoes();var t=q.value.toLowerCase(),per=fp.value,ord=fz.value,L=[];
+function draw(){opcoes();drawCargos();var t=q.value.toLowerCase(),per=fp.value,ord=fz.value,L=[];
  D.vagas.forEach(function(v,i){if(vista(v)!=fm.value)return;if(fl.value==="ok"&&v.link_status!=="ok")return;if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;
  if(fr.value&&(v.regiao||"?")!=fr.value)return;if(t&&(v.titulo+" "+(v.empresa||"")).toLowerCase().indexOf(t)<0)return;
  var d=dataRef(v);if(per==="hoje"&&!v.nova)return;if(per==="7"&&!(d&&dias(HOJE,d)<=7))return;if(per==="30"&&!(d&&dias(HOJE,d)<=30))return;L.push([v,i])});
@@ -202,10 +211,48 @@ $("auto").addEventListener("change",function(){R.auto=this.checked;salvar();draw
 $("selDias").addEventListener("change",function(){R.dias=+this.value;salvar();draw();drawRegras()});
 $("addPal").addEventListener("click",function(){var w=sem($("novaPal").value).split(" ")[0];if(w&&R.manual.indexOf(w)<0){R.manual.push(w);R.ignoradas=R.ignoradas.filter(function(x){return x!==w})}$("novaPal").value="";salvar();draw();drawRegras()});
 var AL=D.auditoria_links||[];$("audlinks").innerHTML=AL.length?"<h2>Auditoria de links</h2><div class='sub'>Confere se o link de cada vaga leva à página da vaga. “Página inicial” = o link caiu na home do site e a vaga foi descartada. “Não confirmado” = a página abriu, mas não menciona o cargo (pode ser uma lista).</div><div class='tw'><table><tr><th>Fonte</th><th>Vagas</th><th>Confirmados</th><th>Não confirmados</th><th>Página inicial</th><th>Pedem login</th><th>Exemplos</th></tr>"+AL.map(function(a){return "<tr><td>"+esc(a.fonte)+"</td><td>"+a.total+"</td><td>"+a.ok+"</td><td>"+a.incerto+"</td><td>"+a.geral+"</td><td>"+a.login+"</td><td>"+a.exemplos.map(function(x){return "<a href='"+esc(x.url)+"' target='_blank' rel='noopener'>"+esc(x.titulo)+"</a>"}).join("<br>")+"</td></tr>"}).join("")+"</table></div>":"<h2>Auditoria de links</h2><div class='sub'>Todos os links desta rodada foram confirmados.</div>";
+/* ----- resumo da verificação ----- */
+var GRUPOS=["Favorita","Gupy","Outra fonte","Recrutamento","Empresa","Alerta por e-mail"];
+function classe(r){var s=r.status||"";if(r.tipo==="alerta")return "alerta";if(s.indexOf("OK")==0)return "com";if(s.indexOf("Carregou sem lista")==0)return "js";if(s.indexOf("Carregou")==0)return "sem";if(s==="Falhou")return "falha";if(s.indexOf("Pausada")==0)return "pausa";return "outro"}
+function zero(){return {total:0,com:0,sem:0,js:0,falha:0,pausa:0,alerta:0,outro:0}}
+function resumoFontes(){var T=zero();T.g={};D.fontes.forEach(function(r){var c=classe(r),g=r.grupo||"Outra fonte";T.total++;T[c]++;var x=T.g[g]=T.g[g]||zero();x.total++;x[c]++});
+ T.lidas=T.total-T.alerta;T.verificadas=T.com+T.sem;T.pct=T.lidas?Math.round(100*T.verificadas/T.lidas):0;return T}
+function drawResumo(){var T=resumoFontes(),V=D.vagas,ld=V.filter(function(v){return v.lida}).length,lk=V.filter(function(v){return v.link_status==="ok"}).length;
+ function kpi(n,t,c,s){return '<div class="kpi"><div class="n '+(c||"")+'">'+n+'</div><div>'+t+'</div><div class="meta">'+(s||"")+'</div></div>'}
+ function pc(n){return T.lidas?(100*n/T.lidas).toFixed(1):0}
+ var nv=T.falha+T.pausa+T.outro,h='<h2>Resumo da verificação</h2><div class="kpis">'+
+ kpi(T.verificadas+" de "+T.lidas,"páginas realmente verificadas","ok",T.pct+"% das páginas que o robô tenta ler")+kpi(T.com,"com vagas compatíveis","ok","trouxeram ao menos uma vaga")+
+ kpi(T.sem,"verificadas, sem vaga hoje","","abriram e não tinham o que você procura")+kpi(T.js,"abriram, mas sem lista","","a lista só aparece com JavaScript ou login")+
+ kpi(nv,"não verificadas","er","falharam, pausadas ou o lote deu erro")+kpi(T.alerta,"só por alerta ou link","","LinkedIn, Indeed, Catho… o robô não lê")+'</div>'+
+ '<div class="bar2"><span style="width:'+pc(T.verificadas)+'%;background:var(--ok)"></span><span style="width:'+pc(T.js)+'%;background:var(--md)"></span><span style="width:'+pc(nv)+'%;background:var(--er)"></span></div>'+
+ '<div class="meta">Verde: verificadas · Laranja: abriram sem lista · Vermelho: não verificadas (sobre as '+T.lidas+' páginas que o robô tenta ler)</div>'+
+ '<div class="meta" style="margin:8px 0">Vagas encontradas: <b>'+V.length+'</b> · com descrição lida: <b>'+ld+'</b> · com link confirmado: <b>'+lk+'</b></div>';
+ var gs=GRUPOS.concat(Object.keys(T.g).filter(function(g){return GRUPOS.indexOf(g)<0}));
+ h+='<div class="tw"><table><tr><th>Grupo</th><th>Fontes</th><th>Verificadas</th><th>Com vagas</th><th>Sem vaga hoje</th><th>Sem lista (JS)</th><th>Falharam</th><th>Pausadas</th><th>Só alerta</th></tr>'+gs.filter(function(g){return T.g[g]}).map(function(g){var x=T.g[g],l=x.total-x.alerta,v=x.com+x.sem;
+  return '<tr><td>'+esc(g)+'</td><td>'+x.total+'</td><td>'+v+(l?' ('+Math.round(100*v/l)+'%)':'')+'</td><td>'+x.com+'</td><td>'+x.sem+'</td><td>'+x.js+'</td><td>'+x.falha+'</td><td>'+x.pausa+'</td><td>'+x.alerta+'</td></tr>'}).join("")+'</table></div>';
+ $("resumo").innerHTML=h}
+
+/* ----- vagas por tipo de cargo ----- */
+var CATS=[["ger","Gerente financeiro e administrativo"],["anf","Analista financeiro, FP&A e planejamento"],["ctl","Controller e controladoria"],["coo","Coordenador, gestor e diretor"],["ana","Outros analistas (administrativo…)"],["out","Outros cargos"]];
+function categoria(v){var t=sem(v.titulo);if(/\bgerente\b/.test(t))return "ger";
+ if(/\b(controller|controladoria)\b/.test(t)&&!/\banalista\b/.test(t))return "ctl";
+ if(/\b(coordenador|coordenadora|gestor|gestora|diretor|diretora|supervisor|supervisora|head|superintendente)\b/.test(t))return "coo";
+ if(/\banalista\b/.test(t))return /(financ|fp a|fpa|planejamento|orcament|tesouraria|custos|controladoria|faturamento|contas)/.test(t)?"anf":"ana";return "out"}
+var SIT={"":"Pendente",c:"Me candidatei",n:"Não aplicável",o:"Oculta (regra)"};
+function linha(v){var d=v.data_iso?fmtData(v.data_iso):"vista em "+fmtData(v.primeira);
+ return '<tr><td>'+esc(v.titulo)+'</td><td>'+esc(v.empresa||v.fonte)+'</td><td>'+esc(v.local||"—")+'</td><td><span class="tag '+v.nivel+'">'+v.nivel+'</span></td><td>'+d+'</td><td>'+SIT[vista(v)]+'</td><td><a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir →</a></td></tr>'}
+function drawCargos(){var so=$("soPend").checked,sl=$("soLink").checked,g={},h="",chips="";
+ D.vagas.forEach(function(v){var c=categoria(v);(g[c]=g[c]||[]).push(v)});
+ CATS.forEach(function(c){var A=g[c[0]]||[],L=A.filter(function(v){return !(so&&vista(v)!=="")&&!(sl&&v.link_status!=="ok")}),p=A.filter(function(v){return vista(v)===""}).length;
+  chips+='<span>'+esc(c[1])+': <b>'+A.length+'</b> ('+p+' pendentes)</span>';if(!A.length)return;
+  h+='<details class="f" open><summary>'+esc(c[1])+' — '+A.length+' vaga(s), '+p+' pendente(s)</summary><div class="tw"><table><tr><th>Cargo</th><th>Empresa / fonte</th><th>Local</th><th>Compat.</th><th>Publicada</th><th>Situação</th><th></th></tr>'+(L.length?L.map(linha).join(""):'<tr><td colspan="7" class="meta">Nenhuma com esses filtros.</td></tr>')+'</table></div></details>'});
+ $("cargosChips").innerHTML=chips;$("cargosLista").innerHTML=h||'<div class="sub">Nenhuma vaga nesta rodada.</div>'}
+["soPend","soLink"].forEach(function(i){$(i).addEventListener("change",drawCargos)});
+$("saude").addEventListener("click",function(e){if(e.target.getAttribute("data-ir")){e.preventDefault();aba("fontes")}});
 /* ----- abas ----- */
-function aba(n){["vagas","candidaturas","fontes"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
+function aba(n){["vagas","cargos","candidaturas","fontes"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
 document.querySelector(".tabs").addEventListener("click",function(e){var n=e.target.getAttribute("data-t");if(n){aba(n);try{history.replaceState(null,"","#"+n)}catch(x){}}});
-var h0=location.hash.slice(1);if(["vagas","candidaturas","fontes"].indexOf(h0)>=0)aba(h0);
+var h0=location.hash.slice(1);if(["vagas","cargos","candidaturas","fontes"].indexOf(h0)>=0)aba(h0);
 if(window.matchMedia&&matchMedia("(max-width:640px)").matches)$("filtros").open=false;
 
 /* ----- aplicativo (celular) ----- */
@@ -233,5 +280,5 @@ if(!t){window.open("https://github.com/"+REPO+"/actions/workflows/vagas.yml","_b
 up.disabled=true;msg("Enviando pedido…");var t0=Date.now();
 fetch(API+"/dispatches",{method:"POST",headers:{Accept:"application/vnd.github+json",Authorization:"Bearer "+t,"X-GitHub-Api-Version":"2022-11-28"},body:JSON.stringify({ref:"main"})}).then(function(r){up.disabled=false;
 if(r.status==204){msg("Busca iniciada. Leva uns 10 a 15 minutos.");acomp(t0)}else if(r.status==401||r.status==403||r.status==404)msg("O GitHub recusou o token (inválido, vencido ou sem permissão). Gere outro em Configurar botão.");else msg("Erro "+r.status+" ao chamar o GitHub.")}).catch(function(){up.disabled=false;msg("Sem conexão com o GitHub.")})});
-draw();drawCand();drawRegras();
+drawResumo();draw();drawCand();drawRegras();
 </script></body></html>

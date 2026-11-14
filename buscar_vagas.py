@@ -19,9 +19,13 @@ ALTA = ["gerente administrativo financeiro", "gerente administrativo e financeir
         "gerente de controladoria", "controller", "controladoria", "coordenador financeiro",
         "coordenador administrativo", "gestor financeiro", "gestor administrativo", "fp&a",
         "planejamento financeiro", "analista financeiro", "analista de planejamento", "tesouraria",
-        "administrativo financeiro", "administrativo e financeiro", "financeiro e administrativo"]
+        "administrativo financeiro", "administrativo e financeiro", "financeiro e administrativo",
+        "gerente de finanças", "gerente de financas", "coordenador de finanças", "coordenador de financas",
+        "head de finanças", "head de financas", "analista de finanças", "analista de financas",
+        "superintendente financeiro", "superintendente administrativo"]
 MEDIA = ["financeiro", "financeira", "administrativo", "contas a pagar", "contas a receber", "contábil",
-         "contabil", "orçamento", "faturamento", "custos", "diretor financeiro"]
+         "contabil", "orçamento", "faturamento", "custos", "diretor financeiro", "diretor de finanças",
+         "tesoureiro", "business partner financeiro", "finanças", "financas"]
 # Cargos fora do nível dele (palavras inteiras)
 EXCLUIR = ["estágio", "estagiário", "estagiario", "aprendiz", "trainee", "júnior", "junior", "jr", "jr.",
            "assistente", "auxiliar", "vendedor", "motorista", "segurança", "vigilante", "limpeza", "operador"]
@@ -70,7 +74,7 @@ CARGO_RE = re.compile(r"\b(?:analista|assistente|auxiliar|gerente|coordenador|co
                       r"gestor|gestora|diretor|diretora|controller|controlador|controladora|especialista|consultor|"
                       r"consultora|contador|contadora|tesoureiro|tesoureira|executivo|executiva|l[ií]der|head|"
                       r"business partner|encarregado|encarregada|t[ée]cnico|t[ée]cnica|comprador|compradora|"
-                      r"planejador|planejadora|auditor|auditora|or[çc]amentista|faturista|analyst|manager)\b", re.I)
+                      r"planejador|planejadora|auditor|auditora|or[çc]amentista|faturista|analyst|manager|superintendente)\b", re.I)
 NAO_VAGA = re.compile(r"solicit|pe[çc]a um|fa[çc]a (?:seu|um)|fale conosco|seja (?:um )?(?:nosso )?fornecedor|"
                       r"cadastro de fornecedor|[áa]rea do fornecedor|anuncie|cota[çc][ãa]o|portal d[oa]|acesse|segunda via|"
                       r"boleto|mensalidade|[áa]rea d[oa] (?:aluno|cliente)|ouvidoria|transpar[êe]ncia|informa[çc][õo]es", re.I)
@@ -218,7 +222,8 @@ def gupy():
     hoje = dt.date.today().isoformat()
     for termo in ["gerente administrativo financeiro", "gerente financeiro", "controller", "coordenador financeiro",
                   "coordenador administrativo", "analista financeiro", "controladoria", "fp&a",
-                  "planejamento financeiro", "tesouraria", "administrativo financeiro", "gestor financeiro"]:
+                  "planejamento financeiro", "tesouraria", "administrativo financeiro", "gestor financeiro",
+                  "gerente de finanças", "finanças"]:
         dados = []
         for off in range(0, 600, 100):
             pagina = None

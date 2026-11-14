@@ -1,31 +1,15 @@
-ATUALIZACAO DA BUSCA DE VAGAS - painel novo + aprendizado + auditoria de links
+ATUALIZACAO - PARTE 1 (resumo da verificacao + aba Por cargo + novos cargos)
 
-NOVIDADES DESTA VERSAO
-- O painel aprende com o "Nao aplicavel": palavras do cargo que voce marcou 3 vezes ou mais
-  como nao aplicavel (e nunca como candidatei) passam a ser escondidas sozinhas; vagas
-  antigas tambem. Tudo fica listado em "O que o painel aprendeu" e em "Ocultas por regras",
-  com botao Liberar. Palavras do seu cargo (analista, gerente, financeiro...) nunca viram regra.
-- Auditoria de links: o programa confere se cada link leva mesmo a pagina da vaga. Link que
-  cai na pagina inicial do site e descartado; link que pede login ou nao menciona o cargo
-  recebe um aviso. A aba Fontes mostra a auditoria por fonte. Existe o filtro "So links confirmados".
-- Aviso claro quando todas as vagas ja foram marcadas (elas nao sumiram, estao escondidas).
-- Painel com 3 abas (Vagas, Candidaturas, Fontes), aviso por e-mail de vaga Alta nova,
-  datas reais, "por que e Alta", "tambem em...", Copiar para o Claude e aplicativo no celular.
-- Busca em lotes (30 fontes por lote, ao mesmo tempo): 7h07, 12h07 e 16h07.
+So 2 arquivos mudam: modelo.html e buscar_vagas.py.
+O workflow (.github), o fontes.json e as pastas dados/docs NAO mudam.
 
-COMO USAR
-1. Extraia este zip no computador.
+1. Extraia este zip.
 2. No GitHub, repositorio "vagas": Add file > Upload files.
-3. Arraste os 3 arquivos E a pasta ".github" e clique em Commit changes.
-   (NAO existem aqui as pastas "dados" e "docs" de proposito: elas guardam o historico
-   e o painel que ja estao no GitHub.)
-4. Aba Actions > Buscar vagas > Run workflow.
+3. Arraste os 2 arquivos e clique em Commit changes.
+4. Aba Actions > Buscar vagas > Run workflow (o painel novo so aparece depois de uma rodada).
 
-AVISO POR E-MAIL (conferir uma vez)
-- No repositorio, clique em "Watch" (olho, no alto) e escolha "All Activity".
-- Em github.com/settings/notifications, deixe o e-mail ligado.
-- A primeira rodada NAO envia aviso. A partir da segunda, so as vagas Alta novas.
-
-SE O GITHUB NAO ACEITAR A PASTA .github
-Abra .github/workflows/vagas.yml no repositorio, clique no lapis, apague tudo, cole o
-texto do vagas.yml deste pacote e clique em Commit changes.
+O QUE MUDA
+- Aba Fontes: "Resumo da verificacao" (quantas paginas foram realmente verificadas, por grupo).
+- Aba nova "Por cargo": gerente, analista financeiro, controller, coordenador/gestor/diretor, outros.
+- Busca passa a reconhecer "Gerente de Financas", "Coordenador de Financas", "Head de Financas",
+  "Analista de Financas", "Superintendente Financeiro", "Tesoureiro" e "Business Partner Financeiro".
