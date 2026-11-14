@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Busca diária de vagas: testa cada fonte de fontes.json e gera docs/index.html."""
-import json, re, sys, time, datetime as dt
+import base64, json, os, re, sys, time, unicodedata, datetime as dt
 from contextlib import nullcontext
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -200,7 +200,8 @@ def extrair(html, base):
         m = DATA_RE.search(ctx)
         local, regiao = detectar_local(ctx + " " + bruto, txt)
         achadas.append({"titulo": txt, "empresa": "", "url": href, "nivel": n,
-                        "data": m.group(0) if m else None, "local": local, "regiao": regiao})
+                        "data": m.group(0) if m else None, "data_iso": normalizar_data(m.group(0)) if m else None,
+                        "local": local, "regiao": regiao})
     return len(links), achadas
 
 
@@ -251,7 +252,7 @@ def gupy():
                     "rs" if "rio grande do sul" in uf.lower() or uf.upper() == "RS" else ("fora" if uf else "?"))
             pub = (v.get("publishedDate") or "")[:10]
             achadas[url] = {"titulo": nome, "empresa": v.get("careerPageName") or v.get("companyName") or "",
-                            "url": url, "nivel": n,
+                            "url": url, "nivel": n, "data_iso": pub or None,
                             "data": pub[8:10] + "/" + pub[5:7] + "/" + pub[:4] if pub else None,
                             "prazo": prazo or None, "local": loc, "regiao": reg, "verificada": True,
                             "descricao": (v.get("description") or "")[:3000]}
@@ -259,43 +260,183 @@ def gupy():
     return len(achadas), list(achadas.values()), erro, (ok[0].split("//")[1] if ok else "")
 
 
+# ---------- datas, dados estruturados (JobPosting) e utilitários ----------
+MESES = {"jan": 1, "fev": 2, "mar": 3, "abr": 4, "mai": 5, "jun": 6, "jul": 7, "ago": 8, "set": 9, "out": 10, "nov": 11, "dez": 12}
+DATA_DESC = re.compile(r"(?:publicad[ao]|data de publica[çc][ãa]o|postad[ao]|divulgad[ao])\s*(?:em|:)?\s*([0-9a-zç/\. \-]{4,25})", re.I)
+
+
+def hoje_brt():
+    return dt.datetime.now(BRT).date()
+
+
+def normalizar_data(txt, ref=None):
+    """Converte '10/11/2026', '10 de nov.', 'há 3 dias', 'hoje' ou ISO em AAAA-MM-DD (ou None)."""
+    if not txt or not isinstance(txt, str):
+        return None
+    ref = ref or hoje_brt()
+    t = txt.lower().strip()
+    try:
+        m = re.search(r"(\d{4})-(\d{2})-(\d{2})", t)
+        if m:
+            return dt.date(int(m[1]), int(m[2]), int(m[3])).isoformat()
+        m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{2,4})", t)
+        if m:
+            ano = int(m[3]) + (2000 if int(m[3]) < 100 else 0)
+            return dt.date(ano, int(m[2]), int(m[1])).isoformat()
+        m = re.search(r"(\d{1,2}) de ([a-zç]+)\.?(?: de (\d{4}))?", t)
+        if m and MESES.get(m[2][:3]):
+            d = dt.date(int(m[3]) if m[3] else ref.year, MESES[m[2][:3]], int(m[1]))
+            if not m[3] and d > ref + dt.timedelta(days=1):
+                d = d.replace(year=d.year - 1)
+            return d.isoformat()
+        if "hoje" in t:
+            return ref.isoformat()
+        if "ontem" in t:
+            return (ref - dt.timedelta(days=1)).isoformat()
+        m = re.search(r"h[áa] (\d+) (minutos?|horas?|dias?|semanas?|m[êe]s|meses)", t)
+        if m:
+            n, u = int(m[1]), m[2]
+            dias = n if u.startswith("dia") else n * 7 if u.startswith("sem") else n * 30 if u.startswith("m") and not u.startswith("min") else 0
+            return (ref - dt.timedelta(days=dias)).isoformat()
+    except (ValueError, OverflowError):
+        return None
+    return None
+
+
+def jsonld_vagas(html):
+    """Lê o dado estruturado 'JobPosting' (o mesmo que o Google usa) quando a página tem."""
+    achadas = []
+    try:
+        soup = BeautifulSoup(html, "html.parser")
+        pilha = []
+        for s in soup.find_all("script", type="application/ld+json"):
+            try:
+                pilha.append(json.loads(s.string or s.get_text() or ""))
+            except Exception:  # noqa
+                continue
+        while pilha:
+            d = pilha.pop()
+            if isinstance(d, list):
+                pilha += d
+            elif isinstance(d, dict):
+                tipo = d.get("@type")
+                if "JobPosting" in (tipo if isinstance(tipo, list) else [tipo]):
+                    achadas.append(d)
+                for k in ("@graph", "itemListElement", "item"):
+                    if d.get(k):
+                        pilha.append(d[k])
+    except Exception:  # noqa
+        pass
+    return achadas
+
+
+def info_estruturada(html):
+    for d in jsonld_vagas(html):
+        org = d.get("hiringOrganization")
+        empresa = org.get("name", "") if isinstance(org, dict) else (org if isinstance(org, str) else "")
+        loc = d.get("jobLocation")
+        loc = loc[0] if isinstance(loc, list) and loc else loc
+        end = (loc or {}).get("address", {}) if isinstance(loc, dict) else {}
+        cidade, uf = ("", "") if not isinstance(end, dict) else (end.get("addressLocality", ""), end.get("addressRegion", ""))
+        desc = BeautifulSoup(d.get("description") or "", "html.parser").get_text(" ", strip=True)
+        return {"empresa": empresa or "", "cidade": cidade or "", "uf": uf or "",
+                "remoto": str(d.get("jobLocationType", "")).upper() == "TELECOMMUTE",
+                "data_iso": normalizar_data(d.get("datePosted")), "validade": normalizar_data(d.get("validThrough")),
+                "descricao": desc}
+    return None
+
+
+def aplicar_info(v, info):
+    """Completa a vaga com empresa, data, local e descrição vindos do dado estruturado."""
+    if not info:
+        return
+    if info["empresa"] and not v.get("empresa"):
+        v["empresa"] = info["empresa"]
+    if info["data_iso"] and not v.get("data_iso"):
+        v["data_iso"] = info["data_iso"]
+    if len(info["descricao"]) > len(v.get("descricao", "")):
+        v["descricao"] = info["descricao"][:6000]
+    if info["validade"] and info["validade"] < hoje_brt().isoformat():
+        v["encerrada"] = True
+    if v.get("regiao") in ("?", "", None):
+        cid, uf = info["cidade"], info["uf"]
+        uf_s = "RS" if "rio grande do sul" in uf.lower() else uf.strip()
+        if info["remoto"]:
+            v["local"], v["regiao"] = "Remoto", "remoto"
+        elif uf_s.upper() == "RS" or (not uf_s and cid.lower() in GRANDE_POA):
+            v["local"], v["regiao"] = detectar_local(f"{cid} - RS") if cid else ("RS", "rs")
+        elif uf_s:
+            v["local"], v["regiao"] = f"{cid} - {uf_s}".strip(" -"), "fora"
+
+
+def sem_txt(s):
+    s = unicodedata.normalize("NFD", (s or "").lower())
+    return re.sub(r"[^a-z0-9]+", " ", "".join(c for c in s if unicodedata.category(c) != "Mn")).strip()
+
+
+def chave_dup(v):
+    emp = sem_txt(v.get("empresa", ""))
+    return f"{sem_txt(v['titulo'])}|{emp}|{sem_txt(v.get('local', ''))}" if emp else ""
+
+
+
 def verificar(url):
-    """Testa se o link abre e devolve também o texto da página (descrição da vaga)."""
+    """Testa o link e devolve (abre?, texto da página, dado estruturado JobPosting ou None)."""
     try:
         r = requests.get(url, headers={"User-Agent": UA}, timeout=15)
         ctype = r.headers.get("content-type", "").lower()
         if r.status_code >= 400:
-            return False, ""
+            return False, "", None
         if "html" not in ctype:
-            return True, ""
+            return True, "", None
         if "charset" not in ctype:
             r.encoding = "utf-8"
+        info = info_estruturada(r.text)
         soup = BeautifulSoup(r.text, "html.parser")
         for t in soup(["script", "style", "nav", "footer", "header"]):
             t.decompose()
-        return True, " ".join(soup.get_text(" ", strip=True).split())[:6000]
+        return True, " ".join(soup.get_text(" ", strip=True).split())[:6000], info
     except Exception:
-        return False, ""
+        return False, "", None
 
 
 def competencias(texto):
     return [k for k, rx in COMP_RE.items() if rx.search(texto)]
 
 
+def termo_cargo(t, lista):
+    return next((x for x in lista if x in t), "")
+
+
 def avaliar(v):
-    """Cruza a vaga com as competências do currículo e ajusta a compatibilidade."""
+    """Cruza a vaga com as competências do currículo, ajusta a compatibilidade e explica o porquê."""
     desc = v.get("descricao", "")
     v["comp"] = competencias(v.get("titulo", "") + " " + desc)
     v["lida"] = len(desc) > 300
     v.setdefault("verificada", None)
+    if not v.get("data_iso") and desc:
+        m = DATA_DESC.search(desc[:4000])
+        if m:
+            v["data_iso"] = normalizar_data(m.group(1))
     # "Alta" só para cargos-alvo (lista ALTA). As competências nunca promovem um cargo parecido.
-    if v["nivel"] == "Alta" and v["lida"] and not v["comp"]:
+    rebaixada = v["nivel"] == "Alta" and v["lida"] and not v["comp"]
+    if rebaixada:
         v["nivel"] = "Média"
+    t = v.get("titulo", "").lower()
+    if rebaixada:
+        porque = f"cargo “{termo_cargo(t, ALTA)}”, mas a descrição não cita competências suas"
+    else:
+        base = termo_cargo(t, ALTA) if v["nivel"] == "Alta" else (termo_cargo(t, ALTA) or termo_cargo(t, MEDIA))
+        porque = ("cargo-alvo" if v["nivel"] == "Alta" else "cargo parecido") + f" “{base}”"
+        porque += (f"; a descrição cita {len(v['comp'])} das suas competências" if v["lida"]
+                   else "; só o título foi lido (sem descrição)")
+    v["porque"] = porque
     v["descartar"] = ""
-    if CRC_RE.search(desc):
+    if v.get("encerrada"):
+        v["descartar"] = "Vaga encerrada (prazo de inscrição vencido)"
+    elif CRC_RE.search(desc):
         v["descartar"] = "Exige ser contador (registro no CRC)"
-        return
-    if v["nivel"] == "Média" and v["lida"] and len(v["comp"]) < 2:
+    elif v["nivel"] == "Média" and v["lida"] and len(v["comp"]) < 2:
         v["descartar"] = f"Pouca aderência: cita {len(v['comp'])} das suas competências"
     elif v["nivel"] == "Média" and not v["lida"] and v.get("grupo") == "Empresa":
         v["descartar"] = "Cargo parecido, mas a página não tem descrição para conferir"
@@ -389,6 +530,13 @@ def processar_fonte(f, browser, hist_fontes=None):
     return r, achadas
 
 
+def separar_fora(vagas, fora):
+    for u, v in list(vagas.items()):
+        if v.get("regiao") == "fora":
+            fora.append({"titulo": v["titulo"], "motivo": "Fora do RS: " + v.get("local", ""), "fonte": v["fonte"], "url": u})
+            del vagas[u]
+
+
 def coletar(fontes, indices):
     """Roda um lote de fontes (os índices dados) e já filtra e avalia as vagas dele."""
     resultado, vagas = [], {}
@@ -406,12 +554,13 @@ def coletar(fontes, indices):
         if browser:
             browser.close()
 
-    fora = [{"titulo": v["titulo"], "motivo": "Fora do RS: " + v.get("local", ""), "fonte": v["fonte"], "url": v["url"]}
-            for v in vagas.values() if v.get("regiao") == "fora"]
-    vagas = {u: v for u, v in vagas.items() if v.get("regiao") != "fora"}
+    fora = []
+    separar_fora(vagas, fora)
     for v in list(vagas.values())[:250]:
         if "verificada" not in v:
-            v["verificada"], v["descricao"] = verificar(v["url"])
+            v["verificada"], v["descricao"], info = verificar(v["url"])
+            aplicar_info(v, info)
+    separar_fora(vagas, fora)          # o dado estruturado pode revelar que a vaga é de fora do RS
     for v in vagas.values():
         avaliar(v)
     fora += [{"titulo": v["titulo"], "motivo": v["descartar"], "fonte": v["fonte"], "url": v["url"]}
@@ -428,8 +577,47 @@ def coletar(fontes, indices):
             else:
                 r["status"] = "Carregou, vagas descartadas pelos filtros"
     for v in vagas.values():
-        v.pop("descricao", None)
+        v["descricao"] = v.get("descricao", "")[:2500]
     return resultado, list(vagas.values()), fora
+
+
+def escrever_aviso(novas, total, carimbo):
+    """Cria o texto do aviso (o GitHub transforma em e-mail) com as vagas Alta novas; sem novas, apaga."""
+    arq, tit = RAIZ / "aviso.md", RAIZ / "aviso-titulo.txt"
+    if not novas:
+        for a in (arq, tit):
+            a.unlink(missing_ok=True)
+        return
+    repo = os.environ.get("GITHUB_REPOSITORY", "andrececcon-droid/vagas")
+    painel = f"https://{repo.split('/')[0]}.github.io/{repo.split('/')[1]}/"
+    linhas = []
+    for i, v in enumerate(novas, 1):
+        quem = " · ".join(x for x in (v.get("empresa") or v["fonte"], v.get("local", "")) if x)
+        comp = ", ".join(v.get("comp", [])[:4])
+        linhas.append(f"{i}. **{v['titulo']}** · {quem}\n   {v.get('porque', '')}" + (f"\n   Suas competências: {comp}" if comp else "")
+                      + f"\n   [Abrir a vaga]({v['url']}) · fonte: {v['fonte']}")
+    resto = f"\n\n…e mais {total - len(novas)} no painel." if total > len(novas) else ""
+    arq.write_text("\n\n".join(linhas) + resto + f"\n\n[Abrir o painel]({painel})\n", "utf-8")
+    tit.write_text(f"🔔 {total} vaga(s) nova(s) compatível(is) — {carimbo}", "utf-8")
+
+
+ICONE_192 = "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAADkklEQVR42u3cwXUTQRBFUcxxCiYVlqwJgqUJii1BsLWXpEIUBGAOoBl1T9Wv+5Y+tjTTev1/ydLMw9PzyzvgKO8tAQgEAoFAIBBAIBAIBAKBAAKBQCAQCAQQCAQCgUAggEAgEAgEAoFAAIFAIBAIBAIIBAKBQCAQQCAQCAQCgQACgUAgEAgEAgEEAoFAIBAIIBA28bjzyX59+7TuwT98fe219BmrIYHQR6Cl22LphhY/EggRAgmhsFlQAqGbQO3eLjVi/9qmJVD9Fus17KswJAqkxWJWNTCBKndEWH9dKZAQyljPzBmo5kbPi5+LBRJCASvpXRgI1KEvIvvreoG0WPc1TK6wOps+NX5KCCSEWq+eIRr9BVq3jSp0x7pjqBDeEggEAoFSWyy7vyQQggTKC6H4+JFAyBLIPxXbrdKUBNrfYsEfX6gw5AqUMUpPGJ8lEEIFMko3WplZCbSnxYaMz6UFEkJd1sQMBAJV6pdR/VVaIC3WYjUmVti6kJgWP9UFEkL118EQjWiBFm2+FV2zqL+Kx7AEAoEKBMbA8bmNQJNH6frnrsIwQKDio/TM8VkCYZJA0yahLuc7PYHOt8/Y918EwjCBCo7Sk8dnCYR5Ak0YpXudowQ63kTDx+euAmWHULuzk0AH40T8EAhTBUptsY7nJYGOtJL+ai9QXgg1PSMJhKkCrdiy/9NNK/qrb6BKIBBoYwgZn6MEyhilW5+FBMJsgXaO0sZnCQQCXRRC4kcCgUAgUMcW018SCAQK2tAx3yaQQP9uMR9fTBGoy7ZO+jKTBLphlMZbHi1BOz5++fH2hz+/f77kYB6enl9kRov++qM3l5skgbpGzt9/eZtGgTNQ5RH1wLHdZM/JvyLQ6Oy5xKFMgWqG0K1Hdd6ADQ5JoMDs2ekQgZLt2eBQrEDVWiz1en4JFB4/q0MoWaA6mz74plgSCASqvfVvOoZ1XbPokSUQCAQCpbZY/I2tJRAIVDUGJtxXXwKBQCXD4Ngzrvsi2KJHlkAgEAgU1mJnnmtF16xrRgkEAhULofPPct/AWHqFhgQqyr1e9dXX94wTaHUI3fHxz7/2G64Ok0CxObTn2sLAS5vzOPBVnm1XphIoTaPN18YTKMQkd+dASwzRIBAIBAKBQACBQCAQCAQCCAQCgUAgEEAgEAgEAoEAAoFAIBAIBAIBBAKBQCAQCCAQCAQCgUAAgUAgEAgEAggEAoFAaM9vfbEgtrZOKiYAAAAASUVORK5CYII="
+ICONE_512 = "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"
+
+
+def escrever_app(docs):
+    """Arquivos para instalar o painel como aplicativo no celular."""
+    docs.mkdir(exist_ok=True)
+    (docs / "manifest.webmanifest").write_text(json.dumps({
+        "name": "Dashboard de Vagas", "short_name": "Vagas", "start_url": ".", "scope": ".", "display": "standalone",
+        "background_color": "#14171a", "theme_color": "#1565c0",
+        "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+                  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]}, ensure_ascii=False), "utf-8")
+    (docs / "sw.js").write_text('self.addEventListener("install",function(){self.skipWaiting()});'
+                                'self.addEventListener("activate",function(e){e.waitUntil(clients.claim())});'
+                                'self.addEventListener("fetch",function(){});\n', "utf-8")
+    (docs / "icon-192.png").write_bytes(base64.b64decode(ICONE_192))
+    (docs / "icon-512.png").write_bytes(base64.b64decode(ICONE_512))
 
 
 def montar(parciais, fontes):
@@ -438,6 +626,7 @@ def montar(parciais, fontes):
     carimbo, dia = agora.strftime("%d/%m/%Y %H:%M"), agora.strftime("%Y-%m-%d")
     hist_path = RAIZ / "dados" / "historico.json"
     hist = json.loads(hist_path.read_text("utf-8")) if hist_path.exists() else {"vagas": {}, "execucoes": []}
+    primeira_rodada = not hist.get("vagas")
 
     por_ordem = {r["ordem"]: r for p in parciais for r in p["resultado"]}
     vagas, fora_vistas, fora = {}, set(), []
@@ -449,6 +638,22 @@ def montar(parciais, fontes):
         for x in p["fora"]:
             if x["url"] not in fora_vistas and x["url"] not in vagas:
                 fora_vistas.add(x["url"]); fora.append(x)
+
+    # a mesma vaga (mesmo cargo, empresa e local) vinda de várias fontes vira um cartão só
+    unicos, grupos = {}, {}
+    for url, v in sorted(vagas.items(), key=lambda kv: kv[1].get("ordem", 10 ** 9)):
+        k = chave_dup(v)
+        if k and k in grupos:
+            g = grupos[k]
+            g.setdefault("tambem", []).append({"fonte": v["fonte"], "url": url})
+            if v.get("data_iso") and not g.get("data_iso"):
+                g["data_iso"] = v["data_iso"]
+            continue
+        unicos[url] = v
+        if k:
+            grupos[k] = v
+    vagas = unicos
+
     resultado = []
     for i, f in enumerate(fontes):
         r = por_ordem.get(i) or {"nome": f["nome"], "url": f.get("url", ""), "tipo": f["tipo"],
@@ -466,26 +671,49 @@ def montar(parciais, fontes):
         h = hf.setdefault(r["nome"], {"falhas": 0, "tentou": dia})
         h["tentou"] = dia
         h["falhas"] = h["falhas"] + 1 if r["status"] == "Falhou" else 0
+        h["rodadas"] = h.get("rodadas", 0) + 1
+        h["vagas_total"] = h.get("vagas_total", 0) + r["vagas"]
 
-    lista = []
+    lista, novas_alta = [], []
     for url, v in vagas.items():
         h = hist["vagas"].setdefault(url, {"primeira": dia})
         h.update({"titulo": v["titulo"], "ultima": dia})
         v["nova"] = h["primeira"] == dia
         v["primeira"] = h["primeira"]
+        if v["nivel"] == "Alta" and not h.get("avisada"):
+            if primeira_rodada:
+                h["avisada"] = True       # na 1ª rodada não manda aviso de tudo de uma vez
+            else:
+                novas_alta.append(v)
         lista.append(v)
     lista.sort(key=lambda v: (v["nivel"] != "Alta", -len(v.get("comp", [])), not v["nova"]))
+    for v in novas_alta[:20]:
+        hist["vagas"][v["url"]]["avisada"] = True
+    escrever_aviso(novas_alta[:20], len(novas_alta), carimbo)
+
+    contar = lambda *pref: sum(1 for r in resultado if r["status"].startswith(pref))
+    saude = {"total": len(resultado), "ok": contar("OK"), "sem_vaga": contar("Carregou, "),
+             "sem_leitura": contar("Carregou sem lista"), "falhou": contar("Falhou"), "pausadas": contar("Pausada"),
+             "nao_lidas": contar("Não lida", "Não rodou", "Sem link")}
+    saude["sem_vaga"] -= saude["sem_leitura"]
+    limpeza = [{"nome": r["nome"], "url": r["url"], "grupo": r["grupo"], "rodadas": hf[r["nome"]]["rodadas"]}
+               for r in resultado if r["tipo"] == "pagina" and r.get("grupo") != "Favorita" and r["nome"] in hf
+               and hf[r["nome"]].get("rodadas", 0) >= 15 and hf[r["nome"]].get("vagas_total", 0) == 0
+               and not r["status"].startswith(("Pausada", "Falhou"))]
+
     hist["execucoes"] = (hist["execucoes"] + [{"quando": carimbo, "vagas": len(lista),
                          "fontes_ok": sum(1 for r in resultado if r["status"].startswith(("OK", "Carregou, sem")))}])[-60:]
     hist_path.parent.mkdir(exist_ok=True)
     hist_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1), "utf-8")
 
-    dados = {"gerado": carimbo, "vagas": lista, "fontes": resultado, "execucoes": hist["execucoes"][-14:], "fora": fora[:60]}
+    dados = {"gerado": carimbo, "vagas": lista, "fontes": resultado, "execucoes": hist["execucoes"][-14:],
+             "fora": fora[:60], "saude": saude, "limpeza": limpeza}
     html = (RAIZ / "modelo.html").read_text("utf-8").replace(
         "__DADOS__", json.dumps(dados, ensure_ascii=False).replace("</", "<\\/"))
     (RAIZ / "docs").mkdir(exist_ok=True)
     (RAIZ / "docs" / "index.html").write_text(html, "utf-8")
-    print(f"{len(lista)} vagas · {sum(1 for r in resultado if r['status'].startswith('OK'))} fontes com vagas · "
+    escrever_app(RAIZ / "docs")
+    print(f"{len(lista)} vagas ({len(novas_alta)} Alta novas) · {saude['ok']} fontes com vagas · "
           f"{len(parciais)} lotes · {carimbo}")
 
 

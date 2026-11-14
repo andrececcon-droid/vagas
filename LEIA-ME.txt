@@ -1,21 +1,33 @@
-ATUALIZACAO DA BUSCA DE VAGAS (versao com lotes)
+ATUALIZACAO DA BUSCA DE VAGAS - versao com painel novo
 
-O que muda: em vez de ler as fontes uma depois da outra (45 a 60 minutos), o GitHub divide
-em lotes de 30 fontes, roda todos ao mesmo tempo e junta no fim (uns 10 a 15 minutos).
-Continua rodando 3 vezes por dia: 7h07, 12h07 e 16h07 (horario de Brasilia).
+O QUE TEM DE NOVO
+- Painel com 3 abas: Vagas, Candidaturas, Fontes.
+- Aviso por e-mail quando aparece vaga "Alta" nova (via GitHub).
+- Candidaturas: andamento, data e observacoes; exporta para Excel (.csv).
+- Levar as marcacoes entre celular e computador (copiar/colar codigo ou arquivo).
+- Datas reais das vagas, filtros (novas hoje, 7 dias, 30 dias) e ordenacao.
+- Em cada vaga: "por que e Alta" e "tambem em..." (mesma vaga em varias fontes).
+- Leitura dos dados estruturados (JobPosting) das paginas: data, empresa e local.
+- Resumo de saude das fontes no topo e sugestao de limpeza.
+- Botao "Copiar para o Claude" em cada vaga.
+- Pode ser instalado como aplicativo no celular.
+- Busca em lotes (30 fontes por lote, ao mesmo tempo): 7h07, 12h07 e 16h07.
 
-Arquivos: buscar_vagas.py, fontes.json, modelo.html e a pasta .github (agendador).
-
-NAO existem aqui as pastas "dados" e "docs" de proposito. Elas guardam o historico e o
-painel que ja estao no seu GitHub, e enviar de novo apagaria o historico.
-
-Como usar:
+COMO USAR
 1. Extraia este zip no computador.
-2. No GitHub, abra o repositorio "vagas", clique em Add file > Upload files.
-3. Arraste os 3 arquivos E a pasta ".github" para a pagina. Clique em Commit changes.
-4. Aba Actions > Buscar vagas > Run workflow, para testar. Vao aparecer varios "coletar"
-   ao mesmo tempo: e normal, cada um e um lote.
+2. No GitHub, repositorio "vagas": Add file > Upload files.
+3. Arraste os 3 arquivos E a pasta ".github" e clique em Commit changes.
+   (NAO existem aqui as pastas "dados" e "docs" de proposito: elas guardam o historico
+   e o painel que ja estao no GitHub. Os arquivos do aplicativo sao criados sozinhos.)
+4. Aba Actions > Buscar vagas > Run workflow.
 
-Se o GitHub nao aceitar a pasta .github: abra o arquivo .github/workflows/vagas.yml no
-repositorio, clique no lapis, apague tudo, cole o texto do vagas.yml deste pacote e
-clique em Commit changes.
+AVISO POR E-MAIL (conferir uma vez)
+- O GitHub manda o e-mail para quem acompanha o repositorio. No repositorio, clique em
+  "Watch" (olho, no alto) e escolha "All Activity" (ou "Custom" > "Issues").
+- Em github.com/settings/notifications, deixe o e-mail ligado.
+- A primeira rodada NAO envia aviso (para nao mandar tudo de uma vez). A partir da
+  segunda, so as vagas Alta novas.
+
+SE O GITHUB NAO ACEITAR A PASTA .github
+Abra .github/workflows/vagas.yml no repositorio, clique no lapis, apague tudo, cole o
+texto do vagas.yml deste pacote e clique em Commit changes.

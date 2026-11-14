@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  issues: write
 concurrency:
   group: buscar-vagas
   cancel-in-progress: false
@@ -71,3 +72,10 @@ jobs:
           git commit -m "Atualização automática" || echo "sem mudanças"
           git pull --rebase
           git push
+
+      # Aviso por e-mail: o GitHub manda para você quando aparecer vaga Alta nova
+      - name: Avisar vagas novas
+        if: ${{ hashFiles('aviso.md') != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "$(cat aviso-titulo.txt)" --body-file aviso.md
