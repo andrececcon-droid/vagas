@@ -63,12 +63,17 @@ CONTABIL_RE = re.compile(r"\b(?:contador(?:a)?|contabilista|"
 CRC_RE = re.compile(r"\bCRC\b|conselho regional de contabilidade", re.I)
 # Texto do cartão que vem junto com o título em alguns sites ("... Empresa confidencial Presencial CLT ...")
 CORTE_TITULO = re.compile(r"\s+(?:Empresa confidencial|Vaga confidencial|Presencial|H[ií]brido|Home ?office|CLT\b|PJ\b|"
-                          r"\d+ vagas?|Publicada|Ver vaga)", re.I)
+                          r"\d+ vagas?|Publicada|Ver vaga|A combinar|R\$ ?\d)", re.I)
 
 
 def limpar_titulo(t):
     m = CORTE_TITULO.search(t)
-    return (t[:m.start()] if m else t).strip(" →-–|:·")
+    t = t[:m.start()] if m else t
+    t = re.sub(r"^NOVA\s+BM VAGAS\s+Unidade\s+\w+\s+", "", t, flags=re.I)
+    ach = achar_local_uf(t)
+    if ach and ach[0] >= 8:
+        t = t[:ach[0]]                       # a cidade que vem dentro do título não faz parte do cargo
+    return t.strip(" →-–|:·")
 
 CARGO_RE = re.compile(r"\b(?:analista|assistente|auxiliar|gerente|coordenador|coordenadora|supervisor|supervisora|"
                       r"gestor|gestora|diretor|diretora|controller|controlador|controladora|especialista|consultor|"
@@ -94,6 +99,32 @@ CIDADE_UF = re.compile(_CID + rf"\s*[-–/,]\s*({UF_FORA})\b")
 CIDADE_RS = re.compile(_CID + r"\s*[-–/,]\s*RS\b")
 
 
+NAO_CIDADE = {"pagar", "receber", "financeiro", "financeira", "administrativo", "administrativa", "analista", "gerente",
+              "coordenador", "pleno", "senior", "sênior", "junior", "júnior", "contas", "compras", "fiscal", "custos",
+              "controller", "vendas", "comercial", "faturamento", "cobrança", "cobranca", "tesouraria", "rh", "ti"}
+
+
+def achar_local_uf(t):
+    """Procura 'Cidade / UF' no texto. Devolve (início da cidade, 'Cidade - UF', 'fora' ou 'rs') ou None."""
+    for rx, regiao in ((CIDADE_UF, "fora"), (CIDADE_RS, "rs")):
+        for m in rx.finditer(t):
+            palavras = m.group(1).split()
+            while len(palavras) >= 3 and palavras[0].isupper() and not palavras[1].isupper():
+                palavras.pop(0)                          # "RECEBER Belo Horizonte" -> "Belo Horizonte"
+            while palavras and palavras[0].lower() in NAO_CIDADE:
+                palavras.pop(0)                          # "Financeiro Caxias do Sul" -> "Caxias do Sul"
+            if not palavras:
+                continue                                 # "Contas a Pagar - AP": sigla do cargo, não é estado
+            cidade = " ".join(palavras)
+            uf = m.group(2) if regiao == "fora" else "RS"
+            try:
+                inicio = t.index(cidade, m.start(1))
+            except ValueError:
+                inicio = m.start(1)
+            return inicio, f"{cidade} - {uf}", regiao
+    return None
+
+
 def detectar_local(ctx, titulo=""):
     """Devolve (texto do local, região): poa, rs, remoto, fora ou ? (não informado)."""
     txt = ctx.replace(titulo, " ") if titulo else ctx
@@ -101,15 +132,14 @@ def detectar_local(ctx, titulo=""):
     for c in GRANDE_POA:
         if re.search(r"\b" + re.escape(c) + r"\b", low):
             return c.title().replace(" Do ", " do "), "poa"
-    m = CIDADE_UF.search(txt)
-    if m:
-        return f"{re.sub(r'^(?:Pleno|S[êe]nior|J[úu]nior)\s+', '', m.group(1))} - {m.group(2)}", "fora"
+    ach = achar_local_uf(txt)
+    if ach and ach[2] == "fora":
+        return ach[1], "fora"
     for e in ESTADOS_FORA:
         if e in low:
             return e.title(), "fora"
-    m = CIDADE_RS.search(txt)
-    if m:
-        return f"{m.group(1)} - RS", "rs"
+    if ach and ach[2] == "rs":
+        return ach[1], "rs"
     if re.search(r"remot|home.?office", (txt + " " + titulo).lower()):
         return "Remoto", "remoto"
     return "", "?"
@@ -204,7 +234,7 @@ def extrair(html, base):
         vistos.add(href)
         ctx = contexto(a, txt)
         m = DATA_RE.search(ctx)
-        local, regiao = detectar_local(ctx + " " + bruto, txt)
+        local, regiao = detectar_local(ctx + " " + bruto, "")
         achadas.append({"titulo": txt, "empresa": "", "url": href, "nivel": n,
                         "data": m.group(0) if m else None, "data_iso": normalizar_data(m.group(0)) if m else None,
                         "local": local, "regiao": regiao})
