@@ -1,0 +1,147 @@
+{
+ "tipo": "alertas",
+ "v": 1,
+ "gerado": "2026-11-15",
+ "vagas": [
+  {
+   "titulo": "Gestor Administrativo Financeiro",
+   "empresa": "MORELEH IND E COM LTDA",
+   "local": "",
+   "fonte": "Alerta (Infojobs)",
+   "data": "2026-11-13",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881778950722208264",
+   "nivel": "Alta",
+   "obs": "100% dos inscritos são do RS"
+  },
+  {
+   "titulo": "Supervisor Administrativo Financeiro",
+   "empresa": "PURE KEMIKA",
+   "local": "",
+   "fonte": "Alerta (Infojobs)",
+   "data": "2026-11-13",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881778951512703088",
+   "nivel": "Alta",
+   "obs": ""
+  },
+  {
+   "titulo": "Analista Financeiro Pleno",
+   "empresa": "Group Indigo Brasil",
+   "local": "",
+   "fonte": "Alerta (LinkedIn)",
+   "data": "2026-11-13",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881769542576491338",
+   "nivel": "Alta",
+   "obs": ""
+  },
+  {
+   "titulo": "Analista Financeiro",
+   "empresa": "Jobbol",
+   "local": "",
+   "fonte": "Alerta (LinkedIn)",
+   "data": "2026-11-14",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881838015324191073",
+   "nivel": "Alta",
+   "obs": ""
+  },
+  {
+   "titulo": "Analista Financeiro",
+   "empresa": "MUV RECURSOS HUMANOS",
+   "local": "",
+   "fonte": "Alerta (Infojobs)",
+   "data": "2026-11-13",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881778950959032778",
+   "nivel": "Alta",
+   "obs": ""
+  },
+  {
+   "titulo": "Analista Financeiro Sênior - Crédito, Cobrança e Faturamento",
+   "empresa": "",
+   "local": "",
+   "fonte": "Alerta (Infojobs)",
+   "data": "2026-11-13",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881747762973397022",
+   "nivel": "Alta",
+   "obs": "você começou a candidatura e não finalizou"
+  },
+  {
+   "titulo": "Analista Sr - ADM/Financeiro",
+   "empresa": "FACE DOCTOR SERVICOS DE FRANCHISING LTDA",
+   "local": "",
+   "fonte": "Alerta (Glassdoor)",
+   "data": "2026-11-15",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881935164098943267",
+   "nivel": "Média",
+   "obs": ""
+  },
+  {
+   "titulo": "Supervisor Administrativo",
+   "empresa": "SAFE PARK",
+   "local": "",
+   "fonte": "Alerta (Infojobs)",
+   "data": "2026-11-13",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881778950923300393",
+   "nivel": "Média",
+   "obs": ""
+  },
+  {
+   "titulo": "Analista de Crédito",
+   "empresa": "SEJA FIDC",
+   "local": "Porto Alegre/RS",
+   "fonte": "Alerta (LinkedIn)",
+   "data": "2026-11-12",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881687019933751235",
+   "nivel": "Média",
+   "obs": ""
+  },
+  {
+   "titulo": "Accounts Payable",
+   "empresa": "assist point",
+   "local": "",
+   "fonte": "Alerta (Indeed)",
+   "data": "2026-11-14",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881827183859970188",
+   "nivel": "Média",
+   "obs": ""
+  },
+  {
+   "titulo": "Analista Administrativo Pleno - Manutenção",
+   "empresa": "99jobs",
+   "local": "",
+   "fonte": "Alerta (Glassdoor)",
+   "data": "2026-11-14",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881844185461027003",
+   "nivel": "Média",
+   "obs": ""
+  },
+  {
+   "titulo": "Coordenador de Compliance",
+   "empresa": "Webcontinental LTDA",
+   "local": "",
+   "fonte": "Alerta (Glassdoor)",
+   "data": "2026-11-13",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881753195213540334",
+   "nivel": "Média",
+   "obs": ""
+  }
+ ],
+ "candidaturas": [
+  {
+   "titulo": "Gerente de Projetos - Operacional",
+   "empresa": "D-Tax Soluções Tributárias",
+   "fonte": "Alerta (Infojobs)",
+   "data": "2026-11-13",
+   "status": "Retorno",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881774439300951713",
+   "obs": "Chegou e-mail de 'Retorno do processo seletivo'. Abra para ver o resultado."
+  },
+  {
+   "titulo": "Coordenador(a) de Fomento e Incentivos",
+   "empresa": "Pontelos Consultoria Empresarial",
+   "fonte": "Alerta (LinkedIn)",
+   "data": "2026-11-12",
+   "status": "Enviado",
+   "url": "https://mail.google.com/mail/?authuser=andre.ceccon@gmail.com#all/thread-f:1881691171139733665",
+   "obs": "A empresa viu a candidatura em 12/11."
+  }
+ ]
+}

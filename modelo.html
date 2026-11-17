@@ -40,10 +40,11 @@ textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:1
 <div id="cp" class="sub">Cole aqui o token do GitHub. Ele fica salvo só neste navegador, não vai para a página pública.<br><input id="tk" type="password" placeholder="token do GitHub" autocomplete="off"> <button class="mini" id="sv">Salvar</button> <button class="mini" id="rm">Remover</button></div>
 <div class="sub" id="ios" hidden>No iPhone: toque em Compartilhar e depois em “Adicionar à Tela de Início”.</div>
 
-<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="cargos">Por cargo</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="fontes">Fontes</button></nav>
+<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="cargos">Por cargo</button><button data-t="alertas">Alertas <span id="nal"></span></button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="fontes">Fontes</button></nav>
 
 <section id="t-vagas">
 <div class="saude" id="saude"></div>
+<div class="sub" id="alNudge"></div>
 <details class="f" id="filtros" open><summary>Filtros e ordenação</summary>
 <div class="bar"><input id="q" placeholder="Buscar cargo ou empresa…"><select id="fm"></select>
 <select id="fp"><option value="">Qualquer data</option><option value="hoje">Novas hoje</option><option value="7">Últimos 7 dias</option><option value="30">Últimos 30 dias</option></select>
@@ -67,6 +68,16 @@ textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:1
 <div class="saude" id="cargosChips"></div>
 <div class="row" style="margin:6px 0"><label class="ck"><input type="checkbox" id="soPend"> Só pendentes</label><label class="ck"><input type="checkbox" id="soLink"> Só links confirmados</label></div>
 <div id="cargosLista"></div></section>
+
+<section id="t-alertas" hidden>
+<h2 style="margin-top:8px">Rotina de alertas por e-mail</h2>
+<div class="card"><div id="alStatus" class="meta"></div>
+<ol style="margin:6px 0 6px 18px;padding:0;font-size:14px"><li>Toque em <b>Copiar pedido</b>.</li><li>Cole no chat do Claude, com o Gmail conectado. Ele lê só o assunto e a prévia dos alertas e devolve um bloco.</li><li>Cole o bloco aqui embaixo e toque em <b>Importar</b>.</li></ol>
+<div class="row"><button class="btn" id="alCopiar">📋 Copiar pedido para o Claude</button><label class="meta">Ler e-mails desde <input type="date" id="alDesde" style="padding:6px 8px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)"></label></div>
+<textarea id="alBloco" placeholder="Cole aqui o bloco que o Claude devolver" style="margin-top:8px"></textarea>
+<div class="row" style="margin-top:6px"><button class="btn" id="alImportar">Importar</button><button class="mini" id="alApagar">Apagar vagas importadas</button><span class="sub" id="alMsg"></span></div></div>
+<div class="sub" style="margin-top:8px">As vagas importadas ficam salvas neste aparelho por 30 dias e aparecem junto com as outras, com a fonte “Alerta (…)”. O link de cada uma abre o e-mail no Gmail, onde está o botão da vaga. As candidaturas que o Claude achar nos e-mails entram na aba Candidaturas.</div>
+</section>
 
 <section id="t-candidaturas" hidden>
 <div class="row" style="margin:8px 0"><button class="btn" id="csv">⬇ Exportar para Excel (.csv)</button><span class="sub">Cada vaga marcada como “Me candidatei” entra aqui. Anote o andamento.</span></div>
@@ -95,9 +106,9 @@ try{C=JSON.parse(localStorage.getItem(KC)||"{}")||{}}catch(e){C={}}
 var KI="vagas_info_v1",KR="vagas_regras_v1",INFO={},R={auto:true,manual:[],dias:0,ignoradas:[],liberadas:{}},RG={pal:{},dias:0,ap:{palavras:[]}};
 try{INFO=JSON.parse(localStorage.getItem(KI)||"{}")||{}}catch(e){INFO={}}
 try{var r0=JSON.parse(localStorage.getItem(KR)||"null");if(r0)R=Object.assign(R,r0)}catch(e){}
-function salvar(){try{localStorage.setItem(KEY,JSON.stringify(E));localStorage.setItem(KC,JSON.stringify(C));localStorage.setItem(KI,JSON.stringify(INFO));localStorage.setItem(KR,JSON.stringify(R))}catch(e){$("av").style.display="inline"}}
+function salvar(){try{localStorage.setItem(KEY,JSON.stringify(E));localStorage.setItem(KC,JSON.stringify(C));localStorage.setItem(KI,JSON.stringify(INFO));localStorage.setItem(KR,JSON.stringify(R));localStorage.setItem(KA,JSON.stringify(AX))}catch(e){$("av").style.display="inline"}}
 function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
-function nrm(u){try{var x=new URL(u);x.hash="";["utm_source","utm_medium","utm_campaign","jobBoardSource"].forEach(function(k){x.searchParams.delete(k)});return x.toString()}catch(e){return u}}
+function nrm(u){try{var x=new URL(u);if(x.hostname!=="mail.google.com")x.hash="";["utm_source","utm_medium","utm_campaign","jobBoardSource"].forEach(function(k){x.searchParams.delete(k)});return x.toString()}catch(e){return u}}
 function sem(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim()}
 function ks(v){return [nrm(v.url),"t:"+sem(v.titulo)+"|"+sem(v.empresa||v.fonte)+"|"+sem(v.local)]}
 function est(v){var k=ks(v);return E[k[0]]||E[k[1]]||""}
@@ -128,6 +139,13 @@ function copiar(txt,ok){function fb(){var t=document.createElement("textarea");t
 function baixar(nome,txt,tipo){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:tipo}));a.download=nome;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
 function textoClaude(v){return "Quero me candidatar a esta vaga. Use o meu currículo (já está nesta conversa ou no projeto) para:\n1) dizer se a vaga combina comigo e quais pontos do meu currículo destacar;\n2) adaptar o resumo e os principais resultados do currículo para esta vaga;\n3) escrever uma mensagem curta para o recrutador.\n\nVAGA: "+v.titulo+"\nEMPRESA: "+(v.empresa||v.fonte)+"\nLOCAL: "+(v.local||"não informado")+"\nPUBLICADA: "+(v.data_iso?fmtData(v.data_iso):"data não informada")+"\nLINK: "+v.url+"\nMINHAS COMPETÊNCIAS CITADAS NA VAGA: "+((v.comp||[]).join(", ")||"nenhuma identificada")+"\n\nDESCRIÇÃO:\n"+(v.descricao||"(a descrição não foi lida; abra o link, copie o texto da vaga e cole aqui)")}
 
+var KA="vagas_alertas_v1",AX={vagas:[],ult:""};
+try{AX=Object.assign(AX,JSON.parse(localStorage.getItem(KA)||"{}"))}catch(e){}
+AX.vagas=(AX.vagas||[]).filter(function(a){return a&&a.url&&dias(HOJE,a.primeira||HOJE)<=30});
+function ckey(v){return sem(v.titulo)+"|"+sem(v.empresa||"")}
+function mesclarAlertas(){var vistos={},cks={};D.vagas.forEach(function(v){vistos[nrm(v.url)]=1;if(v.empresa)cks[ckey(v)]=1});
+ AX.vagas.forEach(function(a){if(vistos[nrm(a.url)]||(a.empresa&&cks[ckey(a)]))return;D.vagas.push(a);vistos[nrm(a.url)]=1})}
+mesclarAlertas();
 $("ger").textContent="Última busca: "+D.gerado+" (horário de Brasília). Compatibilidade estimada pelo cargo e pelas suas competências.";
 var RS0=resumoFontes();$("saude").innerHTML=RS0.lidas?"<span class='ok'>✔ "+RS0.verificadas+" de "+RS0.lidas+" páginas verificadas ("+RS0.pct+"%)</span><span>"+RS0.com+" com vagas</span><span>"+RS0.sem+" sem vaga hoje</span><span>"+RS0.js+" sem lista (JS)</span><span class='er'>"+(RS0.falha+RS0.pausa+RS0.outro)+" não verificadas</span><span>"+RS0.alerta+" só por alerta</span><span><a href='#fontes' data-ir='fontes'>ver detalhes</a></span>":"";
 var g=$("grid"),q=$("q"),fm=$("fm"),fp=$("fp"),fz=$("fz"),fr=$("fr"),fs=$("fs"),fc=$("fc"),fl=$("fl");
@@ -146,7 +164,7 @@ function card(v,i){var s=est(v),loc=v.local?'<div class="loc">📍 '+esc(v.local
  var dt=v.data_iso?"Publicada: "+fmtData(v.data_iso):"Vista em "+fmtData(v.primeira);
  return '<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empresa||v.fonte)+'</div>'+loc+comp+por+tb+'<div>'+
  '<span class="tag '+v.nivel+'">Compatibilidade '+v.nivel+'</span>'+(v.nova?'<span class="tag nova">Nova</span>':'')+'<span class="tag">'+esc(v.fonte)+'</span><span class="tag">'+dt+'</span>'+
- (v.prazo?'<span class="tag">Prazo: '+esc(v.prazo)+'</span>':'')+'<span class="tag">'+({ok:"Link da vaga confirmado ✓",incerto:"⚠ Link não confirmado (pode abrir a lista do site)",login:"⚠ O link pede login",nao_abre:"Link não abriu",nao_testado:"Link não testado"}[v.link_status]||(v.verificada===true?"Link verificado":"Link não testado"))+'</span></div>'+
+ (v.prazo?'<span class="tag">Prazo: '+esc(v.prazo)+'</span>':'')+'<span class="tag">'+({ok:"Link da vaga confirmado ✓",incerto:"⚠ Link não confirmado (pode abrir a lista do site)",login:"⚠ O link pede login",nao_abre:"Link não abriu",nao_testado:"Link não testado",alerta:"📧 Link do alerta (abre o e-mail no Gmail)"}[v.link_status]||(v.verificada===true?"Link verificado":"Link não testado"))+'</span></div>'+
  '<div class="row"><a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir vaga →</a><button class="mini" data-cp="'+i+'">📋 Copiar para o Claude</button></div>'+
  '<div class="acoes"><label class="ck"><input type="checkbox" data-i="'+i+'" data-t="c"'+(s=="c"?" checked":"")+'> Me candidatei</label>'+
  '<label class="ck"><input type="checkbox" data-i="'+i+'" data-t="n"'+(s=="n"?" checked":"")+'> Não aplicável</label></div></div>'}
@@ -176,11 +194,12 @@ $("lc").addEventListener("click",function(e){if(!e.target.getAttribute("data-rm"
 $("csv").addEventListener("click",function(){var L=[["Data","Andamento","Cargo","Empresa","Local","Fonte","Link","Observações"]];
  Object.keys(C).map(function(k){return C[k]}).sort(function(a,b){return (b.data||"").localeCompare(a.data||"")}).forEach(function(r){L.push([fmtData(r.data),r.status,r.titulo,r.empresa,r.local,r.fonte,r.url,r.obs||""])});
  baixar("candidaturas.csv","\ufeff"+L.map(function(l){return l.map(function(c){return '"'+String(c==null?"":c).replace(/"/g,'""')+'"'}).join(";")}).join("\r\n"),"text/csv;charset=utf-8")});
-function exportar(){return JSON.stringify({v:2,marcas:E,candidaturas:C,info:INFO,regras:R,em:new Date().toISOString()})}
+function exportar(){return JSON.stringify({v:2,marcas:E,candidaturas:C,info:INFO,regras:R,alertas:AX.vagas,em:new Date().toISOString()})}
 function importar(txt){var o;try{o=JSON.parse(txt)}catch(e){alert("Esse código não é válido.");return}
  if(!o||typeof o.marcas!=="object"){alert("Esse código não é válido.");return}
  Object.keys(o.marcas).forEach(function(k){E[k]=o.marcas[k]});
  Object.keys(o.candidaturas||{}).forEach(function(k){var n=o.candidaturas[k],a=C[k];if(!a||(n.atualizado||0)>(a.atualizado||0))C[k]=n});
+ (o.alertas||[]).forEach(function(a){if(a&&a.url&&!AX.vagas.some(function(x){return nrm(x.url)===nrm(a.url)})&&!D.vagas.some(function(v){return nrm(v.url)===nrm(a.url)})){AX.vagas.push(a);D.vagas.push(a)}});refazFontes();
  Object.keys(o.info||{}).forEach(function(k){INFO[k]=o.info[k]});
  if(o.regras){["manual","ignoradas"].forEach(function(c){(o.regras[c]||[]).forEach(function(w){if(R[c].indexOf(w)<0)R[c].push(w)})});if(o.regras.dias&&!R.dias)R.dias=o.regras.dias}
  salvar();draw();drawCand();drawRegras();toast("Dados importados e juntados.")}
@@ -248,11 +267,39 @@ function drawCargos(){var so=$("soPend").checked,sl=$("soLink").checked,g={},h="
   h+='<details class="f" open><summary>'+esc(c[1])+' — '+A.length+' vaga(s), '+p+' pendente(s)</summary><div class="tw"><table><tr><th>Cargo</th><th>Empresa / fonte</th><th>Local</th><th>Compat.</th><th>Publicada</th><th>Situação</th><th></th></tr>'+(L.length?L.map(linha).join(""):'<tr><td colspan="7" class="meta">Nenhuma com esses filtros.</td></tr>')+'</table></div></details>'});
  $("cargosChips").innerHTML=chips;$("cargosLista").innerHTML=h||'<div class="sub">Nenhuma vaga nesta rodada.</div>'}
 ["soPend","soLink"].forEach(function(i){$(i).addEventListener("change",drawCargos)});
-$("saude").addEventListener("click",function(e){if(e.target.getAttribute("data-ir")){e.preventDefault();aba("fontes")}});
+$("alNudge").addEventListener("click",function(e){var ir=e.target.getAttribute("data-ir");if(ir){e.preventDefault();aba(ir)}});
+$("saude").addEventListener("click",function(e){var ir=e.target.getAttribute("data-ir");if(ir){e.preventDefault();aba(ir)}});
+/* ----- rotina de alertas por e-mail ----- */
+function regiaoDe(l){var t=sem(l);if(/\b(sp|mg|rj|pr|sc|df|ba|go|pe|ce|es|mt|ms|pa|am)\b/.test(t)||/(sao paulo|minas gerais|rio de janeiro|curitiba|florianopolis|belo horizonte)/.test(t))return "fora";
+ if(/(porto alegre|canoas|sao leopoldo|novo hamburgo|gravatai|cachoeirinha|alvorada|viamao|esteio|sapucaia|guaiba|eldorado)/.test(t))return "poa";if(/\brs\b|rio grande do sul/.test(t))return "rs";if(/remot/.test(t))return "remoto";return "?"}
+function msgAl(t){$("alMsg").textContent=t}
+function nDias(){return AX.ult?Math.round(dias(hojeLocal(),AX.ult)):null}
+function drawAlertas(){var n=nDias(),nA=AX.vagas.length;$("nal").textContent=nA?"("+nA+")":"";
+ $("alStatus").textContent=(AX.ult?"Última importação: "+fmtData(AX.ult)+" (há "+n+" dia"+(n===1?"":"s")+"). ":"Você ainda não importou alertas. ")+nA+" vaga(s) importada(s) guardada(s) neste aparelho.";
+ if(!$("alDesde").value){var d=new Date();d.setDate(d.getDate()-7);$("alDesde").value=AX.ult||new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)}
+ $("alNudge").innerHTML=(!AX.ult||n>=1)?'📧 '+(AX.ult?"Última importação de alertas: há "+n+" dia"+(n===1?"":"s"):"Você ainda não importou os alertas de e-mail")+'. <a href="#alertas" data-ir="alertas">Abrir a rotina</a>':""}
+function pedido(desde){var d=(desde||"").replace(/-/g,"/");return "ROTINA DE ALERTAS DE VAGAS (use o conector do Gmail)\n\nLeia os e-mails de alerta de vaga recebidos desde "+d+" (Gmail: after:"+d+") destes remetentes: LinkedIn (jobalerts-noreply@linkedin.com, jobs-listings@linkedin.com, jobs-noreply@linkedin.com), Indeed, Glassdoor, Infojobs, Catho e iNeed.\n\nREGRAS:\n- Leia só assunto e prévia (snippet). Não abra e-mails inteiros e não altere nada na minha caixa.\n- Fique só com: Gerente administrativo/financeiro, Controller, Coordenador/Gestor/Supervisor financeiro ou administrativo, Analista financeiro/FP&A/planejamento/controladoria (pleno ou sênior), na Grande Porto Alegre ou sem cidade informada.\n- Descarte: contador, analista contábil, auditoria, assistente, auxiliar, júnior, estágio, vagas fora do RS, vagas operacionais, marketing e TI.\n- Se o e-mail confirmar candidatura enviada ou trouxer retorno de processo seletivo, coloque em \"candidaturas\".\n- Use como url o link do e-mail no Gmail (viewUrl).\n\nDevolva SOMENTE um bloco JSON neste formato:\n{\"tipo\":\"alertas\",\"v\":1,\"vagas\":[{\"titulo\":\"\",\"empresa\":\"\",\"local\":\"\",\"fonte\":\"Alerta (LinkedIn)\",\"data\":\"AAAA-MM-DD\",\"url\":\"\",\"nivel\":\"Alta ou Média\",\"obs\":\"\"}],\"candidaturas\":[{\"titulo\":\"\",\"empresa\":\"\",\"fonte\":\"\",\"data\":\"AAAA-MM-DD\",\"status\":\"Enviado|Entrevista|Retorno|Oferta|Recusa|Sem resposta\",\"url\":\"\",\"obs\":\"\"}]}\nDepois do bloco, resuma em 3 linhas o que encontrou."}
+function refazFontes(){var cur=fs.value;fs.innerHTML='<option value="">Todas as fontes</option>';D.vagas.map(function(v){return v.fonte}).filter(function(x,i,a){return a.indexOf(x)==i}).forEach(function(f){var o=document.createElement("option");o.textContent=f;fs.appendChild(o)});fs.value=cur}
+function importarAlertas(txt){var i=txt.indexOf("{"),j=txt.lastIndexOf("}");if(i<0||j<=i){msgAl("Não achei o bloco. Cole tudo que o Claude devolveu.");return}
+ var o;try{o=JSON.parse(txt.slice(i,j+1))}catch(e){msgAl("O bloco não é um JSON válido. Peça ao Claude para devolver só o bloco.");return}
+ var hoje=hojeLocal(),novos=0,rep=0,fora=0,cn=0,cr=0;
+ (o.vagas||[]).forEach(function(a){if(!a||!a.titulo||!a.url)return;var reg=regiaoDe(a.local||"");if(reg==="fora"){fora++;return}
+  var ex=D.vagas.some(function(v){return nrm(v.url)===nrm(a.url)||(a.empresa&&v.empresa&&ckey(v)===ckey(a))});if(ex){rep++;return}
+  var v={titulo:String(a.titulo),empresa:a.empresa||"",fonte:a.fonte||"Alerta de e-mail",grupo:"Alerta por e-mail",url:a.url,local:a.local||"",regiao:reg,nivel:a.nivel==="Alta"?"Alta":"Média",
+   data_iso:/^\d{4}-\d{2}-\d{2}$/.test(a.data||"")?a.data:"",primeira:hoje,nova:true,comp:[],lida:false,verificada:null,link_status:"alerta",origem:"alerta",descricao:"",
+   porque:"vinda de alerta de e-mail, triada pelo título"+(a.obs?" · "+a.obs:"")};AX.vagas.push(v);D.vagas.push(v);novos++});
+ (o.candidaturas||[]).forEach(function(c){if(!c||!c.titulo)return;var k=nrm(c.url||("alerta:"+sem(c.titulo)+"|"+sem(c.empresa||"")));if(C[k]){cr++;return}
+  C[k]={titulo:c.titulo,empresa:c.empresa||"",local:c.local||"",fonte:c.fonte||"Alerta de e-mail",url:c.url||"",data:/^\d{4}-\d{2}-\d{2}$/.test(c.data||"")?c.data:hoje,
+   status:STATUS.indexOf(c.status)>=0?c.status:"Enviado",obs:c.obs||"",atualizado:Date.now()};cn++});
+ AX.ult=hoje;salvar();refazFontes();draw();drawCand();drawResumo();drawAlertas();
+ msgAl(novos+" vaga(s) nova(s), "+rep+" já existiam"+(fora?", "+fora+" fora do RS descartada(s)":"")+"; "+cn+" candidatura(s) lançada(s)"+(cr?", "+cr+" já estava(m) lançada(s)":"")+".")}
+$("alCopiar").addEventListener("click",function(){copiar(pedido($("alDesde").value),function(){toast("Pedido copiado. Cole no chat do Claude.")})});
+$("alImportar").addEventListener("click",function(){importarAlertas($("alBloco").value)});
+$("alApagar").addEventListener("click",function(){if(!AX.vagas.length)return;if(confirm("Apagar as "+AX.vagas.length+" vagas importadas deste aparelho?")){var us={};AX.vagas.forEach(function(a){us[a.url]=1});D.vagas=D.vagas.filter(function(v){return !us[v.url]});AX.vagas=[];salvar();refazFontes();draw();drawResumo();drawAlertas();msgAl("Vagas importadas apagadas.")}});
 /* ----- abas ----- */
-function aba(n){["vagas","cargos","candidaturas","fontes"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
+function aba(n){["vagas","cargos","alertas","candidaturas","fontes"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
 document.querySelector(".tabs").addEventListener("click",function(e){var n=e.target.getAttribute("data-t");if(n){aba(n);try{history.replaceState(null,"","#"+n)}catch(x){}}});
-var h0=location.hash.slice(1);if(["vagas","cargos","candidaturas","fontes"].indexOf(h0)>=0)aba(h0);
+var h0=location.hash.slice(1);if(["vagas","cargos","alertas","candidaturas","fontes"].indexOf(h0)>=0)aba(h0);
 if(window.matchMedia&&matchMedia("(max-width:640px)").matches)$("filtros").open=false;
 
 /* ----- aplicativo (celular) ----- */
@@ -280,5 +327,5 @@ if(!t){window.open("https://github.com/"+REPO+"/actions/workflows/vagas.yml","_b
 up.disabled=true;msg("Enviando pedido…");var t0=Date.now();
 fetch(API+"/dispatches",{method:"POST",headers:{Accept:"application/vnd.github+json",Authorization:"Bearer "+t,"X-GitHub-Api-Version":"2022-11-28"},body:JSON.stringify({ref:"main"})}).then(function(r){up.disabled=false;
 if(r.status==204){msg("Busca iniciada. Leva uns 10 a 15 minutos.");acomp(t0)}else if(r.status==401||r.status==403||r.status==404)msg("O GitHub recusou o token (inválido, vencido ou sem permissão). Gere outro em Configurar botão.");else msg("Erro "+r.status+" ao chamar o GitHub.")}).catch(function(){up.disabled=false;msg("Sem conexão com o GitHub.")})});
-drawResumo();draw();drawCand();drawRegras();
+drawResumo();draw();drawCand();drawRegras();drawAlertas();
 </script></body></html>
