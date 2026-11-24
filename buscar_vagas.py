@@ -989,6 +989,8 @@ def montar(parciais, fontes):
             if x["url"] not in fora_vistas and x["url"] not in vagas:
                 fora_vistas.add(x["url"]); fora.append(x)
 
+    for u in [u for u in vagas if "jobsora" in u.lower()]:
+        del vagas[u]          # Jobsora não é usado (pedido do André)
     # a mesma vaga (mesmo cargo, empresa e local) vinda de várias fontes vira um cartão só
     unicos, grupos = {}, {}
     for url, v in sorted(vagas.items(), key=lambda kv: kv[1].get("ordem", 10 ** 9)):

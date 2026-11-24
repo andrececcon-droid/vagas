@@ -1,6 +1,3 @@
-O QUE MUDOU (v3)
-1. fontes.json: +26 fontes do grupo "Agregador" (Adzuna, Infojobs, Jobsora, Catho, Indeed, Glassdoor, Vagas POA) com o link direto da lista de vagas de cada cargo seu em Porto Alegre.
-2. controle.json: lista de vagas reais conhecidas (Cabergs, Intercity, Datum, ABF, Build Way, Quality, Caldeira, ITEC...).
-3. Aba Auditoria > "Teste de controle": mostra quantas dessas vagas o robô viu, quais estão no painel e quais foram descartadas (e por quê).
-COMO SUBIR: GitHub > Add file > Upload files > os 4 arquivos (substitua) > Commit. Depois Actions > Run workflow.
-Obs.: Indeed, Glassdoor e Catho costumam bloquear robôs. O Raio-X mostra o que cada um respondeu.
+v4: Jobsora removido (3 fontes saem do fontes.json; o robô e o painel descartam qualquer vaga do Jobsora).
+Nova aba "Spam": todas as vagas cujo link aponta para Infojobs ou Catho ficam la, fora da lista principal.
+Subir no GitHub: buscar_vagas.py, modelo.html, fontes.json (substituir) e rodar Actions > Run workflow.

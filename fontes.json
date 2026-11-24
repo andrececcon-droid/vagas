@@ -1223,24 +1223,6 @@
   "grupo": "Agregador"
  },
  {
-  "nome": "Jobsora RS – Coord. financeiro/controladoria",
-  "tipo": "pagina",
-  "url": "https://br.jobsora.com/empregos-coordenador-financeiro-e-controladoria-estado-do-rio-grande-do-sul",
-  "grupo": "Agregador"
- },
- {
-  "nome": "Jobsora RS – Gerente financeiro",
-  "tipo": "pagina",
-  "url": "https://br.jobsora.com/empregos-gerente-financeiro-estado-do-rio-grande-do-sul",
-  "grupo": "Agregador"
- },
- {
-  "nome": "Jobsora RS – Controller",
-  "tipo": "pagina",
-  "url": "https://br.jobsora.com/empregos-controller-estado-do-rio-grande-do-sul",
-  "grupo": "Agregador"
- },
- {
   "nome": "Catho POA – Gerente financeiro e controller",
   "tipo": "pagina",
   "url": "https://www.catho.com.br/vagas/gerente-financeiro-e-controller/porto-alegre-rs/",
