@@ -1,41 +1,6 @@
-PACOTE v2 - AUDITORIA E REVISAO GERAL (24/11/2026)
-
-O QUE A AUDITORIA ENCONTROU
-1) Das 176 fontes de pagina, 153 tinham cadastrada so a PAGINA INICIAL do site. O robo antigo dava 1 salto
-   para achar o link das vagas e, se nao achasse, dizia "carregou, sem vaga hoje". Isso escondia o problema.
-2) Os e-mails de alerta trazem varias vagas cada um (LinkedIn 6, Glassdoor 5) com o link direto da vaga no corpo.
-   A rotina antiga lia so o assunto (1 vaga por e-mail, quando muito) e usava o link do e-mail, por isso abria errado.
-
-O QUE MUDOU
-- Robo: se a fonte cai na pagina inicial, ele procura a lista de vagas (ate 3 links, 2 saltos, e caminhos comuns como
-  /vagas e /oportunidades), pagina e rola. Se nao chegar na lista, o status e "Nao achou a lista de vagas".
-- Auditoria > "Raio-X": para CADA fonte mostra o caminho percorrido (cada endereco visitado, HTTP, links, cargos
-  reconhecidos, titulo da pagina e vagas vistas). Marque "so as que nao chegaram a lista" para ver os problemas.
-- E-mails: a rotina agora le o CORPO, extrai todas as vagas com o link direto (LinkedIn /jobs/view/ID, Indeed viewjob,
-  Glassdoor job-listing) e o botao "E-mail" abre o e-mail certo no Gmail. Auditoria > "E-mails de alerta" mostra
-  quantas vagas saíram de cada e-mail e o que foi descartado (e por que).
-- Curriculo: engrenagem > "Meu curriculo". Cole o texto; o painel mostra em cada vaga "voce tem X de Y" e o que falta,
-  permite ordenar por aderencia ao curriculo e gera o perfil.json (so cargos e competencias, sem dados pessoais).
-
-PASSO 1 - GITHUB
-1. Suba buscar_vagas.py e modelo.html (pasta 1-GITHUB) em Add file > Upload files. Commit.
-2. Actions > Buscar vagas > Run workflow. Esta rodada demora mais (o robo explora mais). Normal: 20 a 40 minutos.
-3. Abra o painel > Auditoria > Raio-X.
-
-PASSO 2 - GOOGLE (se ja instalou a v1)
-1. script.google.com > seu projeto. Apague tudo e cole o rotina-gmail.gs novo (a chave e a mesma).
-2. Implantar > Gerenciar implantacoes > lapis > Versao: Nova versao > Implantar. (O endereco /exec continua o mesmo.)
-3. No painel: engrenagem > Ler e-mails agora. Depois veja Auditoria > E-mails de alerta.
-Se ainda nao instalou: Implantar > Nova implantacao > App da Web > Executar como: Eu > Acesso: Qualquer pessoa.
-
-PASSO 3 - CURRICULO (opcional, mas recomendado)
-1. Engrenagem > Meu curriculo: cole o texto (Word/PDF: abra, selecione tudo, copie e cole) > Ler curriculo.
-2. Confira o resultado (cargos e competencias) > Baixar perfil.json.
-3. Suba o perfil.json no GitHub (mesma pasta do buscar_vagas.py). O robo passa a buscar tambem pelos cargos do curriculo
-   (inclusive no Gupy) e a pontuar pelas competencias que voce tem.
-IMPORTANTE: o repositorio e publico. NAO suba o curriculo em si, so o perfil.json. O texto do curriculo fica so no seu aparelho.
-
-O QUE EU NAO CONSEGUI TESTAR
-- Os sites reais: daqui nao acesso a internet aberta. O Raio-X da primeira rodada mostra o resultado verdadeiro.
-- A leitura no Apps Script foi testada com o texto real dos seus e-mails (LinkedIn, Indeed, Glassdoor, Infojobs), mas
-  nao dentro do Google. Se algum e-mail aparecer com 0 vagas em "E-mails de alerta", me mande um print.
+O QUE MUDOU (v3)
+1. fontes.json: +26 fontes do grupo "Agregador" (Adzuna, Infojobs, Jobsora, Catho, Indeed, Glassdoor, Vagas POA) com o link direto da lista de vagas de cada cargo seu em Porto Alegre.
+2. controle.json: lista de vagas reais conhecidas (Cabergs, Intercity, Datum, ABF, Build Way, Quality, Caldeira, ITEC...).
+3. Aba Auditoria > "Teste de controle": mostra quantas dessas vagas o robô viu, quais estão no painel e quais foram descartadas (e por quê).
+COMO SUBIR: GitHub > Add file > Upload files > os 4 arquivos (substitua) > Commit. Depois Actions > Run workflow.
+Obs.: Indeed, Glassdoor e Catho costumam bloquear robôs. O Raio-X mostra o que cada um respondeu.

@@ -932,6 +932,44 @@ def escrever_app(docs):
     (docs / "icon-512.png").write_bytes(base64.b64decode(ICONE_512))
 
 
+
+def _norm(t):
+    import unicodedata
+    t = unicodedata.normalize("NFD", (t or "").lower())
+    return re.sub(r"[^a-z0-9 ]+", " ", "".join(c for c in t if unicodedata.category(c) != "Mn"))
+
+
+def teste_controle(lista, descartes, resultado):
+    """Confere vagas reais conhecidas (controle.json) contra o que o robô viu nesta rodada."""
+    p = RAIZ / "controle.json"
+    if not p.exists():
+        return None
+    try:
+        itens = json.loads(p.read_text("utf-8")).get("vagas", [])
+    except Exception:
+        return None
+    saida = []
+    for it in itens:
+        emp, cargo = _norm(it["empresa"]).strip(), [w for w in _norm(it["cargo"]).split() if len(w) > 3]
+        achou, estado, onde = None, "Não vista", ""
+        for v in lista:
+            txt = _norm(v.get("titulo", "") + " " + v.get("empresa", ""))
+            if emp in txt and sum(w in txt for w in cargo) >= max(1, len(cargo) - 1):
+                achou, estado, onde = v, "No painel", v.get("fonte", ""); break
+        if not achou:
+            for d in descartes:
+                txt = _norm(d.get("titulo", "") + " " + d.get("fonte", ""))
+                if emp in txt and sum(w in txt for w in cargo) >= 1:
+                    estado, onde = "Vista, mas descartada: " + d.get("motivo", ""), d.get("fonte", ""); break
+        saida.append({"empresa": it["empresa"], "cargo": it["cargo"], "onde_existe": it.get("onde", ""),
+                      "estado": estado, "fonte": onde, "url": achou["url"] if achou else ""})
+    vistas = sum(1 for s in saida if s["estado"] != "Não vista")
+    lidos = sum(1 for r in resultado if r.get("grupo") == "Agregador" and (r.get("prof") or {}).get("chegou_lista"))
+    return {"total": len(saida), "vistas": vistas, "no_painel": sum(1 for s in saida if s["estado"] == "No painel"),
+            "agregadores_lidos": lidos, "agregadores_total": sum(1 for r in resultado if r.get("grupo") == "Agregador"),
+            "itens": saida, "data": json.loads(p.read_text("utf-8")).get("data", "")}
+
+
 def montar(parciais, fontes):
     """Junta os lotes, atualiza o histórico e gera o painel (docs/index.html)."""
     agora = dt.datetime.now(BRT)
@@ -1078,6 +1116,7 @@ def montar(parciais, fontes):
         "amostra": [{"titulo": v["titulo"], "empresa": v.get("empresa", ""), "fonte": v["fonte"], "url": v["url"],
                      "link_status": v.get("link_status"), "lida": v.get("lida"), "nota": v.get("nota"),
                      "aberta": bool(v.get("verificada"))} for v in amostra],
+        "controle": teste_controle(lista, todos_desc, resultado),
         "regras": {"nota_min": NOTA_MIN, "nota_alta": 80, "excluidos": EXCLUIR, "contabil": "contador, analista/coordenador contábil, exige CRC",
                    "local": "só Rio Grande do Sul (e remoto)", "paginas_max": 4, "rolagens_max": 4,
                    "navegador_reserva_max": 40, "abre_link_max": 250}}

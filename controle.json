@@ -1,0 +1,71 @@
+{
+ "data": "2026-11-24",
+ "aviso": "Vagas achadas por busca independente na web em 24/11/2026. Algumas podem ter fechado; edite este arquivo para manter a lista atual.",
+ "vagas": [
+  {
+   "empresa": "Cabergs",
+   "cargo": "gerente financeiro",
+   "onde": "Infojobs, Empregos.com.br, bebee"
+  },
+  {
+   "empresa": "Intercity",
+   "cargo": "gerente administrativo financeiro",
+   "onde": "Indeed"
+  },
+  {
+   "empresa": "Datum",
+   "cargo": "gerente controladoria",
+   "onde": "Indeed"
+  },
+  {
+   "empresa": "ABF",
+   "cargo": "gerente financeiro",
+   "onde": "Indeed"
+  },
+  {
+   "empresa": "ABF",
+   "cargo": "controller",
+   "onde": "LinkedIn, Glassdoor"
+  },
+  {
+   "empresa": "Build Way",
+   "cargo": "gerente financeiro",
+   "onde": "Indeed, Glassdoor"
+  },
+  {
+   "empresa": "Quality",
+   "cargo": "coordenador administrativo financeiro",
+   "onde": "Indeed"
+  },
+  {
+   "empresa": "Caldeira",
+   "cargo": "coordenador financeiro",
+   "onde": "site da empresa (Totvs)"
+  },
+  {
+   "empresa": "ITEC",
+   "cargo": "coordenador administrativo financeiro",
+   "onde": "Jobsora"
+  },
+  {
+   "empresa": "Remed",
+   "cargo": "coordenador administrativo financeiro",
+   "onde": "Jobsora / PUCRS Carreiras"
+  },
+  {
+   "empresa": "Wide",
+   "cargo": "gerente administrativo financeiro",
+   "onde": "wide.works"
+  },
+  {
+   "empresa": "Almer",
+   "cargo": "gerente administrativo financeiro",
+   "onde": "Indeed"
+  },
+  {
+   "empresa": "Face Doctor",
+   "cargo": "gerente financeiro",
+   "onde": "Glassdoor / Indeed"
+  }
+ ]
+}
