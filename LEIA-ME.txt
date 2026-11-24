@@ -1,43 +1,41 @@
-PACOTE COMPLETO - Minhas vagas (24/11/2026)
+PACOTE v2 - AUDITORIA E REVISAO GERAL (24/11/2026)
 
-O QUE VOCE GANHA
-- Painel novo, mais simples: 3 abas (Vagas, Candidaturas, Auditoria) e uma engrenagem de configuracoes.
-- Robo mais fundo: rola a pagina, segue "Proxima", le o titulo de cartoes "Ver vaga", abre o link de CADA vaga
-  e confere se ele leva mesmo a vaga (nao a pagina inicial).
-- Nota de 0 a 100 por vaga (cargo 40 + competencias 35 + local 15 + atualidade 10). Abaixo de 65 nao aparece
-  (fica na Auditoria, com o motivo). 80 ou mais = muito compativel.
-- Aba Auditoria: veredito em linguagem simples, o caminho de uma rodada, vagas sorteadas para voce conferir,
-  lista de tudo que foi descartado e por que, profundidade por fonte, regras em vigor.
-- Rotina automatica de e-mails (Google): os alertas entram sozinhos quando voce abre o painel. Sem copiar e colar.
+O QUE A AUDITORIA ENCONTROU
+1) Das 176 fontes de pagina, 153 tinham cadastrada so a PAGINA INICIAL do site. O robo antigo dava 1 salto
+   para achar o link das vagas e, se nao achasse, dizia "carregou, sem vaga hoje". Isso escondia o problema.
+2) Os e-mails de alerta trazem varias vagas cada um (LinkedIn 6, Glassdoor 5) com o link direto da vaga no corpo.
+   A rotina antiga lia so o assunto (1 vaga por e-mail, quando muito) e usava o link do e-mail, por isso abria errado.
 
-PASSO 1 - GITHUB (2 minutos)
-1. No repositorio "vagas": Add file > Upload files.
-2. Arraste os 2 arquivos da pasta "1-GITHUB": buscar_vagas.py e modelo.html. Commit changes.
-   (O resto - fontes.json e o workflow - nao muda.)
-3. Aba Actions > Buscar vagas > Run workflow. Espere terminar e abra o painel.
+O QUE MUDOU
+- Robo: se a fonte cai na pagina inicial, ele procura a lista de vagas (ate 3 links, 2 saltos, e caminhos comuns como
+  /vagas e /oportunidades), pagina e rola. Se nao chegar na lista, o status e "Nao achou a lista de vagas".
+- Auditoria > "Raio-X": para CADA fonte mostra o caminho percorrido (cada endereco visitado, HTTP, links, cargos
+  reconhecidos, titulo da pagina e vagas vistas). Marque "so as que nao chegaram a lista" para ver os problemas.
+- E-mails: a rotina agora le o CORPO, extrai todas as vagas com o link direto (LinkedIn /jobs/view/ID, Indeed viewjob,
+  Glassdoor job-listing) e o botao "E-mail" abre o e-mail certo no Gmail. Auditoria > "E-mails de alerta" mostra
+  quantas vagas saíram de cada e-mail e o que foi descartado (e por que).
+- Curriculo: engrenagem > "Meu curriculo". Cole o texto; o painel mostra em cada vaga "voce tem X de Y" e o que falta,
+  permite ordenar por aderencia ao curriculo e gera o perfil.json (so cargos e competencias, sem dados pessoais).
 
-PASSO 2 - ROTINA DE E-MAILS NO GOOGLE (5 minutos, uma vez so)
-1. Abra script.google.com, logado na conta do Gmail dos alertas. Novo projeto.
-2. Apague o texto que vem la e cole TODO o conteudo de rotina-gmail.gs (pasta "2-GOOGLE").
-3. Clique em Implantar > Nova implantacao > engrenagem > App da Web.
-   - Executar como: Eu.   - Quem tem acesso: Qualquer pessoa.   Implantar.
-4. O Google pede autorizacao para ler seu Gmail. Autorize (a rotina so le; nao envia, nao apaga, nao altera).
-   Se aparecer "app nao verificado": Avancado > Acessar (nao seguro). E o seu proprio script.
-5. Copie o "URL do app da Web" (termina em /exec).
-6. No painel: engrenagem > cole o endereco e a CHAVE. A chave e o texto entre aspas na linha
-   var CHAVE = "..." do arquivo rotina-gmail.gs. Salvar > Ler e-mails agora.
-Pronto: a partir dai, ao abrir o painel (e a cada 6 horas) ele le os alertas dos ultimos 14 dias.
-Nao compartilhe o endereco nem a chave: quem tiver os dois ve as vagas triadas dos seus e-mails.
+PASSO 1 - GITHUB
+1. Suba buscar_vagas.py e modelo.html (pasta 1-GITHUB) em Add file > Upload files. Commit.
+2. Actions > Buscar vagas > Run workflow. Esta rodada demora mais (o robo explora mais). Normal: 20 a 40 minutos.
+3. Abra o painel > Auditoria > Raio-X.
 
-COMO CONFERIR SE A BUSCA ESTA BOA
-- Aba Auditoria > "Confira voce mesmo": abra 3 ou 4 vagas sorteadas e veja se o link leva a vaga.
-- Aba Auditoria > "O que o robo descartou": veja se alguma vaga boa foi descartada por engano.
-- Se algo estiver errado, me mande um print que eu ajusto a regra.
+PASSO 2 - GOOGLE (se ja instalou a v1)
+1. script.google.com > seu projeto. Apague tudo e cole o rotina-gmail.gs novo (a chave e a mesma).
+2. Implantar > Gerenciar implantacoes > lapis > Versao: Nova versao > Implantar. (O endereco /exec continua o mesmo.)
+3. No painel: engrenagem > Ler e-mails agora. Depois veja Auditoria > E-mails de alerta.
+Se ainda nao instalou: Implantar > Nova implantacao > App da Web > Executar como: Eu > Acesso: Qualquer pessoa.
 
-LIMITES (honestos)
-- LinkedIn, Indeed, Catho e similares bloqueiam robos: so entram pelos alertas de e-mail, e a triagem
-  dos e-mails e feita so pelo assunto (nota provisoria).
-- O painel NAO se candidata sozinho. Isso exige um agente pago (como o do Cowork) e o LinkedIn proibe automacao.
-- A nota e uma regra fixa, nao uma leitura de pessoa. Use como filtro, nao como sentenca.
-- Testei o robo e o painel em sites simulados aqui. Em sites reais so a primeira rodada no GitHub mostra
-  o resultado verdadeiro: olhe a aba Auditoria depois dela.
+PASSO 3 - CURRICULO (opcional, mas recomendado)
+1. Engrenagem > Meu curriculo: cole o texto (Word/PDF: abra, selecione tudo, copie e cole) > Ler curriculo.
+2. Confira o resultado (cargos e competencias) > Baixar perfil.json.
+3. Suba o perfil.json no GitHub (mesma pasta do buscar_vagas.py). O robo passa a buscar tambem pelos cargos do curriculo
+   (inclusive no Gupy) e a pontuar pelas competencias que voce tem.
+IMPORTANTE: o repositorio e publico. NAO suba o curriculo em si, so o perfil.json. O texto do curriculo fica so no seu aparelho.
+
+O QUE EU NAO CONSEGUI TESTAR
+- Os sites reais: daqui nao acesso a internet aberta. O Raio-X da primeira rodada mostra o resultado verdadeiro.
+- A leitura no Apps Script foi testada com o texto real dos seus e-mails (LinkedIn, Indeed, Glassdoor, Infojobs), mas
+  nao dentro do Google. Se algum e-mail aparecer com 0 vagas em "E-mails de alerta", me mande um print.

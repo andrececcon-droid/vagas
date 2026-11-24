@@ -51,8 +51,36 @@ COMPETENCIAS = {
     "Tesouraria e crédito": r"tesouraria|capta[çc][ãa]o|negocia[çc][õo]es banc[áa]rias|cr[ée]dito",
     "Fornecedores e compras": r"fornecedores|compras|suprimentos",
     "Gestão de pessoas (folha, admissões)": r"folha de pagamento|admiss[õo]es|demiss[õo]es|departamento pessoal",
+    "Impostos e tributação": r"tribut|impostos|icms|pis/?cofins|irpj|csll|\bsped\b",
+    "Consolidação / IFRS / BR GAAP": r"consolida[çc][ãa]o|\bifrs\b|br gaap|cpc",
+    "Auditoria e controles internos": r"auditoria|controles internos|sox|riscos",
+    "BI e dashboards": r"power ?bi|dashboards?|tableau|qlik",
+    "Inglês": r"ingl[êe]s|english",
 }
 COMP_RE = {k: re.compile(v, re.I) for k, v in COMPETENCIAS.items()}
+PERFIL = {"cargos": [], "competencias": [], "gerado": ""}   # vem de perfil.json (gerado pelo painel a partir do currículo)
+
+
+def carregar_perfil():
+    """Lê perfil.json (sem dados pessoais): cargos e competências do currículo. Os cargos entram na busca."""
+    global PERFIL
+    f = RAIZ / "perfil.json"
+    if not f.exists():
+        return
+    try:
+        d = json.loads(f.read_text("utf-8"))
+        cargos = [sem_acento_min(c) for c in d.get("cargos", []) if isinstance(c, str) and 4 <= len(c) <= 60]
+        PERFIL = {"cargos": cargos, "competencias": [c for c in d.get("competencias", []) if c in COMPETENCIAS],
+                  "gerado": d.get("gerado", "")}
+        for c in cargos:
+            if c not in ALTA and CARGO_RE.search(c) and not EXCL_RE.search(c) and not CONTABIL_RE.search(c):
+                ALTA.append(c)
+    except Exception as e:  # noqa
+        print("perfil.json inválido:", str(e)[:80])
+
+
+def sem_acento_min(s):
+    return " ".join(str(s).lower().split())
 
 # Um título só vale como vaga se tiver nome de cargo e não for link de menu ("Solicite um orçamento"...)
 # Vagas de contabilidade pura (contador, analista contábil...) ficam fora
@@ -206,6 +234,12 @@ LINK_EXATO = re.compile(r"(ver |buscar |todas as |nossas |encontre )?(vagas|opor
 
 def link_vagas(html, base):
     """Se o endereço for a página inicial do site, acha o link que leva à lista de vagas."""
+    r = links_de_lista(html, base)
+    return r[0] if r else None
+
+
+def links_de_lista(html, base):
+    """Todos os links que parecem levar à lista de vagas, do mais provável ao menos provável."""
     soup = BeautifulSoup(html, "html.parser")
     achados = []
     for a in soup.find_all("a", href=True):
@@ -219,7 +253,11 @@ def link_vagas(html, base):
         if not urlparse(href).path.strip("/") or href.split("#")[0] == base.split("#")[0]:
             continue  # raiz do site ou a própria página
         achados.append((0 if exato else 1, len(achados), href))
-    return min(achados)[2] if achados else None
+    vistos, saida = set(), []
+    for _, _, h in sorted(achados):
+        if h not in vistos:
+            vistos.add(h); saida.append(h)
+    return saida
 
 
 GENERICO = re.compile(r"^(?:ver|veja|saiba|conhe[çc]a)\b.{0,20}|^candidat\w+.{0,20}|^detalhes?$|^mais (?:detalhes|informa[çc][õo]es)$|^inscreva.{0,15}$", re.I)
@@ -323,7 +361,7 @@ def gupy():
     for termo in ["gerente administrativo financeiro", "gerente financeiro", "controller", "coordenador financeiro",
                   "coordenador administrativo", "analista financeiro", "controladoria", "fp&a",
                   "planejamento financeiro", "tesouraria", "administrativo financeiro", "gestor financeiro",
-                  "gerente de finanças", "finanças"]:
+                  "gerente de finanças", "finanças"] + [c for c in PERFIL["cargos"][:6]]:
         dados = []
         for off in range(0, 600, 100):
             pagina = None
@@ -554,6 +592,9 @@ def pontuar(v):
     alvo = v.get("cargo_alvo")
     c_cargo = 40 if alvo else 22
     c_comp = min(35, round(35 * len(v.get("comp", [])) / 6)) if v.get("lida") else 12
+    if v.get("lida") and PERFIL["competencias"] and v.get("comp"):
+        cob = len(set(v["comp"]) & set(PERFIL["competencias"])) / len(v["comp"])
+        c_comp = round(35 * (0.5 * min(1, len(v["comp"]) / 6) + 0.5 * cob))
     c_local = {"poa": 15, "rs": 11, "remoto": 10}.get(v.get("regiao"), 9)
     c_data = 4
     if v.get("data_iso"):
@@ -572,6 +613,9 @@ def avaliar(v):
     desc = v.get("descricao", "")
     v["comp"] = competencias(v.get("titulo", "") + " " + desc)
     v["lida"] = len(desc) > 300
+    if PERFIL["competencias"] and v["comp"]:
+        tem = [c for c in v["comp"] if c in PERFIL["competencias"]]
+        v["cv"] = {"pede": len(v["comp"]), "tem": tem, "falta": [c for c in v["comp"] if c not in tem]}
     v.setdefault("verificada", None)
     if not v.get("data_iso") and desc:
         m = DATA_DESC.search(desc[:4000])
@@ -632,6 +676,130 @@ def pausada(f, hist_fontes, hoje):
     dias = (hoje - dt.date.fromisoformat(h.get("tentou", hoje.isoformat()))).days
     return h.get("tentou", ""), max(7 - dias, 0) if dias < 7 else None
 
+CAMINHOS = ["vagas", "oportunidades", "trabalhe-conosco", "carreiras", "vagas-de-emprego", "empregos"]
+
+
+def titulo_pagina(html):
+    try:
+        t = BeautifulSoup(html, "html.parser").title
+        return " ".join(t.get_text(" ", strip=True).split())[:90] if t else ""
+    except Exception:  # noqa
+        return ""
+
+
+def amostra_links(html, base, n=6):
+    """Primeiros links com texto de cargo que o robô viu na página (para a auditoria)."""
+    out = []
+    for a in BeautifulSoup(html, "html.parser").find_all("a", href=True):
+        t = " ".join(a.get_text(" ", strip=True).split())
+        if 8 <= len(t) <= 120 and CARGO_RE.search(t.lower()):
+            out.append({"t": t[:80], "u": urljoin(base, a["href"])[:160]})
+            if len(out) >= n:
+                break
+    return out
+
+
+def explorar(f, browser, r):
+    """Abre a fonte e, se for a página inicial, procura a lista de vagas (até 3 links, 2 saltos e caminhos comuns).
+    Registra a trilha percorrida em r['trilha'] para a auditoria."""
+    trilha, visitadas, achadas = [], set(), []
+    estado = {"melhor": None}
+
+    def visitar(url, tipo):
+        status, html, ms, usada = baixar_com_variantes(url, browser)
+        visitadas.add(usada.split("#")[0])
+        n_links, ach, pr = extrair(html, usada)
+        trilha.append({"passo": tipo, "url": usada, "status": status, "links": n_links, "candidatos": pr["candidatos"],
+                       "aceitos": len(ach), "titulo": titulo_pagina(html), "amostra": amostra_links(html, usada), "ms": ms})
+        return status, html, usada, n_links, ach, pr
+
+    status, html, usada, n_links, achadas, pr = visitar(f["url"], "página cadastrada")
+    primeiro = {"status": status, "links": n_links}
+    base_html, base_url = html, usada
+    if 0 < status < 400 and pr["candidatos"] == 0:
+        # 1) links "Vagas / Oportunidades / Trabalhe conosco" da própria página, com até 2 saltos
+        fila = [(u, 1) for u in links_de_lista(html, usada)[:3]]
+        while fila and len(trilha) < 7:
+            u, nivel_ = fila.pop(0)
+            if u.split("#")[0] in visitadas:
+                continue
+            try:
+                st2, h2, u2, nl2, ach2, pr2 = visitar(u, "seguiu link de vagas")
+            except Exception:  # noqa
+                continue
+            if 0 < st2 < 400 and pr2["candidatos"] > 0:
+                status, html, usada, n_links, achadas, pr = st2, h2, u2, nl2, ach2, pr2
+                break
+            if 0 < st2 < 400 and nivel_ < 2:
+                fila += [(x, 2) for x in links_de_lista(h2, u2)[:2]]
+    if pr["candidatos"] == 0 and 0 < status < 400 and not urlparse(f["url"]).path.strip("/"):
+        # 2) caminhos comuns (/vagas, /oportunidades...), só com requisição simples
+        raiz = urlparse(base_url)
+        for c in CAMINHOS:
+            u = f"{raiz.scheme}://{raiz.netloc}/{c}"
+            if u in visitadas:
+                continue
+            try:
+                rr = requests.get(u, headers={"User-Agent": UA}, timeout=10)
+                if rr.status_code >= 400 or "html" not in rr.headers.get("content-type", "").lower():
+                    continue
+                visitadas.add(u)
+                nl, ach, p2 = extrair(rr.text, rr.url)
+                trilha.append({"passo": "tentou caminho comum", "url": rr.url, "status": rr.status_code, "links": nl,
+                               "candidatos": p2["candidatos"], "aceitos": len(ach), "titulo": titulo_pagina(rr.text),
+                               "amostra": amostra_links(rr.text, rr.url), "ms": 0})
+                if p2["candidatos"] > 0:
+                    status, html, usada, n_links, achadas, pr = rr.status_code, rr.text, rr.url, nl, ach, p2
+                    break
+            except Exception:  # noqa
+                continue
+    # paginação da lista encontrada
+    paginas, vistas_pag = 1, {usada}
+    while paginas < 4 and achadas:
+        prox = proxima_pagina(html, usada)
+        if not prox or prox in vistas_pag:
+            break
+        try:
+            st3, html3, _ = baixar(prox, browser)
+        except Exception:  # noqa
+            break
+        if not 0 < st3 < 400:
+            break
+        vistas_pag.add(prox)
+        n3, ach3, pr3 = extrair(html3, prox)
+        trilha.append({"passo": f"página {paginas + 1} da lista", "url": prox, "status": st3, "links": n3,
+                       "candidatos": pr3["candidatos"], "aceitos": len(ach3), "titulo": titulo_pagina(html3),
+                       "amostra": amostra_links(html3, prox), "ms": 0})
+        novos = [x for x in ach3 if x["url"] not in {y["url"] for y in achadas}]
+        n_links += n3
+        pr["candidatos"] += pr3["candidatos"]
+        pr["descartes"] += pr3["descartes"][:20]
+        paginas += 1
+        if not novos:
+            break
+        achadas += novos
+        html, usada = html3, prox
+    chegou = any(t["candidatos"] > 0 for t in trilha)
+    r["trilha"] = trilha
+    r["prof"] = {"links": sum(t["links"] for t in trilha), "candidatos": sum(t["candidatos"] for t in trilha),
+                 "paginas": paginas, "aceitos": len(achadas), "visitadas": len(trilha), "chegou_lista": chegou}
+    r["descartes_titulo"] = pr["descartes"][:60]
+    r["detalhe"] = f"HTTP {primeiro['status']} · {len(trilha)} página(s) visitada(s) · lista: " + (usada[:70] if chegou else "não encontrada")
+    if primeiro["status"] >= 400 or primeiro["status"] == 0:
+        r["status"] = "Falhou"
+    elif achadas:
+        r["status"] = "OK, com vagas compatíveis"
+    elif chegou:
+        r["status"] = "Carregou, sem vaga compatível hoje"
+    elif primeiro["links"] < 5 and len(trilha) == 1:
+        r["status"] = "Carregou sem lista de vagas (JavaScript ou login)"
+    elif not urlparse(usada).path.strip("/") or len(trilha) > 1:
+        r["status"] = "Não achou a lista de vagas (ficou na página inicial)"
+    else:
+        r["status"] = "Abriu a página, mas sem nenhuma vaga listada"
+    return achadas
+
+
 def processar_fonte(f, browser, hist_fontes=None):
     """Abre uma fonte e devolve (resultado da fonte, vagas candidatas)."""
     r = {"nome": f["nome"], "url": f.get("url", ""), "tipo": f["tipo"], "grupo": f.get("grupo", ""),
@@ -655,57 +823,13 @@ def processar_fonte(f, browser, hist_fontes=None):
             r["status"] = "Sem link cadastrado"
             r["detalhe"] = "Preencha o campo url em fontes.json"
         else:
-            status, html, ms, usada = baixar_com_variantes(f["url"], browser)
-            n_links, achadas, pr = extrair(html, usada)
-            seguiu = " · endereço alternativo: " + usada[:60] if usada != f["url"] else ""
-            if (not achadas and n_links >= 5 and 0 < status < 400
-                    and not urlparse(usada).path.strip("/")):   # só a partir da página inicial
-                prox = link_vagas(html, usada)
-                if prox:
-                    try:
-                        st2, html2, _ = baixar(prox, browser)
-                        if 0 < st2 < 400:
-                            n_links, achadas, pr = extrair(html2, prox)
-                            html, usada = html2, prox
-                            seguiu += " · seguiu " + prox[:70]
-                    except Exception:  # noqa
-                        pass
-            paginas, vistas_pag = 1, {usada}
-            while paginas < 4 and achadas:                      # lista em várias páginas: segue até 3 a mais
-                prox = proxima_pagina(html, usada)
-                if not prox or prox in vistas_pag:
-                    break
-                try:
-                    st3, html3, _ = baixar(prox, browser)
-                except Exception:  # noqa
-                    break
-                if not 0 < st3 < 400:
-                    break
-                vistas_pag.add(prox)
-                n3, ach3, pr3 = extrair(html3, prox)
-                novos = [x for x in ach3 if x["url"] not in {y["url"] for y in achadas}]
-                n_links += n3
-                pr["candidatos"] += pr3["candidatos"]
-                pr["descartes"] += pr3["descartes"][:20]
-                paginas += 1
-                if not novos:
-                    break
-                achadas += novos
-                html, usada = html3, prox
-            r["prof"] = {"links": n_links, "candidatos": pr["candidatos"], "paginas": paginas, "aceitos": len(achadas)}
-            r["descartes_titulo"] = pr["descartes"][:60]
-            r["detalhe"] = f"HTTP {status} · {n_links} links · {ms / 1000:.1f}s{seguiu}"
-            if status >= 400 or status == 0:
-                r["status"] = "Falhou"
-            elif n_links < 5:
-                r["status"] = "Carregou sem lista de vagas (JavaScript ou login)"
-            elif achadas:
-                r["status"] = "OK, com vagas compatíveis"
-            else:
-                r["status"] = "Carregou, sem vaga compatível hoje"
+            achadas = explorar(f, browser, r)
     except Exception as e:  # noqa
         r["status"] = "Falhou"
-        r["detalhe"] = str(e)[:120]
+        r["detalhe"] = str(e).split("\n")[0][:120]
+        r.setdefault("trilha", [{"passo": "página cadastrada", "url": f.get("url", ""), "status": 0, "links": 0, "candidatos": 0,
+                                 "aceitos": 0, "titulo": "", "amostra": [], "ms": 0, "erro": r["detalhe"]}])
+        r.setdefault("prof", {"links": 0, "candidatos": 0, "paginas": 0, "aceitos": 0, "visitadas": 1, "chegou_lista": False})
     for v in achadas:
         v["fonte"], v["grupo"] = f["nome"], f.get("grupo", "")
     return r, achadas
@@ -881,9 +1005,8 @@ def montar(parciais, fontes):
 
     contar = lambda *pref: sum(1 for r in resultado if r["status"].startswith(pref))
     saude = {"total": len(resultado), "ok": contar("OK"), "sem_vaga": contar("Carregou, "),
-             "sem_leitura": contar("Carregou sem lista"), "falhou": contar("Falhou"), "pausadas": contar("Pausada"),
+             "sem_leitura": contar("Carregou sem lista", "Não achou", "Abriu a página"), "falhou": contar("Falhou"), "pausadas": contar("Pausada"),
              "nao_lidas": contar("Não lida", "Não rodou", "Sem link")}
-    saude["sem_vaga"] -= saude["sem_leitura"]
     limpeza = [{"nome": r["nome"], "url": r["url"], "grupo": r["grupo"], "rodadas": hf[r["nome"]]["rodadas"]}
                for r in resultado if r["tipo"] == "pagina" and r.get("grupo") != "Favorita" and r["nome"] in hf
                and hf[r["nome"]].get("rodadas", 0) >= 15 and hf[r["nome"]].get("vagas_total", 0) == 0
@@ -926,11 +1049,14 @@ def montar(parciais, fontes):
             "link_login": cont("login"), "link_nao_abre": cont("nao_abre"), "link_nao_testado": cont("nao_testado"),
             "geral_descartadas": sum(1 for x in fora if x["motivo"].startswith("O link leva")),
             "abertas": sum(1 for v in lista if v.get("verificada"))}
+    trilhas = [{"nome": r["nome"], "grupo": r["grupo"], "status": r["status"], "cadastrada": r.get("url", ""), "vagas": r["vagas"],
+                "trilha": [dict(t, amostra=t["amostra"][:4]) for t in r["trilha"][:6]]} for r in resultado if r.get("trilha")]
     prof = [{"nome": r["nome"], "grupo": r["grupo"], "status": r["status"], "vagas": r["vagas"], **r["prof"]}
             for r in resultado if r.get("prof")]
     funil = {"fontes": len(resultado), "lidas": sum(1 for r in resultado if r.get("prof")),
              "links": sum(p["links"] for p in prof), "candidatos": sum(p["candidatos"] for p in prof),
              "aceitos": sum(p["aceitos"] for p in prof), "paginas": sum(p["paginas"] for p in prof),
+             "chegou_lista": sum(1 for p in prof if p.get("chegou_lista")),
              "fora_rs": sum(1 for x in fora if x["motivo"].startswith("Fora do RS")),
              "outros_descartes": sum(1 for x in fora if not x["motivo"].startswith("Fora do RS")),
              "no_painel": n}
@@ -939,13 +1065,15 @@ def montar(parciais, fontes):
         if r.get("grupo") == "Favorita" and r["status"].startswith(("Falhou", "Carregou sem lista", "Pausada")):
             suspeitas.append(f"Favorita “{r['nome']}”: {r['status']} — não dá para dizer que não há vaga lá")
         p = r.get("prof")
-        if p and p["links"] >= 40 and p["candidatos"] == 0:
+        if p and not p.get("chegou_lista") and r["status"].startswith(("Não achou", "Abriu a página")) and r.get("grupo") == "Favorita":
+            suspeitas.append(f"Favorita “{r['nome']}”: o robô não chegou à lista de vagas ({len(r['trilha'])} página(s) visitada(s)) — cadastre o link direto da lista em fontes.json")
+        if p and p["links"] >= 40 and p["candidatos"] == 0 and p.get("chegou_lista") is not False:
             suspeitas.append(f"“{r['nome']}”: {p['links']} links lidos, nenhum parece cargo — confira se a página lista vagas")
     if qual["link_incerto"]:
         suspeitas.append(f"{qual['link_incerto']} vaga(s) com link “incerto” (abriu, mas não confirmou o cargo na página)")
     amostra = random.sample(lista, min(8, len(lista)))
     audit_geral = {
-        "qualidade": qual, "funil": funil, "profundidade": sorted(prof, key=lambda x: -x["candidatos"])[:80],
+        "qualidade": qual, "funil": funil, "trilhas": trilhas, "profundidade": sorted(prof, key=lambda x: -x["candidatos"])[:80],
         "descartes": todos_desc[:500], "total_descartes": len(todos_desc), "suspeitas": suspeitas[:30],
         "amostra": [{"titulo": v["titulo"], "empresa": v.get("empresa", ""), "fonte": v["fonte"], "url": v["url"],
                      "link_status": v.get("link_status"), "lida": v.get("lida"), "nota": v.get("nota"),
@@ -955,7 +1083,8 @@ def montar(parciais, fontes):
                    "navegador_reserva_max": 40, "abre_link_max": 250}}
 
     dados = {"gerado": carimbo, "vagas": lista, "fontes": resultado, "execucoes": hist["execucoes"][-14:],
-             "fora": fora[:60], "saude": saude, "limpeza": limpeza, "auditoria_links": auditoria, "auditoria": audit_geral}
+             "fora": fora[:60], "saude": saude, "limpeza": limpeza, "auditoria_links": auditoria, "auditoria": audit_geral,
+             "competencias": COMPETENCIAS, "perfil": PERFIL if PERFIL["competencias"] or PERFIL["cargos"] else None}
     html = (RAIZ / "modelo.html").read_text("utf-8").replace(
         "__DADOS__", json.dumps(dados, ensure_ascii=False).replace("</", "<\\/"))
     (RAIZ / "docs").mkdir(exist_ok=True)
@@ -973,6 +1102,7 @@ def main():
     """Modos: plano | coletar | montar (usados pelo GitHub) ou, sem modo, tudo de uma vez."""
     args = sys.argv[1:]
     modo = args[0] if args and args[0] in ("plano", "coletar", "montar") else "tudo"
+    carregar_perfil()
     caminho = opcao(args, "--fontes") or (args[0] if modo == "tudo" and args else str(RAIZ / "fontes.json"))
     fontes = json.loads(Path(caminho).read_text("utf-8"))
     if modo == "plano":
