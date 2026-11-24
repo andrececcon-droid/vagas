@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Busca diária de vagas: testa cada fonte de fontes.json e gera docs/index.html."""
-import base64, json, os, re, sys, time, unicodedata, datetime as dt
+import base64, json, os, random, re, sys, time, unicodedata, datetime as dt
 from contextlib import nullcontext
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -26,6 +26,7 @@ ALTA = ["gerente administrativo financeiro", "gerente administrativo e financeir
 MEDIA = ["financeiro", "financeira", "administrativo", "contas a pagar", "contas a receber", "contábil",
          "contabil", "orçamento", "faturamento", "custos", "diretor financeiro", "diretor de finanças",
          "tesoureiro", "business partner financeiro", "finanças", "financas"]
+NOTA_MIN = 65   # vaga com nota menor que isso não aparece no painel (fica na Auditoria, com o motivo)
 # Cargos fora do nível dele (palavras inteiras)
 EXCLUIR = ["estágio", "estagiário", "estagiario", "aprendiz", "trainee", "júnior", "junior", "jr", "jr.",
            "assistente", "auxiliar", "vendedor", "motorista", "segurança", "vigilante", "limpeza", "operador"]
@@ -162,7 +163,14 @@ def baixar(url, browser):
         pg = browser.new_page(user_agent=UA)
         try:
             r = pg.goto(url, wait_until="domcontentloaded", timeout=30000)
-            pg.wait_for_timeout(3500)
+            pg.wait_for_timeout(3000)
+            altura = 0
+            for _ in range(4):                       # rola a página: muitos sites só carregam a lista ao rolar
+                nova = pg.evaluate("window.scrollTo(0, document.body.scrollHeight); document.body.scrollHeight")
+                pg.wait_for_timeout(900)
+                if nova == altura:
+                    break
+                altura = nova
             return (r.status if r else 0), pg.content(), int((time.time() - t0) * 1000)
         finally:
             pg.close()
@@ -214,12 +222,64 @@ def link_vagas(html, base):
     return min(achados)[2] if achados else None
 
 
+GENERICO = re.compile(r"^(?:ver|veja|saiba|conhe[çc]a)\b.{0,20}|^candidat\w+.{0,20}|^detalhes?$|^mais (?:detalhes|informa[çc][õo]es)$|^inscreva.{0,15}$", re.I)
+
+
+def titulo_do_cartao(a):
+    """Quando o link diz só 'Ver vaga', o cargo está num título perto dele: sobe até 4 níveis e devolve (título, bloco)."""
+    node = a.parent
+    for _ in range(4):
+        if node is None:
+            break
+        for h in node.find_all(["h1", "h2", "h3", "h4", "h5", "strong"]):
+            t = " ".join(h.get_text(" ", strip=True).split())
+            if 8 <= len(t) <= 140 and CARGO_RE.search(t):
+                return t, node
+        node = node.parent
+    return "", None
+
+
+def motivo_titulo(t):
+    """Por que um título que parece vaga foi descartado (None se nem parece vaga: menu, rodapé...)."""
+    low = t.lower()
+    if CONTABIL_RE.search(low):
+        return "Contabilidade pura (contador / analista contábil)"
+    if EXCL_RE.search(low):
+        return "Cargo abaixo do seu nível (" + EXCL_RE.search(low).group(0) + ")"
+    if NAO_VAGA.search(low):
+        return None
+    if CARGO_RE.search(low):
+        return "Cargo sem relação com finanças/administração"
+    return None
+
+
+def proxima_pagina(html, base):
+    """Acha o link 'Próxima' / '>' / '2' da paginação (None se não houver)."""
+    soup = BeautifulSoup(html, "html.parser")
+    for a in soup.find_all("a", href=True):
+        txt = " ".join(a.get_text(" ", strip=True).split()).lower()
+        rel = " ".join(a.get("rel") or []).lower()
+        lab = (a.get("aria-label") or "").lower()
+        if "next" in rel or re.fullmatch(r"(pr[óo]xima?( p[áa]gina)?|seguinte|next|›|»|>)", txt) or re.search(r"pr[óo]xima|next", lab):
+            href = urljoin(base, a["href"])
+            if not href.startswith(("javascript:", "mailto:", "#")) and href.split("#")[0] != base.split("#")[0]:
+                return href
+    return None
+
+
 def extrair(html, base):
+    """Devolve (nº de links, vagas achadas, {'candidatos': n, 'descartes': [...]})."""
     soup = BeautifulSoup(html, "html.parser")
     links = soup.find_all("a", href=True)
-    achadas, vistos = [], set()
+    achadas, vistos, descartes, candidatos = [], set(), [], 0
     for a in links:
         bruto = " ".join(a.get_text(" ", strip=True).split())
+        bloco = None
+        if GENERICO.match(bruto) and len(bruto) <= 40:
+            tc, bloco = titulo_do_cartao(a)
+            if not tc:
+                continue
+            bruto = tc
         if not 8 <= len(bruto) <= 260:
             continue
         txt = limpar_titulo(bruto)
@@ -227,18 +287,28 @@ def extrair(html, base):
             continue
         n = nivel(txt)
         href = urljoin(base, a["href"])
-        if not n or href in vistos or href.startswith(("mailto:", "javascript:", "#")):
+        if not n:
+            mot = motivo_titulo(txt)
+            if mot:
+                candidatos += 1
+                if len(descartes) < 80:
+                    descartes.append({"titulo": txt, "motivo": mot, "url": href})
+            continue
+        candidatos += 1
+        if href in vistos or href.startswith(("mailto:", "javascript:", "#")):
             continue
         if not urlparse(href).path.strip("/") or href.split("#")[0].rstrip("/") == base.split("#")[0].rstrip("/"):
-            continue                       # link para a página inicial ou para a própria lista: não é a vaga
+            if len(descartes) < 80:
+                descartes.append({"titulo": txt, "motivo": "O link leva à página inicial, e não à vaga", "url": href})
+            continue
         vistos.add(href)
-        ctx = contexto(a, txt)
+        ctx = bloco.get_text(" ", strip=True) if bloco is not None else contexto(a, txt)
         m = DATA_RE.search(ctx)
         local, regiao = detectar_local(ctx + " " + bruto, "")
         achadas.append({"titulo": txt, "empresa": "", "url": href, "nivel": n,
                         "data": m.group(0) if m else None, "data_iso": normalizar_data(m.group(0)) if m else None,
                         "local": local, "regiao": regiao})
-    return len(links), achadas
+    return len(links), achadas, {"candidatos": candidatos, "descartes": descartes}
 
 
 GUPY_APIS = [("https://portal.gupy.io/api/job-search/jobs", "jobName"),  # endereço atual (desde out/2026)
@@ -417,24 +487,41 @@ def chave_dup(v):
 
 
 
-def verificar(url):
-    """Testa o link e devolve (abre?, texto da página, dado estruturado JobPosting, endereço final)."""
+def _ler(html, final):
+    info = info_estruturada(html)
+    soup = BeautifulSoup(html, "html.parser")
+    for t in soup(["script", "style", "nav", "footer", "header"]):
+        t.decompose()
+    return True, " ".join(soup.get_text(" ", strip=True).split())[:6000], info, final
+
+
+def verificar(url, browser=None, fb=None):
+    """Abre o link da vaga e devolve (abre?, texto, dado estruturado JobPosting, endereço final).
+    Se o site bloquear robô (403) ou entregar página vazia, tenta de novo com o navegador (limite fb['max'] por lote)."""
+    ruim = False
     try:
         r = requests.get(url, headers={"User-Agent": UA}, timeout=15)
         ctype = r.headers.get("content-type", "").lower()
-        if r.status_code >= 400:
-            return False, "", None, ""
-        if "html" not in ctype:
+        if r.status_code < 400 and "html" not in ctype:
             return True, "", None, r.url
-        if "charset" not in ctype:
-            r.encoding = "utf-8"
-        info = info_estruturada(r.text)
-        soup = BeautifulSoup(r.text, "html.parser")
-        for t in soup(["script", "style", "nav", "footer", "header"]):
-            t.decompose()
-        return True, " ".join(soup.get_text(" ", strip=True).split())[:6000], info, r.url
+        if r.status_code < 400:
+            if "charset" not in ctype:
+                r.encoding = "utf-8"
+            res = _ler(r.text, r.url)
+            if len(res[1]) >= 200 or res[2]:
+                return res
+        ruim = True
     except Exception:
-        return False, "", None, ""
+        ruim = True
+    if ruim and browser and fb is not None and fb["n"] < fb["max"]:
+        fb["n"] += 1
+        try:
+            st, html, _ = baixar(url, browser)
+            if 0 < st < 400:
+                return _ler(html, url)
+        except Exception:
+            pass
+    return False, "", None, ""
 
 
 def auditar_link(v, final, info, texto):
@@ -462,8 +549,26 @@ def termo_cargo(t, lista):
     return next((x for x in lista if x in t), "")
 
 
+def pontuar(v):
+    """Nota 0–100 = cargo (40) + competências (35) + local (15) + atualidade (10). Regra fixa, sem 'achismo'."""
+    alvo = v.get("cargo_alvo")
+    c_cargo = 40 if alvo else 22
+    c_comp = min(35, round(35 * len(v.get("comp", [])) / 6)) if v.get("lida") else 12
+    c_local = {"poa": 15, "rs": 11, "remoto": 10}.get(v.get("regiao"), 9)
+    c_data = 4
+    if v.get("data_iso"):
+        try:
+            d = (hoje_brt() - dt.date.fromisoformat(v["data_iso"])).days
+            c_data = 10 if d <= 7 else 7 if d <= 30 else 4 if d <= 60 else 0
+        except ValueError:
+            pass
+    v["nota"] = c_cargo + c_comp + c_local + c_data
+    v["nota_det"] = {"cargo": c_cargo, "competencias": c_comp, "local": c_local, "atualidade": c_data}
+    return v["nota"]
+
+
 def avaliar(v):
-    """Cruza a vaga com as competências do currículo, ajusta a compatibilidade e explica o porquê."""
+    """Cruza a vaga com as competências do currículo, calcula a nota e explica o porquê."""
     desc = v.get("descricao", "")
     v["comp"] = competencias(v.get("titulo", "") + " " + desc)
     v["lida"] = len(desc) > 300
@@ -472,19 +577,16 @@ def avaliar(v):
         m = DATA_DESC.search(desc[:4000])
         if m:
             v["data_iso"] = normalizar_data(m.group(1))
-    # "Alta" só para cargos-alvo (lista ALTA). As competências nunca promovem um cargo parecido.
-    rebaixada = v["nivel"] == "Alta" and v["lida"] and not v["comp"]
-    if rebaixada:
-        v["nivel"] = "Média"
     t = v.get("titulo", "").lower()
-    if rebaixada:
-        porque = f"cargo “{termo_cargo(t, ALTA)}”, mas a descrição não cita competências suas"
-    else:
-        base = termo_cargo(t, ALTA) if v["nivel"] == "Alta" else (termo_cargo(t, ALTA) or termo_cargo(t, MEDIA))
-        porque = ("cargo-alvo" if v["nivel"] == "Alta" else "cargo parecido") + f" “{base}”"
-        porque += (f"; a descrição cita {len(v['comp'])} das suas competências" if v["lida"]
-                   else "; só o título foi lido (sem descrição)")
-    v["porque"] = porque
+    v["cargo_alvo"] = v["nivel"] == "Alta" and not (v["lida"] and not v["comp"])
+    nota = pontuar(v)
+    v["nivel"] = "Alta" if nota >= 80 else "Média"
+    base = termo_cargo(t, ALTA) or termo_cargo(t, MEDIA)
+    d = v["nota_det"]
+    v["porque"] = (("cargo-alvo" if v["cargo_alvo"] else "cargo parecido") + f" “{base}” ({d['cargo']}/40)"
+                   + (f"; descrição cita {len(v['comp'])} competências suas ({d['competencias']}/35)" if v["lida"]
+                      else "; só o título foi lido, sem descrição (competências 12/35)")
+                   + f"; local {d['local']}/15; atualidade {d['atualidade']}/10")
     v["descartar"] = ""
     if v.get("link_status") == "geral":
         v["descartar"] = "O link leva à página inicial do site, e não à vaga"
@@ -492,10 +594,8 @@ def avaliar(v):
         v["descartar"] = "Vaga encerrada (prazo de inscrição vencido)"
     elif CRC_RE.search(desc):
         v["descartar"] = "Exige ser contador (registro no CRC)"
-    elif v["nivel"] == "Média" and v["lida"] and len(v["comp"]) < 2:
-        v["descartar"] = f"Pouca aderência: cita {len(v['comp'])} das suas competências"
-    elif v["nivel"] == "Média" and not v["lida"] and v.get("grupo") == "Empresa":
-        v["descartar"] = "Cargo parecido, mas a página não tem descrição para conferir"
+    elif nota < NOTA_MIN:
+        v["descartar"] = f"Nota {nota} abaixo do mínimo {NOTA_MIN}"
 
 
 def variantes(url):
@@ -556,7 +656,7 @@ def processar_fonte(f, browser, hist_fontes=None):
             r["detalhe"] = "Preencha o campo url em fontes.json"
         else:
             status, html, ms, usada = baixar_com_variantes(f["url"], browser)
-            n_links, achadas = extrair(html, usada)
+            n_links, achadas, pr = extrair(html, usada)
             seguiu = " · endereço alternativo: " + usada[:60] if usada != f["url"] else ""
             if (not achadas and n_links >= 5 and 0 < status < 400
                     and not urlparse(usada).path.strip("/")):   # só a partir da página inicial
@@ -565,10 +665,35 @@ def processar_fonte(f, browser, hist_fontes=None):
                     try:
                         st2, html2, _ = baixar(prox, browser)
                         if 0 < st2 < 400:
-                            n_links, achadas = extrair(html2, prox)
+                            n_links, achadas, pr = extrair(html2, prox)
+                            html, usada = html2, prox
                             seguiu += " · seguiu " + prox[:70]
                     except Exception:  # noqa
                         pass
+            paginas, vistas_pag = 1, {usada}
+            while paginas < 4 and achadas:                      # lista em várias páginas: segue até 3 a mais
+                prox = proxima_pagina(html, usada)
+                if not prox or prox in vistas_pag:
+                    break
+                try:
+                    st3, html3, _ = baixar(prox, browser)
+                except Exception:  # noqa
+                    break
+                if not 0 < st3 < 400:
+                    break
+                vistas_pag.add(prox)
+                n3, ach3, pr3 = extrair(html3, prox)
+                novos = [x for x in ach3 if x["url"] not in {y["url"] for y in achadas}]
+                n_links += n3
+                pr["candidatos"] += pr3["candidatos"]
+                pr["descartes"] += pr3["descartes"][:20]
+                paginas += 1
+                if not novos:
+                    break
+                achadas += novos
+                html, usada = html3, prox
+            r["prof"] = {"links": n_links, "candidatos": pr["candidatos"], "paginas": paginas, "aceitos": len(achadas)}
+            r["descartes_titulo"] = pr["descartes"][:60]
             r["detalhe"] = f"HTTP {status} · {n_links} links · {ms / 1000:.1f}s{seguiu}"
             if status >= 400 or status == 0:
                 r["status"] = "Falhou"
@@ -594,12 +719,18 @@ def separar_fora(vagas, fora):
 
 
 def coletar(fontes, indices):
-    """Roda um lote de fontes (os índices dados) e já filtra e avalia as vagas dele."""
+    """Roda um lote de fontes (os índices dados), abre o link de cada vaga e já filtra, pontua e audita."""
     resultado, vagas = [], {}
     hp = RAIZ / "dados" / "historico.json"
     hist_fontes = json.loads(hp.read_text("utf-8")).get("fontes", {}) if hp.exists() else {}
+    fora, fb = [], {"n": 0, "max": 40}
     with (sync_playwright() if sync_playwright else nullcontext()) as pw:
-        browser = pw.chromium.launch() if pw else None
+        browser = None
+        if pw:
+            try:
+                browser = pw.chromium.launch()
+            except Exception as e:  # noqa
+                print("Navegador indisponível:", str(e)[:80])
         for i in indices:
             r, achadas = processar_fonte(fontes[i], browser, hist_fontes)
             r["ordem"] = i
@@ -607,16 +738,14 @@ def coletar(fontes, indices):
                 v["ordem"] = i
                 vagas.setdefault(v["url"], v)
             resultado.append(r)
+        separar_fora(vagas, fora)
+        for v in list(vagas.values())[:250]:
+            if "verificada" not in v:
+                v["verificada"], v["descricao"], info, final = verificar(v["url"], browser, fb)
+                aplicar_info(v, info)
+                auditar_link(v, final, info, v["descricao"])
         if browser:
             browser.close()
-
-    fora = []
-    separar_fora(vagas, fora)
-    for v in list(vagas.values())[:250]:
-        if "verificada" not in v:
-            v["verificada"], v["descricao"], info, final = verificar(v["url"])
-            aplicar_info(v, info)
-            auditar_link(v, final, info, v["descricao"])
     separar_fora(vagas, fora)          # o dado estruturado pode revelar que a vaga é de fora do RS
     for v in vagas.values():
         if "link_status" not in v:       # Gupy vem da API oficial; o resto acima de 250 não foi testado
@@ -784,8 +913,49 @@ def montar(parciais, fontes):
     hist_path.parent.mkdir(exist_ok=True)
     hist_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1), "utf-8")
 
+    # ---- auditoria geral: o que a busca REALMENTE fez
+    desc_todos = [dict(x, fonte=r["nome"]) for r in resultado for x in r.get("descartes_titulo", [])]
+    todos_desc, _vd = [], set()
+    for x in [dict(x) for x in fora] + desc_todos:
+        k = (x["titulo"], x["motivo"])
+        if k not in _vd:
+            _vd.add(k); todos_desc.append(x)
+    n = len(lista)
+    cont = lambda k: sum(1 for v in lista if v.get("link_status") == k)
+    qual = {"vagas": n, "lidas": sum(1 for v in lista if v.get("lida")), "link_ok": cont("ok"), "link_incerto": cont("incerto"),
+            "link_login": cont("login"), "link_nao_abre": cont("nao_abre"), "link_nao_testado": cont("nao_testado"),
+            "geral_descartadas": sum(1 for x in fora if x["motivo"].startswith("O link leva")),
+            "abertas": sum(1 for v in lista if v.get("verificada"))}
+    prof = [{"nome": r["nome"], "grupo": r["grupo"], "status": r["status"], "vagas": r["vagas"], **r["prof"]}
+            for r in resultado if r.get("prof")]
+    funil = {"fontes": len(resultado), "lidas": sum(1 for r in resultado if r.get("prof")),
+             "links": sum(p["links"] for p in prof), "candidatos": sum(p["candidatos"] for p in prof),
+             "aceitos": sum(p["aceitos"] for p in prof), "paginas": sum(p["paginas"] for p in prof),
+             "fora_rs": sum(1 for x in fora if x["motivo"].startswith("Fora do RS")),
+             "outros_descartes": sum(1 for x in fora if not x["motivo"].startswith("Fora do RS")),
+             "no_painel": n}
+    suspeitas = []
+    for r in resultado:
+        if r.get("grupo") == "Favorita" and r["status"].startswith(("Falhou", "Carregou sem lista", "Pausada")):
+            suspeitas.append(f"Favorita “{r['nome']}”: {r['status']} — não dá para dizer que não há vaga lá")
+        p = r.get("prof")
+        if p and p["links"] >= 40 and p["candidatos"] == 0:
+            suspeitas.append(f"“{r['nome']}”: {p['links']} links lidos, nenhum parece cargo — confira se a página lista vagas")
+    if qual["link_incerto"]:
+        suspeitas.append(f"{qual['link_incerto']} vaga(s) com link “incerto” (abriu, mas não confirmou o cargo na página)")
+    amostra = random.sample(lista, min(8, len(lista)))
+    audit_geral = {
+        "qualidade": qual, "funil": funil, "profundidade": sorted(prof, key=lambda x: -x["candidatos"])[:80],
+        "descartes": todos_desc[:500], "total_descartes": len(todos_desc), "suspeitas": suspeitas[:30],
+        "amostra": [{"titulo": v["titulo"], "empresa": v.get("empresa", ""), "fonte": v["fonte"], "url": v["url"],
+                     "link_status": v.get("link_status"), "lida": v.get("lida"), "nota": v.get("nota"),
+                     "aberta": bool(v.get("verificada"))} for v in amostra],
+        "regras": {"nota_min": NOTA_MIN, "nota_alta": 80, "excluidos": EXCLUIR, "contabil": "contador, analista/coordenador contábil, exige CRC",
+                   "local": "só Rio Grande do Sul (e remoto)", "paginas_max": 4, "rolagens_max": 4,
+                   "navegador_reserva_max": 40, "abre_link_max": 250}}
+
     dados = {"gerado": carimbo, "vagas": lista, "fontes": resultado, "execucoes": hist["execucoes"][-14:],
-             "fora": fora[:60], "saude": saude, "limpeza": limpeza, "auditoria_links": auditoria}
+             "fora": fora[:60], "saude": saude, "limpeza": limpeza, "auditoria_links": auditoria, "auditoria": audit_geral}
     html = (RAIZ / "modelo.html").read_text("utf-8").replace(
         "__DADOS__", json.dumps(dados, ensure_ascii=False).replace("</", "<\\/"))
     (RAIZ / "docs").mkdir(exist_ok=True)

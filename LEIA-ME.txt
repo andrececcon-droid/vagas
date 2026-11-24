@@ -1,14 +1,43 @@
-ATUALIZACAO - PARTE 3 (so vagas do Rio Grande do Sul: cidade dentro do titulo)
+PACOTE COMPLETO - Minhas vagas (24/11/2026)
 
-So 1 arquivo muda: buscar_vagas.py. O resto NAO muda.
+O QUE VOCE GANHA
+- Painel novo, mais simples: 3 abas (Vagas, Candidaturas, Auditoria) e uma engrenagem de configuracoes.
+- Robo mais fundo: rola a pagina, segue "Proxima", le o titulo de cartoes "Ver vaga", abre o link de CADA vaga
+  e confere se ele leva mesmo a vaga (nao a pagina inicial).
+- Nota de 0 a 100 por vaga (cargo 40 + competencias 35 + local 15 + atualidade 10). Abaixo de 65 nao aparece
+  (fica na Auditoria, com o motivo). 80 ou mais = muito compativel.
+- Aba Auditoria: veredito em linguagem simples, o caminho de uma rodada, vagas sorteadas para voce conferir,
+  lista de tudo que foi descartado e por que, profundidade por fonte, regras em vigor.
+- Rotina automatica de e-mails (Google): os alertas entram sozinhos quando voce abre o painel. Sem copiar e colar.
 
-1. No GitHub, repositorio "vagas": Add file > Upload files.
-2. Arraste o buscar_vagas.py e clique em Commit changes.
-3. Aba Actions > Buscar vagas > Run workflow.
+PASSO 1 - GITHUB (2 minutos)
+1. No repositorio "vagas": Add file > Upload files.
+2. Arraste os 2 arquivos da pasta "1-GITHUB": buscar_vagas.py e modelo.html. Commit changes.
+   (O resto - fontes.json e o workflow - nao muda.)
+3. Aba Actions > Buscar vagas > Run workflow. Espere terminar e abra o painel.
 
-O QUE MUDA
-- O programa le a cidade e o estado tambem quando vem escritos dentro do titulo
-  (ex.: "ANALISTA FINANCEIRO ... Belo Horizonte / MG A combinar"). Vaga de outro estado e descartada
-  e aparece em "Descartadas" na aba Fontes, com o motivo.
-- O titulo fica limpo: sem a cidade, sem "A combinar" e sem salario.
-- Siglas do cargo como "Contas a Pagar - AP" nao viram estado.
+PASSO 2 - ROTINA DE E-MAILS NO GOOGLE (5 minutos, uma vez so)
+1. Abra script.google.com, logado na conta do Gmail dos alertas. Novo projeto.
+2. Apague o texto que vem la e cole TODO o conteudo de rotina-gmail.gs (pasta "2-GOOGLE").
+3. Clique em Implantar > Nova implantacao > engrenagem > App da Web.
+   - Executar como: Eu.   - Quem tem acesso: Qualquer pessoa.   Implantar.
+4. O Google pede autorizacao para ler seu Gmail. Autorize (a rotina so le; nao envia, nao apaga, nao altera).
+   Se aparecer "app nao verificado": Avancado > Acessar (nao seguro). E o seu proprio script.
+5. Copie o "URL do app da Web" (termina em /exec).
+6. No painel: engrenagem > cole o endereco e a CHAVE. A chave e o texto entre aspas na linha
+   var CHAVE = "..." do arquivo rotina-gmail.gs. Salvar > Ler e-mails agora.
+Pronto: a partir dai, ao abrir o painel (e a cada 6 horas) ele le os alertas dos ultimos 14 dias.
+Nao compartilhe o endereco nem a chave: quem tiver os dois ve as vagas triadas dos seus e-mails.
+
+COMO CONFERIR SE A BUSCA ESTA BOA
+- Aba Auditoria > "Confira voce mesmo": abra 3 ou 4 vagas sorteadas e veja se o link leva a vaga.
+- Aba Auditoria > "O que o robo descartou": veja se alguma vaga boa foi descartada por engano.
+- Se algo estiver errado, me mande um print que eu ajusto a regra.
+
+LIMITES (honestos)
+- LinkedIn, Indeed, Catho e similares bloqueiam robos: so entram pelos alertas de e-mail, e a triagem
+  dos e-mails e feita so pelo assunto (nota provisoria).
+- O painel NAO se candidata sozinho. Isso exige um agente pago (como o do Cowork) e o LinkedIn proibe automacao.
+- A nota e uma regra fixa, nao uma leitura de pessoa. Use como filtro, nao como sentenca.
+- Testei o robo e o painel em sites simulados aqui. Em sites reais so a primeira rodada no GitHub mostra
+  o resultado verdadeiro: olhe a aba Auditoria depois dela.

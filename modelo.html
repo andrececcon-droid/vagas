@@ -1,123 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1565c0">
+<meta name="theme-color" content="#4f46e5">
 <link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png">
-<title>Dashboard de Vagas</title>
+<title>Minhas vagas</title>
 <style>
-:root{color-scheme:light dark;--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5d6672;--bd:#dde1e6;--ac:#1565c0;--ok:#1b7f3b;--md:#a66300;--er:#b3261e}
-@media(prefers-color-scheme:dark){:root{--bg:#14171a;--card:#1d2126;--tx:#e8eaed;--mut:#9aa3ad;--bd:#2e343b;--ac:#6ea8fe;--ok:#4cc277;--md:#e0a040;--er:#f2766b}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
-main{max-width:1000px;margin:0 auto;padding:16px 16px 60px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:24px 0 10px}
-.sub{color:var(--mut);font-size:13px}.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
-.btn{padding:8px 14px;border:0;border-radius:8px;background:var(--ac);color:#fff;font:inherit;font-weight:600;cursor:pointer}.btn:disabled{opacity:.6}
-.mini{padding:5px 10px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx);font:inherit;font-size:13px;cursor:pointer}
-#cp{display:none;margin-top:8px}#cp input{padding:7px 9px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx);font:inherit;min-width:220px}
-.tabs{display:flex;gap:6px;margin:16px 0 8px;border-bottom:1px solid var(--bd);overflow-x:auto}
-.tabs button{padding:9px 14px;border:0;border-bottom:3px solid transparent;background:none;color:var(--mut);font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
-.tabs button.on{color:var(--ac);border-bottom-color:var(--ac)}
-details.f{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}details.f summary{cursor:pointer;font-weight:600}
-.bar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.bar input,.bar select,textarea,.cand select,.cand input[type=date]{padding:8px 10px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx);font:inherit}.bar input{flex:1;min-width:160px}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}.card h3{font-size:15px;margin:0}
-.meta{color:var(--mut);font-size:13px}.loc{font-size:14px;font-weight:600}.loc.x{color:var(--md);font-weight:500}
-.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--bd);color:var(--mut);margin:2px 4px 0 0}
-.Alta{color:var(--ok);border-color:var(--ok)}.Média{color:var(--md);border-color:var(--md)}.nova{color:var(--ac);border-color:var(--ac)}
-a.go{color:var(--ac);font-weight:600;text-decoration:none}.ck{display:flex;gap:6px;align-items:center;font-size:14px;cursor:pointer;padding:4px 0}
-.ck input{width:18px;height:18px}.acoes{margin-top:auto;border-top:1px solid var(--bd);padding-top:8px}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.saude{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.saude span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--card);border:1px solid var(--bd)}
-.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;min-width:600px}
-th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--bd);vertical-align:top}th{color:var(--mut)}.ok{color:var(--ok)}.er{color:var(--er)}
-textarea{width:100%;min-height:60px}#av{display:none;color:var(--er);font-size:13px}
-#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#1b1f24;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;display:none;z-index:9}
-.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:8px 0}.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px}
-.kpi .n{font-size:24px;font-weight:700}.kpi .n.ok{color:var(--ok)}.kpi .n.er{color:var(--er)}.bar2{display:flex;height:12px;border-radius:99px;overflow:hidden;background:var(--bd);margin:10px 0 4px}.bar2 span{display:block;height:100%}
-@media(max-width:640px){main{padding:10px 10px 60px}.grid{grid-template-columns:1fr;gap:8px}.card{padding:10px;gap:4px}h1{font-size:19px}.tabs button{padding:8px 10px}}
+:root{color-scheme:light dark;--bg:#f5f6fa;--card:#fff;--tx:#1c2030;--mut:#667085;--bd:#e4e7ee;--ac:#4f46e5;--acb:#eef0ff;--ok:#16813d;--okb:#e6f6ec;--md:#b25e00;--mdb:#fff3e0;--er:#c0362c;--erb:#fdecea;--sh:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08)}
+@media(prefers-color-scheme:dark){:root{--bg:#12141b;--card:#1b1e28;--tx:#eceef5;--mut:#98a2b3;--bd:#2a2e3b;--ac:#8b86ff;--acb:#262a4a;--ok:#4cc277;--okb:#16301f;--md:#e8a74a;--mdb:#33260f;--er:#f2766b;--erb:#3a1c19;--sh:none}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+main{max-width:980px;margin:0 auto;padding:18px 16px 70px}
+header{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+h1{font-size:22px;margin:0;flex:1;min-width:150px;letter-spacing:-.01em}h2{font-size:16px;margin:26px 0 10px}h3{font-size:15px;margin:0}
+.sub,.meta{color:var(--mut);font-size:13px}
+button,select,input,textarea{font:inherit;color:var(--tx)}
+.btn{padding:9px 16px;border:0;border-radius:10px;background:var(--ac);color:#fff;font-weight:600;cursor:pointer}.btn:disabled{opacity:.6}
+.ghost{padding:7px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);cursor:pointer;font-size:14px}
+.ghost:hover{border-color:var(--ac)}
+input[type=text],input[type=search],input[type=password],input[type=date],select,textarea{padding:8px 10px;border:1px solid var(--bd);border-radius:10px;background:var(--card)}
+textarea{width:100%;min-height:60px}
+.tabs{display:flex;gap:4px;margin:18px 0 14px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:4px;box-shadow:var(--sh)}
+.tabs button{flex:1;padding:9px 8px;border:0;border-radius:9px;background:none;color:var(--mut);font-weight:600;cursor:pointer;white-space:nowrap}
+.tabs button.on{background:var(--acb);color:var(--ac)}
+.resumo{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.pill{padding:5px 12px;border-radius:99px;background:var(--card);border:1px solid var(--bd);font-size:13px}.pill b{font-weight:700}
+.pill.ok{background:var(--okb);border-color:transparent;color:var(--ok)}.pill.er{background:var(--erb);border-color:transparent;color:var(--er)}.pill.md{background:var(--mdb);border-color:transparent;color:var(--md)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.bar input{flex:1;min-width:170px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
+.grp{font-size:14px;font-weight:700;margin:22px 0 8px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:8px}
+.top{display:flex;gap:12px;align-items:flex-start}.top>div:last-child{min-width:0;flex:1}
+.ring{--p:0;flex:none;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--bd) 0)}
+.ring b{width:40px;height:40px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-size:14px}
+.ring.hi{--c:var(--ok)}.ring.md{--c:var(--md)}.ring.al{--c:var(--ac);--p:100}
+.card h3{line-height:1.3}.loc{font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}.chip{font-size:12px;padding:2px 9px;border-radius:99px;background:var(--bg);color:var(--mut)}
+.chip.ok{background:var(--okb);color:var(--ok)}.chip.md{background:var(--mdb);color:var(--md)}.chip.nv{background:var(--acb);color:var(--ac)}
+.acts{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:auto;padding-top:4px}
+a.go{color:#fff;background:var(--ac);padding:7px 14px;border-radius:10px;font-weight:600;text-decoration:none;font-size:14px}
+.tg{padding:7px 11px;border:1px solid var(--bd);border-radius:10px;background:var(--card);cursor:pointer;font-size:13px}
+.tg.on.c{background:var(--okb);border-color:var(--ok);color:var(--ok)}.tg.on.n{background:var(--erb);border-color:var(--er);color:var(--er)}
+details.why summary{cursor:pointer;color:var(--mut);font-size:13px}details.why div{font-size:13px;color:var(--mut);padding:4px 0}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;box-shadow:var(--sh);margin:10px 0}
+.verd{border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start}.verd.ok{background:var(--okb)}.verd.md{background:var(--mdb)}.verd.er{background:var(--erb)}.verd .em{font-size:26px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px}.kpi .n{font-size:24px;font-weight:700}.kpi .n.ok{color:var(--ok)}.kpi .n.er{color:var(--er)}.kpi .n.md{color:var(--md)}
+.funil{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.funil .st{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 12px;text-align:center}.funil .st b{display:block;font-size:19px}.funil .ar{color:var(--mut)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;min-width:560px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--bd);vertical-align:top}th{color:var(--mut);font-weight:600}
+td.ok{color:var(--ok)}td.er{color:var(--er)}a{color:var(--ac)}
+#cfg{margin:12px 0}#cfg h3{margin:14px 0 6px}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--bd);margin:2px 4px 2px 0}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#1c2030;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;display:none;z-index:9;max-width:90vw}
+[hidden]{display:none!important}
+@media(max-width:640px){main{padding:12px 10px 70px}.grid{grid-template-columns:1fr}h1{font-size:20px}}
 </style></head><body><main>
-<h1>Dashboard de Vagas</h1><div class="sub" id="ger"></div>
-<div class="top"><button class="btn" id="up">🔄 Atualizar agora</button><a href="#" id="cfg" class="sub">Configurar botão</a><button class="mini" id="inst" hidden>📲 Instalar como aplicativo</button><span class="sub" id="ust"></span></div>
-<div id="cp" class="sub">Cole aqui o token do GitHub. Ele fica salvo só neste navegador, não vai para a página pública.<br><input id="tk" type="password" placeholder="token do GitHub" autocomplete="off"> <button class="mini" id="sv">Salvar</button> <button class="mini" id="rm">Remover</button></div>
-<div class="sub" id="ios" hidden>No iPhone: toque em Compartilhar e depois em “Adicionar à Tela de Início”.</div>
+<header><h1>Minhas vagas</h1><button class="btn" id="up">🔄 Buscar agora</button><button class="ghost" id="bcfg" title="Configurações">⚙️</button></header>
+<div class="sub" id="ger"></div><div class="sub" id="ust"></div>
 
-<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="cargos">Por cargo</button><button data-t="alertas">Alertas <span id="nal"></span></button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="fontes">Fontes</button></nav>
-
-<section id="t-vagas">
-<div class="saude" id="saude"></div>
-<div class="sub" id="alNudge"></div>
-<details class="f" id="filtros" open><summary>Filtros e ordenação</summary>
-<div class="bar"><input id="q" placeholder="Buscar cargo ou empresa…"><select id="fm"></select>
-<select id="fp"><option value="">Qualquer data</option><option value="hoje">Novas hoje</option><option value="7">Últimos 7 dias</option><option value="30">Últimos 30 dias</option></select>
-<select id="fz"><option value="">Mais compatíveis</option><option value="recentes">Mais recentes</option><option value="novas">Novas primeiro</option></select>
-<select id="fr"><option value="">Todos os locais</option><option value="poa">Grande Porto Alegre</option><option value="rs">Outras cidades do RS</option><option value="remoto">Remoto</option><option value="?">Local não informado</option></select>
-<select id="fs"><option value="">Todas as fontes</option></select>
-<select id="fl"><option value="">Todos os links</option><option value="ok">Só links confirmados</option></select>
-<select id="fc"><option value="">Toda compatibilidade</option><option>Alta</option><option>Média</option></select></div></details>
-<details class="f" id="aprende"><summary>🧠 O que o painel aprendeu com as suas marcações</summary>
-<label class="ck"><input type="checkbox" id="auto"> Aprender e esconder sozinho (palavra marcada 3 vezes ou mais como “Não aplicável” e nunca como “Me candidatei”; vagas antigas se você marcar 3 ou mais)</label>
+<section id="cfg" class="box" hidden>
+<h3 style="margin-top:0">⚙️ Configurações</h3>
+<h3>📧 Rotina automática de e-mails (Google)</h3>
+<div class="sub">Cole aqui o endereço e a chave que o Google mostrou ao instalar a rotina (passo a passo no LEIA-ME). Depois disso, os alertas de LinkedIn, Indeed, Catho etc. entram sozinhos toda vez que você abre o painel.</div>
+<div class="row" style="margin-top:6px"><input type="text" id="gurl" placeholder="Endereço do Google (termina em /exec)" style="flex:2;min-width:200px"><input type="password" id="gkey" placeholder="Chave secreta" style="flex:1;min-width:120px"><button class="ghost" id="gsv">Salvar</button><button class="ghost" id="gnow">Ler e-mails agora</button></div>
+<div class="sub" id="gst"></div>
+<h3>🔘 Botão “Buscar agora”</h3>
+<div class="sub">Cole o token do GitHub. Fica salvo só neste navegador.</div>
+<div class="row" style="margin-top:6px"><input type="password" id="tk" placeholder="token do GitHub" autocomplete="off"><button class="ghost" id="sv">Salvar</button><button class="ghost" id="rm">Remover</button></div>
+<h3>🧠 O que o painel aprendeu com as suas marcações</h3>
+<label class="sub"><input type="checkbox" id="auto"> Aprender e esconder sozinho (palavra marcada 3 vezes como “Não aplicável” e nunca como “Me candidatei”)</label>
 <div id="regras"></div>
-<div class="row" style="margin-top:6px"><input id="novaPal" placeholder="Esconder vagas com a palavra…" style="padding:6px 8px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)"><button class="mini" id="addPal">Adicionar</button>
-<label class="meta">Esconder vagas publicadas há mais de <select id="selDias" class="mini"><option value="0">(automático)</option><option value="15">15 dias</option><option value="30">30 dias</option><option value="60">60 dias</option></select></label></div></details>
-<div class="sub">As marcações “Me candidatei” e “Não aplicável” ficam salvas neste aparelho (veja a aba Candidaturas para levar para outro). <span id="av">Não consegui gravar neste navegador.</span> <a href="#" id="lm">Limpar marcações deste aparelho</a></div>
-<div class="sub" id="cnt" style="margin-top:4px"></div>
-<div class="grid" id="grid" style="margin-top:12px"></div>
+<div class="row" style="margin-top:6px"><input type="text" id="novaPal" placeholder="Esconder vagas com a palavra…"><button class="ghost" id="addPal">Adicionar</button>
+<label class="sub">Esconder publicadas há mais de <select id="selDias"><option value="0">(automático)</option><option value="15">15 dias</option><option value="30">30 dias</option><option value="60">60 dias</option></select></label></div>
+<h3>📲 Levar para outro aparelho</h3>
+<div class="row"><button class="ghost" id="bcopiar">Copiar código</button><button class="ghost" id="bbaixar">Baixar arquivo</button><label class="ghost">Importar arquivo <input type="file" id="fimp" accept=".json" hidden></label><button class="ghost" id="binst" hidden>Instalar como aplicativo</button></div>
+<textarea id="dd" placeholder="Cole aqui o código do outro aparelho" style="margin-top:6px"></textarea><button class="ghost" id="bimp" style="margin-top:6px">Importar do campo acima</button>
+<h3>Sem a rotina automática? Use o chat</h3>
+<div class="row"><button class="ghost" id="alCopiar">📋 Copiar pedido para o Claude</button><input type="date" id="alDesde"><button class="ghost" id="alImportar">Importar bloco</button></div>
+<textarea id="alBloco" placeholder="Cole aqui o bloco JSON que o Claude devolver" style="margin-top:6px"></textarea><div class="sub" id="alMsg"></div>
+<div class="sub" style="margin-top:10px"><a href="#" id="lm">Limpar marcações deste aparelho</a> · <a href="#" id="alApagar">Apagar vagas importadas de e-mail</a> <span id="av" hidden style="color:var(--er)">· Não consegui gravar neste navegador.</span></div>
 </section>
 
-<section id="t-cargos" hidden>
-<div class="sub">As mesmas vagas, organizadas pelo tipo de cargo. A situação mostra o que você já marcou.</div>
-<div class="saude" id="cargosChips"></div>
-<div class="row" style="margin:6px 0"><label class="ck"><input type="checkbox" id="soPend"> Só pendentes</label><label class="ck"><input type="checkbox" id="soLink"> Só links confirmados</label></div>
-<div id="cargosLista"></div></section>
+<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="auditoria">Auditoria</button></nav>
 
-<section id="t-alertas" hidden>
-<h2 style="margin-top:8px">Rotina de alertas por e-mail</h2>
-<div class="card"><div id="alStatus" class="meta"></div>
-<ol style="margin:6px 0 6px 18px;padding:0;font-size:14px"><li>Toque em <b>Copiar pedido</b>.</li><li>Cole no chat do Claude, com o Gmail conectado. Ele lê só o assunto e a prévia dos alertas e devolve um bloco.</li><li>Cole o bloco aqui embaixo e toque em <b>Importar</b>.</li></ol>
-<div class="row"><button class="btn" id="alCopiar">📋 Copiar pedido para o Claude</button><label class="meta">Ler e-mails desde <input type="date" id="alDesde" style="padding:6px 8px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)"></label></div>
-<textarea id="alBloco" placeholder="Cole aqui o bloco que o Claude devolver" style="margin-top:8px"></textarea>
-<div class="row" style="margin-top:6px"><button class="btn" id="alImportar">Importar</button><button class="mini" id="alApagar">Apagar vagas importadas</button><span class="sub" id="alMsg"></span></div></div>
-<div class="sub" style="margin-top:8px">As vagas importadas ficam salvas neste aparelho por 30 dias e aparecem junto com as outras, com a fonte “Alerta (…)”. O link de cada uma abre o e-mail no Gmail, onde está o botão da vaga. As candidaturas que o Claude achar nos e-mails entram na aba Candidaturas.</div>
+<section id="t-vagas">
+<div class="resumo" id="resumo"></div>
+<div class="bar"><input type="search" id="q" placeholder="Buscar cargo ou empresa…">
+<select id="fm"></select>
+<select id="fr"><option value="">Todo o RS</option><option value="poa">Grande Porto Alegre</option><option value="rs">Outras cidades</option><option value="remoto">Remoto</option><option value="?">Local não informado</option></select>
+<select id="fo"><option value="">Melhor nota primeiro</option><option value="recentes">Mais recentes</option><option value="novas">Novas primeiro</option></select>
+<select id="fg"><option value="nota">Agrupar por nota</option><option value="cargo">Agrupar por cargo</option><option value="">Sem grupos</option></select></div>
+<div id="lista"></div>
 </section>
 
 <section id="t-candidaturas" hidden>
-<div class="row" style="margin:8px 0"><button class="btn" id="csv">⬇ Exportar para Excel (.csv)</button><span class="sub">Cada vaga marcada como “Me candidatei” entra aqui. Anote o andamento.</span></div>
+<div class="row" style="margin-bottom:10px"><button class="btn" id="csv">⬇ Exportar para Excel</button><span class="sub">Cada vaga marcada como “Me candidatei” aparece aqui. Anote o andamento.</span></div>
 <div class="grid" id="lc"></div>
-<details class="f"><summary>Levar as marcações para outro aparelho (celular ↔ computador)</summary>
-<p class="sub">Nada disso vai para a internet. Copie o código aqui, cole no outro aparelho e importe. Cada importação junta os dois lados.</p>
-<div class="row"><button class="mini" id="bcopiar">Copiar código</button><button class="mini" id="bbaixar">Baixar arquivo</button><label class="mini">Importar arquivo <input type="file" id="fimp" accept=".json" hidden></label></div>
-<textarea id="dd" placeholder="Cole aqui o código do outro aparelho e toque em Importar" style="margin-top:8px"></textarea>
-<div class="row" style="margin-top:6px"><button class="mini" id="bimp">Importar do campo acima</button></div></details>
 </section>
 
-<section id="t-fontes" hidden>
-<div id="resumo"></div>
-<h2>Situação de cada fonte nesta rodada</h2><div class="tw"><table id="tb"></table></div>
-<div id="audlinks"></div>
-<div id="limpeza"></div>
-<h2>Descartadas (fora do RS ou pouca aderência)</h2><div class="tw"><table id="fo"></table></div>
-<h2>Histórico das últimas rodadas</h2><div class="tw"><table id="hx"></table></div>
-</section>
+<section id="t-auditoria" hidden><div id="aud"></div></section>
 <div id="toast"></div>
 </main><script>
-var D=__DADOS__,KEY="vagas_estado_v1",KC="vagas_cand_v1",E={},C={};
-function $(i){return document.getElementById(i)}
-try{E=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){E={}}
-try{C=JSON.parse(localStorage.getItem(KC)||"{}")||{}}catch(e){C={}}
-var KI="vagas_info_v1",KR="vagas_regras_v1",INFO={},R={auto:true,manual:[],dias:0,ignoradas:[],liberadas:{}},RG={pal:{},dias:0,ap:{palavras:[]}};
-try{INFO=JSON.parse(localStorage.getItem(KI)||"{}")||{}}catch(e){INFO={}}
-try{var r0=JSON.parse(localStorage.getItem(KR)||"null");if(r0)R=Object.assign(R,r0)}catch(e){}
-function salvar(){try{localStorage.setItem(KEY,JSON.stringify(E));localStorage.setItem(KC,JSON.stringify(C));localStorage.setItem(KI,JSON.stringify(INFO));localStorage.setItem(KR,JSON.stringify(R));localStorage.setItem(KA,JSON.stringify(AX))}catch(e){$("av").style.display="inline"}}
+var D=__DADOS__;
+var $=function(i){return document.getElementById(i)};
+var K={est:"vagas_estado_v1",cand:"vagas_cand_v1",info:"vagas_info_v1",reg:"vagas_regras_v1",al:"vagas_alertas_v1",gas:"vagas_gas_v1"};
+function ler(k,d){try{return JSON.parse(localStorage.getItem(k)||"null")||d}catch(e){return d}}
+var E=ler(K.est,{}),C=ler(K.cand,{}),INFO=ler(K.info,{}),R=Object.assign({auto:true,manual:[],dias:0,ignoradas:[],liberadas:{}},ler(K.reg,{})),
+    AX=Object.assign({vagas:[],ult:""},ler(K.al,{})),G=Object.assign({url:"",key:"",ult:0,msg:""},ler(K.gas,{})),RG={pal:{},dias:0,ap:{palavras:[]}};
+function salvar(){try{localStorage.setItem(K.est,JSON.stringify(E));localStorage.setItem(K.cand,JSON.stringify(C));localStorage.setItem(K.info,JSON.stringify(INFO));localStorage.setItem(K.reg,JSON.stringify(R));localStorage.setItem(K.al,JSON.stringify(AX));localStorage.setItem(K.gas,JSON.stringify(G))}catch(e){$("av").hidden=false}}
 function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
 function nrm(u){try{var x=new URL(u);if(x.hostname!=="mail.google.com")x.hash="";["utm_source","utm_medium","utm_campaign","jobBoardSource"].forEach(function(k){x.searchParams.delete(k)});return x.toString()}catch(e){return u}}
 function sem(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim()}
 function ks(v){return [nrm(v.url),"t:"+sem(v.titulo)+"|"+sem(v.empresa||v.fonte)+"|"+sem(v.local)]}
 function est(v){var k=ks(v);return E[k[0]]||E[k[1]]||""}
 function hojeLocal(){var d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)}
+function dias(a,b){return (Date.parse(a)-Date.parse(b))/864e5}
+function fmtData(i){return i?i.slice(8,10)+"/"+i.slice(5,7)+"/"+i.slice(0,4):""}
+var m0=/(\d{2})\/(\d{2})\/(\d{4})/.exec(D.gerado||""),HOJE=m0?m0[3]+"-"+m0[2]+"-"+m0[1]:hojeLocal();
+function dataRef(v){return v.data_iso||v.primeira||""}
+function toast(t){var e=$("toast");e.textContent=t;e.style.display="block";clearTimeout(toast.h);toast.h=setTimeout(function(){e.style.display="none"},3000)}
+function copiar(txt,ok){function fb(){var t=document.createElement("textarea");t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand("copy");ok()}catch(e){prompt("Copie o texto:",txt)}t.remove()}
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(txt).then(ok,fb);else fb()}
+function baixar(nome,txt,tipo){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:tipo}));a.download=nome;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
+
+/* ---------- marcações e aprendizado ---------- */
 function marcar(v,t){var k=ks(v);k.forEach(function(x){if(t)E[x]=t;else delete E[x]});
  if(t==="c"&&!C[k[0]])C[k[0]]={titulo:v.titulo,empresa:v.empresa||v.fonte,local:v.local||"",fonte:v.fonte,url:v.url,data:hojeLocal(),status:"Enviado",obs:"",atualizado:Date.now()};
  if(!t&&C[k[0]]&&C[k[0]].status==="Enviado"&&!C[k[0]].obs)delete C[k[0]];
  if(t==="c"||t==="n"){var dd=v.data_iso||"";INFO[k[0]]={t:sem(v.titulo),s:t,i:dd?Math.round(dias(hojeLocal(),dd)):null}}else delete INFO[k[0]]}
-var m0=/(\d{2})\/(\d{2})\/(\d{4})/.exec(D.gerado),HOJE=m0?m0[3]+"-"+m0[2]+"-"+m0[1]:hojeLocal();
 var PROT=["analista","gerente","financeiro","financeira","administrativo","administrativa","coordenador","coordenadora","controller","controladoria","gestor","gestora","planejamento","tesouraria","pleno","senior","junior","diretor","supervisor","especialista","consultor","contas","pagar","receber","empresa","confidencial","vaga","vagas","remoto","hibrido","presencial","para","com","sem","dos","das","uma","por"];
 function aprender(){var nN={},nC={},ex={};
  Object.keys(INFO).forEach(function(k){var x=INFO[k];(x.t||"").split(" ").filter(function(w,i,a){return w.length>=4&&!/\d/.test(w)&&PROT.indexOf(w)<0&&a.indexOf(w)==i}).forEach(function(w){
@@ -130,202 +138,202 @@ function regras(){var ap=aprender(),pal={};R.manual.forEach(function(w){pal[w]="
 function motivoOculta(v,rg){var t=sem(v.titulo).split(" ");for(var w in rg.pal){if(t.indexOf(w)>=0)return "contém “"+w+"” ("+rg.pal[w]+")"}
  if(rg.dias&&v.data_iso&&dias(HOJE,v.data_iso)>rg.dias)return "publicada há mais de "+rg.dias+" dias ("+rg.diasOrigem+")";return ""}
 function vista(v){var s=est(v);if(s)return s;if(R.liberadas[ks(v)[0]])return "";return motivoOculta(v,RG)?"o":""}
-function fmtData(i){return i?i.slice(8,10)+"/"+i.slice(5,7)+"/"+i.slice(0,4):""}
-function dias(a,b){return (Date.parse(a)-Date.parse(b))/864e5}
-function dataRef(v){return v.data_iso||v.primeira||""}
-function toast(t){var e=$("toast");e.textContent=t;e.style.display="block";clearTimeout(toast.h);toast.h=setTimeout(function(){e.style.display="none"},2600)}
-function copiar(txt,ok){function fb(){var t=document.createElement("textarea");t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand("copy");ok()}catch(e){prompt("Copie o texto:",txt)}t.remove()}
- if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(txt).then(ok,fb);else fb()}
-function baixar(nome,txt,tipo){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:tipo}));a.download=nome;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
-function textoClaude(v){return "Quero me candidatar a esta vaga. Use o meu currículo (já está nesta conversa ou no projeto) para:\n1) dizer se a vaga combina comigo e quais pontos do meu currículo destacar;\n2) adaptar o resumo e os principais resultados do currículo para esta vaga;\n3) escrever uma mensagem curta para o recrutador.\n\nVAGA: "+v.titulo+"\nEMPRESA: "+(v.empresa||v.fonte)+"\nLOCAL: "+(v.local||"não informado")+"\nPUBLICADA: "+(v.data_iso?fmtData(v.data_iso):"data não informada")+"\nLINK: "+v.url+"\nMINHAS COMPETÊNCIAS CITADAS NA VAGA: "+((v.comp||[]).join(", ")||"nenhuma identificada")+"\n\nDESCRIÇÃO:\n"+(v.descricao||"(a descrição não foi lida; abra o link, copie o texto da vaga e cole aqui)")}
 
-var KA="vagas_alertas_v1",AX={vagas:[],ult:""};
-try{AX=Object.assign(AX,JSON.parse(localStorage.getItem(KA)||"{}"))}catch(e){}
+/* ---------- vagas de e-mail entram junto ---------- */
 AX.vagas=(AX.vagas||[]).filter(function(a){return a&&a.url&&dias(HOJE,a.primeira||HOJE)<=30});
 function ckey(v){return sem(v.titulo)+"|"+sem(v.empresa||"")}
 function mesclarAlertas(){var vistos={},cks={};D.vagas.forEach(function(v){vistos[nrm(v.url)]=1;if(v.empresa)cks[ckey(v)]=1});
  AX.vagas.forEach(function(a){if(vistos[nrm(a.url)]||(a.empresa&&cks[ckey(a)]))return;D.vagas.push(a);vistos[nrm(a.url)]=1})}
 mesclarAlertas();
-$("ger").textContent="Última busca: "+D.gerado+" (horário de Brasília). Compatibilidade estimada pelo cargo e pelas suas competências.";
-var RS0=resumoFontes();$("saude").innerHTML=RS0.lidas?"<span class='ok'>✔ "+RS0.verificadas+" de "+RS0.lidas+" páginas verificadas ("+RS0.pct+"%)</span><span>"+RS0.com+" com vagas</span><span>"+RS0.sem+" sem vaga hoje</span><span>"+RS0.js+" sem lista (JS)</span><span class='er'>"+(RS0.falha+RS0.pausa+RS0.outro)+" não verificadas</span><span>"+RS0.alerta+" só por alerta</span><span><a href='#fontes' data-ir='fontes'>ver detalhes</a></span>":"";
-var g=$("grid"),q=$("q"),fm=$("fm"),fp=$("fp"),fz=$("fz"),fr=$("fr"),fs=$("fs"),fc=$("fc"),fl=$("fl");
-D.vagas.map(function(v){return v.fonte}).filter(function(x,i,a){return a.indexOf(x)==i}).forEach(function(f){var o=document.createElement("option");o.textContent=f;fs.appendChild(o)});
-var RN={poa:"Grande Porto Alegre",rs:"Outra cidade do RS",remoto:"Remoto"};
-var CNT={c:0,n:0,p:0};
-function opcoes(){RG=regras();var c=0,n=0,p=0,o=0;D.vagas.forEach(function(v){var s=vista(v);if(s=="c")c++;else if(s=="n")n++;else if(s=="o")o++;else p++});
-CNT={c:c,n:n,p:p,o:o};$("cnt").textContent=D.vagas.length+" vagas nesta rodada · "+p+" pendentes · "+c+" marcadas como candidatei · "+n+" marcadas como não aplicável"+(o?" · "+o+" ocultas pelas suas regras":"");
-var cur=fm.value;fm.innerHTML='<option value="">Pendentes ('+p+')</option><option value="c">Me candidatei ('+c+')</option><option value="n">Não aplicável ('+n+')</option><option value="o">Ocultas por regras ('+o+')</option>';fm.value=cur}
-function card(v,i){var s=est(v),loc=v.local?'<div class="loc">📍 '+esc(v.local)+(RN[v.regiao]?" · "+RN[v.regiao]:"")+'</div>':'<div class="loc x">📍 Local não informado na página. Confira antes de se candidatar.</div>';
- var comp=(v.comp&&v.comp.length)?'<div style="font-size:13px">✔ Suas competências na vaga: '+v.comp.map(esc).join(", ")+'</div>':(v.lida?'<div class="meta">Descrição lida: nenhuma competência sua citada.</div>':'<div class="meta">Só o título foi lido (descrição indisponível).</div>');
- var mo=(est(v)===""&&!R.liberadas[ks(v)[0]])?motivoOculta(v,RG):"";
- var oc=mo?'<div class="meta">🧠 Oculta por regra: '+esc(mo)+' <button class="mini" data-lib="'+i+'">Liberar</button></div>':"";
- var por=oc+(v.porque?'<div class="meta">Por que '+esc(v.nivel)+': '+esc(v.porque)+'</div>':"");
- var tb=(v.tambem&&v.tambem.length)?'<div class="meta">Também em: '+v.tambem.map(function(t){return '<a href="'+esc(t.url)+'" target="_blank" rel="noopener">'+esc(t.fonte)+'</a>'}).join(", ")+'</div>':"";
- var dt=v.data_iso?"Publicada: "+fmtData(v.data_iso):"Vista em "+fmtData(v.primeira);
- return '<div class="card"><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empresa||v.fonte)+'</div>'+loc+comp+por+tb+'<div>'+
- '<span class="tag '+v.nivel+'">Compatibilidade '+v.nivel+'</span>'+(v.nova?'<span class="tag nova">Nova</span>':'')+'<span class="tag">'+esc(v.fonte)+'</span><span class="tag">'+dt+'</span>'+
- (v.prazo?'<span class="tag">Prazo: '+esc(v.prazo)+'</span>':'')+'<span class="tag">'+({ok:"Link da vaga confirmado ✓",incerto:"⚠ Link não confirmado (pode abrir a lista do site)",login:"⚠ O link pede login",nao_abre:"Link não abriu",nao_testado:"Link não testado",alerta:"📧 Link do alerta (abre o e-mail no Gmail)"}[v.link_status]||(v.verificada===true?"Link verificado":"Link não testado"))+'</span></div>'+
- '<div class="row"><a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir vaga →</a><button class="mini" data-cp="'+i+'">📋 Copiar para o Claude</button></div>'+
- '<div class="acoes"><label class="ck"><input type="checkbox" data-i="'+i+'" data-t="c"'+(s=="c"?" checked":"")+'> Me candidatei</label>'+
- '<label class="ck"><input type="checkbox" data-i="'+i+'" data-t="n"'+(s=="n"?" checked":"")+'> Não aplicável</label></div></div>'}
-function draw(){opcoes();drawCargos();var t=q.value.toLowerCase(),per=fp.value,ord=fz.value,L=[];
- D.vagas.forEach(function(v,i){if(vista(v)!=fm.value)return;if(fl.value==="ok"&&v.link_status!=="ok")return;if(fs.value&&v.fonte!=fs.value)return;if(fc.value&&v.nivel!=fc.value)return;
- if(fr.value&&(v.regiao||"?")!=fr.value)return;if(t&&(v.titulo+" "+(v.empresa||"")).toLowerCase().indexOf(t)<0)return;
- var d=dataRef(v);if(per==="hoje"&&!v.nova)return;if(per==="7"&&!(d&&dias(HOJE,d)<=7))return;if(per==="30"&&!(d&&dias(HOJE,d)<=30))return;L.push([v,i])});
- if(ord==="recentes")L.sort(function(a,b){return dataRef(b[0]).localeCompare(dataRef(a[0]))||a[1]-b[1]});
- else if(ord==="novas")L.sort(function(a,b){return (b[0].nova?1:0)-(a[0].nova?1:0)||dataRef(b[0]).localeCompare(dataRef(a[0]))||a[1]-b[1]});
- var vazio='<div class="sub">Nenhuma vaga nesta lista.</div>';
- if(!L.length&&fm.value===""&&D.vagas.length&&CNT.p===0&&!q.value&&!fs.value&&!fc.value&&!fr.value&&!fp.value)
-  vazio='<div class="card"><b>Todas as '+D.vagas.length+' vagas desta rodada já foram marcadas por você.</b><div class="meta">Elas não sumiram: estão escondidas porque você marcou “Me candidatei” ou “Não aplicável”. Vagas novas aparecem aqui como pendentes.</div><div class="row"><button class="mini" data-ver="n">Ver as '+CNT.n+' “Não aplicável”</button><button class="mini" data-ver="c">Ver as '+CNT.c+' “Me candidatei”</button></div></div>';
- g.innerHTML=L.length?L.map(function(x){return card(x[0],x[1])}).join(""):vazio}
-g.addEventListener("change",function(e){var i=e.target.getAttribute("data-i");if(i==null)return;var v=D.vagas[i],t=e.target.getAttribute("data-t");marcar(v,e.target.checked?t:"");salvar();draw();drawCand()});
-g.addEventListener("click",function(e){var lib=e.target.getAttribute("data-lib");if(lib!=null){R.liberadas[ks(D.vagas[lib])[0]]=1;salvar();draw();drawRegras();return}var ver=e.target.getAttribute("data-ver");if(ver){fm.value=ver;draw();return}var i=e.target.getAttribute("data-cp");if(i==null)return;copiar(textoClaude(D.vagas[i]),function(){toast("Copiado! Cole no chat do Claude.")})});
-[q,fm,fp,fz,fr,fs,fc,fl].forEach(function(e){e.addEventListener("input",draw)});
-$("lm").addEventListener("click",function(e){e.preventDefault();if(confirm("Apagar todas as marcações deste aparelho? (as candidaturas anotadas continuam)")){E={};salvar();draw()}});
 
-/* ----- candidaturas ----- */
+/* ---------- aba Vagas ---------- */
+var CATS=[["ger","Gerente financeiro e administrativo"],["ctl","Controller e controladoria"],["coo","Coordenador, gestor e diretor"],["anf","Analista financeiro, FP&A e planejamento"],["ana","Outros analistas"],["out","Outros cargos"]];
+function categoria(v){var t=sem(v.titulo);if(/\bgerente\b/.test(t))return "ger";
+ if(/\b(controller|controladoria)\b/.test(t)&&!/\banalista\b/.test(t))return "ctl";
+ if(/\b(coordenador|coordenadora|gestor|gestora|diretor|diretora|supervisor|supervisora|head|superintendente)\b/.test(t))return "coo";
+ if(/\banalista\b/.test(t))return /(financ|fp a|fpa|planejamento|orcament|tesouraria|custos|controladoria|faturamento|contas)/.test(t)?"anf":"ana";return "out"}
+var RN={poa:"Grande Porto Alegre",rs:"Interior do RS",remoto:"Remoto"};
+var LINK={ok:["✓ Link confirmado","ok"],incerto:["⚠ Link não confirmado","md"],login:["⚠ Link pede login","md"],nao_abre:["Link não abriu","md"],nao_testado:["Link não testado",""],alerta:["📧 Vem de e-mail",""]};
+var fm=$("fm"),q=$("q"),fr=$("fr"),fo=$("fo"),fg=$("fg");
+function notaDe(v){return v.nota!=null?v.nota:0}
+function textoClaude(v){return "Quero me candidatar a esta vaga. Use o meu currículo (já está nesta conversa ou no projeto) para:\n1) dizer se a vaga combina comigo e quais pontos do meu currículo destacar;\n2) adaptar o resumo e os principais resultados do currículo para esta vaga;\n3) escrever uma mensagem curta para o recrutador.\n\nVAGA: "+v.titulo+"\nEMPRESA: "+(v.empresa||v.fonte)+"\nLOCAL: "+(v.local||"não informado")+"\nPUBLICADA: "+(v.data_iso?fmtData(v.data_iso):"data não informada")+"\nLINK: "+v.url+"\nMINHAS COMPETÊNCIAS CITADAS NA VAGA: "+((v.comp||[]).join(", ")||"nenhuma identificada")+"\n\nDESCRIÇÃO:\n"+(v.descricao||"(a descrição não foi lida; abra o link, copie o texto da vaga e cole aqui)")}
+function card(v,i){var s=est(v),n=v.nota,lk=LINK[v.link_status]||LINK.nao_testado,mo=(s===""&&!R.liberadas[ks(v)[0]])?motivoOculta(v,RG):"";
+ var ring=(n!=null&&!v.prov)?'<div class="ring '+(n>=80?"hi":"md")+'" style="--p:'+n+'" title="Nota de compatibilidade"><b>'+n+'</b></div>':'<div class="ring al" title="Vaga de e-mail: nota provisória só pelo título"><b>📧</b></div>';
+ var loc=v.local?"📍 "+esc(v.local)+(RN[v.regiao]?" · "+RN[v.regiao]:""):"📍 Local não informado — confira antes";
+ var comp=(v.comp&&v.comp.length)?"Cita "+v.comp.length+" das suas competências: "+v.comp.slice(0,4).map(esc).join(", ")+(v.comp.length>4?"…":""):(v.lida?"Descrição lida: nenhuma competência sua citada":"Só o título foi lido");
+ var det=v.nota_det?'Cargo '+v.nota_det.cargo+'/40 · Competências '+v.nota_det.competencias+'/35 · Local '+v.nota_det.local+'/15 · Atualidade '+v.nota_det.atualidade+'/10':"";
+ return '<div class="card"><div class="top">'+ring+'<div><h3>'+esc(v.titulo)+'</h3><div class="meta">'+esc(v.empresa||v.fonte)+'</div><div class="loc">'+loc+'</div></div></div>'+
+ '<div class="meta">'+comp+'</div>'+
+ '<div class="chips">'+(v.nova?'<span class="chip nv">Nova</span>':'')+'<span class="chip '+lk[1]+'">'+lk[0]+'</span><span class="chip">'+(v.data_iso?"Publicada "+fmtData(v.data_iso):"Vista em "+fmtData(v.primeira))+'</span><span class="chip">'+esc(v.fonte)+'</span></div>'+
+ (mo?'<div class="meta">🧠 Oculta por regra: '+esc(mo)+' <a href="#" data-lib="'+i+'">Liberar</a></div>':'')+
+ '<details class="why"><summary>Por que essa nota?</summary><div>'+(det?det+'<br>':'')+esc(v.porque||"")+(v.tambem&&v.tambem.length?'<br>Também em: '+v.tambem.map(function(t){return '<a href="'+esc(t.url)+'" target="_blank" rel="noopener">'+esc(t.fonte)+'</a>'}).join(", "):"")+'</div></details>'+
+ '<div class="acts"><a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir vaga →</a>'+
+ '<button class="tg c'+(s=="c"?" on":"")+'" data-i="'+i+'" data-t="c">✓ Me candidatei</button><button class="tg n'+(s=="n"?" on":"")+'" data-i="'+i+'" data-t="n">✕ Não aplicável</button>'+
+ '<button class="tg" data-cp="'+i+'" title="Copiar a vaga para pedir ajuda ao Claude">📋</button></div></div>'}
+function filtrar(){var t=q.value.toLowerCase(),L=[];
+ D.vagas.forEach(function(v,i){if(vista(v)!=fm.value)return;if(fr.value&&(v.regiao||"?")!=fr.value)return;if(t&&(v.titulo+" "+(v.empresa||"")).toLowerCase().indexOf(t)<0)return;L.push([v,i])});
+ var o=fo.value;
+ if(o==="recentes")L.sort(function(a,b){return dataRef(b[0]).localeCompare(dataRef(a[0]))||notaDe(b[0])-notaDe(a[0])});
+ else if(o==="novas")L.sort(function(a,b){return (b[0].nova?1:0)-(a[0].nova?1:0)||notaDe(b[0])-notaDe(a[0])});
+ else L.sort(function(a,b){return notaDe(b[0])-notaDe(a[0])||(b[0].nova?1:0)-(a[0].nova?1:0)});
+ return L}
+function draw(){RG=regras();var c=0,n=0,p=0,oc=0,hi=0,nv=0;
+ D.vagas.forEach(function(v){var s=vista(v);if(s=="c")c++;else if(s=="n")n++;else if(s=="o")oc++;else{p++;if(v.nota>=80&&!v.prov)hi++;if(v.nova)nv++}});
+ var cur=fm.value;fm.innerHTML='<option value="">Para ver ('+p+')</option><option value="c">Me candidatei ('+c+')</option><option value="n">Não aplicável ('+n+')</option><option value="o">Ocultas por regras ('+oc+')</option>';fm.value=cur;
+ $("resumo").innerHTML='<span class="pill"><b>'+p+'</b> vagas para ver</span>'+(hi?'<span class="pill ok"><b>'+hi+'</b> muito compatíveis (nota 80+)</span>':'')+(nv?'<span class="pill md"><b>'+nv+'</b> novas</span>':'')+'<span class="pill"><b>'+c+'</b> candidaturas</span>'+(AX.vagas.length?'<span class="pill">📧 <b>'+AX.vagas.length+'</b> de e-mails</span>':'');
+ var L=filtrar(),h="";
+ if(!L.length){h='<div class="box">'+(D.vagas.length&&!p&&!fm.value?'<b>Você já marcou todas as '+D.vagas.length+' vagas desta rodada.</b><div class="meta">Elas não sumiram: estão em “Me candidatei” e “Não aplicável”. Vagas novas aparecem aqui.</div>':'Nenhuma vaga nesta lista.')+'</div>'}
+ else if(fg.value==="nota"){var gs=[["Muito compatíveis (nota 80 ou mais)",function(v){return !v.prov&&v.nota>=80}],["Compatíveis (65 a 79)",function(v){return !v.prov&&v.nota<80}],["Vindas de e-mail (nota provisória)",function(v){return !!v.prov||v.nota==null}]];
+  gs.forEach(function(g){var A=L.filter(function(x){return g[1](x[0])});if(A.length)h+='<div class="grp">'+g[0]+' · '+A.length+'</div><div class="grid">'+A.map(function(x){return card(x[0],x[1])}).join("")+'</div>'})}
+ else if(fg.value==="cargo"){CATS.forEach(function(ct){var A=L.filter(function(x){return categoria(x[0])===ct[0]});if(A.length)h+='<div class="grp">'+esc(ct[1])+' · '+A.length+'</div><div class="grid">'+A.map(function(x){return card(x[0],x[1])}).join("")+'</div>'})}
+ else h='<div class="grid">'+L.map(function(x){return card(x[0],x[1])}).join("")+'</div>';
+ $("lista").innerHTML=h;drawRegras()}
+$("lista").addEventListener("click",function(e){var b=e.target.closest("[data-i],[data-cp],[data-lib]");if(!b)return;
+ if(b.hasAttribute("data-lib")){e.preventDefault();R.liberadas[ks(D.vagas[b.getAttribute("data-lib")])[0]]=1;salvar();draw();return}
+ if(b.hasAttribute("data-cp")){copiar(textoClaude(D.vagas[b.getAttribute("data-cp")]),function(){toast("Copiado! Cole no chat do Claude.")});return}
+ var v=D.vagas[b.getAttribute("data-i")],t=b.getAttribute("data-t");marcar(v,est(v)===t?"":t);salvar();draw();drawCand()});
+[q,fm,fr,fo,fg].forEach(function(e){e.addEventListener("input",draw)});
+
+/* ---------- Candidaturas ---------- */
 var STATUS=["Enviado","Entrevista","Retorno","Oferta","Recusa","Sem resposta"];
 function drawCand(){var ks_=Object.keys(C).sort(function(a,b){return (C[b].data||"").localeCompare(C[a].data||"")});$("ncand").textContent=ks_.length?"("+ks_.length+")":"";
  $("lc").innerHTML=ks_.length?ks_.map(function(k){var r=C[k];return '<div class="card cand" data-k="'+esc(k)+'"><h3>'+esc(r.titulo)+'</h3><div class="meta">'+esc(r.empresa)+(r.local?" · "+esc(r.local):"")+" · "+esc(r.fonte)+'</div>'+
  '<div class="row"><label class="meta">Data <input type="date" data-f="data" value="'+esc(r.data)+'"></label><label class="meta">Andamento <select data-f="status">'+STATUS.map(function(s){return '<option'+(s===r.status?" selected":"")+'>'+s+'</option>'}).join("")+'</select></label></div>'+
- '<textarea data-f="obs" placeholder="Observações (contato, entrevista, retorno…)">'+esc(r.obs)+'</textarea><div class="row"><a class="go" href="'+esc(r.url)+'" target="_blank" rel="noopener">Abrir vaga →</a><button class="mini" data-rm="1">Remover</button></div></div>'}).join(""):'<div class="sub">Nenhuma candidatura ainda. Marque “Me candidatei” em uma vaga para ela aparecer aqui.</div>'}
+ '<textarea data-f="obs" placeholder="Observações (contato, entrevista, retorno…)">'+esc(r.obs)+'</textarea><div class="acts">'+(r.url?'<a class="go" href="'+esc(r.url)+'" target="_blank" rel="noopener">Abrir vaga →</a>':'')+'<button class="tg" data-rm="1">Remover</button></div></div>'}).join(""):'<div class="box sub">Nenhuma candidatura ainda. Toque em “Me candidatei” numa vaga e ela aparece aqui.</div>'}
 $("lc").addEventListener("change",function(e){var c=e.target.closest(".cand"),f=e.target.getAttribute("data-f");if(!c||!f)return;var r=C[c.getAttribute("data-k")];if(!r)return;r[f]=e.target.value;r.atualizado=Date.now();salvar()});
 $("lc").addEventListener("click",function(e){if(!e.target.getAttribute("data-rm"))return;var c=e.target.closest(".cand"),k=c.getAttribute("data-k");if(confirm("Remover esta candidatura da lista?")){delete C[k];salvar();drawCand()}});
 $("csv").addEventListener("click",function(){var L=[["Data","Andamento","Cargo","Empresa","Local","Fonte","Link","Observações"]];
  Object.keys(C).map(function(k){return C[k]}).sort(function(a,b){return (b.data||"").localeCompare(a.data||"")}).forEach(function(r){L.push([fmtData(r.data),r.status,r.titulo,r.empresa,r.local,r.fonte,r.url,r.obs||""])});
  baixar("candidaturas.csv","\ufeff"+L.map(function(l){return l.map(function(c){return '"'+String(c==null?"":c).replace(/"/g,'""')+'"'}).join(";")}).join("\r\n"),"text/csv;charset=utf-8")});
+
+/* ---------- Auditoria ---------- */
+function pct(a,b){return b?Math.round(100*a/b):0}
+function classe(r){var s=r.status||"";if(r.tipo==="alerta")return "alerta";if(s.indexOf("OK")==0)return "com";if(s.indexOf("Carregou sem lista")==0)return "js";if(s.indexOf("Carregou")==0)return "sem";if(s==="Falhou")return "falha";if(s.indexOf("Pausada")==0)return "pausa";return "outro"}
+function drawAud(){var A=D.auditoria,F=D.fontes||[],T={total:0,com:0,sem:0,js:0,falha:0,pausa:0,alerta:0,outro:0};
+ F.forEach(function(r){T.total++;T[classe(r)]++});var lidas=T.total-T.alerta,ver=T.com+T.sem;
+ if(!A){$("aud").innerHTML='<div class="box">Esta rodada ainda não tem auditoria detalhada. Rode “Buscar agora” uma vez com o robô novo.</div>';return}
+ var Q=A.qualidade,Fn=A.funil;
+ var pAb=pct(Q.abertas,Q.vagas),pOk=pct(Q.link_ok,Q.vagas);
+ var cls=!lidas||ver===0?"er":(pct(ver,lidas)>=70&&pOk>=85?"ok":"md");
+ var em={ok:"✅",md:"🟡",er:"🔴"}[cls];
+ var tit={ok:"A busca foi feita a fundo",md:"A busca funcionou, mas com pontos de atenção",er:"A busca não conseguiu ler as fontes"}[cls];
+ var h='<div class="verd '+cls+'"><div class="em">'+em+'</div><div><b>'+tit+'</b><div>Das '+lidas+' fontes que o robô consegue ler, <b>'+ver+'</b> ('+pct(ver,lidas)+'%) abriram de verdade. Das '+Q.vagas+' vagas no painel, <b>'+Q.abertas+'</b> tiveram a página da vaga aberta pelo robô e <b>'+Q.link_ok+'</b> ('+pOk+'%) tiveram o link confirmado (a página cita o cargo).</div>'+
+  '<div class="meta" style="margin-top:6px">O que isto <b>não</b> garante: sites que bloqueiam robôs (LinkedIn, Indeed, Catho…) só entram pelos alertas de e-mail; e a nota é uma regra fixa (cargo, competências, local, data), não a leitura de uma pessoa.</div></div></div>';
+ h+='<h2>O caminho de uma rodada</h2><div class="funil">'+[[Fn.fontes,"fontes cadastradas"],[Fn.lidas,"páginas lidas"],[Fn.links,"links vistos"],[Fn.candidatos,"pareciam cargo"],[Fn.aceitos,"passaram no filtro"],[Q.abertas,"vagas abertas"],[Fn.no_painel,"no painel"]].map(function(x,i,a){return '<div class="st"><b>'+x[0]+'</b><span class="meta">'+x[1]+'</span></div>'+(i<a.length-1?'<span class="ar">→</span>':'')}).join("")+'</div>'+
+  '<div class="meta" style="margin-top:6px">Foram '+Fn.paginas+' páginas de listas percorridas (o robô rola a página e segue “Próxima”). Descartadas: '+Fn.fora_rs+' fora do RS e '+Fn.outros_descartes+' por outros motivos.</div>';
+ if(A.suspeitas&&A.suspeitas.length)h+='<h2>⚠ Pontos de atenção</h2><div class="box"><ul style="margin:0;padding-left:18px">'+A.suspeitas.map(function(s){return '<li>'+esc(s)+'</li>'}).join("")+'</ul></div>';
+ h+='<h2>🎲 Confira você mesmo (amostra aleatória)</h2><div class="sub">Sorteei estas vagas. Abra e veja se o link leva à vaga mesmo. Se alguma estiver errada, me avise.</div><div class="tw"><table><tr><th>Vaga</th><th>Fonte</th><th>Aberta pelo robô</th><th>Link</th><th>Nota</th></tr>'+(A.amostra||[]).map(function(x){var lk=LINK[x.link_status]||LINK.nao_testado;return '<tr><td><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.titulo)+'</a><div class="meta">'+esc(x.empresa||"")+'</div></td><td>'+esc(x.fonte)+'</td><td>'+(x.aberta?"sim"+(x.lida?", descrição lida":""):"não")+'</td><td>'+lk[0]+'</td><td>'+(x.nota==null?"—":x.nota)+'</td></tr>'}).join("")+'</table></div>';
+ h+='<h2>🗑 O que o robô descartou e por quê</h2><div class="sub">'+A.total_descartes+' itens descartados nesta rodada. Se alguma vaga boa estiver aqui, me avise para ajustar a regra.</div>'+
+  '<div class="bar"><input type="search" id="dq" placeholder="Buscar nos descartados…"><select id="dm"><option value="">Todos os motivos</option>'+Object.keys(A.descartes.reduce(function(o,d){var m=d.motivo.replace(/\d+/g,"#").replace(/:.*/,"");o[m]=1;return o},{})).map(function(m){return '<option>'+esc(m)+'</option>'}).join("")+'</select></div><div class="tw"><table id="dtb"></table></div>';
+ h+='<h2>🔎 Profundidade por fonte</h2><div class="sub">Quanto o robô realmente leu em cada fonte. “Candidatos” = títulos que pareciam cargo; “Aceitos” = os que passaram no filtro de título.</div><div class="tw"><table><tr><th>Fonte</th><th>Páginas</th><th>Links lidos</th><th>Candidatos</th><th>Aceitos</th><th>No painel</th><th>Situação</th></tr>'+(A.profundidade||[]).map(function(p){return '<tr><td>'+esc(p.nome)+'</td><td>'+p.paginas+'</td><td>'+p.links+'</td><td>'+p.candidatos+'</td><td>'+p.aceitos+'</td><td>'+p.vagas+'</td><td>'+esc(p.status)+'</td></tr>'}).join("")+'</table></div>';
+ var R0=A.regras||{};
+ h+='<h2>📏 Regras em vigor</h2><div class="box meta">Só Rio Grande do Sul e remoto · nota mínima '+R0.nota_min+' (80+ = muito compatível) · fora: '+esc((R0.excluidos||[]).join(", "))+' · contabilidade pura e exigência de CRC · rola cada página até '+R0.rolagens_max+'× e segue até '+R0.paginas_max+' páginas · abre até '+R0.abre_link_max+' vagas por lote · usa navegador de reserva em até '+R0.navegador_reserva_max+' links bloqueados.</div>';
+ h+='<h2>📡 Situação de cada fonte</h2><div class="resumo"><span class="pill ok"><b>'+T.com+'</b> com vagas</span><span class="pill"><b>'+T.sem+'</b> sem vaga hoje</span><span class="pill md"><b>'+T.js+'</b> sem lista (JavaScript)</span><span class="pill er"><b>'+(T.falha+T.pausa+T.outro)+'</b> falharam/pausadas</span><span class="pill"><b>'+T.alerta+'</b> só por alerta de e-mail</span></div>'+
+  '<div class="tw"><table><tr><th>Fonte</th><th>Grupo</th><th>Situação</th><th>Detalhe</th><th>Vagas</th></tr>'+F.map(function(r){var c=r.status.indexOf("OK")==0?"ok":(r.status=="Falhou"?"er":"");return '<tr><td>'+(r.url?'<a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.nome)+'</a>':esc(r.nome))+'</td><td>'+esc(r.grupo)+'</td><td class="'+c+'">'+esc(r.status)+'</td><td>'+esc(r.detalhe)+'</td><td>'+(r.vagas||0)+'</td></tr>'}).join("")+'</table></div>';
+ var AL=D.auditoria_links||[];
+ h+='<h2>🔗 Auditoria de links</h2>'+(AL.length?'<div class="tw"><table><tr><th>Fonte</th><th>Vagas</th><th>Confirmados</th><th>Não confirmados</th><th>Página inicial</th><th>Pedem login</th><th>Exemplos</th></tr>'+AL.map(function(a){return '<tr><td>'+esc(a.fonte)+'</td><td>'+a.total+'</td><td>'+a.ok+'</td><td>'+a.incerto+'</td><td>'+a.geral+'</td><td>'+a.login+'</td><td>'+a.exemplos.map(function(x){return '<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.titulo)+'</a>'}).join("<br>")+'</td></tr>'}).join("")+'</table></div>':'<div class="box sub">Todos os links desta rodada foram confirmados.</div>');
+ if(D.limpeza&&D.limpeza.length)h+='<h2>🧹 Sugestão de limpeza</h2><div class="sub">Carregam, mas não trouxeram vaga em 15 rodadas ou mais. Vale tirar do fontes.json.</div><div class="tw"><table><tr><th>Fonte</th><th>Grupo</th><th>Rodadas sem vaga</th></tr>'+D.limpeza.map(function(r){return '<tr><td><a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.nome)+'</a></td><td>'+esc(r.grupo)+'</td><td>'+r.rodadas+'</td></tr>'}).join("")+'</table></div>';
+ h+='<h2>🕒 Últimas rodadas</h2><div class="tw"><table><tr><th>Quando</th><th>Vagas</th><th>Fontes que carregaram</th></tr>'+(D.execucoes||[]).slice().reverse().map(function(e){return '<tr><td>'+esc(e.quando)+'</td><td>'+e.vagas+'</td><td>'+e.fontes_ok+'</td></tr>'}).join("")+'</table></div>';
+ $("aud").innerHTML=h;drawDesc()}
+function drawDesc(){var A=D.auditoria;if(!A||!$("dtb"))return;var t=$("dq").value.toLowerCase(),m=$("dm").value;
+ var L=A.descartes.filter(function(d){return (!m||d.motivo.replace(/\d+/g,"#").replace(/:.*/,"")===m)&&(!t||(d.titulo+" "+d.motivo).toLowerCase().indexOf(t)>=0)});
+ $("dtb").innerHTML='<tr><th>Item</th><th>Motivo</th><th>Fonte</th></tr>'+(L.slice(0,150).map(function(d){return '<tr><td>'+(d.url?'<a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.titulo)+'</a>':esc(d.titulo))+'</td><td>'+esc(d.motivo)+'</td><td>'+esc(d.fonte||"")+'</td></tr>'}).join("")||'<tr><td colspan="3" class="meta">Nada com esse filtro.</td></tr>')+(L.length>150?'<tr><td colspan="3" class="meta">…e mais '+(L.length-150)+'. Use a busca.</td></tr>':'')}
+$("aud").addEventListener("input",function(e){if(e.target.id==="dq"||e.target.id==="dm")drawDesc()});
+
+/* ---------- e-mails (rotina do Google ou bloco colado) ---------- */
+function regiaoDe(l){var t=sem(l);if(/\b(sp|mg|rj|pr|sc|df|ba|go|pe|ce|es|mt|ms|pa|am)\b/.test(t)||/(sao paulo|minas gerais|rio de janeiro|curitiba|florianopolis|belo horizonte)/.test(t))return "fora";
+ if(/(porto alegre|canoas|sao leopoldo|novo hamburgo|gravatai|cachoeirinha|alvorada|viamao|esteio|sapucaia|guaiba|eldorado)/.test(t))return "poa";if(/\brs\b|rio grande do sul/.test(t))return "rs";if(/remot/.test(t))return "remoto";return "?"}
+function msgAl(t){$("alMsg").textContent=t}
+function importarObj(o){var hoje=hojeLocal(),novos=0,rep=0,fora=0,cn=0,cr=0;
+ (o.vagas||[]).forEach(function(a){if(!a||!a.titulo||!a.url)return;var reg=regiaoDe(a.local||"");if(reg==="fora"){fora++;return}
+  var ex=D.vagas.some(function(v){return nrm(v.url)===nrm(a.url)||(a.empresa&&v.empresa&&ckey(v)===ckey(a))});if(ex){rep++;return}
+  var alta=a.nivel==="Alta",nota=(alta?40:22)+12+({poa:15,rs:11,remoto:10}[reg]||9)+4;
+  var v={titulo:String(a.titulo),empresa:a.empresa||"",fonte:a.fonte||"Alerta de e-mail",grupo:"Alerta por e-mail",url:a.url,local:a.local||"",regiao:reg,nivel:alta?"Alta":"Média",nota:nota,prov:true,
+   data_iso:/^\d{4}-\d{2}-\d{2}$/.test(a.data||"")?a.data:"",primeira:hoje,nova:true,comp:[],lida:false,verificada:null,link_status:"alerta",origem:"alerta",descricao:"",
+   porque:"vinda de alerta de e-mail, triada só pelo título (nota provisória)"+(a.obs?" · "+a.obs:"")};AX.vagas.push(v);D.vagas.push(v);novos++});
+ (o.candidaturas||[]).forEach(function(c){if(!c||!c.titulo)return;var k=nrm(c.url||("alerta:"+sem(c.titulo)+"|"+sem(c.empresa||"")));if(C[k]){cr++;return}
+  C[k]={titulo:c.titulo,empresa:c.empresa||"",local:c.local||"",fonte:c.fonte||"Alerta de e-mail",url:c.url||"",data:/^\d{4}-\d{2}-\d{2}$/.test(c.data||"")?c.data:hoje,
+   status:STATUS.indexOf(c.status)>=0?c.status:"Enviado",obs:c.obs||"",atualizado:Date.now()};cn++});
+ AX.ult=hoje;salvar();draw();drawCand();
+ return novos+" vaga(s) nova(s) de e-mail, "+rep+" já existiam"+(fora?", "+fora+" fora do RS descartada(s)":"")+"; "+cn+" candidatura(s) lançada(s)"+(cr?", "+cr+" já estava(m) lançada(s)":"")+"."}
+function importarAlertas(txt){var i=txt.indexOf("{"),j=txt.lastIndexOf("}");if(i<0||j<=i){msgAl("Não achei o bloco. Cole tudo que o Claude devolveu.");return}
+ var o;try{o=JSON.parse(txt.slice(i,j+1))}catch(e){msgAl("O bloco não é um JSON válido. Peça ao Claude para devolver só o bloco.");return}msgAl(importarObj(o))}
+function pedido(desde){var d=(desde||"").replace(/-/g,"/");return "ROTINA DE ALERTAS DE VAGAS (use o conector do Gmail)\n\nLeia os e-mails de alerta de vaga recebidos desde "+d+" (Gmail: after:"+d+") destes remetentes: LinkedIn, Indeed, Glassdoor, Infojobs, Catho e iNeed.\n\nREGRAS:\n- Leia só assunto e prévia (snippet). Não abra e-mails inteiros e não altere nada na minha caixa.\n- Fique só com: Gerente administrativo/financeiro, Controller, Coordenador/Gestor/Supervisor financeiro ou administrativo, Analista financeiro/FP&A/planejamento/controladoria (pleno ou sênior), na Grande Porto Alegre ou sem cidade informada.\n- Descarte: contador, analista contábil, auditoria, assistente, auxiliar, júnior, estágio, vagas fora do RS, vagas operacionais, marketing e TI.\n- Se o e-mail confirmar candidatura enviada ou trouxer retorno de processo seletivo, coloque em \"candidaturas\".\n- Use como url o link do e-mail no Gmail (viewUrl).\n\nDevolva SOMENTE um bloco JSON neste formato:\n{\"tipo\":\"alertas\",\"v\":1,\"vagas\":[{\"titulo\":\"\",\"empresa\":\"\",\"local\":\"\",\"fonte\":\"Alerta (LinkedIn)\",\"data\":\"AAAA-MM-DD\",\"url\":\"\",\"nivel\":\"Alta ou Média\",\"obs\":\"\"}],\"candidaturas\":[{\"titulo\":\"\",\"empresa\":\"\",\"fonte\":\"\",\"data\":\"AAAA-MM-DD\",\"status\":\"Enviado|Entrevista|Retorno|Oferta|Recusa|Sem resposta\",\"url\":\"\",\"obs\":\"\"}]}\nDepois do bloco, resuma em 3 linhas o que encontrou."}
+function gst(){var t=G.ult?"Última leitura automática: "+new Date(G.ult).toLocaleString("pt-BR")+". ":"";$("gst").textContent=(G.url&&G.key?t:"Rotina ainda não configurada. ")+(G.msg||"")}
+function lerEmails(manual){if(!G.url||!G.key){if(manual)toast("Preencha o endereço e a chave primeiro.");return}
+ $("gst").textContent="Lendo e-mails…";
+ fetch(G.url+(G.url.indexOf("?")>=0?"&":"?")+"key="+encodeURIComponent(G.key)+"&dias=14").then(function(r){return r.json()}).then(function(j){
+  if(j.erro){G.msg="O Google respondeu: "+j.erro;salvar();gst();return}
+  G.ult=Date.now();G.msg=importarObj(j)+" ("+(j.lidos||0)+" e-mails lidos)";salvar();gst();if(manual)toast("E-mails lidos.")
+ }).catch(function(){G.msg="Não consegui falar com o Google. Confira o endereço (deve terminar em /exec) e se a implantação está como “Qualquer pessoa”.";gst()})}
+$("gsv").addEventListener("click",function(){G.url=$("gurl").value.trim();G.key=$("gkey").value.trim();salvar();gst();toast("Salvo.")});
+$("gnow").addEventListener("click",function(){G.url=$("gurl").value.trim()||G.url;G.key=$("gkey").value.trim()||G.key;salvar();lerEmails(true)});
+$("alCopiar").addEventListener("click",function(){copiar(pedido($("alDesde").value),function(){toast("Pedido copiado. Cole no chat do Claude.")})});
+$("alImportar").addEventListener("click",function(){importarAlertas($("alBloco").value)});
+$("alApagar").addEventListener("click",function(e){e.preventDefault();if(!AX.vagas.length)return;if(confirm("Apagar as "+AX.vagas.length+" vagas importadas deste aparelho?")){var us={};AX.vagas.forEach(function(a){us[a.url]=1});D.vagas=D.vagas.filter(function(v){return !us[v.url]});AX.vagas=[];salvar();draw();msgAl("Vagas importadas apagadas.")}});
+$("lm").addEventListener("click",function(e){e.preventDefault();if(confirm("Apagar todas as marcações deste aparelho? (as candidaturas anotadas continuam)")){E={};salvar();draw()}});
+
+/* ---------- regras aprendidas ---------- */
+function drawRegras(){$("auto").checked=!!R.auto;$("selDias").value=String(R.dias||0);var h="",pal=Object.keys(RG.pal);
+ h+=pal.length?'<div class="meta" style="margin-top:6px">Regras ativas:</div><div>'+pal.map(function(w){return '<span class="tag">'+esc(w)+' · '+RG.pal[w]+' <a href="#" data-'+(RG.pal[w]==="aprendida"?"ign":"rmw")+'="'+esc(w)+'" title="Parar de esconder">✕</a></span>'}).join("")+'</div>':'<div class="meta" style="margin-top:6px">Nenhuma regra ativa ainda. Marque vagas como “Não aplicável”: quando uma palavra do cargo se repetir 3 vezes, o painel passa a esconder as parecidas.</div>';
+ if(RG.dias)h+='<div class="meta">Vagas publicadas há mais de '+RG.dias+' dias estão ocultas ('+RG.diasOrigem+').</div>';
+ var sug=RG.ap.palavras.filter(function(x){return !RG.pal[x.p]&&x.n>=2});
+ if(sug.length)h+='<div class="meta" style="margin-top:6px">Sugestões (2 marcações):</div>'+sug.slice(0,6).map(function(x){return '<div class="row"><span class="tag">'+esc(x.p)+'</span><span class="meta">ex.: '+esc(x.ex[0]||"")+'</span><button class="ghost" data-add="'+esc(x.p)+'">Esconder</button></div>'}).join("");
+ $("regras").innerHTML=h}
+$("regras").addEventListener("click",function(e){var a=e.target,w;
+ if((w=a.getAttribute("data-rmw")))R.manual=R.manual.filter(function(x){return x!==w});
+ else if((w=a.getAttribute("data-ign"))){if(R.ignoradas.indexOf(w)<0)R.ignoradas.push(w)}
+ else if((w=a.getAttribute("data-add"))){if(R.manual.indexOf(w)<0)R.manual.push(w)}else return;e.preventDefault();salvar();draw()});
+$("auto").addEventListener("change",function(){R.auto=this.checked;salvar();draw()});
+$("selDias").addEventListener("change",function(){R.dias=+this.value;salvar();draw()});
+$("addPal").addEventListener("click",function(){var w=sem($("novaPal").value).split(" ")[0];if(w&&R.manual.indexOf(w)<0){R.manual.push(w);R.ignoradas=R.ignoradas.filter(function(x){return x!==w})}$("novaPal").value="";salvar();draw()});
+
+/* ---------- levar para outro aparelho ---------- */
 function exportar(){return JSON.stringify({v:2,marcas:E,candidaturas:C,info:INFO,regras:R,alertas:AX.vagas,em:new Date().toISOString()})}
 function importar(txt){var o;try{o=JSON.parse(txt)}catch(e){alert("Esse código não é válido.");return}
  if(!o||typeof o.marcas!=="object"){alert("Esse código não é válido.");return}
  Object.keys(o.marcas).forEach(function(k){E[k]=o.marcas[k]});
  Object.keys(o.candidaturas||{}).forEach(function(k){var n=o.candidaturas[k],a=C[k];if(!a||(n.atualizado||0)>(a.atualizado||0))C[k]=n});
- (o.alertas||[]).forEach(function(a){if(a&&a.url&&!AX.vagas.some(function(x){return nrm(x.url)===nrm(a.url)})&&!D.vagas.some(function(v){return nrm(v.url)===nrm(a.url)})){AX.vagas.push(a);D.vagas.push(a)}});refazFontes();
+ (o.alertas||[]).forEach(function(a){if(a&&a.url&&!AX.vagas.some(function(x){return nrm(x.url)===nrm(a.url)})&&!D.vagas.some(function(v){return nrm(v.url)===nrm(a.url)})){AX.vagas.push(a);D.vagas.push(a)}});
  Object.keys(o.info||{}).forEach(function(k){INFO[k]=o.info[k]});
  if(o.regras){["manual","ignoradas"].forEach(function(c){(o.regras[c]||[]).forEach(function(w){if(R[c].indexOf(w)<0)R[c].push(w)})});if(o.regras.dias&&!R.dias)R.dias=o.regras.dias}
- salvar();draw();drawCand();drawRegras();toast("Dados importados e juntados.")}
+ salvar();draw();drawCand();toast("Dados importados e juntados.")}
 $("bcopiar").addEventListener("click",function(){copiar(exportar(),function(){toast("Código copiado. Cole no outro aparelho.")})});
 $("bbaixar").addEventListener("click",function(){baixar("vagas-dados.json",exportar(),"application/json")});
 $("bimp").addEventListener("click",function(){importar($("dd").value.trim())});
 $("fimp").addEventListener("change",function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(){importar(String(r.result))};r.readAsText(f)});
 
-/* ----- fonte, limpeza, descartadas, histórico ----- */
-$("tb").innerHTML="<tr><th>Fonte</th><th>Grupo</th><th>Situação</th><th>Detalhe</th><th>Vagas</th></tr>"+D.fontes.map(function(r){var c=r.status.indexOf("OK")==0?"ok":(r.status=="Falhou"?"er":"");
- return "<tr><td>"+(r.url?'<a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.nome)+"</a>":esc(r.nome))+"</td><td>"+esc(r.grupo)+'</td><td class="'+c+'">'+esc(r.status)+"</td><td>"+esc(r.detalhe)+"</td><td>"+r.vagas+"</td></tr>"}).join("");
-$("limpeza").innerHTML=(D.limpeza&&D.limpeza.length)?"<h2>Sugestão de limpeza</h2><div class='sub'>Estas fontes carregam, mas não trouxeram nenhuma vaga em 15 rodadas ou mais. Vale tirar do fontes.json.</div><div class='tw'><table><tr><th>Fonte</th><th>Grupo</th><th>Rodadas sem vaga</th></tr>"+D.limpeza.map(function(r){return "<tr><td><a href='"+esc(r.url)+"' target='_blank' rel='noopener'>"+esc(r.nome)+"</a></td><td>"+esc(r.grupo)+"</td><td>"+r.rodadas+"</td></tr>"}).join("")+"</table></div>":"";
-$("fo").innerHTML=(D.fora&&D.fora.length)?"<tr><th>Vaga</th><th>Motivo</th><th>Fonte</th></tr>"+D.fora.map(function(r){return "<tr><td><a href=\""+esc(r.url)+"\" target=\"_blank\" rel=\"noopener\">"+esc(r.titulo)+"</a></td><td>"+esc(r.motivo||r.local)+"</td><td>"+esc(r.fonte)+"</td></tr>"}).join(""):"<tr><td>Nenhuma nesta rodada.</td></tr>";
-$("hx").innerHTML="<tr><th>Quando</th><th>Vagas</th><th>Fontes que carregaram</th></tr>"+D.execucoes.slice().reverse().map(function(e){return "<tr><td>"+esc(e.quando)+"</td><td>"+e.vagas+"</td><td>"+e.fontes_ok+"</td></tr>"}).join("");
-
-function drawRegras(){RG=regras();$("auto").checked=!!R.auto;$("selDias").value=String(R.dias||0);var h="",pal=Object.keys(RG.pal);
- h+=pal.length?'<div class="meta" style="margin-top:6px">Regras ativas:</div><div>'+pal.map(function(w){return '<span class="tag">'+esc(w)+' · '+RG.pal[w]+' <a href="#" data-'+(RG.pal[w]==="aprendida"?"ign":"rmw")+'="'+esc(w)+'" title="Parar de esconder">✕</a></span>'}).join("")+'</div>':'<div class="meta" style="margin-top:6px">Nenhuma regra ativa ainda.</div>';
- if(RG.dias)h+='<div class="meta">Vagas publicadas há mais de '+RG.dias+' dias estão ocultas ('+RG.diasOrigem+').</div>';
- var sug=RG.ap.palavras.filter(function(x){return !RG.pal[x.p]&&x.n>=2});
- if(sug.length)h+='<div class="meta" style="margin-top:6px">Sugestões (marcou como “Não aplicável” 2 vezes):</div>'+sug.slice(0,6).map(function(x){return '<div class="row"><span class="tag">'+esc(x.p)+'</span><span class="meta">ex.: '+esc(x.ex[0]||"")+'</span><button class="mini" data-add="'+esc(x.p)+'">Esconder</button></div>'}).join("");
- if(!pal.length&&!sug.length)h+='<div class="meta">Marque algumas vagas como “Não aplicável” (por exemplo, vagas de contador ou antigas). Quando uma palavra do cargo se repetir 3 vezes, o painel passa a esconder as parecidas e mostra aqui o que escondeu.</div>';
- $("regras").innerHTML=h}
-$("regras").addEventListener("click",function(e){var a=e.target,w;e.preventDefault();
- if((w=a.getAttribute("data-rmw")))R.manual=R.manual.filter(function(x){return x!==w});
- else if((w=a.getAttribute("data-ign"))){if(R.ignoradas.indexOf(w)<0)R.ignoradas.push(w)}
- else if((w=a.getAttribute("data-add"))){if(R.manual.indexOf(w)<0)R.manual.push(w)}else return;salvar();draw();drawRegras()});
-$("auto").addEventListener("change",function(){R.auto=this.checked;salvar();draw();drawRegras()});
-$("selDias").addEventListener("change",function(){R.dias=+this.value;salvar();draw();drawRegras()});
-$("addPal").addEventListener("click",function(){var w=sem($("novaPal").value).split(" ")[0];if(w&&R.manual.indexOf(w)<0){R.manual.push(w);R.ignoradas=R.ignoradas.filter(function(x){return x!==w})}$("novaPal").value="";salvar();draw();drawRegras()});
-var AL=D.auditoria_links||[];$("audlinks").innerHTML=AL.length?"<h2>Auditoria de links</h2><div class='sub'>Confere se o link de cada vaga leva à página da vaga. “Página inicial” = o link caiu na home do site e a vaga foi descartada. “Não confirmado” = a página abriu, mas não menciona o cargo (pode ser uma lista).</div><div class='tw'><table><tr><th>Fonte</th><th>Vagas</th><th>Confirmados</th><th>Não confirmados</th><th>Página inicial</th><th>Pedem login</th><th>Exemplos</th></tr>"+AL.map(function(a){return "<tr><td>"+esc(a.fonte)+"</td><td>"+a.total+"</td><td>"+a.ok+"</td><td>"+a.incerto+"</td><td>"+a.geral+"</td><td>"+a.login+"</td><td>"+a.exemplos.map(function(x){return "<a href='"+esc(x.url)+"' target='_blank' rel='noopener'>"+esc(x.titulo)+"</a>"}).join("<br>")+"</td></tr>"}).join("")+"</table></div>":"<h2>Auditoria de links</h2><div class='sub'>Todos os links desta rodada foram confirmados.</div>";
-/* ----- resumo da verificação ----- */
-var GRUPOS=["Favorita","Gupy","Outra fonte","Recrutamento","Empresa","Alerta por e-mail"];
-function classe(r){var s=r.status||"";if(r.tipo==="alerta")return "alerta";if(s.indexOf("OK")==0)return "com";if(s.indexOf("Carregou sem lista")==0)return "js";if(s.indexOf("Carregou")==0)return "sem";if(s==="Falhou")return "falha";if(s.indexOf("Pausada")==0)return "pausa";return "outro"}
-function zero(){return {total:0,com:0,sem:0,js:0,falha:0,pausa:0,alerta:0,outro:0}}
-function resumoFontes(){var T=zero();T.g={};D.fontes.forEach(function(r){var c=classe(r),g=r.grupo||"Outra fonte";T.total++;T[c]++;var x=T.g[g]=T.g[g]||zero();x.total++;x[c]++});
- T.lidas=T.total-T.alerta;T.verificadas=T.com+T.sem;T.pct=T.lidas?Math.round(100*T.verificadas/T.lidas):0;return T}
-function drawResumo(){var T=resumoFontes(),V=D.vagas,ld=V.filter(function(v){return v.lida}).length,lk=V.filter(function(v){return v.link_status==="ok"}).length;
- function kpi(n,t,c,s){return '<div class="kpi"><div class="n '+(c||"")+'">'+n+'</div><div>'+t+'</div><div class="meta">'+(s||"")+'</div></div>'}
- function pc(n){return T.lidas?(100*n/T.lidas).toFixed(1):0}
- var nv=T.falha+T.pausa+T.outro,h='<h2>Resumo da verificação</h2><div class="kpis">'+
- kpi(T.verificadas+" de "+T.lidas,"páginas realmente verificadas","ok",T.pct+"% das páginas que o robô tenta ler")+kpi(T.com,"com vagas compatíveis","ok","trouxeram ao menos uma vaga")+
- kpi(T.sem,"verificadas, sem vaga hoje","","abriram e não tinham o que você procura")+kpi(T.js,"abriram, mas sem lista","","a lista só aparece com JavaScript ou login")+
- kpi(nv,"não verificadas","er","falharam, pausadas ou o lote deu erro")+kpi(T.alerta,"só por alerta ou link","","LinkedIn, Indeed, Catho… o robô não lê")+'</div>'+
- '<div class="bar2"><span style="width:'+pc(T.verificadas)+'%;background:var(--ok)"></span><span style="width:'+pc(T.js)+'%;background:var(--md)"></span><span style="width:'+pc(nv)+'%;background:var(--er)"></span></div>'+
- '<div class="meta">Verde: verificadas · Laranja: abriram sem lista · Vermelho: não verificadas (sobre as '+T.lidas+' páginas que o robô tenta ler)</div>'+
- '<div class="meta" style="margin:8px 0">Vagas encontradas: <b>'+V.length+'</b> · com descrição lida: <b>'+ld+'</b> · com link confirmado: <b>'+lk+'</b></div>';
- var gs=GRUPOS.concat(Object.keys(T.g).filter(function(g){return GRUPOS.indexOf(g)<0}));
- h+='<div class="tw"><table><tr><th>Grupo</th><th>Fontes</th><th>Verificadas</th><th>Com vagas</th><th>Sem vaga hoje</th><th>Sem lista (JS)</th><th>Falharam</th><th>Pausadas</th><th>Só alerta</th></tr>'+gs.filter(function(g){return T.g[g]}).map(function(g){var x=T.g[g],l=x.total-x.alerta,v=x.com+x.sem;
-  return '<tr><td>'+esc(g)+'</td><td>'+x.total+'</td><td>'+v+(l?' ('+Math.round(100*v/l)+'%)':'')+'</td><td>'+x.com+'</td><td>'+x.sem+'</td><td>'+x.js+'</td><td>'+x.falha+'</td><td>'+x.pausa+'</td><td>'+x.alerta+'</td></tr>'}).join("")+'</table></div>';
- $("resumo").innerHTML=h}
-
-/* ----- vagas por tipo de cargo ----- */
-var CATS=[["ger","Gerente financeiro e administrativo"],["anf","Analista financeiro, FP&A e planejamento"],["ctl","Controller e controladoria"],["coo","Coordenador, gestor e diretor"],["ana","Outros analistas (administrativo…)"],["out","Outros cargos"]];
-function categoria(v){var t=sem(v.titulo);if(/\bgerente\b/.test(t))return "ger";
- if(/\b(controller|controladoria)\b/.test(t)&&!/\banalista\b/.test(t))return "ctl";
- if(/\b(coordenador|coordenadora|gestor|gestora|diretor|diretora|supervisor|supervisora|head|superintendente)\b/.test(t))return "coo";
- if(/\banalista\b/.test(t))return /(financ|fp a|fpa|planejamento|orcament|tesouraria|custos|controladoria|faturamento|contas)/.test(t)?"anf":"ana";return "out"}
-var SIT={"":"Pendente",c:"Me candidatei",n:"Não aplicável",o:"Oculta (regra)"};
-function linha(v){var d=v.data_iso?fmtData(v.data_iso):"vista em "+fmtData(v.primeira);
- return '<tr><td>'+esc(v.titulo)+'</td><td>'+esc(v.empresa||v.fonte)+'</td><td>'+esc(v.local||"—")+'</td><td><span class="tag '+v.nivel+'">'+v.nivel+'</span></td><td>'+d+'</td><td>'+SIT[vista(v)]+'</td><td><a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir →</a></td></tr>'}
-function drawCargos(){var so=$("soPend").checked,sl=$("soLink").checked,g={},h="",chips="";
- D.vagas.forEach(function(v){var c=categoria(v);(g[c]=g[c]||[]).push(v)});
- CATS.forEach(function(c){var A=g[c[0]]||[],L=A.filter(function(v){return !(so&&vista(v)!=="")&&!(sl&&v.link_status!=="ok")}),p=A.filter(function(v){return vista(v)===""}).length;
-  chips+='<span>'+esc(c[1])+': <b>'+A.length+'</b> ('+p+' pendentes)</span>';if(!A.length)return;
-  h+='<details class="f" open><summary>'+esc(c[1])+' — '+A.length+' vaga(s), '+p+' pendente(s)</summary><div class="tw"><table><tr><th>Cargo</th><th>Empresa / fonte</th><th>Local</th><th>Compat.</th><th>Publicada</th><th>Situação</th><th></th></tr>'+(L.length?L.map(linha).join(""):'<tr><td colspan="7" class="meta">Nenhuma com esses filtros.</td></tr>')+'</table></div></details>'});
- $("cargosChips").innerHTML=chips;$("cargosLista").innerHTML=h||'<div class="sub">Nenhuma vaga nesta rodada.</div>'}
-["soPend","soLink"].forEach(function(i){$(i).addEventListener("change",drawCargos)});
-$("alNudge").addEventListener("click",function(e){var ir=e.target.getAttribute("data-ir");if(ir){e.preventDefault();aba(ir)}});
-$("saude").addEventListener("click",function(e){var ir=e.target.getAttribute("data-ir");if(ir){e.preventDefault();aba(ir)}});
-/* ----- rotina de alertas por e-mail ----- */
-function regiaoDe(l){var t=sem(l);if(/\b(sp|mg|rj|pr|sc|df|ba|go|pe|ce|es|mt|ms|pa|am)\b/.test(t)||/(sao paulo|minas gerais|rio de janeiro|curitiba|florianopolis|belo horizonte)/.test(t))return "fora";
- if(/(porto alegre|canoas|sao leopoldo|novo hamburgo|gravatai|cachoeirinha|alvorada|viamao|esteio|sapucaia|guaiba|eldorado)/.test(t))return "poa";if(/\brs\b|rio grande do sul/.test(t))return "rs";if(/remot/.test(t))return "remoto";return "?"}
-function msgAl(t){$("alMsg").textContent=t}
-function nDias(){return AX.ult?Math.round(dias(hojeLocal(),AX.ult)):null}
-function drawAlertas(){var n=nDias(),nA=AX.vagas.length;$("nal").textContent=nA?"("+nA+")":"";
- $("alStatus").textContent=(AX.ult?"Última importação: "+fmtData(AX.ult)+" (há "+n+" dia"+(n===1?"":"s")+"). ":"Você ainda não importou alertas. ")+nA+" vaga(s) importada(s) guardada(s) neste aparelho.";
- if(!$("alDesde").value){var d=new Date();d.setDate(d.getDate()-7);$("alDesde").value=AX.ult||new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)}
- $("alNudge").innerHTML=(!AX.ult||n>=1)?'📧 '+(AX.ult?"Última importação de alertas: há "+n+" dia"+(n===1?"":"s"):"Você ainda não importou os alertas de e-mail")+'. <a href="#alertas" data-ir="alertas">Abrir a rotina</a>':""}
-function pedido(desde){var d=(desde||"").replace(/-/g,"/");return "ROTINA DE ALERTAS DE VAGAS (use o conector do Gmail)\n\nLeia os e-mails de alerta de vaga recebidos desde "+d+" (Gmail: after:"+d+") destes remetentes: LinkedIn (jobalerts-noreply@linkedin.com, jobs-listings@linkedin.com, jobs-noreply@linkedin.com), Indeed, Glassdoor, Infojobs, Catho e iNeed.\n\nREGRAS:\n- Leia só assunto e prévia (snippet). Não abra e-mails inteiros e não altere nada na minha caixa.\n- Fique só com: Gerente administrativo/financeiro, Controller, Coordenador/Gestor/Supervisor financeiro ou administrativo, Analista financeiro/FP&A/planejamento/controladoria (pleno ou sênior), na Grande Porto Alegre ou sem cidade informada.\n- Descarte: contador, analista contábil, auditoria, assistente, auxiliar, júnior, estágio, vagas fora do RS, vagas operacionais, marketing e TI.\n- Se o e-mail confirmar candidatura enviada ou trouxer retorno de processo seletivo, coloque em \"candidaturas\".\n- Use como url o link do e-mail no Gmail (viewUrl).\n\nDevolva SOMENTE um bloco JSON neste formato:\n{\"tipo\":\"alertas\",\"v\":1,\"vagas\":[{\"titulo\":\"\",\"empresa\":\"\",\"local\":\"\",\"fonte\":\"Alerta (LinkedIn)\",\"data\":\"AAAA-MM-DD\",\"url\":\"\",\"nivel\":\"Alta ou Média\",\"obs\":\"\"}],\"candidaturas\":[{\"titulo\":\"\",\"empresa\":\"\",\"fonte\":\"\",\"data\":\"AAAA-MM-DD\",\"status\":\"Enviado|Entrevista|Retorno|Oferta|Recusa|Sem resposta\",\"url\":\"\",\"obs\":\"\"}]}\nDepois do bloco, resuma em 3 linhas o que encontrou."}
-function refazFontes(){var cur=fs.value;fs.innerHTML='<option value="">Todas as fontes</option>';D.vagas.map(function(v){return v.fonte}).filter(function(x,i,a){return a.indexOf(x)==i}).forEach(function(f){var o=document.createElement("option");o.textContent=f;fs.appendChild(o)});fs.value=cur}
-function importarAlertas(txt){var i=txt.indexOf("{"),j=txt.lastIndexOf("}");if(i<0||j<=i){msgAl("Não achei o bloco. Cole tudo que o Claude devolveu.");return}
- var o;try{o=JSON.parse(txt.slice(i,j+1))}catch(e){msgAl("O bloco não é um JSON válido. Peça ao Claude para devolver só o bloco.");return}
- var hoje=hojeLocal(),novos=0,rep=0,fora=0,cn=0,cr=0;
- (o.vagas||[]).forEach(function(a){if(!a||!a.titulo||!a.url)return;var reg=regiaoDe(a.local||"");if(reg==="fora"){fora++;return}
-  var ex=D.vagas.some(function(v){return nrm(v.url)===nrm(a.url)||(a.empresa&&v.empresa&&ckey(v)===ckey(a))});if(ex){rep++;return}
-  var v={titulo:String(a.titulo),empresa:a.empresa||"",fonte:a.fonte||"Alerta de e-mail",grupo:"Alerta por e-mail",url:a.url,local:a.local||"",regiao:reg,nivel:a.nivel==="Alta"?"Alta":"Média",
-   data_iso:/^\d{4}-\d{2}-\d{2}$/.test(a.data||"")?a.data:"",primeira:hoje,nova:true,comp:[],lida:false,verificada:null,link_status:"alerta",origem:"alerta",descricao:"",
-   porque:"vinda de alerta de e-mail, triada pelo título"+(a.obs?" · "+a.obs:"")};AX.vagas.push(v);D.vagas.push(v);novos++});
- (o.candidaturas||[]).forEach(function(c){if(!c||!c.titulo)return;var k=nrm(c.url||("alerta:"+sem(c.titulo)+"|"+sem(c.empresa||"")));if(C[k]){cr++;return}
-  C[k]={titulo:c.titulo,empresa:c.empresa||"",local:c.local||"",fonte:c.fonte||"Alerta de e-mail",url:c.url||"",data:/^\d{4}-\d{2}-\d{2}$/.test(c.data||"")?c.data:hoje,
-   status:STATUS.indexOf(c.status)>=0?c.status:"Enviado",obs:c.obs||"",atualizado:Date.now()};cn++});
- AX.ult=hoje;salvar();refazFontes();draw();drawCand();drawResumo();drawAlertas();
- msgAl(novos+" vaga(s) nova(s), "+rep+" já existiam"+(fora?", "+fora+" fora do RS descartada(s)":"")+"; "+cn+" candidatura(s) lançada(s)"+(cr?", "+cr+" já estava(m) lançada(s)":"")+".")}
-$("alCopiar").addEventListener("click",function(){copiar(pedido($("alDesde").value),function(){toast("Pedido copiado. Cole no chat do Claude.")})});
-$("alImportar").addEventListener("click",function(){importarAlertas($("alBloco").value)});
-$("alApagar").addEventListener("click",function(){if(!AX.vagas.length)return;if(confirm("Apagar as "+AX.vagas.length+" vagas importadas deste aparelho?")){var us={};AX.vagas.forEach(function(a){us[a.url]=1});D.vagas=D.vagas.filter(function(v){return !us[v.url]});AX.vagas=[];salvar();refazFontes();draw();drawResumo();drawAlertas();msgAl("Vagas importadas apagadas.")}});
-/* ----- abas ----- */
-function aba(n){["vagas","cargos","alertas","candidaturas","fontes"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
+/* ---------- abas, configurações, aplicativo ---------- */
+function aba(n){["vagas","candidaturas","auditoria"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
 document.querySelector(".tabs").addEventListener("click",function(e){var n=e.target.getAttribute("data-t");if(n){aba(n);try{history.replaceState(null,"","#"+n)}catch(x){}}});
-var h0=location.hash.slice(1);if(["vagas","cargos","alertas","candidaturas","fontes"].indexOf(h0)>=0)aba(h0);
-if(window.matchMedia&&matchMedia("(max-width:640px)").matches)$("filtros").open=false;
-
-/* ----- aplicativo (celular) ----- */
-var dp=null;window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;$("inst").hidden=false});
-$("inst").addEventListener("click",function(){if(dp){dp.prompt();dp=null;$("inst").hidden=true}});
-if(/iphone|ipad/i.test(navigator.userAgent)&&!window.navigator.standalone)$("ios").hidden=false;
+var h0=location.hash.slice(1);if(["vagas","candidaturas","auditoria"].indexOf(h0)>=0)aba(h0);
+$("bcfg").addEventListener("click",function(){$("cfg").hidden=!$("cfg").hidden});
+var dp=null;window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;$("binst").hidden=false});
+$("binst").addEventListener("click",function(){if(dp){dp.prompt();dp=null;$("binst").hidden=true}});
 if("serviceWorker" in navigator&&location.protocol.indexOf("http")==0)navigator.serviceWorker.register("sw.js").catch(function(){});
 
-/* ----- botão Atualizar agora ----- */
+/* ---------- botão Buscar agora ---------- */
 var H=location.hostname,P=location.pathname.split("/")[1];
-var REPO=(H.indexOf(".github.io")>0&&P)?H.split(".")[0]+"/"+P:"andrececcon-droid/vagas",POLL=15000,DEPLOY=75000;
-var API="https://api.github.com/repos/"+REPO+"/actions/workflows/vagas.yml";
-var up=$("up"),ust=$("ust"),cp=$("cp"),tk=$("tk");
+var REPO=(H.indexOf(".github.io")>0&&P)?H.split(".")[0]+"/"+P:"andrececcon-droid/vagas";
+var API="https://api.github.com/repos/"+REPO+"/actions/workflows/vagas.yml",up=$("up");
 function tok(){try{return localStorage.getItem("vagas_token")||""}catch(e){return ""}}
-function msg(t){ust.textContent=t}
-$("cfg").addEventListener("click",function(e){e.preventDefault();cp.style.display=cp.style.display=="block"?"none":"block"});
-$("sv").addEventListener("click",function(){try{localStorage.setItem("vagas_token",tk.value.trim());tk.value="";msg("Token salvo neste navegador.")}catch(e){msg("Não consegui salvar neste navegador.")}});
-$("rm").addEventListener("click",function(){try{localStorage.removeItem("vagas_token")}catch(e){}msg("Token removido.")});
+function msg(t){$("ust").textContent=t}
+$("sv").addEventListener("click",function(){try{localStorage.setItem("vagas_token",$("tk").value.trim());$("tk").value="";toast("Token salvo neste navegador.")}catch(e){toast("Não consegui salvar.")}});
+$("rm").addEventListener("click",function(){try{localStorage.removeItem("vagas_token")}catch(e){}toast("Token removido.")});
 function acomp(t0){var n=0;(function ciclo(){n++;fetch(API+"/runs?per_page=5&event=workflow_dispatch").then(function(r){return r.json()}).then(function(j){
-var r=(j.workflow_runs||[]).filter(function(x){return Date.parse(x.created_at)>=t0-60000})[0];
-if(r&&r.status=="completed"){if(r.conclusion=="success"){msg("Busca concluída. A página recarrega em instantes…");setTimeout(function(){location.reload()},DEPLOY)}else msg("A busca falhou. Veja o erro na aba Actions do GitHub.");return}
-msg(r?"Buscando vagas…":"Aguardando o GitHub iniciar…");if(n<240)setTimeout(ciclo,POLL);else msg("Demorou demais. Confira na aba Actions do GitHub.")}).catch(function(){if(n<240)setTimeout(ciclo,POLL)})})()}
-up.addEventListener("click",function(){var t=tok();
-if(!t){window.open("https://github.com/"+REPO+"/actions/workflows/vagas.yml","_blank");msg("Abri o GitHub: clique em Run workflow. Para rodar direto daqui, use Configurar botão.");return}
-up.disabled=true;msg("Enviando pedido…");var t0=Date.now();
-fetch(API+"/dispatches",{method:"POST",headers:{Accept:"application/vnd.github+json",Authorization:"Bearer "+t,"X-GitHub-Api-Version":"2022-11-28"},body:JSON.stringify({ref:"main"})}).then(function(r){up.disabled=false;
-if(r.status==204){msg("Busca iniciada. Leva uns 10 a 15 minutos.");acomp(t0)}else if(r.status==401||r.status==403||r.status==404)msg("O GitHub recusou o token (inválido, vencido ou sem permissão). Gere outro em Configurar botão.");else msg("Erro "+r.status+" ao chamar o GitHub.")}).catch(function(){up.disabled=false;msg("Sem conexão com o GitHub.")})});
-drawResumo();draw();drawCand();drawRegras();drawAlertas();
+ var r=(j.workflow_runs||[]).filter(function(x){return Date.parse(x.created_at)>=t0-60000})[0];
+ if(r&&r.status=="completed"){if(r.conclusion=="success"){msg("Busca concluída. A página recarrega em instantes…");setTimeout(function(){location.reload()},75000)}else msg("A busca falhou. Veja o erro na aba Actions do GitHub.");up.disabled=false;return}
+ msg(r?"Buscando vagas… (leva alguns minutos)":"Aguardando o GitHub iniciar…");if(n<240)setTimeout(ciclo,15000);else{msg("Demorou demais. Confira na aba Actions.");up.disabled=false}
+ }).catch(function(){if(n<240)setTimeout(ciclo,15000)})})()}
+up.addEventListener("click",function(){var t=tok();if(!t){$("cfg").hidden=false;toast("Cole o token do GitHub em Configurações.");return}
+ up.disabled=true;msg("Pedindo ao GitHub para buscar…");var t0=Date.now();
+ fetch(API+"/dispatches",{method:"POST",headers:{Authorization:"Bearer "+t,Accept:"application/vnd.github+json"},body:JSON.stringify({ref:"main"})}).then(function(r){
+  if(r.status==204){msg("Busca iniciada.");acomp(t0)}else{up.disabled=false;msg(r.status==401||r.status==403||r.status==404?"O token não funcionou (confira se tem permissão Actions: leitura e escrita).":"O GitHub recusou ("+r.status+").")}
+ }).catch(function(){up.disabled=false;msg("Sem conexão com o GitHub.")})});
+
+/* ---------- início ---------- */
+$("ger").textContent="Última busca: "+(D.gerado||"—")+" (horário de Brasília). Só Rio Grande do Sul.";
+$("gurl").value=G.url;$("gkey").value=G.key;
+draw();drawCand();drawAud();gst();
+if(G.url&&G.key&&(!G.ult||Date.now()-G.ult>6*36e5))lerEmails(false);
 </script></body></html>
