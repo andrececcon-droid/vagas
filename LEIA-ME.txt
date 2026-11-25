@@ -1,3 +1,6 @@
-v4: Jobsora removido (3 fontes saem do fontes.json; o robô e o painel descartam qualquer vaga do Jobsora).
-Nova aba "Spam": todas as vagas cujo link aponta para Infojobs ou Catho ficam la, fora da lista principal.
-Subir no GitHub: buscar_vagas.py, modelo.html, fontes.json (substituir) e rodar Actions > Run workflow.
+v5: auditoria dos SEUS sites + fontes novas.
+- Aba Auditoria > "Seus sites: o robô foi em cada um?" lista os 32 sites da sua lista com: situação, páginas vistas, se chegou à lista de vagas, cargos lidos e vagas aceitas.
+- Hays, Metta e Corsan agora usam o link da lista (antes era a página inicial). Tunni e Place RH incluídos.
+- Novas fontes com vagas reais: Robert Half POA (5 páginas por cargo), Vagas.com.br POA.
+- Mantidas: Jobsora fora, aba Spam (Infojobs/Catho), regras de local RS, sem BNE/Trabalha Brasil.
+Subir os 4 arquivos no GitHub e rodar Actions > Run workflow.

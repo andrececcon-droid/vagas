@@ -8,50 +8,58 @@
   "nome": "Recrutei – Porto Alegre",
   "tipo": "pagina",
   "url": "https://empregos.recrutei.com.br/vagas/em/porto-alegre-rs?regime=2",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Staff RH (Selecty)",
   "tipo": "alerta",
   "url": "https://staffrh.selecty.com.br/",
   "grupo": "Favorita",
-  "nota": "O site bloqueia a leitura automática. Confira o link no navegador."
+  "nota": "O site bloqueia a leitura automática. Confira o link no navegador.",
+  "minha_lista": true
  },
  {
   "nome": "Randstad",
   "tipo": "pagina",
   "url": "https://myrandstad.randstad.com.br/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Hays",
   "tipo": "pagina",
-  "url": "https://www.hays.com.br/",
-  "grupo": "Favorita"
+  "url": "https://www.hays.com.br/empregos-pesquisar/no-porto-alegre-brasil?q=&location=Porto%20Alegre,%20Brasil&jobSource=HaysGCJ",
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Robert Half – Porto Alegre",
   "tipo": "pagina",
   "url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/all",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Michael Page – Rio Grande do Sul",
   "tipo": "pagina",
   "url": "https://www.michaelpage.com.br/jobs/rio-grande-do-sul",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Metta",
   "tipo": "pagina",
-  "url": "https://www.metta.com.vc/",
-  "grupo": "Favorita"
+  "url": "https://www.metta.com.vc/mural_vagas",
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Catho",
   "tipo": "alerta",
   "url": "https://www.catho.com.br/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Peopleware RH",
@@ -63,110 +71,128 @@
   "nome": "Solucionare RH (Pandapé)",
   "tipo": "pagina",
   "url": "https://solucionarerh.pandape.infojobs.com.br/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Efetivar",
   "tipo": "pagina",
   "url": "https://efetivar.com/vagas",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Dinamiza RH",
   "tipo": "alerta",
   "url": "https://www.dinamizarh.com.br/oportunidades",
   "grupo": "Favorita",
-  "nota": "O site bloqueia a leitura automática. Confira o link no navegador."
+  "nota": "O site bloqueia a leitura automática. Confira o link no navegador.",
+  "minha_lista": true
  },
  {
   "nome": "Portal de Talentos Senior",
   "tipo": "pagina",
   "url": "https://perto.portaldetalentos.senior.com.br/jobs",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Engenha",
   "tipo": "pagina",
   "url": "https://engenha.com/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "BM Vagas",
   "tipo": "pagina",
   "url": "https://vagas.bmvagas.com.br/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Corsan / Aegea (Gupy)",
   "tipo": "pagina",
   "url": "https://vagascorsanaegea.gupy.io/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "InNova RH",
   "tipo": "pagina",
   "url": "https://www.innovarecursoshumanos.com.br/#oportunidades",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Acessa RH",
   "tipo": "pagina",
   "url": "https://www.acessarh.com.br/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "RHF Talentos (Pandapé)",
   "tipo": "pagina",
   "url": "https://rhftalentos.pandape.infojobs.com.br/?PageNumber=1&PageSize=20&Salary=6000&SalaryUpper=True&Deficiency=2&IdLocation2List=184",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "DNA Human Resources (Solides)",
   "tipo": "pagina",
   "url": "https://dnarh.vagas.solides.com.br/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Recrutei – busca Porto Alegre",
   "tipo": "pagina",
   "url": "https://empregos.recrutei.com.br/busca?keyword=&city=Porto+Alegre&state=rs&setor=&regime=&model=",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Viver RH",
   "tipo": "pagina",
   "url": "https://www.rhviver.com/candidato/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "TKRH",
   "tipo": "pagina",
   "url": "https://www.tkrh.com.br/#oportunidades",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "DRH RS",
   "tipo": "pagina",
   "url": "https://www.drhrs.com.br/vagas",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Morbach RH",
   "tipo": "pagina",
   "url": "https://morbachrh.com.br/vagas-de-emprego",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "VIP Desenvolvimento Humano",
   "tipo": "pagina",
   "url": "https://www.vipdh.com.br/",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Recrutei – Prime RH",
   "tipo": "pagina",
   "url": "https://talent.recrutei.com.br/primerrh/profile/detail",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Place RH",
@@ -178,13 +204,15 @@
   "nome": "Conecta Talentos",
   "tipo": "pagina",
   "url": "https://vagas.conectatalentos.com/vaga/lista/inicio",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Datum (Recrut.ai)",
   "tipo": "pagina",
   "url": "https://datum.jobs.recrut.ai/#openings",
-  "grupo": "Favorita"
+  "grupo": "Favorita",
+  "minha_lista": true
  },
  {
   "nome": "Holden RH",
@@ -214,13 +242,15 @@
   "nome": "Peopleware RH",
   "tipo": "pagina",
   "url": "https://peopleware-recursos-humanos.tunni.com.br/",
-  "grupo": "Outra fonte"
+  "grupo": "Outra fonte",
+  "minha_lista": true
  },
  {
   "nome": "META Assessoria Empresarial (Solides)",
   "tipo": "pagina",
   "url": "https://metassessoriaempresarial.vagas.solides.com.br/",
-  "grupo": "Outra fonte"
+  "grupo": "Outra fonte",
+  "minha_lista": true
  },
  {
   "nome": "Vagas.com – analista financeiro POA",
@@ -1284,5 +1314,58 @@
   "url": "https://www.glassdoor.com.br/Vaga/porto-alegre-controller-vagas-SRCH_IL.0,12_IC2417359_KO13,23.htm",
   "grupo": "Agregador",
   "nota": "Glassdoor costuma bloquear robôs."
+ },
+ {
+  "nome": "Tunni (vagas, salário a partir de R$ 7 mil)",
+  "tipo": "pagina",
+  "url": "https://www.tunni.com.br/vagas?jobs={\"jobType\":[],\"arrangement\":[],\"keyword\":\"\",\"salaryRangeMin\":7000,\"searchAfter\":[],\"isActive\":true,\"sector\":[]}",
+  "grupo": "Favorita",
+  "nota": "Site carregado por JavaScript; o Raio-X mostra se o robô conseguiu ler.",
+  "minha_lista": true
+ },
+ {
+  "nome": "Place RH",
+  "tipo": "alerta",
+  "url": "https://www.placerh.com.br/LoginHandler.ashx",
+  "grupo": "Favorita",
+  "nota": "Só tem página de login, sem lista pública de vagas. Confira no navegador.",
+  "minha_lista": true
+ },
+ {
+  "nome": "Robert Half POA – Gerente financeiro",
+  "tipo": "pagina",
+  "url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/gerente-financeiro",
+  "grupo": "Recrutamento"
+ },
+ {
+  "nome": "Robert Half POA – Finanças",
+  "tipo": "pagina",
+  "url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/financas",
+  "grupo": "Recrutamento"
+ },
+ {
+  "nome": "Robert Half POA – Diretor financeiro",
+  "tipo": "pagina",
+  "url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/diretor-financeiro",
+  "grupo": "Recrutamento"
+ },
+ {
+  "nome": "Robert Half POA – Gerente controladoria",
+  "tipo": "pagina",
+  "url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/gerente-controladoria",
+  "grupo": "Recrutamento"
+ },
+ {
+  "nome": "Robert Half POA – Financeiro",
+  "tipo": "pagina",
+  "url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/financeiro",
+  "grupo": "Recrutamento"
+ },
+ {
+  "nome": "Vagas.com.br – Porto Alegre",
+  "tipo": "pagina",
+  "url": "https://www.vagas.com.br/vagas-de-porto-alegre",
+  "grupo": "Outra fonte",
+  "nota": "Lista geral; o robô filtra pelos seus cargos."
  }
 ]

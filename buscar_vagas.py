@@ -1012,6 +1012,7 @@ def montar(parciais, fontes):
                                  "grupo": f.get("grupo", ""), "status": "Não rodou nesta rodada",
                                  "detalhe": "O lote desta fonte deu erro (veja a aba Actions)", "vagas": 0}
         r["vagas"] = sum(1 for v in vagas.values() if v["fonte"] == r["nome"])
+        r["minha_lista"] = bool(f.get("minha_lista"))
         if r["status"].startswith("OK") and r["vagas"] == 0:
             r["status"] = "Carregou, vagas já listadas por outra fonte"
         resultado.append(r)
@@ -1112,13 +1113,17 @@ def montar(parciais, fontes):
     if qual["link_incerto"]:
         suspeitas.append(f"{qual['link_incerto']} vaga(s) com link “incerto” (abriu, mas não confirmou o cargo na página)")
     amostra = random.sample(lista, min(8, len(lista)))
+    minha = [{"nome": r["nome"], "url": r.get("url", ""), "tipo": r["tipo"], "status": r["status"], "vagas": r["vagas"],
+              "paginas": (r.get("prof") or {}).get("visitadas", 0), "chegou_lista": (r.get("prof") or {}).get("chegou_lista"),
+              "candidatos": (r.get("prof") or {}).get("candidatos", 0), "aceitos": (r.get("prof") or {}).get("aceitos", 0)}
+             for r in resultado if r.get("minha_lista")]
     audit_geral = {
         "qualidade": qual, "funil": funil, "trilhas": trilhas, "profundidade": sorted(prof, key=lambda x: -x["candidatos"])[:80],
         "descartes": todos_desc[:500], "total_descartes": len(todos_desc), "suspeitas": suspeitas[:30],
         "amostra": [{"titulo": v["titulo"], "empresa": v.get("empresa", ""), "fonte": v["fonte"], "url": v["url"],
                      "link_status": v.get("link_status"), "lida": v.get("lida"), "nota": v.get("nota"),
                      "aberta": bool(v.get("verificada"))} for v in amostra],
-        "controle": teste_controle(lista, todos_desc, resultado),
+        "controle": teste_controle(lista, todos_desc, resultado), "minha_lista": minha,
         "regras": {"nota_min": NOTA_MIN, "nota_alta": 80, "excluidos": EXCLUIR, "contabil": "contador, analista/coordenador contábil, exige CRC",
                    "local": "só Rio Grande do Sul (e remoto)", "paginas_max": 4, "rolagens_max": 4,
                    "navegador_reserva_max": 40, "abre_link_max": 250}}

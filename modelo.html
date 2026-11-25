@@ -103,7 +103,7 @@ details.rx{margin:6px 0}details.rx summary{cursor:pointer;font-weight:600}.mono{
 <div class="grid" id="lc"></div>
 </section>
 
-<section id="t-spam" hidden><div class="box sub">Vagas cujo link aponta para <b>Infojobs</b> ou <b>Catho</b>. Ficam separadas da lista principal. Se marcar “Me candidatei” ou “Não aplicável”, saem daqui.</div><div id="lspam"></div></section>
+<section id="t-spam" hidden><div class="box sub">Vagas cujo link aponta para <b>Infojobs</b>, <b>Catho</b> ou <b>Vagas.com.br</b>. Ficam separadas da lista principal. Se marcar “Me candidatei” ou “Não aplicável”, saem daqui.</div><div id="lspam"></div></section>
 
 <section id="t-auditoria" hidden><div id="aud"></div></section>
 <div id="toast"></div>
@@ -146,7 +146,7 @@ function regras(){var ap=aprender(),pal={};R.manual.forEach(function(w){pal[w]="
  var d=+R.dias||0,o="sua regra";if(!d&&R.auto&&ap.velhasN>=3&&ap.velhasC===0){d=30;o="aprendida"}return {pal:pal,dias:d,diasOrigem:o,ap:ap}}
 function motivoOculta(v,rg){var t=sem(v.titulo).split(" ");for(var w in rg.pal){if(t.indexOf(w)>=0)return "contém “"+w+"” ("+rg.pal[w]+")"}
  if(rg.dias&&v.data_iso&&dias(HOJE,v.data_iso)>rg.dias)return "publicada há mais de "+rg.dias+" dias ("+rg.diasOrigem+")";return ""}
-function ehSpam(v){return /(^|\.)(infojobs\.com\.br|catho\.com\.br)/i.test(hostDe(v.url||""))}
+function ehSpam(v){return /(^|\.)(infojobs\.com\.br|catho\.com\.br|vagas\.com\.br)/i.test(hostDe(v.url||""))}
 function hostDe(u){try{return new URL(u).hostname}catch(x){return ""}}
 function vista(v){var s=est(v);if(s)return s;if(ehSpam(v))return "z";if(R.liberadas[ks(v)[0]])return "";return motivoOculta(v,RG)?"o":""}
 
@@ -203,7 +203,7 @@ function draw(){RG=regras();var c=0,n=0,p=0,oc=0,hi=0,nv=0;
   gs.forEach(function(g){var A=L.filter(function(x){return g[1](x[0])});if(A.length)h+='<div class="grp">'+g[0]+' · '+A.length+'</div><div class="grid">'+A.map(function(x){return card(x[0],x[1])}).join("")+'</div>'})}
  else if(fg.value==="cargo"){CATS.forEach(function(ct){var A=L.filter(function(x){return categoria(x[0])===ct[0]});if(A.length)h+='<div class="grp">'+esc(ct[1])+' · '+A.length+'</div><div class="grid">'+A.map(function(x){return card(x[0],x[1])}).join("")+'</div>'})}
  else h='<div class="grid">'+L.map(function(x){return card(x[0],x[1])}).join("")+'</div>';
- $("lista").innerHTML=h;$("nspam").textContent=sp?"("+sp+")":"";var hs="";D.vagas.forEach(function(v,i){if(vista(v)==="z")hs+=card(v,i)});$("lspam").innerHTML=hs?'<div class="grid">'+hs+"</div>":'<div class="box">Nenhuma vaga de Infojobs ou Catho nesta rodada.</div>';drawRegras()}
+ $("lista").innerHTML=h;$("nspam").textContent=sp?"("+sp+")":"";var hs="";D.vagas.forEach(function(v,i){if(vista(v)==="z")hs+=card(v,i)});$("lspam").innerHTML=hs?'<div class="grid">'+hs+"</div>":'<div class="box">Nenhuma vaga de Infojobs, Catho ou Vagas.com.br nesta rodada.</div>';drawRegras()}
 function cliqueCartao(e){var b=e.target.closest("[data-i],[data-cp],[data-lib]");if(!b)return;
  if(b.hasAttribute("data-lib")){e.preventDefault();R.liberadas[ks(D.vagas[b.getAttribute("data-lib")])[0]]=1;salvar();draw();return}
  if(b.hasAttribute("data-cp")){copiar(textoClaude(D.vagas[b.getAttribute("data-cp")]),function(){toast("Copiado! Cole no chat do Claude.")});return}
@@ -245,6 +245,8 @@ function drawAud(){var A=D.auditoria,F=D.fontes||[],T={total:0,com:0,sem:0,js:0,
  h+='<h2>🔎 Profundidade por fonte</h2><div class="sub">Quanto o robô realmente leu em cada fonte. “Candidatos” = títulos que pareciam cargo; “Aceitos” = os que passaram no filtro de título.</div><div class="tw"><table><tr><th>Fonte</th><th>Páginas</th><th>Links lidos</th><th>Candidatos</th><th>Aceitos</th><th>No painel</th><th>Situação</th></tr>'+(A.profundidade||[]).map(function(p){return '<tr><td>'+esc(p.nome)+'</td><td>'+p.paginas+'</td><td>'+p.links+'</td><td>'+p.candidatos+'</td><td>'+p.aceitos+'</td><td>'+p.vagas+'</td><td>'+esc(p.status)+'</td></tr>'}).join("")+'</table></div>';
  h+='<h2>🧭 Raio-X: por onde o robô andou em cada fonte</h2><div class="sub">Para cada fonte: a página cadastrada, os links que o robô seguiu até achar a lista de vagas, e o que viu em cada passo. Se o caminho termina na página inicial, o robô não achou a lista: troque o endereço em fontes.json pelo link direto das vagas.</div><div class="bar"><input type="search" id="tq" placeholder="Buscar fonte…"><label class="sub"><input type="checkbox" id="tp"> só as que não chegaram à lista</label></div><div id="trl"></div>';
  h+=emailAud();
+ var ML=A.minha_lista||[];
+ if(ML.length){var okl=ML.filter(function(x){return x.chegou_lista}).length;h+='<h2>✅ Seus sites: o robô foi em cada um?</h2><div class="sub">Os '+ML.length+' sites da sua lista. “Abriu” = a página respondeu. “Chegou à lista” = o robô viu títulos de cargo. “Vagas” = quantas passaram nas suas regras.</div><div class="box meta"><b>'+okl+' de '+ML.length+'</b> chegaram a uma lista de vagas nesta rodada</div><div class="tw"><table><tr><th>Site</th><th>Situação</th><th>Páginas vistas</th><th>Chegou à lista</th><th>Cargos lidos</th><th>Vagas aceitas</th></tr>'+ML.map(function(x){return '<tr><td>'+(x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.nome)+'</a>':esc(x.nome))+'</td><td>'+esc(x.status)+'</td><td>'+x.paginas+'</td><td class="'+(x.chegou_lista?"ok":"er")+'">'+(x.tipo=="alerta"?"não lido (login/bloqueio)":(x.chegou_lista?"sim":"não"))+'</td><td>'+x.candidatos+'</td><td>'+x.vagas+'</td></tr>'}).join("")+'</table></div>'}
  var C=A.controle;
  if(C){h+='<h2>🎯 Teste de controle: vagas reais conhecidas</h2><div class="sub">Vagas que existem de verdade (achadas por busca independente em '+esc(C.data)+'). Se o robô não as enxerga, a busca está cega nesse ponto. Agregadores lidos até a lista: '+C.agregadores_lidos+' de '+C.agregadores_total+'.</div><div class="box meta"><b>'+C.vistas+' de '+C.total+'</b> vistas pelo robô · <b>'+C.no_painel+'</b> no painel</div><div class="tw"><table><tr><th>Empresa</th><th>Cargo</th><th>Onde existe</th><th>Resultado</th><th>Fonte que achou</th></tr>'+C.itens.map(function(x){var c=x.estado=="No painel"?"ok":(x.estado=="Não vista"?"er":"");return '<tr><td>'+esc(x.empresa)+'</td><td>'+esc(x.cargo)+'</td><td>'+esc(x.onde_existe)+'</td><td class="'+c+'">'+(x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.estado)+'</a>':esc(x.estado))+'</td><td>'+esc(x.fonte)+'</td></tr>'}).join("")+'</table></div>'}
  var R0=A.regras||{};
