@@ -86,7 +86,7 @@ details.rx{margin:6px 0}details.rx summary{cursor:pointer;font-weight:600}.mono{
 <div class="sub" style="margin-top:10px"><a href="#" id="lm">Limpar marcações deste aparelho</a> · <a href="#" id="alApagar">Apagar vagas importadas de e-mail</a> <span id="av" hidden style="color:var(--er)">· Não consegui gravar neste navegador.</span></div>
 </section>
 
-<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="auditoria">Auditoria</button><button data-t="spam">Spam <span id="nspam"></span></button></nav>
+<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="auditoria">Auditoria</button><button data-t="spam">Spam <span id="nspam"></span></button><button data-t="hh">Head hunters <span id="nhh"></span></button></nav>
 
 <section id="t-vagas">
 <div class="resumo" id="resumo"></div>
@@ -101,6 +101,22 @@ details.rx{margin:6px 0}details.rx summary{cursor:pointer;font-weight:600}.mono{
 <section id="t-candidaturas" hidden>
 <div class="row" style="margin-bottom:10px"><button class="btn" id="csv">⬇ Exportar para Excel</button><span class="sub">Cada vaga marcada como “Me candidatei” aparece aqui. Anote o andamento.</span></div>
 <div class="grid" id="lc"></div>
+</section>
+
+<section id="t-hh" hidden>
+<div class="box"><b>Projeto Head Hunters – Grande Porto Alegre</b>
+<div class="sub">Você cadastra os head hunters que achar (LinkedIn, Google, Instagram, Facebook ou indicação). O painel monta a mensagem certa para cada etapa (apresentação, retorno em 20 dias e contato a cada 20 dias) e mostra quem deve receber hoje. WhatsApp e e-mail abrem prontos para você tocar em Enviar; o currículo você anexa no e-mail.</div>
+<label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="hhok"> <b>Projeto aprovado</b> (só depois de aprovar aparece a lista “Enviar hoje”)</label></div>
+<div class="box"><b>Seus dados (vão na assinatura)</b>
+<div class="grid" style="margin-top:8px"><input id="hhnome" placeholder="Seu nome completo"><input id="hhtel" placeholder="Seu telefone/WhatsApp"><input id="hhmail" placeholder="Seu e-mail"><input id="hhlin" placeholder="Seu LinkedIn (link)"></div></div>
+<h2>Enviar hoje</h2><div id="hhhoje"></div>
+<h2>Cadastrar head hunter</h2>
+<div class="box"><div class="grid"><input id="hn" placeholder="Nome do contato"><input id="he" placeholder="Consultoria / empresa"><input id="hm" placeholder="E-mail"><input id="hw" placeholder="WhatsApp (DDD + número)"><select id="hf"><option>LinkedIn</option><option>Google</option><option>Instagram</option><option>Facebook</option><option>Indicação</option><option>Outro</option></select><input id="hl" placeholder="Link do perfil (opcional)"></div><p><button class="btn" id="hadd">Adicionar</button></p></div>
+<h2>Lista <span id="hcont" class="sub"></span></h2><div id="hhlista"></div>
+<h2>Textos das mensagens</h2><div class="sub">Pode editar. Use {contato} para o primeiro nome e {assinatura} para seus dados.</div><div id="hhtpl"></div>
+<h2>Levar para o Claude / outro aparelho</h2>
+<div class="box"><button class="btn" id="hcopy">Copiar lista (para o Claude)</button> <span id="hmsg" class="sub"></span>
+<textarea id="himp" rows="3" style="width:100%;margin-top:8px" placeholder="Para trazer a lista de outro aparelho, cole aqui o texto copiado e toque em Importar"></textarea><p><button class="btn" id="himpb">Importar</button></p></div>
 </section>
 
 <section id="t-spam" hidden><div class="box sub">Vagas cujo link aponta para <b>Infojobs</b>, <b>Catho</b> ou <b>Vagas.com.br</b>. Ficam separadas da lista principal. Se marcar “Me candidatei” ou “Não aplicável”, saem daqui.</div><div id="lspam"></div></section>
@@ -353,9 +369,48 @@ $("cvclaude").addEventListener("click",function(){var t=$("cvtxt").value.trim();
 $("cvcolar").addEventListener("click",function(){var x=$("cvjson").value,i=x.indexOf("{"),j=x.lastIndexOf("}");try{var o=JSON.parse(x.slice(i,j+1));var nomes=Object.keys(D.competencias||{});CV.perfil={cargos:(o.cargos||[]).map(function(c){return String(c).toLowerCase()}).slice(0,8),competencias:(o.competencias||[]).filter(function(c){return nomes.indexOf(c)>=0}),gerado:hojeLocal()};cvSalvar();toast("Perfil do Claude aplicado.")}catch(e){toast("Não consegui ler o JSON.")}});
 
 /* ---------- abas, configurações, aplicativo ---------- */
-function aba(n){["vagas","candidaturas","auditoria","spam"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
+
+/* ===== Head hunters ===== */
+var HH_K="vagas_hh_v1";
+var HH_TPL={
+1:{a:"Apresentação profissional | Gestão Administrativa e Financeira",c:"Olá{contato},\n\nMeu nome é {nome}, sou profissional de gestão administrativa e financeira, de Porto Alegre/RS, e estou em processo de recolocação.\n\nMeu foco são posições de Gerente Administrativo-Financeiro, Gerente Financeiro, Coordenador Administrativo-Financeiro, Controller e FP&A, com experiência em planejamento e controle financeiro, fluxo de caixa, orçamento, contas a pagar e receber, conciliações e relatórios gerenciais.\n\nSegue meu currículo em anexo. Fico à disposição para uma conversa rápida e, se houver oportunidades alinhadas a esse perfil, agradeço a lembrança.\n\nAtenciosamente,\n{assinatura}"},
+2:{a:"Retorno | Gestão Administrativa e Financeira – {nome}",c:"Olá{contato}, tudo bem?\n\nEntrei em contato há cerca de 20 dias e queria saber se surgiu alguma oportunidade de Gerente/Coordenador Administrativo-Financeiro, Controller ou FP&A em Porto Alegre e região.\n\nReenvio meu currículo atualizado em anexo e continuo à disposição.\n\nAtenciosamente,\n{assinatura}"},
+3:{a:"Continuo à disposição | {nome}",c:"Olá{contato}, tudo bem?\n\nNão quero ser inconveniente, apenas continuar no seu radar para oportunidades de recolocação em gestão administrativa e financeira (gerência, coordenação, controladoria e FP&A) em Porto Alegre e região.\n\nSe houver algo alinhado ao meu perfil, será um prazer conversar. Caso prefira não receber estes contatos, é só me avisar e retiro seu nome da minha lista.\n\nAtenciosamente,\n{assinatura}"}};
+function hhLoad(){var d={};try{d=JSON.parse(localStorage.getItem(HH_K)||"{}")}catch(x){}d.perfil=d.perfil||{};d.lista=d.lista||[];d.tpl=d.tpl||{};d.ok=!!d.ok;return d}
+var HH=hhLoad();function hhSave(){try{localStorage.setItem(HH_K,JSON.stringify(HH))}catch(x){}}
+function hhHoje(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function hhMais(iso,n){var d=new Date(iso+"T12:00:00");d.setDate(d.getDate()+n);return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function hhBr(iso){return iso?iso.split("-").reverse().join("/"):"—"}
+function hhTpl(e){var t=HH.tpl[e]||{};return {a:t.a||HH_TPL[e].a,c:t.c||HH_TPL[e].c}}
+function hhAssin(){var p=HH.perfil,l=[p.nome||"[seu nome]"];if(p.tel)l.push(p.tel);if(p.mail)l.push(p.mail);if(p.lin)l.push(p.lin);return l.join("\n")}
+function hhTexto(s,x){var nome=(x.nome||"").trim().split(/\s+/)[0];return s.replace(/\{contato\}/g,nome?" "+nome:"").replace(/\{nome\}/g,HH.perfil.nome||"[seu nome]").replace(/\{assinatura\}/g,hhAssin())}
+function hhEtapa(x){return x.etapa>=3?3:(x.etapa+1)}
+function hhDevido(x){if(x.pausado)return false;if(!x.etapa)return true;return x.proximo&&x.proximo<=hhHoje()}
+function hhMsg(x){var t=hhTpl(hhEtapa(x));return {a:hhTexto(t.a,x),c:hhTexto(t.c,x)}}
+function hhWa(x){var n=(x.whats||"").replace(/\D/g,"");if(!n)return"";if(n.length<=11)n="55"+n;var m=hhMsg(x);return "https://wa.me/"+n+"?text="+encodeURIComponent(m.c.replace(/\n\nSegue meu currículo em anexo\. /,"\n\n").replace(/\nReenvio meu currículo atualizado em anexo e continuo à disposição\./,"").replace(/\n\nAtenciosamente,[\s\S]*$/,"\n\n"+(HH.perfil.nome||"")))}
+function hhMail(x){if(!x.mail)return"";var m=hhMsg(x);return "mailto:"+encodeURIComponent(x.mail).replace("%40","@")+"?subject="+encodeURIComponent(m.a)+"&body="+encodeURIComponent(m.c)}
+function hhCard(x,i){var e=hhEtapa(x),nm=["Apresentação","Retorno (20 dias)","A cada 20 dias"][e-1],w=hhWa(x),m=hhMail(x);
+return '<div class="box" data-i="'+i+'"><b>'+esc(x.nome||x.empresa||"Sem nome")+'</b> <span class="sub">'+esc(x.empresa||"")+' · '+esc(x.fonte||"")+'</span><div class="sub">Próxima mensagem: <b>'+nm+'</b> · último contato: '+hhBr(x.ultimo)+' · próximo: '+(x.etapa?hhBr(x.proximo):"hoje")+(x.pausado?' · <b>pausado</b>':'')+'</div><p style="display:flex;flex-wrap:wrap;gap:6px">'+(w?'<a class="btn" target="_blank" rel="noopener" href="'+esc(w)+'">WhatsApp</a>':'')+(m?'<a class="btn" href="'+esc(m)+'">E-mail</a>':'')+(x.lin?'<a class="btn" target="_blank" rel="noopener" href="'+esc(x.lin)+'">Perfil</a>':'')+'<button class="btn" data-a="env">Marquei como enviado</button><button class="btn" data-a="pausa">'+(x.pausado?"Reativar":"Pausar")+'</button><button class="btn" data-a="del">Remover</button></p></div>'}
+function hhDraw(){var P=HH.perfil;$("hhok").checked=HH.ok;$("hhnome").value=P.nome||"";$("hhtel").value=P.tel||"";$("hhmail").value=P.mail||"";$("hhlin").value=P.lin||"";
+var dev=[],todos="";HH.lista.forEach(function(x,i){todos+=hhCard(x,i);if(hhDevido(x))dev.push(hhCard(x,i))});
+$("hhhoje").innerHTML=!HH.ok?'<div class="box sub">Aprove o projeto (caixa acima) para ver quem deve receber hoje.</div>':(dev.length?dev.join(""):'<div class="box sub">Ninguém para hoje.</div>');
+$("hhlista").innerHTML=todos||'<div class="box sub">Nenhum head hunter cadastrado ainda.</div>';$("hcont").textContent="("+HH.lista.length+")";
+$("nhh").textContent=HH.ok&&HH.lista.filter(hhDevido).length?"("+HH.lista.filter(hhDevido).length+")":"";
+var t="";[1,2,3].forEach(function(e){var v=hhTpl(e);t+='<div class="box"><b>'+["1. Apresentação","2. Retorno após 20 dias","3. A cada 20 dias"][e-1]+'</b><input data-e="'+e+'" data-k="a" style="width:100%;margin:6px 0" value="'+esc(v.a)+'"><textarea data-e="'+e+'" data-k="c" rows="9" style="width:100%">'+esc(v.c)+'</textarea></div>'});$("hhtpl").innerHTML=t}
+function hhFiltraEv(e){var b=e.target.closest("[data-a]");if(!b)return;var c=b.closest("[data-i]"),i=+c.getAttribute("data-i"),x=HH.lista[i],a=b.getAttribute("data-a");
+if(a=="env"){x.etapa=Math.min(3,(x.etapa||0)+1);x.ultimo=hhHoje();x.proximo=hhMais(x.ultimo,20)}else if(a=="pausa"){x.pausado=!x.pausado}else if(a=="del"){if(!confirm("Remover este contato?"))return;HH.lista.splice(i,1)}
+hhSave();hhDraw()}
+$("hhhoje").addEventListener("click",hhFiltraEv);$("hhlista").addEventListener("click",hhFiltraEv);
+$("hhok").addEventListener("change",function(){HH.ok=this.checked;hhSave();hhDraw()});
+[["hhnome","nome"],["hhtel","tel"],["hhmail","mail"],["hhlin","lin"]].forEach(function(p){$(p[0]).addEventListener("input",function(){HH.perfil[p[1]]=this.value;hhSave()})});
+$("hhtpl").addEventListener("input",function(e){var t=e.target,k=t.getAttribute("data-k");if(!k)return;var n=t.getAttribute("data-e");HH.tpl[n]=HH.tpl[n]||{};HH.tpl[n][k]=t.value;hhSave()});
+$("hadd").addEventListener("click",function(){var x={nome:$("hn").value.trim(),empresa:$("he").value.trim(),mail:$("hm").value.trim(),whats:$("hw").value.trim(),fonte:$("hf").value,lin:$("hl").value.trim(),etapa:0,ultimo:"",proximo:""};if(!x.nome&&!x.empresa){alert("Informe o nome ou a consultoria.");return}if(!x.mail&&!x.whats){alert("Informe o e-mail ou o WhatsApp.");return}HH.lista.push(x);["hn","he","hm","hw","hl"].forEach(function(i){$(i).value=""});hhSave();hhDraw()});
+$("hcopy").addEventListener("click",function(){var s=JSON.stringify({hh:1,perfil:HH.perfil,aprovado:HH.ok,lista:HH.lista,textos:HH.tpl});(navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){$("hmsg").textContent="Copiado."}).catch(function(){$("himp").value=s;$("hmsg").textContent="Copie o texto da caixa abaixo."})});
+$("himpb").addEventListener("click",function(){try{var d=JSON.parse($("himp").value);if(!d.hh)throw 0;HH.perfil=d.perfil||{};HH.ok=!!d.aprovado;HH.lista=d.lista||[];HH.tpl=d.textos||{};hhSave();hhDraw();$("himp").value="";$("hmsg").textContent="Importado."}catch(x){$("hmsg").textContent="Texto inválido."}});
+hhDraw();
+function aba(n){["vagas","candidaturas","auditoria","spam","hh"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
 document.querySelector(".tabs").addEventListener("click",function(e){var n=e.target.getAttribute("data-t");if(n){aba(n);try{history.replaceState(null,"","#"+n)}catch(x){}}});
-var h0=location.hash.slice(1);if(["vagas","candidaturas","auditoria","spam"].indexOf(h0)>=0)aba(h0);
+var h0=location.hash.slice(1);if(["vagas","candidaturas","auditoria","spam","hh"].indexOf(h0)>=0)aba(h0);
 $("bcfg").addEventListener("click",function(){$("cfg").hidden=!$("cfg").hidden});
 var dp=null;window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;$("binst").hidden=false});
 $("binst").addEventListener("click",function(){if(dp){dp.prompt();dp=null;$("binst").hidden=true}});
