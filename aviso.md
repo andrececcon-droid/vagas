@@ -1,6 +1,6 @@
-1. **Analista Financeiro Sênior** · Remotar (vagas remotas) · Remoto
-   cargo-alvo “analista financeiro” (40/40); descrição cita 10 competências suas (35/35); local 10/15; atualidade 4/10
-   Suas competências: Fluxo de caixa, Conciliação, Orçamento / forecast, Relatórios gerenciais e indicadores
-   [Abrir a vaga](https://remotar.com.br/job/171411/instituto-transforma-edu/analista-financeiro-senior) · fonte: Remotar (vagas remotas)
+1. **Gestor financeiro** · Infojobs POA – Controller
+   cargo-alvo “gestor financeiro” (40/40); descrição cita 5 competências suas (29/35); local 9/15; atualidade 4/10
+   Suas competências: Conciliação, Faturamento e cobrança, Fornecedores e compras, Impostos e tributação
+   [Abrir a vaga](https://www.infojobs.com.br/vagas-de-gestor-financeiro.aspx) · fonte: Infojobs POA – Controller
 
 [Abrir o painel](https://andrececcon-droid.github.io/vagas/)
