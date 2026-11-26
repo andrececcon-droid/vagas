@@ -1,1 +1,6 @@
-v6: nova aba "Head hunters" no painel. Suba so o modelo.html no GitHub e rode Actions > Run workflow (o painel e regerado a partir dele).
+v7: robô que procura contatos PÚBLICOS de head hunters/consultorias da Grande Porto Alegre.
+1) GitHub > Add file > Upload files: buscar_headhunters.py e modelo.html.
+2) GitHub > Add file > Create new file. No nome digite: .github/workflows/headhunters.yml  e cole o conteúdo de headhunters.yml. Commit.
+3) Actions > "Buscar contatos de head hunters" > Run workflow (leva alguns minutos).
+4) Painel > aba Head hunters > "Carregar sugestões" > revisar e adicionar.
+Roda sozinho no dia 1 de cada mês. Não entra em LinkedIn/Instagram/Facebook, respeita robots.txt.
