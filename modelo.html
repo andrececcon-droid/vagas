@@ -86,7 +86,7 @@ details.rx{margin:6px 0}details.rx summary{cursor:pointer;font-weight:600}.mono{
 <div class="sub" style="margin-top:10px"><a href="#" id="lm">Limpar marcações deste aparelho</a> · <a href="#" id="alApagar">Apagar vagas importadas de e-mail</a> <span id="av" hidden style="color:var(--er)">· Não consegui gravar neste navegador.</span></div>
 </section>
 
-<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="auditoria">Auditoria</button><button data-t="spam">Spam <span id="nspam"></span></button><button data-t="hh">Head hunters <span id="nhh"></span></button></nav>
+<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="auditoria">Auditoria</button><button data-t="spam">Spam <span id="nspam"></span></button><button data-t="hh">Head hunters <span id="nhh"></span></button><button data-t="fx">Minhas fontes</button></nav>
 
 <section id="t-vagas">
 <div class="resumo" id="resumo"></div>
@@ -101,6 +101,16 @@ details.rx{margin:6px 0}details.rx summary{cursor:pointer;font-weight:600}.mono{
 <section id="t-candidaturas" hidden>
 <div class="row" style="margin-bottom:10px"><button class="btn" id="csv">⬇ Exportar para Excel</button><span class="sub">Cada vaga marcada como “Me candidatei” aparece aqui. Anote o andamento.</span></div>
 <div class="grid" id="lc"></div>
+</section>
+
+<section id="t-fx" hidden>
+<div class="box"><b>Minhas fontes: sites para o robô buscar vagas</b>
+<div class="sub">Cole o endereço de um site de vagas. O painel confere se ele já está na busca. Se não estiver, você adiciona e envia para o robô, que passa a incluí-lo a partir da próxima rodada. Não entram BNE, Trabalha Brasil nem Jobsora.</div>
+<p><input id="fxurl" style="width:100%" placeholder="Cole aqui o link do site ou da lista de vagas"></p>
+<p><button class="btn" id="fxchk">Conferir</button></p><div id="fxres"></div></div>
+<h2>Fontes que eu adicionei <span id="fxn" class="sub"></span></h2><div id="fxlista"></div>
+<div class="box"><button class="btn" id="fxenv">Enviar para o robô</button> <button class="btn" id="fxcopy">Copiar JSON</button> <span id="fxmsg" class="sub"></span>
+<div class="sub">“Enviar para o robô” grava o arquivo fontes_extras.json no seu GitHub e precisa do token salvo na engrenagem ⚙ (com permissão de escrever em Contents). Sem token, use “Copiar JSON” e crie o arquivo fontes_extras.json no repositório.</div></div>
 </section>
 
 <section id="t-hh" hidden>
@@ -411,6 +421,32 @@ $("hcopy").addEventListener("click",function(){var s=JSON.stringify({hh:1,perfil
 $("himpb").addEventListener("click",function(){try{var d=JSON.parse($("himp").value);if(!d.hh)throw 0;HH.perfil=d.perfil||{};HH.ok=!!d.aprovado;HH.lista=d.lista||[];HH.tpl=d.textos||{};hhSave();hhDraw();$("himp").value="";$("hmsg").textContent="Importado."}catch(x){$("hmsg").textContent="Texto inválido."}});
 hhDraw();
 
+/* ===== Minhas fontes ===== */
+var FX_K="vagas_fontes_extras_v1";
+function fxLoad(){try{return JSON.parse(localStorage.getItem(FX_K)||"[]")}catch(x){return []}}
+var FX=fxLoad();function fxSave(){try{localStorage.setItem(FX_K,JSON.stringify(FX))}catch(x){}}
+function fxNorm(u){return String(u||"").trim().toLowerCase().replace(/^https?:\/\/(www\.)?/,"").replace(/\/+$/,"")}
+function fxHost(u){return fxNorm(u).split("/")[0]}
+function fxProibido(u){return /bne\.com|trabalhabrasil|jobsora/i.test(u)}
+function fxAchar(u){var n=fxNorm(u),ho=fxHost(u),ex=null,mesmo=null;(D.fontes||[]).forEach(function(f){if(!f.url)return;if(fxNorm(f.url)==n)ex=f;else if(fxHost(f.url)==ho&&!mesmo)mesmo=f});FX.forEach(function(f){if(fxNorm(f.url)==n)ex=ex||{nome:f.nome,grupo:"Minhas fontes",status:"adicionada por você"}});return {ex:ex,mesmo:mesmo}}
+function fxChk(){var u=$("fxurl").value.trim(),r=$("fxres");if(!/^https?:\/\//i.test(u)){r.innerHTML='<div class="box er">Cole um link que comece com http:// ou https://</div>';return}
+if(fxProibido(u)){r.innerHTML='<div class="box er">Esse site está fora da busca por regra sua (BNE, Trabalha Brasil ou Jobsora).</div>';return}
+var a=fxAchar(u);
+if(a.ex){r.innerHTML='<div class="box ok"><b>Esse link já está na busca</b>: '+esc(a.ex.nome)+' · '+esc(a.ex.grupo||"")+(a.ex.status?' · última rodada: '+esc(a.ex.status):"")+'</div>';return}
+var ja=a.mesmo?'<div class="sub">O site já está na busca por outra página: '+esc(a.mesmo.nome)+' ('+esc(a.mesmo.url)+'). Se este link é uma lista de vagas diferente, vale adicionar.</div>':'<div class="sub">Ainda não está na busca.</div>';
+var nome=fxHost(u).split(".")[0];nome=nome.charAt(0).toUpperCase()+nome.slice(1);
+r.innerHTML='<div class="box">'+ja+'<p><input id="fxnome" style="width:100%" value="'+esc(nome)+'" placeholder="Nome da fonte"></p><p><button class="btn" id="fxadd">Adicionar às minhas fontes</button></p></div>';
+$("fxadd").addEventListener("click",function(){FX.push({nome:$("fxnome").value.trim()||nome,url:u,enviado:false});fxSave();$("fxurl").value="";r.innerHTML='<div class="box ok">Adicionada. Toque em “Enviar para o robô”.</div>';fxDraw()})}
+function fxDraw(){$("fxn").textContent="("+FX.length+")";$("fxlista").innerHTML=FX.map(function(f,i){return '<div class="box" data-i="'+i+'"><b>'+esc(f.nome)+'</b> <span class="sub">'+(f.enviado?"enviada ao robô":"ainda não enviada")+'</span><div class="sub"><a href="'+esc(f.url)+'" target="_blank" rel="noopener">'+esc(f.url)+'</a></div><p><button class="btn" data-a="rm">Remover</button></p></div>'}).join("")||'<div class="box sub">Nenhuma fonte adicionada ainda.</div>'}
+$("fxchk").addEventListener("click",fxChk);
+$("fxlista").addEventListener("click",function(e){var b=e.target.closest("[data-a=rm]");if(!b)return;FX.splice(+b.closest("[data-i]").getAttribute("data-i"),1);fxSave();fxDraw();$("fxmsg").textContent="Removida daqui. Para tirar do robô, toque em “Enviar para o robô” de novo."});
+function fxJson(){return JSON.stringify(FX.map(function(f){return {nome:f.nome,url:f.url}}),null,1)}
+$("fxcopy").addEventListener("click",function(){var s=fxJson();(navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){$("fxmsg").textContent="Copiado. Crie o arquivo fontes_extras.json no GitHub e cole."}).catch(function(){prompt("Copie:",s)})});
+$("fxenv").addEventListener("click",function(){var t=tok();if(!t){$("fxmsg").textContent="Salve o token na engrenagem ⚙ ou use “Copiar JSON”.";return}
+var url="https://api.github.com/repos/"+REPO+"/contents/fontes_extras.json",hd={"Authorization":"Bearer "+t,"Accept":"application/vnd.github+json"};$("fxmsg").textContent="Enviando...";
+fetch(url,{headers:hd}).then(function(r){return r.status==200?r.json():(r.status==404?{}:Promise.reject(r.status))}).then(function(cur){var corpo={message:"Minhas fontes (painel)",content:btoa(unescape(encodeURIComponent(fxJson())))};if(cur.sha)corpo.sha=cur.sha;return fetch(url,{method:"PUT",headers:hd,body:JSON.stringify(corpo)})}).then(function(r){if(!r.ok)return Promise.reject(r.status);FX.forEach(function(f){f.enviado=true});fxSave();fxDraw();$("fxmsg").textContent="Enviado. O robô inclui essas fontes na próxima rodada."}).catch(function(c){$("fxmsg").textContent=(c==401||c==403||c==404)?"O GitHub recusou ("+c+"). O token precisa de permissão para escrever em Contents deste repositório. Use “Copiar JSON” como alternativa.":"Não consegui enviar ("+c+")."})});
+fxDraw();
+
 var HS=[];
 function hsJa(c){return HH.lista.some(function(x){return (c.emails[0]&&x.mail&&x.mail.toLowerCase()==c.emails[0])||(c.whatsapp[0]&&x.whats&&x.whats.replace(/\D/g,"").slice(-8)==c.whatsapp[0].replace(/\D/g,"").slice(-8))})}
 function hsCard(c,i){var ja=hsJa(c);return '<div class="box" data-s="'+i+'"><b>'+esc(c.nome||c.empresa)+'</b> <span class="sub">'+esc(c.nome?c.empresa+" · "+c.cargo:c.cargo)+(c.regiao_confirmada?"":" · região não confirmada")+'</span><div class="sub">'+(c.emails.length?"E-mail: "+c.emails.map(esc).join(", ")+"<br>":"")+(c.whatsapp.length?"WhatsApp: "+c.whatsapp.map(esc).join(", ")+"<br>":"")+(c.telefones.length?"Telefone: "+c.telefones.map(esc).join(", ")+"<br>":"")+'<a href="'+esc(c.pagina_contato)+'" target="_blank" rel="noopener">Ver onde está publicado</a></div><p>'+(ja?'<b>Já está na sua lista</b>':'<button class="btn" data-a="add">Adicionar à minha lista</button>')+'</p></div>'}
@@ -419,9 +455,9 @@ function hsDraw(){$("hsuglista").innerHTML=HS.map(hsCard).join("")||'<div class=
 $("hsug").addEventListener("click",function(){$("hsugmsg").textContent="Carregando...";fetch("headhunters.json?"+Date.now()).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){HS=(d.contatos||[]).filter(function(c){return c.emails.length||c.whatsapp.length||c.telefones.length});var ok=(d.relatorio||[]).filter(function(x){return x.paginas>0}).length;$("hsugmsg").textContent=HS.length+" contatos · "+ok+" de "+(d.sites_visitados||0)+" sites abriram · gerado em "+d.gerado;$("hsugall").hidden=!HS.length;hsDraw()}).catch(function(){$("hsugmsg").textContent="Ainda não há resultado. Rode no GitHub: Actions > Buscar contatos de head hunters > Run workflow."})});
 $("hsuglista").addEventListener("click",function(e){var b=e.target.closest("[data-a=add]");if(!b)return;var i=+b.closest("[data-s]").getAttribute("data-s");if(hsAdd(HS[i])){hhSave();hhDraw();hsDraw()}});
 $("hsugall").addEventListener("click",function(){var n=0;HS.forEach(function(c){if((c.emails.length||c.whatsapp.length)&&hsAdd(c))n++});hhSave();hhDraw();hsDraw();$("hsugmsg").textContent=n+" adicionados à sua lista."});
-function aba(n){["vagas","candidaturas","auditoria","spam","hh"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
+function aba(n){["vagas","candidaturas","auditoria","spam","hh","fx"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
 document.querySelector(".tabs").addEventListener("click",function(e){var n=e.target.getAttribute("data-t");if(n){aba(n);try{history.replaceState(null,"","#"+n)}catch(x){}}});
-var h0=location.hash.slice(1);if(["vagas","candidaturas","auditoria","spam","hh"].indexOf(h0)>=0)aba(h0);
+var h0=location.hash.slice(1);if(["vagas","candidaturas","auditoria","spam","hh","fx"].indexOf(h0)>=0)aba(h0);
 $("bcfg").addEventListener("click",function(){$("cfg").hidden=!$("cfg").hidden});
 var dp=null;window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;$("binst").hidden=false});
 $("binst").addEventListener("click",function(){if(dp){dp.prompt();dp=null;$("binst").hidden=true}});

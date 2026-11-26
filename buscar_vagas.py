@@ -1144,6 +1144,29 @@ def opcao(args, nome, padrao=None):
     return args[args.index(nome) + 1] if nome in args else padrao
 
 
+def com_extras(fontes):
+    """Junta as fontes que o André cadastrou no painel (fontes_extras.json), sem repetir e sem BNE/Trabalha Brasil/Jobsora."""
+    p = RAIZ / "fontes_extras.json"
+    if not p.exists():
+        return fontes
+    try:
+        extras = json.loads(p.read_text("utf-8"))
+    except Exception:
+        return fontes
+    norm = lambda u: re.sub(r"^https?://(www\.)?", "", u.strip().lower()).rstrip("/")
+    tem = {norm(x.get("url", "")) for x in fontes}
+    for x in extras if isinstance(extras, list) else extras.get("fontes", []):
+        u = (x.get("url") or "").strip()
+        if not u.startswith("http") or norm(u) in tem:
+            continue
+        if any(b in u.lower() for b in ("bne.com", "trabalhabrasil", "jobsora")):
+            continue
+        fontes.append({"nome": (x.get("nome") or urlparse(u).netloc)[:80], "tipo": "pagina", "url": u,
+                       "grupo": "Minhas fontes", "minha_lista": True})
+        tem.add(norm(u))
+    return fontes
+
+
 def main():
     """Modos: plano | coletar | montar (usados pelo GitHub) ou, sem modo, tudo de uma vez."""
     args = sys.argv[1:]
@@ -1151,6 +1174,7 @@ def main():
     carregar_perfil()
     caminho = opcao(args, "--fontes") or (args[0] if modo == "tudo" and args else str(RAIZ / "fontes.json"))
     fontes = json.loads(Path(caminho).read_text("utf-8"))
+    fontes = com_extras(fontes)
     if modo == "plano":
         lotes = max(1, -(-len(fontes) // int(opcao(args, "--tamanho", "30"))))
         print("lotes=" + json.dumps(list(range(lotes))))
