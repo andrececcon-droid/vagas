@@ -1,1 +1,5 @@
-v8: aba "Minhas fontes" no painel + o robo le fontes_extras.json. Suba buscar_vagas.py e modelo.html e rode Actions > Run workflow.
+PACOTE v9 - mais head hunters para o robo
+1) No GitHub, suba os 2 arquivos da pasta 1-GITHUB na RAIZ do repositorio (substitui buscar_headhunters.py).
+2) ATENCAO: headhunters.yml e vagas.yml precisam ficar em .github/workflows/ (nao na raiz).
+   Celular: Add file > Create new file > nome: .github/workflows/headhunters.yml > cole o conteudo > Commit.
+3) Actions > Buscar head hunters > Run workflow.

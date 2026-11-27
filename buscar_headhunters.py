@@ -295,6 +295,13 @@ def sementes(args):
         for u in args[args.index("--sites") + 1].split(","):
             sites[dominio(u)] = (u.strip(), "")
         return sites
+    ex = RAIZ / "headhunters_sementes.json"
+    if ex.exists():
+        try:
+            for u in json.loads(ex.read_text("utf-8")).get("sites", []):
+                sites.setdefault(dominio(u), (u, ""))
+        except Exception:
+            pass
     f = RAIZ / "fontes.json"
     if f.exists():
         for x in json.loads(f.read_text("utf-8")):
@@ -314,7 +321,14 @@ CONSULTAS = ["head hunter Porto Alegre", "recrutamento executivo Porto Alegre co
 def descobre():
     """Procura outras consultorias (melhor esforço; se a busca falhar, segue só com as cadastradas)."""
     achados, erros = {}, 0
-    for q in CONSULTAS:
+    consultas = list(CONSULTAS)
+    ex = RAIZ / "headhunters_sementes.json"
+    if ex.exists():
+        try:
+            consultas += json.loads(ex.read_text("utf-8")).get("nomes", [])
+        except Exception:
+            pass
+    for q in consultas:
         try:
             r = _sessao.post("https://html.duckduckgo.com/html/", data={"q": q}, timeout=TIMEOUT)
             time.sleep(ESPERA * 2)
@@ -340,7 +354,7 @@ def main():
     busca = {"consultas": 0, "erros": 0, "novos": 0}
     if "--sem-busca" not in args and "--sites" not in args:
         novos, erros = descobre()
-        busca = {"consultas": len(CONSULTAS), "erros": erros, "novos": len([d for d in novos if d not in sites])}
+        busca = {"consultas": len(CONSULTAS) + len(json.loads((RAIZ / "headhunters_sementes.json").read_text("utf-8")).get("nomes", [])) if (RAIZ / "headhunters_sementes.json").exists() else len(CONSULTAS), "erros": erros, "novos": len([d for d in novos if d not in sites])}
         for d, v in novos.items():
             sites.setdefault(d, v)
     relatorio, contatos = [], []
