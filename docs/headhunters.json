@@ -1,9 +1,9 @@
 {
- "gerado": "2026-11-27 11:13",
+ "gerado": "2026-11-27 13:10",
  "aviso": "Contatos publicados pelas próprias consultorias em seus sites. Use só para apresentação profissional e respeite pedidos de descadastro.",
  "busca": {
-  "consultas": 22,
-  "erros": 22,
+  "consultas": 23,
+  "erros": 23,
   "novos": 0
  },
  "sites_visitados": 80,
@@ -629,22 +629,6 @@
    "whatsapp": []
   },
   {
-   "empresa": "Vagas POA",
-   "site": "https://www.vagaspoa.com.br/",
-   "regiao_confirmada": true,
-   "pagina_contato": "https://www.vagaspoa.com.br/",
-   "tipo": "empresa",
-   "nome": "",
-   "cargo": "Contato geral / currículos",
-   "emails": [
-    "risorserh@gmail.com"
-   ],
-   "telefones": [
-    "(51) 99852-9704"
-   ],
-   "whatsapp": []
-  },
-  {
    "empresa": "Metta Capital Humano",
    "site": "https://www.mettacapitalhumano.com.br/",
    "regiao_confirmada": true,
@@ -695,6 +679,18 @@
    "emails": [
     "candidato@randstad.com.br"
    ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Luandre RH",
+   "site": "https://www.luandre.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.luandre.com.br/",
+   "tipo": "pessoa",
+   "nome": "Onde Estamos",
+   "cargo": "Acompanhe nas redes sociais",
+   "emails": [],
    "telefones": [],
    "whatsapp": []
   },
@@ -1086,22 +1082,10 @@
    "regiao_confirmada": false,
    "pagina_contato": "https://www.pageexecutive.com/",
    "tipo": "pessoa",
-   "nome": "Sofía Mate",
-   "cargo": "Research Associate",
-   "emails": [],
-   "telefones": [],
-   "whatsapp": []
-  },
-  {
-   "empresa": "Page Executive",
-   "site": "https://www.pageexecutive.com/",
-   "regiao_confirmada": false,
-   "pagina_contato": "https://www.pageexecutive.com/",
-   "tipo": "pessoa",
-   "nome": "Darin Chen",
+   "nome": "Nicole Cheah",
    "cargo": "Senior Research Associate",
    "emails": [
-    "darinchen@pageexecutive.com"
+    "nicolecheah@pageexecutive.com"
    ],
    "telefones": [],
    "whatsapp": []
@@ -1112,10 +1096,24 @@
    "regiao_confirmada": false,
    "pagina_contato": "https://www.pageexecutive.com/",
    "tipo": "pessoa",
-   "nome": "Julia Goldt",
+   "nome": "Louise Edgar",
+   "cargo": "Senior Research Associate",
+   "emails": [
+    "louiseedgar@pageexecutive.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.pageexecutive.com/",
+   "tipo": "pessoa",
+   "nome": "Holly Antonia Butler",
    "cargo": "Associate Partner",
    "emails": [
-    "juliagoldt@pageexecutive.com"
+    "hollyantoniabutler@pageexecutive.com"
    ],
    "telefones": [],
    "whatsapp": []
@@ -1126,56 +1124,52 @@
    "regiao_confirmada": false,
    "pagina_contato": "https://www.pageexecutive.com/",
    "tipo": "pessoa",
-   "nome": "Mercedes Arranz",
-   "cargo": "Senior Research Associate",
-   "emails": [
-    "mercedesarranz@pageexecutive.com"
-   ],
-   "telefones": [],
-   "whatsapp": []
-  },
-  {
-   "empresa": "Page Executive",
-   "site": "https://www.pageexecutive.com/",
-   "regiao_confirmada": false,
-   "pagina_contato": "https://www.pageexecutive.com/",
-   "tipo": "empresa",
-   "nome": "",
-   "cargo": "Contato geral / currículos",
-   "emails": [
-    "eamonflanagan@pageexecutive.com",
-    "eleonorefouquet@pageexecutive.com",
-    "gemmaroberts@pageexecutive.com",
-    "pedroborgescaroco@pageexecutive.com",
-    "sofiamate@pageexecutive.com",
-    "vanesapalma@pageexecutive.com"
-   ],
-   "telefones": [],
-   "whatsapp": []
-  },
-  {
-   "empresa": "Boyden Executive Search",
-   "site": "https://www.boyden.com.br/",
-   "regiao_confirmada": false,
-   "pagina_contato": "https://www.boyden.com.br/",
-   "tipo": "pessoa",
-   "nome": "Professional Services",
-   "cargo": "Education & Social Impact",
+   "nome": "Kerry May",
+   "cargo": "Associate Partner",
    "emails": [],
    "telefones": [],
    "whatsapp": []
   },
   {
-   "empresa": "Boyden Executive Search",
-   "site": "https://www.boyden.com.br/",
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
    "regiao_confirmada": false,
-   "pagina_contato": "https://www.boyden.com.br/",
+   "pagina_contato": "https://www.pageexecutive.com/",
+   "tipo": "pessoa",
+   "nome": "Yasemin Durbak",
+   "cargo": "Associate Partner",
+   "emails": [
+    "yasemindurbak@pageexecutive.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.pageexecutive.com/",
+   "tipo": "pessoa",
+   "nome": "Camilla Strachan",
+   "cargo": "Associate Partner",
+   "emails": [
+    "camillastrachan@pageexecutive.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.pageexecutive.com/",
    "tipo": "empresa",
    "nome": "",
    "cargo": "Contato geral / currículos",
    "emails": [
-    "boydenbrazil@boyden.com",
-    "cswee@boyden.com"
+    "aurorepoumette@pageexecutive.com",
+    "jaimedominguez@pageexecutive.com",
+    "ninabuttle@pageexecutive.com"
    ],
    "telefones": [],
    "whatsapp": []
@@ -1198,6 +1192,15 @@
    "status": "ok",
    "paginas": 4,
    "emails": 2,
+   "telefones": 0
+  },
+  {
+   "site": "https://effetiveconsultoria.com/",
+   "dominio": "effetiveconsultoria.com",
+   "empresa": "",
+   "status": "HTTP 404 · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
    "telefones": 0
   },
   {
@@ -1421,7 +1424,7 @@
    "dominio": "yellow.rec.br",
    "empresa": "Yellow.rec",
    "status": "ok · sem contato público encontrado",
-   "paginas": 4,
+   "paginas": 5,
    "emails": 0,
    "telefones": 0
   },
@@ -1582,10 +1585,10 @@
    "site": "https://www.vagaspoa.com.br/",
    "dominio": "vagaspoa.com.br",
    "empresa": "Vagas POA",
-   "status": "ok",
-   "paginas": 6,
-   "emails": 1,
-   "telefones": 1
+   "status": "HTTP 520 · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
   },
   {
    "site": "https://www.mettacapitalhumano.com.br/",
@@ -1690,8 +1693,8 @@
    "site": "https://www.luandre.com.br/",
    "dominio": "luandre.com.br",
    "empresa": "Luandre RH",
-   "status": "ok · sem contato público encontrado",
-   "paginas": 4,
+   "status": "ok",
+   "paginas": 6,
    "emails": 0,
    "telefones": 0
   },
@@ -1890,16 +1893,7 @@
    "empresa": "Page Executive",
    "status": "ok",
    "paginas": 2,
-   "emails": 9,
-   "telefones": 0
-  },
-  {
-   "site": "https://www.boyden.com.br/",
-   "dominio": "boyden.com.br",
-   "empresa": "Boyden Executive Search",
-   "status": "ok",
-   "paginas": 4,
-   "emails": 2,
+   "emails": 8,
    "telefones": 0
   }
  ]
