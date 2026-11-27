@@ -1,0 +1,1906 @@
+{
+ "gerado": "2026-11-27 11:13",
+ "aviso": "Contatos publicados pelas próprias consultorias em seus sites. Use só para apresentação profissional e respeite pedidos de descadastro.",
+ "busca": {
+  "consultas": 22,
+  "erros": 22,
+  "novos": 0
+ },
+ "sites_visitados": 80,
+ "contatos": [
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Cleber Morais",
+   "cargo": "DIRETOR GERAL AMAZON WEB SERVICES BRASIL",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "André Caldeira",
+   "cargo": "Sócio Fundador e CEO do Grupo PROPOSITO",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Ruth Bandeira",
+   "cargo": "Sócia e CEO da Proposito",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Felipe Laufer",
+   "cargo": "Sócio e Diretor",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Brunna Veiga",
+   "cargo": "Sócia e Diretora de Desenvolvimento",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Bruno Santana",
+   "cargo": "COO PRO Digital HR e Sócio",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Tatiana Tigges",
+   "cargo": "Sócia e Diretora de Projetos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Andressa Pereira",
+   "cargo": "Associate Partner",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Margareth Potier",
+   "cargo": "Associate Partner",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "pessoa",
+   "nome": "Rafaela Brandão",
+   "cargo": "Associate Partner",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "PROPOSITO",
+   "site": "https://www.proposito.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.proposito.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "contato@proposito.com.br",
+    "relacionamento@proposito.com.br"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Robert Half",
+   "site": "https://www.roberthalf.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.roberthalf.com/",
+   "tipo": "pessoa",
+   "nome": "Browse Jobs",
+   "cargo": "Contract Talent",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Robert Half",
+   "site": "https://www.roberthalf.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.roberthalf.com/",
+   "tipo": "pessoa",
+   "nome": "Hire Full",
+   "cargo": "Time Talent",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Robert Half",
+   "site": "https://www.roberthalf.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.roberthalf.com/",
+   "tipo": "pessoa",
+   "nome": "Please Select",
+   "cargo": "Finance & Accounting - Contract Talent",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Michael Page",
+   "site": "https://www.michaelpage.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.michaelpage.com.br/",
+   "tipo": "pessoa",
+   "nome": "Por Michael Page",
+   "cargo": "Desenvolver e reter talentos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Metta",
+   "site": "https://www.metta.com.vc/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.metta.com.vc/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [
+    "(51) 3286-7100"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Peopleware RH",
+   "site": "https://www.peoplewarerh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.peoplewarerh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Viviane Bernardi",
+   "cargo": "Diretora Financeira/administrativa",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Peopleware RH",
+   "site": "https://www.peoplewarerh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.peoplewarerh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Luiza Miranda",
+   "cargo": "RECRUTADORA",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Peopleware RH",
+   "site": "https://www.peoplewarerh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.peoplewarerh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Secretariado Executivo",
+   "cargo": "Serviço Social",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Peopleware RH",
+   "site": "https://www.peoplewarerh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.peoplewarerh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Assistente de Marketing",
+   "cargo": "Assistente De Midias Sociais",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Peopleware RH",
+   "site": "https://www.peoplewarerh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.peoplewarerh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Aux Adm de Vendas",
+   "cargo": "Aux Assistença Social",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Peopleware RH",
+   "site": "https://www.peoplewarerh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.peoplewarerh.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [
+    "(51) 3228-1577",
+    "(51) 99547-7815"
+   ],
+   "whatsapp": [
+    "(51) 99547-7815"
+   ]
+  },
+  {
+   "empresa": "Efetivar",
+   "site": "https://efetivar.com/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://efetivar.com/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "efetivar@efetivar.com",
+    "recrutamento@efetivar.com"
+   ],
+   "telefones": [
+    "(51) 99857-5110"
+   ],
+   "whatsapp": [
+    "(51) 9857-5110"
+   ]
+  },
+  {
+   "empresa": "InNova RH",
+   "site": "https://www.innovarecursoshumanos.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.innovarecursoshumanos.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "ao2@innovarecursoshumanos.com.br",
+    "comercial@innovarecursoshumanos.com.br",
+    "contato@innovarecursoshumanos.com.br",
+    "seleçao2@innovarecursoshumanos.com.br"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Acessa RH",
+   "site": "https://www.acessarh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.acessarh.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "lizza@acessarh.com.br"
+   ],
+   "telefones": [
+    "(51) 98928-8791",
+    "(51) 99245-2720",
+    "(51) 99827-7867"
+   ],
+   "whatsapp": [
+    "(51) 99827-7867"
+   ]
+  },
+  {
+   "empresa": "Viver RH",
+   "site": "https://www.rhviver.com/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.rhviver.com/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "administrativo@rhviver.com",
+    "consultoria@rhviver.com",
+    "oportunidades@rhviver.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "TKRH",
+   "site": "https://www.tkrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.tkrh.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [
+    "(51) 3921-0700"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Morbach RH",
+   "site": "https://morbachrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://morbachrh.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "contato@morbachrh.com.br"
+   ],
+   "telefones": [
+    "(51) 3398-9748"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "VIP Desenvolvimento Humano",
+   "site": "https://www.vipdh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.vipdh.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "oportunidades@vipdh.com.br"
+   ],
+   "telefones": [
+    "(51) 3066-1004"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Holden RH",
+   "site": "https://holdenrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://holdenrh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Divisões de Hunting",
+   "cargo": "Executive Search",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Holden RH",
+   "site": "https://holdenrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://holdenrh.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "contato@holdenrh.com.br"
+   ],
+   "telefones": [
+    "(51) 3086-4800"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Abler",
+   "site": "https://abler.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://abler.com.br/contato",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "suporte@abler.com.br"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "99jobs",
+   "site": "https://www.99jobs.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.99jobs.com/",
+   "tipo": "pessoa",
+   "nome": "Para Empresas",
+   "cargo": "Soluções em Talentos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Resch RH",
+   "site": "https://resch.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://resch.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [
+    "(51) 2125-0049",
+    "(51) 3067-0060",
+    "(51) 3582-4001"
+   ],
+   "whatsapp": [
+    "(51) 2125-0097"
+   ]
+  },
+  {
+   "empresa": "INTRA",
+   "site": "https://intra.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://intra.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "contato@intra.com.br",
+    "imprensa@intra.com.br",
+    "ouvidoria@intra.com.br"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "ManpowerGroup Brasil",
+   "site": "https://www.manpowergroup.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.manpowergroup.com.br/",
+   "tipo": "pessoa",
+   "nome": "Trade Marketing",
+   "cargo": "Hunting e Executive Search",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "ManpowerGroup Brasil",
+   "site": "https://www.manpowergroup.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.manpowergroup.com.br/",
+   "tipo": "pessoa",
+   "nome": "Futuro do Trabalho",
+   "cargo": "Gestão de Talentos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Grupo Cia de Talentos",
+   "site": "https://www.ciadetalentos.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.ciadetalentos.com.br/",
+   "tipo": "pessoa",
+   "nome": "Oportunidades de Estágio e Trainee",
+   "cargo": "Cia de Talentos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Grupo Cia de Talentos",
+   "site": "https://www.ciadetalentos.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.ciadetalentos.com.br/",
+   "tipo": "pessoa",
+   "nome": "Canal de Denúncias",
+   "cargo": "©2026 Cia de Talentos.",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Grupo Cia de Talentos",
+   "site": "https://www.ciadetalentos.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.ciadetalentos.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "assessoria@ciadetalentos.com",
+    "negocios@ciadetalentos.com",
+    "negocios@grupociadetalentos.com.br"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Interlig RH",
+   "site": "https://www.interligrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.interligrh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Fabiane Vareira",
+   "cargo": "Diretora de RH",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Interlig RH",
+   "site": "https://www.interligrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.interligrh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Fábio Merg",
+   "cargo": "Diretor de Expansão",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Interlig RH",
+   "site": "https://www.interligrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.interligrh.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "contato@interligrh.com.br"
+   ],
+   "telefones": [
+    "(51) 99187-5226",
+    "(51) 99800-6754"
+   ],
+   "whatsapp": [
+    "(51) 99187-5226",
+    "(51) 99800-6754"
+   ]
+  },
+  {
+   "empresa": "Staff RH",
+   "site": "https://www.staffrh.inf.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.staffrh.inf.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [
+    "(51) 3019-3358",
+    "(51) 3028-5580"
+   ],
+   "whatsapp": [
+    "(51) 3028-5580"
+   ]
+  },
+  {
+   "empresa": "Avante RH",
+   "site": "https://www.avanterh.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.avanterh.com.br/contato",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "atendimento@avanterh.com.br",
+    "contato@avanterh.com.br"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Vagas POA",
+   "site": "https://www.vagaspoa.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.vagaspoa.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "risorserh@gmail.com"
+   ],
+   "telefones": [
+    "(51) 99852-9704"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Metta Capital Humano",
+   "site": "https://www.mettacapitalhumano.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.mettacapitalhumano.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [
+    "(51) 3286-7100"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Lydians RH",
+   "site": "https://www.lydians.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.lydians.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": [
+    "(51) 9950-1698"
+   ]
+  },
+  {
+   "empresa": "Randstad Brasil",
+   "site": "https://www.randstad.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.randstad.com.br/contate-nos/contato-candidato/",
+   "tipo": "pessoa",
+   "nome": "Randstad Enterprise",
+   "cargo": "Soluções para gestão do ciclo de vida dos talentos.",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Randstad Brasil",
+   "site": "https://www.randstad.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.randstad.com.br/contate-nos/contato-candidato/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "candidato@randstad.com.br"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Employer RH",
+   "site": "https://www.employer.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.employer.com.br/fale-conosco",
+   "tipo": "pessoa",
+   "nome": "Employer Trabalhista",
+   "cargo": "eSocial",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Employer RH",
+   "site": "https://www.employer.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.employer.com.br/fale-conosco",
+   "tipo": "pessoa",
+   "nome": "Empresas Parceiras",
+   "cargo": "eSocial",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Employer RH",
+   "site": "https://www.employer.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.employer.com.br/fale-conosco",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "ouvidoria@employer.com.br"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Hunt RH",
+   "site": "https://huntrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://huntrh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Alta Liderança",
+   "cargo": "CEO, CTO, CFO, CMO, Diretores e Conselheiros",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Hunt RH",
+   "site": "https://huntrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://huntrh.com.br/",
+   "tipo": "pessoa",
+   "nome": "Mapeamento Global",
+   "cargo": "Acesso a bancos de talentos internacionais e locais.",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Hunt RH",
+   "site": "https://huntrh.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://huntrh.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [
+    "(51) 2042-1300"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "deBernt",
+   "site": "https://debernt.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://debernt.com.br/",
+   "tipo": "pessoa",
+   "nome": "Business Intelligence",
+   "cargo": "Executive Search",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "deBernt",
+   "site": "https://debernt.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://debernt.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [],
+   "telefones": [
+    "(51) 3093-0431"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Wide",
+   "site": "https://wide.works/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://wide.works/",
+   "tipo": "pessoa",
+   "nome": "Fernando Poziomczyk",
+   "cargo": "Sócio-fundador",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Wide",
+   "site": "https://wide.works/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://wide.works/",
+   "tipo": "pessoa",
+   "nome": "Ricardo Haag",
+   "cargo": "Sócio-fundador",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Wide",
+   "site": "https://wide.works/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://wide.works/",
+   "tipo": "pessoa",
+   "nome": "Jordano Rischter",
+   "cargo": "Sócio-fundador",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Wide",
+   "site": "https://wide.works/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://wide.works/",
+   "tipo": "pessoa",
+   "nome": "Thiago Xavier",
+   "cargo": "Sócio",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Wide",
+   "site": "https://wide.works/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://wide.works/",
+   "tipo": "pessoa",
+   "nome": "Paola Colussi",
+   "cargo": "Sócia",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Wide",
+   "site": "https://wide.works/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://wide.works/",
+   "tipo": "pessoa",
+   "nome": "Thiago Gaudencio",
+   "cargo": "Sócio",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Wide",
+   "site": "https://wide.works/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://wide.works/",
+   "tipo": "pessoa",
+   "nome": "Camila Pereira",
+   "cargo": "Sócia",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Wide",
+   "site": "https://wide.works/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://wide.works/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "contato@wide.works"
+   ],
+   "telefones": [
+    "(51) 3508-2687"
+   ],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Personnel",
+   "site": "https://www.pagepersonnel.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.pagepersonnel.com.br/",
+   "tipo": "pessoa",
+   "nome": "Por Michael Page",
+   "cargo": "Desenvolver e reter talentos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Personnel",
+   "site": "https://www.pagepersonnel.com.br/",
+   "regiao_confirmada": true,
+   "pagina_contato": "https://www.pagepersonnel.com.br/",
+   "tipo": "pessoa",
+   "nome": "Ver Tudo",
+   "cargo": "Dicas para desenvolver e reter talentos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Solicitar Proposta",
+   "cargo": "Redes Sociais",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Patricia Fontes",
+   "cargo": "Senior Associate",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Roselaine Silva",
+   "cargo": "Senior Associate",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Thaisa Lobel",
+   "cargo": "Senior Associate",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Isabela Cortopassi",
+   "cargo": "Senior Associate",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Giovana Vendramin",
+   "cargo": "Senior Associate",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Guilherme Cruz",
+   "cargo": "Senior Associate",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Daniela Marinelli",
+   "cargo": "Senior Associate",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Exec",
+   "site": "https://www.exec.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.exec.com.br/",
+   "tipo": "pessoa",
+   "nome": "Our Services",
+   "cargo": "LEADERSHIP & TALENT SOLUTIONS",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Agnis Executive Search",
+   "site": "https://agnis.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://agnis.com.br/",
+   "tipo": "pessoa",
+   "nome": "Uso e Proteção de Dados",
+   "cargo": "Prova Social",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Agnis Executive Search",
+   "site": "https://agnis.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://agnis.com.br/",
+   "tipo": "pessoa",
+   "nome": "Para Empresas",
+   "cargo": "Headhunting - Executive Search",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Agnis Executive Search",
+   "site": "https://agnis.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://agnis.com.br/",
+   "tipo": "pessoa",
+   "nome": "Onde Estamos",
+   "cargo": "AGNIS Executive Search..",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Agnis Executive Search",
+   "site": "https://agnis.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://agnis.com.br/",
+   "tipo": "pessoa",
+   "nome": "Hunting Internacional",
+   "cargo": "Banco de Talentos",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.pageexecutive.com/",
+   "tipo": "pessoa",
+   "nome": "Sofía Mate",
+   "cargo": "Research Associate",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.pageexecutive.com/",
+   "tipo": "pessoa",
+   "nome": "Darin Chen",
+   "cargo": "Senior Research Associate",
+   "emails": [
+    "darinchen@pageexecutive.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.pageexecutive.com/",
+   "tipo": "pessoa",
+   "nome": "Julia Goldt",
+   "cargo": "Associate Partner",
+   "emails": [
+    "juliagoldt@pageexecutive.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.pageexecutive.com/",
+   "tipo": "pessoa",
+   "nome": "Mercedes Arranz",
+   "cargo": "Senior Research Associate",
+   "emails": [
+    "mercedesarranz@pageexecutive.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Page Executive",
+   "site": "https://www.pageexecutive.com/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.pageexecutive.com/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "eamonflanagan@pageexecutive.com",
+    "eleonorefouquet@pageexecutive.com",
+    "gemmaroberts@pageexecutive.com",
+    "pedroborgescaroco@pageexecutive.com",
+    "sofiamate@pageexecutive.com",
+    "vanesapalma@pageexecutive.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Boyden Executive Search",
+   "site": "https://www.boyden.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.boyden.com.br/",
+   "tipo": "pessoa",
+   "nome": "Professional Services",
+   "cargo": "Education & Social Impact",
+   "emails": [],
+   "telefones": [],
+   "whatsapp": []
+  },
+  {
+   "empresa": "Boyden Executive Search",
+   "site": "https://www.boyden.com.br/",
+   "regiao_confirmada": false,
+   "pagina_contato": "https://www.boyden.com.br/",
+   "tipo": "empresa",
+   "nome": "",
+   "cargo": "Contato geral / currículos",
+   "emails": [
+    "boydenbrazil@boyden.com",
+    "cswee@boyden.com"
+   ],
+   "telefones": [],
+   "whatsapp": []
+  }
+ ],
+ "relatorio": [
+  {
+   "site": "https://www.orientha.com.br/",
+   "dominio": "orientha.com.br",
+   "empresa": "",
+   "status": "HTTP 429 · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.proposito.com.br/",
+   "dominio": "proposito.com.br",
+   "empresa": "",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 2,
+   "telefones": 0
+  },
+  {
+   "site": "https://myrandstad.randstad.com.br/",
+   "dominio": "myrandstad.randstad.com.br",
+   "empresa": "Randstad",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.hays.com.br/",
+   "dominio": "hays.com.br",
+   "empresa": "Hays",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.roberthalf.com/",
+   "dominio": "roberthalf.com",
+   "empresa": "Robert Half",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.michaelpage.com.br/",
+   "dominio": "michaelpage.com.br",
+   "empresa": "Michael Page",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.metta.com.vc/",
+   "dominio": "metta.com.vc",
+   "empresa": "Metta",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 1
+  },
+  {
+   "site": "https://www.peoplewarerh.com.br/",
+   "dominio": "peoplewarerh.com.br",
+   "empresa": "Peopleware RH",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 2
+  },
+  {
+   "site": "https://efetivar.com/",
+   "dominio": "efetivar.com",
+   "empresa": "Efetivar",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 2,
+   "telefones": 2
+  },
+  {
+   "site": "https://www.dinamizarh.com.br/",
+   "dominio": "dinamizarh.com.br",
+   "empresa": "Dinamiza RH",
+   "status": "HTTP 403 · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://engenha.com/",
+   "dominio": "engenha.com",
+   "empresa": "Engenha",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.innovarecursoshumanos.com.br/",
+   "dominio": "innovarecursoshumanos.com.br",
+   "empresa": "InNova RH",
+   "status": "ok",
+   "paginas": 1,
+   "emails": 4,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.acessarh.com.br/",
+   "dominio": "acessarh.com.br",
+   "empresa": "Acessa RH",
+   "status": "ok",
+   "paginas": 5,
+   "emails": 1,
+   "telefones": 3
+  },
+  {
+   "site": "https://www.rhviver.com/",
+   "dominio": "rhviver.com",
+   "empresa": "Viver RH",
+   "status": "ok",
+   "paginas": 2,
+   "emails": 3,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.tkrh.com.br/",
+   "dominio": "tkrh.com.br",
+   "empresa": "TKRH",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 1
+  },
+  {
+   "site": "https://www.drhrs.com.br/",
+   "dominio": "drhrs.com.br",
+   "empresa": "DRH RS",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://morbachrh.com.br/",
+   "dominio": "morbachrh.com.br",
+   "empresa": "Morbach RH",
+   "status": "ok",
+   "paginas": 2,
+   "emails": 1,
+   "telefones": 1
+  },
+  {
+   "site": "https://www.vipdh.com.br/",
+   "dominio": "vipdh.com.br",
+   "empresa": "VIP Desenvolvimento Humano",
+   "status": "ok",
+   "paginas": 3,
+   "emails": 1,
+   "telefones": 1
+  },
+  {
+   "site": "https://portal.placerh.com.br/",
+   "dominio": "portal.placerh.com.br",
+   "empresa": "Place RH",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 1,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://vagas.conectatalentos.com/",
+   "dominio": "vagas.conectatalentos.com",
+   "empresa": "Conecta Talentos",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 3,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://holdenrh.com.br/",
+   "dominio": "holdenrh.com.br",
+   "empresa": "Holden RH",
+   "status": "ok",
+   "paginas": 3,
+   "emails": 1,
+   "telefones": 1
+  },
+  {
+   "site": "https://www.gelre.com.br/",
+   "dominio": "gelre.com.br",
+   "empresa": "Gelre",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.grupofoco.com.br/",
+   "dominio": "grupofoco.com.br",
+   "empresa": "Grupo Foco",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "http://www.rhcursor.com.br/",
+   "dominio": "rhcursor.com.br",
+   "empresa": "Cursor RH",
+   "status": "erro: ReadTimeout · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://abler.com.br/",
+   "dominio": "abler.com.br",
+   "empresa": "Abler",
+   "status": "ok",
+   "paginas": 3,
+   "emails": 1,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.99jobs.com/",
+   "dominio": "99jobs.com",
+   "empresa": "99jobs",
+   "status": "ok",
+   "paginas": 5,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://yellow.rec.br/",
+   "dominio": "yellow.rec.br",
+   "empresa": "Yellow.rec",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://resch.com.br/",
+   "dominio": "resch.com.br",
+   "empresa": "Resch RH",
+   "status": "ok",
+   "paginas": 2,
+   "emails": 0,
+   "telefones": 4
+  },
+  {
+   "site": "https://intra.com.br/",
+   "dominio": "intra.com.br",
+   "empresa": "INTRA",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 3,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.adecco.com.br/",
+   "dominio": "adecco.com.br",
+   "empresa": "Adecco Brasil",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.manpowergroup.com.br/",
+   "dominio": "manpowergroup.com.br",
+   "empresa": "ManpowerGroup Brasil",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.ciadetalentos.com.br/",
+   "dominio": "ciadetalentos.com.br",
+   "empresa": "Grupo Cia de Talentos",
+   "status": "ok",
+   "paginas": 3,
+   "emails": 3,
+   "telefones": 0
+  },
+  {
+   "site": "https://remotar.com.br/",
+   "dominio": "remotar.com.br",
+   "empresa": "Remotar",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 1,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.funcionalrh.com.br/",
+   "dominio": "funcionalrh.com.br",
+   "empresa": "Funcional RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.peopleware.com.br/",
+   "dominio": "peopleware.com.br",
+   "empresa": "Peopleware RH",
+   "status": "erro: SSLError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.cursorrh.com.br/",
+   "dominio": "cursorrh.com.br",
+   "empresa": "Cursor RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.personalrh.com.br/",
+   "dominio": "personalrh.com.br",
+   "empresa": "Personal RH",
+   "status": "erro: SSLError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.interligrh.com.br/",
+   "dominio": "interligrh.com.br",
+   "empresa": "Interlig RH",
+   "status": "ok",
+   "paginas": 3,
+   "emails": 1,
+   "telefones": 2
+  },
+  {
+   "site": "https://www.neotempus.com.br/",
+   "dominio": "neotempus.com.br",
+   "empresa": "Neo Tempus RH",
+   "status": "erro: SSLError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.staffrh.inf.br/",
+   "dominio": "staffrh.inf.br",
+   "empresa": "Staff RH",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 2
+  },
+  {
+   "site": "https://www.camillaterra.com.br/",
+   "dominio": "camillaterra.com.br",
+   "empresa": "Camilla Terra Consultoria",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.quartzrh.com.br/",
+   "dominio": "quartzrh.com.br",
+   "empresa": "Quartz RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.avanterh.com.br/",
+   "dominio": "avanterh.com.br",
+   "empresa": "Avante RH",
+   "status": "ok",
+   "paginas": 2,
+   "emails": 2,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.aprh.com.br/",
+   "dominio": "aprh.com.br",
+   "empresa": "AP RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.vagaspoa.com.br/",
+   "dominio": "vagaspoa.com.br",
+   "empresa": "Vagas POA",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 1,
+   "telefones": 1
+  },
+  {
+   "site": "https://www.mettacapitalhumano.com.br/",
+   "dominio": "mettacapitalhumano.com.br",
+   "empresa": "Metta Capital Humano",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 1
+  },
+  {
+   "site": "https://www.rhizomarh.com.br/",
+   "dominio": "rhizomarh.com.br",
+   "empresa": "Rhizoma RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.gruposelpe.com.br/",
+   "dominio": "gruposelpe.com.br",
+   "empresa": "Grupo Selpe",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 2,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.pontocurriculo.com.br/",
+   "dominio": "pontocurriculo.com.br",
+   "empresa": "Ponto Currículo",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.serhconsultoria.com.br/",
+   "dominio": "serhconsultoria.com.br",
+   "empresa": "Serh Consultoria",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.rpotalentos.com.br/",
+   "dominio": "rpotalentos.com.br",
+   "empresa": "RPO Talentos",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.talentossosul.com.br/",
+   "dominio": "talentossosul.com.br",
+   "empresa": "Talentos do Sul",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.lydians.com.br/",
+   "dominio": "lydians.com.br",
+   "empresa": "Lydians RH",
+   "status": "ok",
+   "paginas": 1,
+   "emails": 0,
+   "telefones": 1
+  },
+  {
+   "site": "https://www.cieers.org.br/",
+   "dominio": "cieers.org.br",
+   "empresa": "CIEE-RS",
+   "status": "erro: ReadTimeout · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.randstad.com.br/",
+   "dominio": "randstad.com.br",
+   "empresa": "Randstad Brasil",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 1,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.gigroup.com.br/",
+   "dominio": "gigroup.com.br",
+   "empresa": "Gi Group Brasil",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 5,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.luandre.com.br/",
+   "dominio": "luandre.com.br",
+   "empresa": "Luandre RH",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.employer.com.br/",
+   "dominio": "employer.com.br",
+   "empresa": "Employer RH",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 1,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.gruphet.com.br/",
+   "dominio": "gruphet.com.br",
+   "empresa": "Gruphet RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.rhdesenvolvimento.com.br/",
+   "dominio": "rhdesenvolvimento.com.br",
+   "empresa": "RH Desenvolvimento",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.captarh.com.br/",
+   "dominio": "captarh.com.br",
+   "empresa": "Capta RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.baserh.com.br/",
+   "dominio": "baserh.com.br",
+   "empresa": "Base RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.lopesrh.com.br/",
+   "dominio": "lopesrh.com.br",
+   "empresa": "Lopes RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.desenvolverrh.com.br/",
+   "dominio": "desenvolverrh.com.br",
+   "empresa": "Desenvolver RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.humanosrh.com.br/",
+   "dominio": "humanosrh.com.br",
+   "empresa": "Humanos RH",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.solucaorh.com.br/",
+   "dominio": "solucaorh.com.br",
+   "empresa": "Solução RH",
+   "status": "erro: SSLError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.redesulrh.com.br/",
+   "dominio": "redesulrh.com.br",
+   "empresa": "Rede Sul RH",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.integrarh.com.br/",
+   "dominio": "integrarh.com.br",
+   "empresa": "Integra RH",
+   "status": "erro: SSLError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://huntrh.com.br/",
+   "dominio": "huntrh.com.br",
+   "empresa": "Hunt RH",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 1
+  },
+  {
+   "site": "https://debernt.com.br/",
+   "dominio": "debernt.com.br",
+   "empresa": "deBernt",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 0,
+   "telefones": 1
+  },
+  {
+   "site": "https://wide.works/",
+   "dominio": "wide.works",
+   "empresa": "Wide",
+   "status": "ok",
+   "paginas": 5,
+   "emails": 1,
+   "telefones": 1
+  },
+  {
+   "site": "https://www.pagepersonnel.com.br/",
+   "dominio": "pagepersonnel.com.br",
+   "empresa": "Page Personnel",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.lhh.com/",
+   "dominio": "lhh.com",
+   "empresa": "LHH Brasil",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 1,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.talenses.com.br/",
+   "dominio": "talenses.com.br",
+   "empresa": "Talenses Group",
+   "status": "erro: ConnectionError · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.exec.com.br/",
+   "dominio": "exec.com.br",
+   "empresa": "Exec",
+   "status": "ok",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.mindsearch.com.br/",
+   "dominio": "mindsearch.com.br",
+   "empresa": "Mindsearch",
+   "status": "HTTP 525 · sem contato público encontrado",
+   "paginas": 0,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://evermonte.com/",
+   "dominio": "evermonte.com",
+   "empresa": "Evermonte Executive Search",
+   "status": "ok · sem contato público encontrado",
+   "paginas": 6,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://agnis.com.br/",
+   "dominio": "agnis.com.br",
+   "empresa": "Agnis Executive Search",
+   "status": "ok",
+   "paginas": 1,
+   "emails": 0,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.pageexecutive.com/",
+   "dominio": "pageexecutive.com",
+   "empresa": "Page Executive",
+   "status": "ok",
+   "paginas": 2,
+   "emails": 9,
+   "telefones": 0
+  },
+  {
+   "site": "https://www.boyden.com.br/",
+   "dominio": "boyden.com.br",
+   "empresa": "Boyden Executive Search",
+   "status": "ok",
+   "paginas": 4,
+   "emails": 2,
+   "telefones": 0
+  }
+ ]
+}
