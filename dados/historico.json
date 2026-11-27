@@ -1409,7 +1409,7 @@
   "https://remotar.com.br/job/173261/elevate-and-delegate/financial-controller": {
    "primeira": "2026-11-24",
    "titulo": "Financial Controller",
-   "ultima": "2026-11-26",
+   "ultima": "2026-11-27",
    "avisada": true
   },
   "https://remotar.com.br/job/173170/deloitte/analista-de-dados-em-financascontabilidade-or-brasil": {
@@ -2631,14 +2631,27 @@
    "titulo": "Supervisor Administrativo Financeiro - Porto Alegre",
    "ultima": "2026-11-27",
    "avisada": true
+  },
+  "https://remotar.com.br/job/173793/v4-company/analista-financeiro-pleno": {
+   "primeira": "2026-11-27",
+   "titulo": "Analista Financeiro - Pleno",
+   "ultima": "2026-11-27",
+   "avisada": true
+  },
+  "https://www.infojobs.com.br/vaga-de-analista-financeiro-bairro-tres-figueiras-em-rio-grande-do-sul__12258527.aspx": {
+   "primeira": "2026-11-27",
+   "titulo": "Analista Financeiro - Bairro Três Figueiras",
+   "ultima": "2026-11-27",
+   "avisada": true
+  },
+  "https://www.catho.com.br/vagas/supervisor-comercial-produtos-financeiros/39449237": {
+   "primeira": "2026-11-27",
+   "titulo": "Supervisor Comercial - Produtos Financeiros",
+   "ultima": "2026-11-27",
+   "avisada": true
   }
  },
  "execucoes": [
-  {
-   "quando": "10/11/2026 09:40",
-   "vagas": 119,
-   "fontes_ok": 99
-  },
   {
    "quando": "10/11/2026 12:44",
    "vagas": 119,
@@ -2933,296 +2946,301 @@
    "quando": "27/11/2026 10:31",
    "vagas": 84,
    "fontes_ok": 89
+  },
+  {
+   "quando": "27/11/2026 13:10",
+   "vagas": 85,
+   "fontes_ok": 89
   }
  ],
  "fontes": {
   "Recrutei – Porto Alegre": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Randstad": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Hays": {
-   "falhas": 1,
+   "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Robert Half – Porto Alegre": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 92
+   "rodadas": 47,
+   "vagas_total": 94
   },
   "Michael Page – Rio Grande do Sul": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 14
+   "rodadas": 47,
+   "vagas_total": 15
   },
   "Metta": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Peopleware RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 92,
+   "rodadas": 94,
    "vagas_total": 0
   },
   "Solucionare RH (Pandapé)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 46
+   "rodadas": 47,
+   "vagas_total": 47
   },
   "Efetivar": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Portal de Talentos Senior": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Engenha": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 48,
+   "rodadas": 50,
    "vagas_total": 6
   },
   "BM Vagas": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 13
   },
   "Corsan / Aegea (Gupy)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 46
+   "rodadas": 47,
+   "vagas_total": 47
   },
   "InNova RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Acessa RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "RHF Talentos (Pandapé)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 17
   },
   "DNA Human Resources (Solides)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Recrutei – busca Porto Alegre": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Viver RH": {
-   "falhas": 54,
+   "falhas": 55,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "TKRH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 24
+   "rodadas": 47,
+   "vagas_total": 26
   },
   "DRH RS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Morbach RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "VIP Desenvolvimento Humano": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Recrutei – Prime RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Place RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Conecta Talentos": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Datum (Recrut.ai)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Holden RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Gelre": {
-   "falhas": 54,
+   "falhas": 55,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Grupo Foco": {
-   "falhas": 54,
+   "falhas": 55,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Cursor RH (antigo)": {
-   "falhas": 54,
+   "falhas": 55,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "META Assessoria Empresarial (Solides)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Vagas.com – analista financeiro POA": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 76
+   "rodadas": 47,
+   "vagas_total": 77
   },
   "Vagas.com – gerente financeiro POA": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 77
+   "rodadas": 47,
+   "vagas_total": 78
   },
   "Vagas.com – coordenador financeiro POA": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 76
+   "rodadas": 47,
+   "vagas_total": 77
   },
   "Vagas.com – controladoria POA": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Vagas.com – controller POA": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 122
+   "rodadas": 47,
+   "vagas_total": 124
   },
   "Vagas.com – Adecco": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Abler": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "99jobs": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Yellow.rec": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Resch RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "INTRA": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Adecco Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 79
   },
   "ManpowerGroup Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Grupo Cia de Talentos": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Sólides Vagas (portal)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Remotar (vagas remotas)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 45
+   "rodadas": 47,
+   "vagas_total": 47
   },
   "Funcional RH": {
    "falhas": 5,
@@ -3233,7 +3251,7 @@
   "Peopleware RH (site)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Cursor RH": {
@@ -3245,25 +3263,25 @@
   "Personal RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Interlig RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Neo Tempus RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Staff RH (site)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Camilla Terra Consultoria": {
@@ -3281,7 +3299,7 @@
   "Avante RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "AP RH": {
@@ -3293,19 +3311,19 @@
   "SINE Porto Alegre / FGTAS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Vagas POA": {
-   "falhas": 1,
+   "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 7,
+   "rodadas": 8,
    "vagas_total": 0
   },
   "Metta Capital Humano": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Rhizoma RH": {
@@ -3317,13 +3335,13 @@
   "Grupo Selpe": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Ponto Currículo": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Serh Consultoria": {
@@ -3347,37 +3365,37 @@
   "Lydians RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "CIEE-RS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Randstad Brasil (POA)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 31
   },
   "Gi Group Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 1
   },
   "Luandre RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Employer RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Gruphet RH": {
@@ -3419,7 +3437,7 @@
   "Humanos RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Solução RH": {
@@ -3437,25 +3455,25 @@
   "Integra RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Hunt RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 73
   },
   "deBernt": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 36
   },
   "Wide": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Page Personnel": {
@@ -3467,7 +3485,7 @@
   "LHH Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Talenses Group": {
@@ -3479,7 +3497,7 @@
   "Exec": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Mindsearch": {
@@ -3491,103 +3509,103 @@
   "Hospital Moinhos de Vento": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Hospital Mãe de Deus": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Hospital de Clínicas de Porto Alegre": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Santa Casa de Porto Alegre": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Hospital Ernesto Dornelles": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Grupo Hospitalar Conceição": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 30
   },
   "Instituto de Cardiologia (ICFUC)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Unimed Porto Alegre": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 33,
+   "rodadas": 34,
    "vagas_total": 0
   },
   "PUCRS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Unisinos": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Feevale": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 5
   },
   "ULBRA": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "UniRitter": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Rede Marista": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Rede La Salle": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Senac RS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Sesc RS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Sebrae RS": {
@@ -3599,55 +3617,55 @@
   "Fecomércio-RS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "CREA-RS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Banrisul": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Badesul": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "BRDE": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Cresol": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Agibank": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Grupo Zaffari": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Lojas Renner": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Gerdau": {
@@ -3659,37 +3677,37 @@
   "Grupo RBS": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Melnick": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
-   "vagas_total": 46
+   "rodadas": 47,
+   "vagas_total": 47
   },
   "Goldsztein": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Dell Technologies (Eldorado do Sul)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "CMPC (Guaíba)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Braskem": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Sulgás": {
@@ -3701,7 +3719,7 @@
   "Ritter Hotéis": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Iguatemi Porto Alegre": {
@@ -3713,25 +3731,25 @@
   "SC Internacional": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Grêmio": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Evermonte Executive Search": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Agnis Executive Search": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Page Executive": {
@@ -3743,25 +3761,25 @@
   "Boyden Executive Search": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Korn Ferry Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Amrop Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Stanton Chase Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Fesa Group (.com.br)": {
@@ -3773,13 +3791,13 @@
   "Flow Executive Finders": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Signium Brasil": {
-   "falhas": 1,
+   "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Asset Recruitment": {
@@ -3815,7 +3833,7 @@
   "HUNT IT": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "RHF Talentos Porto Alegre": {
@@ -3839,25 +3857,25 @@
   "Right Management Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Mercer Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "RH Canoas": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Meta Recursos Humanos": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Lippia RH": {
@@ -3869,7 +3887,7 @@
   "Conexão RH Porto Alegre": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Ser Recursos Humanos": {
@@ -3887,13 +3905,13 @@
   "Solução Serviços Terceirizados e RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Exclusiva RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Grupo Razão RH": {
@@ -3905,19 +3923,19 @@
   "Wyser (Gi Group)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Experis Brasil": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Talent Group": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 44
   },
   "Profit RH": {
@@ -3935,7 +3953,7 @@
   "Target Recursos Humanos": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Foco em Pessoas RH": {
@@ -3959,7 +3977,7 @@
   "Valor Humano Consultoria": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Desenvolver Talentos RS": {
@@ -3969,15 +3987,15 @@
    "vagas_total": 0
   },
   "Estágio Sul": {
-   "falhas": 0,
+   "falhas": 1,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Proativa RH": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 46,
+   "rodadas": 47,
    "vagas_total": 0
   },
   "Seleção Humana RS": {
@@ -4037,38 +4055,38 @@
   "Infojobs POA – Gerente financeiro": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
-   "vagas_total": 93
+   "rodadas": 12,
+   "vagas_total": 101
   },
   "Infojobs POA – Gerente administrativo": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
-   "vagas_total": 29
+   "rodadas": 12,
+   "vagas_total": 30
   },
   "Infojobs POA – Coordenador financeiro": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
-   "vagas_total": 121
+   "rodadas": 12,
+   "vagas_total": 132
   },
   "Infojobs POA – Coord. administrativo": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
+   "rodadas": 12,
    "vagas_total": 0
   },
   "Infojobs POA – Controller": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
-   "vagas_total": 41
+   "rodadas": 12,
+   "vagas_total": 44
   },
   "Infojobs POA – Analista financeiro": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
-   "vagas_total": 273
+   "rodadas": 12,
+   "vagas_total": 298
   },
   "Jobsora RS – Coord. financeiro/controladoria": {
    "falhas": 0,
@@ -4091,20 +4109,20 @@
   "Catho POA – Gerente financeiro e controller": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
+   "rodadas": 12,
    "vagas_total": 3
   },
   "Catho POA – Coordenador financeiro": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
-   "vagas_total": 26
+   "rodadas": 12,
+   "vagas_total": 29
   },
   "Catho POA – Gerente adm-financeiro": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 11,
-   "vagas_total": 11
+   "rodadas": 12,
+   "vagas_total": 12
   },
   "Indeed POA – Gerente financeiro": {
    "falhas": 3,
@@ -4145,91 +4163,91 @@
   "Tunni (vagas, salário a partir de R$ 7 mil)": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 8,
+   "rodadas": 9,
    "vagas_total": 0
   },
   "Robert Half POA – Gerente financeiro": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 8,
-   "vagas_total": 8
+   "rodadas": 9,
+   "vagas_total": 9
   },
   "Robert Half POA – Finanças": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 8,
-   "vagas_total": 8
+   "rodadas": 9,
+   "vagas_total": 9
   },
   "Robert Half POA – Diretor financeiro": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 8,
+   "rodadas": 9,
    "vagas_total": 0
   },
   "Robert Half POA – Gerente controladoria": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 8,
+   "rodadas": 9,
    "vagas_total": 0
   },
   "Robert Half POA – Financeiro": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 8,
+   "rodadas": 9,
    "vagas_total": 0
   },
   "Vagas.com.br – Porto Alegre": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 8,
+   "rodadas": 9,
    "vagas_total": 0
   },
   "Talentosdosul": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 4,
+   "rodadas": 5,
    "vagas_total": 0
   },
   "Santannaagenciadeempregos": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 4,
+   "rodadas": 5,
    "vagas_total": 0
   },
   "Agenciapublicoalvo": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 4,
+   "rodadas": 5,
    "vagas_total": 0
   },
   "Solucionare": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 4,
+   "rodadas": 5,
    "vagas_total": 0
   },
   "Muvrh": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 8,
-   "vagas_total": 16
+   "rodadas": 10,
+   "vagas_total": 20
   },
   "Placerh": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 4,
-   "vagas_total": 12
+   "rodadas": 5,
+   "vagas_total": 15
   },
   "Safehire": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 2,
+   "rodadas": 3,
    "vagas_total": 0
   },
   "Irigarayguindastesetransportes": {
    "falhas": 0,
    "tentou": "2026-11-27",
-   "rodadas": 2,
+   "rodadas": 3,
    "vagas_total": 0
   }
  }
