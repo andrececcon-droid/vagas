@@ -1,5 +1,21 @@
-PACOTE v9 - mais head hunters para o robo
-1) No GitHub, suba os 2 arquivos da pasta 1-GITHUB na RAIZ do repositorio (substitui buscar_headhunters.py).
-2) ATENCAO: headhunters.yml e vagas.yml precisam ficar em .github/workflows/ (nao na raiz).
-   Celular: Add file > Create new file > nome: .github/workflows/headhunters.yml > cole o conteudo > Commit.
-3) Actions > Buscar head hunters > Run workflow.
+PROJETO COMPLETO (27/11/2026) - estrutura final do repositorio "vagas"
+
+vagas/
+  buscar_vagas.py            robo de vagas
+  buscar_headhunters.py      robo de contatos de head hunters
+  headhunters_sementes.json  sites/nomes de consultorias (inclui Effetive)
+  modelo.html                painel
+  fontes.json  controle.json
+  docs/  (sw.js, icones, manifest)   -> o painel index.html e gerado pelo robo
+  .github/workflows/vagas.yml        (ATENCAO: pasta com ponto na frente)
+  .github/workflows/headhunters.yml
+
+COMO SUBIR (computador): 
+1) Apague no GitHub os arquivos vagas.yml e headhunters.yml da RAIZ e o vagas.yml antigo de .github/workflows.
+2) Add file > Upload files: arraste o CONTEUDO da pasta vagas (incluindo a pasta .github e docs). 
+   Se o navegador nao enviar a pasta .github (pasta oculta), crie os 2 arquivos em
+   Add file > Create new file com o nome .github/workflows/vagas.yml e .github/workflows/headhunters.yml
+   e cole o conteudo das copias em workflows-copia/.
+3) Actions > Buscar vagas > Run workflow. Depois Buscar contatos de head hunters.
+
+NAO esta no pacote (de proposito): dados/historico.json e docs/index.html (o robo gera), perfil.json e fontes_extras.json (so seus).

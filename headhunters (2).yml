@@ -1,0 +1,29 @@
+name: Buscar contatos de head hunters
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 13 1 * *"   # dia 1 de cada mês, 10h17 em Brasília
+permissions:
+  contents: write
+concurrency:
+  group: buscar-vagas
+  cancel-in-progress: false
+
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - run: python buscar_headhunters.py
+      - run: |
+          git config user.name "bot-vagas"
+          git config user.email "bot-vagas@users.noreply.github.com"
+          git add docs/headhunters.json dados/headhunters.csv
+          git commit -m "Contatos de head hunters" || echo "sem mudanças"
+          git pull --rebase
+          git push
