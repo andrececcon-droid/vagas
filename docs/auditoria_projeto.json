@@ -1,0 +1,218 @@
+{
+ "gerado": "28/11/2026 09:57",
+ "modo_corrigir": true,
+ "resumo": {
+  "ok": 23,
+  "aviso": 2,
+  "erro": 1,
+  "corrigidos": 4
+ },
+ "verificacoes": [
+  {
+   "grupo": "Arquivos do projeto",
+   "titulo": "buscar_vagas.py: robô de vagas (com CFO e aprendizado por fonte)",
+   "status": "ok",
+   "detalhe": "no lugar certo e na versão certa",
+   "corrigido": false
+  },
+  {
+   "grupo": "Arquivos do projeto",
+   "titulo": "modelo.html: painel (aba Hoje, aprendizado e auditoria do projeto)",
+   "status": "ok",
+   "detalhe": "no lugar certo e na versão certa",
+   "corrigido": false
+  },
+  {
+   "grupo": "Arquivos do projeto",
+   "titulo": "buscar_headhunters.py: busca de head hunters",
+   "status": "ok",
+   "detalhe": "no lugar certo e na versão certa",
+   "corrigido": false
+  },
+  {
+   "grupo": "Arquivos do projeto",
+   "titulo": "headhunters_sementes.json: lista inicial de head hunters",
+   "status": "ok",
+   "detalhe": "no lugar certo e na versão certa",
+   "corrigido": false
+  },
+  {
+   "grupo": "Arquivos do projeto",
+   "titulo": "fontes.json: suas fontes de vagas",
+   "status": "ok",
+   "detalhe": "no lugar certo e na versão certa",
+   "corrigido": false
+  },
+  {
+   "grupo": "Workflows (o robô no Actions)",
+   "titulo": "vagas.yml: Buscar vagas",
+   "status": "ok",
+   "detalhe": "está em .github/workflows e com o conteúdo certo",
+   "corrigido": false
+  },
+  {
+   "grupo": "Workflows (o robô no Actions)",
+   "titulo": "headhunters.yml: Buscar contatos de head hunters",
+   "status": "ok",
+   "detalhe": "está em .github/workflows e com o conteúdo certo",
+   "corrigido": false
+  },
+  {
+   "grupo": "Workflows (o robô no Actions)",
+   "titulo": "auditoria.yml: Auditoria do projeto",
+   "status": "ok",
+   "detalhe": "está em .github/workflows e com o conteúdo certo",
+   "corrigido": false
+  },
+  {
+   "grupo": "Workflows (o robô no Actions)",
+   "titulo": "Horários do robô (vagas.yml)",
+   "status": "ok",
+   "detalhe": "3 rodadas por dia: 07h07, 12h07 e 16h07",
+   "corrigido": false
+  },
+  {
+   "grupo": "Arquivos fora do lugar",
+   "titulo": "icon-192.png",
+   "status": "ok",
+   "detalhe": "arquivo do aplicativo solto na raiz: tirei do caminho",
+   "corrigido": true
+  },
+  {
+   "grupo": "Arquivos fora do lugar",
+   "titulo": "icon-512.png",
+   "status": "ok",
+   "detalhe": "arquivo do aplicativo solto na raiz: tirei do caminho",
+   "corrigido": true
+  },
+  {
+   "grupo": "Arquivos fora do lugar",
+   "titulo": "manifest.webmanifest",
+   "status": "ok",
+   "detalhe": "arquivo do aplicativo solto na raiz: tirei do caminho",
+   "corrigido": true
+  },
+  {
+   "grupo": "Arquivos fora do lugar",
+   "titulo": "sw.js",
+   "status": "ok",
+   "detalhe": "arquivo do aplicativo solto na raiz: tirei do caminho",
+   "corrigido": true
+  },
+  {
+   "grupo": "Arquivos fora do lugar",
+   "titulo": "Outros arquivos na raiz",
+   "status": "aviso",
+   "detalhe": "não reconheço: LEIAME.md, alertas-2026-11-15.json, fontes_extras.json. Não mexi.",
+   "corrigido": false
+  },
+  {
+   "grupo": "Painel publicado",
+   "titulo": "docs/index.html",
+   "status": "ok",
+   "detalhe": "painel gerado (1311 KB)",
+   "corrigido": false
+  },
+  {
+   "grupo": "Painel publicado",
+   "titulo": "Arquivos do aplicativo em docs/",
+   "status": "ok",
+   "detalhe": "ícones, manifest e sw.js no lugar",
+   "corrigido": false
+  },
+  {
+   "grupo": "Painel publicado",
+   "titulo": "Última rodada",
+   "status": "ok",
+   "detalhe": "há 0 h (28/11/2026 09:48), 87 vaga(s)",
+   "corrigido": false
+  },
+  {
+   "grupo": "Painel publicado",
+   "titulo": "GitHub Pages ligado",
+   "status": "ok",
+   "detalhe": "publicando /docs da branch main",
+   "corrigido": false
+  },
+  {
+   "grupo": "Execução no GitHub Actions",
+   "titulo": "“Buscar vagas” aparece no Actions?",
+   "status": "ok",
+   "detalhe": "sim, registrado",
+   "corrigido": false
+  },
+  {
+   "grupo": "Execução no GitHub Actions",
+   "titulo": "“Buscar contatos de head hunters” aparece no Actions?",
+   "status": "ok",
+   "detalhe": "sim, registrado",
+   "corrigido": false
+  },
+  {
+   "grupo": "Execução no GitHub Actions",
+   "titulo": "“Auditoria do projeto” aparece no Actions?",
+   "status": "ok",
+   "detalhe": "sim, registrado",
+   "corrigido": false
+  },
+  {
+   "grupo": "Execução no GitHub Actions",
+   "titulo": "Buscar vagas: última rodada",
+   "status": "ok",
+   "detalhe": "deu certo; 7 rodada(s) bem-sucedida(s) nas últimas 24 h",
+   "corrigido": false
+  },
+  {
+   "grupo": "Execução no GitHub Actions",
+   "titulo": "Buscar contatos de head hunters: última rodada",
+   "status": "erro",
+   "detalhe": "terminou com “failure”; passo com erro: buscar › Run git config user.name \"bot-vagas\"",
+   "corrigido": false
+  },
+  {
+   "grupo": "O planejado, na prática",
+   "titulo": "Todas as suas fontes foram visitadas?",
+   "status": "aviso",
+   "detalhe": "13 de 220 nunca apareceram no histórico (ex.: Gupy (API pública, Porto Alegre), Staff RH (Selecty), Catho, Dinamiza RH). Podem ser fontes novas, que entram na próxima rodada.",
+   "corrigido": false
+  },
+  {
+   "grupo": "O planejado, na prática",
+   "titulo": "Aprendizado por fonte (5 dias)",
+   "status": "ok",
+   "detalhe": "funcionando: 213 fonte(s) na memória; dia 1 de 5 de observação",
+   "corrigido": false
+  },
+  {
+   "grupo": "O planejado, na prática",
+   "titulo": "Head hunters",
+   "status": "ok",
+   "detalhe": "lista gerada (88 item(ns))",
+   "corrigido": false
+  }
+ ],
+ "correcoes": [
+  {
+   "o_que": "Tirei “icon-192.png” do caminho",
+   "como": "o painel só usa a versão que fica em docs/. Guardei em _lixeira/20261128-095752-icon-192.png (nada foi apagado)."
+  },
+  {
+   "o_que": "Tirei “icon-512.png” do caminho",
+   "como": "o painel só usa a versão que fica em docs/. Guardei em _lixeira/20261128-095752-icon-512.png (nada foi apagado)."
+  },
+  {
+   "o_que": "Tirei “manifest.webmanifest” do caminho",
+   "como": "o painel só usa a versão que fica em docs/. Guardei em _lixeira/20261128-095752-manifest.webmanifest (nada foi apagado)."
+  },
+  {
+   "o_que": "Tirei “sw.js” do caminho",
+   "como": "o painel só usa a versão que fica em docs/. Guardei em _lixeira/20261128-095752-sw.js (nada foi apagado)."
+  }
+ ],
+ "pendencias": [
+  {
+   "titulo": "Buscar contatos de head hunters: última rodada",
+   "passo": "Abra https://github.com/andrececcon-droid/vagas/actions/runs/46003012875 , clique no passo vermelho e me mande o texto do erro."
+  }
+ ]
+}
