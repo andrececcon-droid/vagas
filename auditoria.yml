@@ -1,0 +1,46 @@
+name: Auditoria do projeto
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "47 9 * * *"          # todo dia, 06h47 em Brasília
+  workflow_run:                   # e logo depois de cada rodada do robô
+    workflows: ["Buscar vagas", "Buscar contatos de head hunters"]
+    types: [completed]
+permissions:
+  contents: write
+  issues: write
+  actions: write
+  pages: read
+concurrency:
+  group: auditoria-projeto
+  cancel-in-progress: false
+
+jobs:
+  auditar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PAT: ${{ secrets.PAT_REPO }}
+    steps:
+      # Com o segredo PAT_REPO a auditoria também consegue corrigir os arquivos de .github/workflows
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_REPO || github.token }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Conferir e corrigir
+        run: |
+          EXTRA=""
+          if [ -n "$PAT" ]; then EXTRA="--pode-workflow"; fi
+          python auditar_projeto.py --corrigir --avisar $EXTRA
+      - name: Guardar as correções no GitHub
+        run: |
+          git config user.name "bot-vagas"
+          git config user.email "bot-vagas@users.noreply.github.com"
+          git add -A
+          git reset -q auditoria-aviso.md 2>/dev/null || true
+          git commit -m "Auditoria: conferência e correções automáticas" || echo "sem mudanças"
+          for i in 1 2 3; do git pull --rebase && git push && break || sleep 5; done
