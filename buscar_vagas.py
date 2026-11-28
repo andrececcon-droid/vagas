@@ -22,10 +22,13 @@ ALTA = ["gerente administrativo financeiro", "gerente administrativo e financeir
         "administrativo financeiro", "administrativo e financeiro", "financeiro e administrativo",
         "gerente de finanças", "gerente de financas", "coordenador de finanças", "coordenador de financas",
         "head de finanças", "head de financas", "analista de finanças", "analista de financas",
-        "superintendente financeiro", "superintendente administrativo"]
+        "superintendente financeiro", "superintendente administrativo",
+        "diretor financeiro", "diretora financeira", "diretor de finanças", "diretor de financas",
+        "diretor administrativo financeiro", "diretor administrativo e financeiro",
+        "head financeiro", "head de finanças", "chief financial officer"]
+CFO_RE = re.compile(r"\bcfo\b", re.I)   # sigla CFO só como palavra inteira (não confundir com CFOP)
 MEDIA = ["financeiro", "financeira", "administrativo", "contas a pagar", "contas a receber", "contábil",
-         "contabil", "orçamento", "faturamento", "custos", "diretor financeiro", "diretor de finanças",
-         "tesoureiro", "business partner financeiro", "finanças", "financas"]
+         "contabil", "orçamento", "faturamento", "custos", "tesoureiro", "business partner financeiro", "finanças", "financas"]
 NOTA_MIN = 65   # vaga com nota menor que isso não aparece no painel (fica na Auditoria, com o motivo)
 # Cargos fora do nível dele (palavras inteiras)
 EXCLUIR = ["estágio", "estagiário", "estagiario", "aprendiz", "trainee", "júnior", "junior", "jr", "jr.",
@@ -107,7 +110,7 @@ def limpar_titulo(t):
 CARGO_RE = re.compile(r"\b(?:analista|assistente|auxiliar|gerente|coordenador|coordenadora|supervisor|supervisora|"
                       r"gestor|gestora|diretor|diretora|controller|controlador|controladora|especialista|consultor|"
                       r"consultora|contador|contadora|tesoureiro|tesoureira|executivo|executiva|l[ií]der|head|"
-                      r"business partner|encarregado|encarregada|t[ée]cnico|t[ée]cnica|comprador|compradora|"
+                      r"cfo|chief financial officer|business partner|encarregado|encarregada|t[ée]cnico|t[ée]cnica|comprador|compradora|"
                       r"planejador|planejadora|auditor|auditora|or[çc]amentista|faturista|analyst|manager|superintendente)\b", re.I)
 NAO_VAGA = re.compile(r"solicit|pe[çc]a um|fa[çc]a (?:seu|um)|fale conosco|seja (?:um )?(?:nosso )?fornecedor|"
                       r"cadastro de fornecedor|[áa]rea do fornecedor|anuncie|cota[çc][ãa]o|portal d[oa]|acesse|segunda via|"
@@ -178,7 +181,7 @@ def nivel(titulo):
     t = titulo.lower()
     if EXCL_RE.search(t) or CONTABIL_RE.search(t) or NAO_VAGA.search(t) or not CARGO_RE.search(t):
         return None
-    if any(x in t for x in ALTA):
+    if any(x in t for x in ALTA) or CFO_RE.search(t):
         return "Alta"
     if any(x in t for x in MEDIA):
         return "Média"
@@ -361,7 +364,7 @@ def gupy():
     for termo in ["gerente administrativo financeiro", "gerente financeiro", "controller", "coordenador financeiro",
                   "coordenador administrativo", "analista financeiro", "controladoria", "fp&a",
                   "planejamento financeiro", "tesouraria", "administrativo financeiro", "gestor financeiro",
-                  "gerente de finanças", "finanças"] + [c for c in PERFIL["cargos"][:6]]:
+                  "gerente de finanças", "finanças", "cfo", "diretor financeiro", "head de finanças"] + [c for c in PERFIL["cargos"][:6]]:
         dados = []
         for off in range(0, 600, 100):
             pagina = None
@@ -652,29 +655,179 @@ def variantes(url):
     return vs
 
 
+# ---------------------------------------------------------------------------
+# APRENDIZADO POR FONTE: o robô não desiste no primeiro erro. Tenta formas diferentes de abrir a página,
+# guarda qual funcionou, qual erro deu e onde fica a lista de vagas (dados/aprendizado.json), e na rodada
+# seguinte começa pelo que aprendeu. Só sugere excluir uma fonte depois de DIAS_APRENDER dias de observação.
+# ---------------------------------------------------------------------------
+DIAS_APRENDER = 5
+MODOS = ["navegador", "direto", "cabecalho"]     # formas de abrir a página (além das variantes de endereço)
+ORCAMENTO_S = 90                                  # tempo máximo tentando abrir UMA página
+MEM = {}                                          # memória carregada de dados/aprendizado.json
+CTX = {"nome": None, "eventos": [], "melhor": None}
+
+
+def tipo_erro(status=0, exc=None, vazia=False):
+    if exc is not None:
+        t = str(exc).lower()
+        if "timeout" in t or "timed out" in t:
+            return "Demorou demais (timeout)"
+        if "ssl" in t or "certificate" in t:
+            return "Certificado/SSL"
+        if "name or service" in t or "resolve" in t or "err_name_not_resolved" in t:
+            return "Endereço não existe (DNS)"
+        if "connection" in t or "err_connection" in t:
+            return "Conexão recusada"
+        return "Erro de rede: " + str(exc).split("\n")[0][:50]
+    if vazia:
+        return "Página vazia (provável JavaScript)"
+    if status in (401, 403, 429):
+        return f"HTTP {status} (bloqueio ao robô)"
+    if status in (404, 410):
+        return f"HTTP {status} (endereço mudou)"
+    if status >= 500:
+        return f"HTTP {status} (site com problema)"
+    return f"HTTP {status}"
+
+
+def _evento(modo, url, ok, erro=None):
+    if len(CTX["eventos"]) < 14:
+        CTX["eventos"].append({"modo": modo, "url": url[:90], "ok": ok, "erro": erro})
+
+
+def baixar_modo(url, browser, modo):
+    if modo == "navegador":
+        if not browser:
+            raise RuntimeError("sem navegador")
+        return baixar(url, browser)
+    if modo == "direto":
+        return baixar(url, None)
+    t0 = time.time()
+    cab = {"User-Agent": UA, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+           "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.5", "Referer": "https://www.google.com/",
+           "Upgrade-Insecure-Requests": "1"}
+    r = requests.get(url, headers=cab, timeout=30)
+    if "charset" not in r.headers.get("content-type", "").lower():
+        r.encoding = "utf-8"
+    return r.status_code, r.text, int((time.time() - t0) * 1000)
+
+
 def baixar_com_variantes(url, browser):
-    try:
-        return baixar(url, browser) + (url,)
-    except Exception as e0:
-        if "Timeout" in str(e0):
-            raise
-        for alt in variantes(url):
+    """Abre a página tentando formas diferentes (a que funcionou da última vez vem primeiro) e variantes de endereço.
+    Devolve (status, html, ms, endereço usado). Cada tentativa fica registrada para o aprendizado."""
+    t0 = time.time()
+    mem = MEM.get(CTX["nome"], {}) if CTX["nome"] else {}
+    modos = [m for m in MODOS if m != "navegador" or browser]
+    if mem.get("melhor") in modos:
+        modos.remove(mem["melhor"])
+        modos.insert(0, mem["melhor"])
+    melhor_resp, ultimo = None, None
+    for ie, u in enumerate([url] + variantes(url)):
+        for modo in (modos if ie == 0 else modos[:1]):
+            if time.time() - t0 > ORCAMENTO_S:
+                break
             try:
-                return baixar(alt, browser) + (alt,)
-            except Exception:  # noqa
+                st, html, ms = baixar_modo(u, browser, modo)
+            except Exception as e:  # noqa
+                ultimo = e
+                _evento(modo, u, False, tipo_erro(exc=e))
                 continue
-        raise e0
+            vazia = 0 < st < 400 and len(html) < 600
+            if 0 < st < 400 and not vazia:
+                _evento(modo, u, True)
+                CTX["melhor"] = modo
+                return st, html, ms, u
+            _evento(modo, u, False, tipo_erro(status=st, vazia=vazia))
+            if melhor_resp is None or 0 < st < 400:
+                melhor_resp = (st, html, ms, u)
+    if melhor_resp:
+        return melhor_resp
+    raise ultimo or RuntimeError("sem resposta")
 
 
 def pausada(f, hist_fontes, hoje):
-    """Fonte (não favorita) que falhou 3 rodadas seguidas fica pausada e só é testada de novo após 7 dias."""
-    if f.get("grupo") == "Favorita" or f["tipo"] != "pagina":
-        return None
-    h = hist_fontes.get(f["nome"], {})
-    if h.get("falhas", 0) < 3:
-        return None
-    dias = (hoje - dt.date.fromisoformat(h.get("tentou", hoje.isoformat()))).days
-    return h.get("tentou", ""), max(7 - dias, 0) if dias < 7 else None
+    """Não pausa mais nenhuma fonte: o robô continua tentando e aprendendo. (Pedido do André, 28/11.)"""
+    return None
+
+
+def veredito(m):
+    n = len(m["dias"])
+    if m.get("aceitos", 0) > 0:
+        return "ok", "Funcionando: já trouxe vagas compatíveis"
+    if n < DIAS_APRENDER:
+        return "aprendendo", f"Aprendendo (dia {n} de {DIAS_APRENDER})"
+    if m.get("lidas_ok", 0) == 0:
+        return "ajuda", f"Não abre há {n} dias, mesmo tentando várias formas: preciso da sua ajuda"
+    if m.get("dias_lista", 0) == 0:
+        return "ajuda", f"Abre, mas não achei a lista de vagas em {n} dias (JavaScript ou login?): preciso da sua ajuda"
+    if m.get("dias_lista", 0) >= DIAS_APRENDER:
+        return "excluir", f"Lista lida em {m['dias_lista']} dias e nenhuma vaga compatível: sugiro excluir"
+    return "observando", "Em observação"
+
+
+def atualizar_aprendizado(mem, resultado, dia):
+    """Soma o que cada fonte mostrou nesta rodada à memória: erros, o que funcionou, onde está a lista, lições."""
+    d_br = f"{dia[8:10]}/{dia[5:7]}"
+    for r in resultado:
+        if r.get("tipo") != "pagina" or r["status"].startswith(("Não rodou", "Pausada")):
+            continue
+        m = mem.setdefault(r["nome"], {"primeiro": dia, "dias": [], "rodadas": 0, "lidas_ok": 0, "dias_lista": 0,
+                                       "candidatos": 0, "aceitos": 0, "erros": {}, "licoes": [], "dias_lista_set": []})
+        if dia not in m["dias"]:
+            m["dias"] = (m["dias"] + [dia])[-60:]
+        m["rodadas"] += 1
+        obs, prof = r.get("obs") or {}, r.get("prof") or {}
+        ev = obs.get("eventos", [])
+        falhas = [e for e in ev if not e["ok"]]
+        for e in falhas:
+            reg = m["erros"].setdefault(e["erro"], {"n": 0})
+            reg["n"] += 1
+            reg["ultimo"] = dia
+        if r["status"] != "Falhou" and prof.get("links", 0) > 0:
+            m["lidas_ok"] += 1
+        m["candidatos"] += prof.get("candidatos", 0)
+        m["aceitos"] += prof.get("aceitos", 0)
+        if prof.get("chegou_lista") and dia not in m["dias_lista_set"]:
+            m["dias_lista_set"] = (m["dias_lista_set"] + [dia])[-60:]
+        m["dias_lista"] = len(m["dias_lista_set"])
+        novas = []
+        melhor = obs.get("melhor")
+        if melhor and melhor != m.get("melhor"):
+            if falhas:
+                novas.append(f"{d_br}: falhou ({falhas[0]['erro']}) e funcionou no modo “{melhor}” → agora começo por ele")
+            m["melhor"] = melhor
+        elif falhas and melhor:
+            novas.append(f"{d_br}: {falhas[0]['erro']}; outra forma de abrir resolveu")
+        if r["status"] == "Falhou" and falhas:
+            novas.append(f"{d_br}: ainda falha ({falhas[-1]['erro']}) depois de {len(ev)} tentativa(s) com formas diferentes")
+        lu = r.get("lista_url")
+        if lu and lu != m.get("lista_url"):
+            novas.append(f"{d_br}: achei a lista de vagas em {lu[:80]} → próxima vez abro direto")
+            m["lista_url"] = lu
+        for t in novas:
+            if t not in m["licoes"]:
+                m["licoes"] = (m["licoes"] + [t])[-6:]
+    return mem
+
+
+def resumo_aprendizado(mem, resultado):
+    nomes = {r["nome"]: r for r in resultado if r.get("tipo") == "pagina"}
+    lista, cont = [], {"ok": 0, "aprendendo": 0, "ajuda": 0, "excluir": 0, "observando": 0}
+    for nome, m in mem.items():
+        if nome not in nomes:
+            continue
+        r = nomes[nome]
+        cat, txt = veredito(m)
+        cont[cat] += 1
+        top = sorted(m["erros"].items(), key=lambda kv: -kv[1]["n"])[:2]
+        lista.append({"nome": nome, "url": r.get("url", ""), "grupo": r.get("grupo", ""), "minha_lista": r.get("minha_lista", False),
+                      "cat": cat, "veredito": txt, "dias": len(m["dias"]), "rodadas": m["rodadas"], "melhor": m.get("melhor", ""),
+                      "lista_url": m.get("lista_url", ""), "erros": [f"{k} ×{v['n']}" for k, v in top], "licoes": m["licoes"][-3:]})
+    ordem = {"ajuda": 0, "excluir": 1, "observando": 2, "aprendendo": 3, "ok": 4}
+    lista.sort(key=lambda x: (ordem[x["cat"]], x["nome"]))
+    return {"resumo": cont, "lista": lista, "dias_regra": DIAS_APRENDER,
+            "dia_max": max([x["dias"] for x in lista] or [0])}
+
 
 CAMINHOS = ["vagas", "oportunidades", "trabalhe-conosco", "carreiras", "vagas-de-emprego", "empregos"]
 
@@ -716,6 +869,14 @@ def explorar(f, browser, r):
     status, html, usada, n_links, achadas, pr = visitar(f["url"], "página cadastrada")
     primeiro = {"status": status, "links": n_links}
     base_html, base_url = html, usada
+    aprendida = (MEM.get(f["nome"]) or {}).get("lista_url")
+    if pr["candidatos"] == 0 and aprendida and aprendida.split("#")[0] not in visitadas:
+        try:      # a lista de vagas que o robô achou numa rodada anterior: abre direto
+            st2, h2, u2, nl2, ach2, pr2 = visitar(aprendida, "lista aprendida em rodada anterior")
+            if 0 < st2 < 400 and pr2["candidatos"] > 0:
+                status, html, usada, n_links, achadas, pr = st2, h2, u2, nl2, ach2, pr2
+        except Exception:  # noqa
+            pass
     if 0 < status < 400 and pr["candidatos"] == 0:
         # 1) links "Vagas / Oportunidades / Trabalhe conosco" da própria página, com até 2 saltos
         fila = [(u, 1) for u in links_de_lista(html, usada)[:3]]
@@ -753,6 +914,7 @@ def explorar(f, browser, r):
                     break
             except Exception:  # noqa
                 continue
+    lista_ok = usada if pr["candidatos"] > 0 else None
     # paginação da lista encontrada
     paginas, vistas_pag = 1, {usada}
     while paginas < 4 and achadas:
@@ -781,6 +943,7 @@ def explorar(f, browser, r):
         html, usada = html3, prox
     chegou = any(t["candidatos"] > 0 for t in trilha)
     r["trilha"] = trilha
+    r["lista_url"] = lista_ok
     r["prof"] = {"links": sum(t["links"] for t in trilha), "candidatos": sum(t["candidatos"] for t in trilha),
                  "paginas": paginas, "aceitos": len(achadas), "visitadas": len(trilha), "chegou_lista": chegou}
     r["descartes_titulo"] = pr["descartes"][:60]
@@ -805,6 +968,7 @@ def processar_fonte(f, browser, hist_fontes=None):
     r = {"nome": f["nome"], "url": f.get("url", ""), "tipo": f["tipo"], "grupo": f.get("grupo", ""),
          "status": "", "detalhe": ""}
     achadas = []
+    CTX.update({"nome": f["nome"], "eventos": [], "melhor": None})
     pz = pausada(f, hist_fontes or {}, dt.datetime.now(BRT).date())
     if pz and pz[1] is not None:
         r["status"] = "Pausada: falhou 3 rodadas seguidas"
@@ -830,6 +994,7 @@ def processar_fonte(f, browser, hist_fontes=None):
         r.setdefault("trilha", [{"passo": "página cadastrada", "url": f.get("url", ""), "status": 0, "links": 0, "candidatos": 0,
                                  "aceitos": 0, "titulo": "", "amostra": [], "ms": 0, "erro": r["detalhe"]}])
         r.setdefault("prof", {"links": 0, "candidatos": 0, "paginas": 0, "aceitos": 0, "visitadas": 1, "chegou_lista": False})
+    r["obs"] = {"eventos": list(CTX["eventos"]), "melhor": CTX["melhor"]}
     for v in achadas:
         v["fonte"], v["grupo"] = f["nome"], f.get("grupo", "")
     return r, achadas
@@ -848,6 +1013,11 @@ def coletar(fontes, indices):
     hp = RAIZ / "dados" / "historico.json"
     hist_fontes = json.loads(hp.read_text("utf-8")).get("fontes", {}) if hp.exists() else {}
     fora, fb = [], {"n": 0, "max": 40}
+    ap = RAIZ / "dados" / "aprendizado.json"
+    try:
+        MEM.update(json.loads(ap.read_text("utf-8")) if ap.exists() else {})
+    except Exception:  # noqa
+        pass
     with (sync_playwright() if sync_playwright else nullcontext()) as pw:
         browser = None
         if pw:
@@ -1027,6 +1197,16 @@ def montar(parciais, fontes):
         h["rodadas"] = h.get("rodadas", 0) + 1
         h["vagas_total"] = h.get("vagas_total", 0) + r["vagas"]
 
+    ap = RAIZ / "dados" / "aprendizado.json"
+    try:
+        mem = json.loads(ap.read_text("utf-8")) if ap.exists() else {}
+    except Exception:  # noqa
+        mem = {}
+    mem = atualizar_aprendizado(mem, resultado, dia)
+    ap.parent.mkdir(exist_ok=True)
+    ap.write_text(json.dumps(mem, ensure_ascii=False, indent=1), "utf-8")
+    aprendizado = resumo_aprendizado(mem, resultado)
+
     lista, novas_alta = [], []
     for url, v in vagas.items():
         h = hist["vagas"].setdefault(url, {"primeira": dia})
@@ -1124,6 +1304,7 @@ def montar(parciais, fontes):
                      "link_status": v.get("link_status"), "lida": v.get("lida"), "nota": v.get("nota"),
                      "aberta": bool(v.get("verificada"))} for v in amostra],
         "controle": teste_controle(lista, todos_desc, resultado), "minha_lista": minha,
+        "aprendizado": aprendizado,
         "regras": {"nota_min": NOTA_MIN, "nota_alta": 80, "excluidos": EXCLUIR, "contabil": "contador, analista/coordenador contábil, exige CRC",
                    "local": "só Rio Grande do Sul (e remoto)", "paginas_max": 4, "rolagens_max": 4,
                    "navegador_reserva_max": 40, "abre_link_max": 250}}

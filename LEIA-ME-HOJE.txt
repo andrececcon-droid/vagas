@@ -1,0 +1,18 @@
+PACOTE DE HOJE (28/11) - o que tem aqui e onde vai
+
+NA RAIZ DO REPOSITORIO (pagina principal, fora de pastas). Se o GitHub avisar que ja existe, substitua:
+  1. buscar_vagas.py            robo: CFO/Diretor financeiro/Head de financas + aprendizado por fonte (5 dias)
+  2. modelo.html                painel: aba Hoje + bloco "Aprendizado por fonte" na Auditoria
+  3. buscar_headhunters.py      busca de contatos de head hunters
+  4. headhunters_sementes.json  lista inicial (inclui Effetive)
+
+DENTRO DE .github/workflows/  (so confira; nao mudou hoje):
+  vagas.yml
+  headhunters.yml
+  Se nao existirem la, a pasta workflows-copia-visivel tem os dois: crie cada um com
+  "Add file > Create new file" digitando o caminho  .github/workflows/vagas.yml  e colando o conteudo.
+
+DEPOIS DE SUBIR:
+  Actions > "Buscar vagas" > Run workflow
+  Actions > "Buscar contatos de head hunters" > Run workflow
+  Painel > aba Auditoria > bloco "Aprendizado por fonte" (me mande um print)

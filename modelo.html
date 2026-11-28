@@ -51,7 +51,12 @@ td.ok{color:var(--ok)}td.er{color:var(--er)}a{color:var(--ac)}
 .tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--bd);margin:2px 4px 2px 0}
 #toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#1c2030;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;display:none;z-index:9;max-width:90vw}
 details.rx{margin:6px 0}details.rx summary{cursor:pointer;font-weight:600}.mono{font-family:ui-monospace,monospace;font-size:12px;word-break:break-all}
-[hidden]{display:none!important}
+.hj-d{font-size:13px;color:var(--mut);margin:0}.hj-t{font-size:22px;font-weight:700;margin:2px 0 14px;letter-spacing:-.01em}
+.hj-main{background:var(--acb);border-radius:16px;padding:16px;margin:0 0 12px}.hj-main h3{font-size:18px;color:var(--ac)}.hj-main .meta{color:var(--ac);opacity:.85}
+.hj-row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;margin:0 0 8px;text-decoration:none;color:var(--tx)}
+.hj-row>div{flex:1;min-width:0}.hj-n{flex:none;font-size:13px;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--okb);color:var(--ok)}.hj-n.md{background:var(--mdb);color:var(--md)}
+.hj-b{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.hj-b button{padding:9px 14px;border:1px solid var(--bd);border-radius:99px;background:var(--card);cursor:pointer;font-size:14px}
+.hj-main .acts{margin-top:12px}
 @media(max-width:640px){main{padding:12px 10px 70px}.grid{grid-template-columns:1fr}h1{font-size:20px}}
 </style></head><body><main>
 <header><h1>Minhas vagas</h1><button class="btn" id="up">🔄 Buscar agora</button><button class="ghost" id="bcfg" title="Configurações">⚙️</button></header>
@@ -86,9 +91,11 @@ details.rx{margin:6px 0}details.rx summary{cursor:pointer;font-weight:600}.mono{
 <div class="sub" style="margin-top:10px"><a href="#" id="lm">Limpar marcações deste aparelho</a> · <a href="#" id="alApagar">Apagar vagas importadas de e-mail</a> <span id="av" hidden style="color:var(--er)">· Não consegui gravar neste navegador.</span></div>
 </section>
 
-<nav class="tabs"><button data-t="vagas" class="on">Vagas</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="auditoria">Auditoria</button><button data-t="spam">Spam <span id="nspam"></span></button><button data-t="hh">Head hunters <span id="nhh"></span></button><button data-t="fx">Minhas fontes</button></nav>
+<nav class="tabs"><button data-t="hoje" class="on">Hoje</button><button data-t="vagas">Vagas</button><button data-t="candidaturas">Candidaturas <span id="ncand"></span></button><button data-t="auditoria">Auditoria</button><button data-t="spam">Spam <span id="nspam"></span></button><button data-t="hh">Head hunters <span id="nhh"></span></button><button data-t="fx">Minhas fontes</button></nav>
 
-<section id="t-vagas">
+<section id="t-hoje"><div id="hoje"></div></section>
+
+<section id="t-vagas" hidden>
 <div class="resumo" id="resumo"></div>
 <div class="bar"><input type="search" id="q" placeholder="Buscar cargo ou empresa…">
 <select id="fm"></select>
@@ -190,7 +197,7 @@ mesclarAlertas();
 var CATS=[["ger","Gerente financeiro e administrativo"],["ctl","Controller e controladoria"],["coo","Coordenador, gestor e diretor"],["anf","Analista financeiro, FP&A e planejamento"],["ana","Outros analistas"],["out","Outros cargos"]];
 function categoria(v){var t=sem(v.titulo);if(/\bgerente\b/.test(t))return "ger";
  if(/\b(controller|controladoria)\b/.test(t)&&!/\banalista\b/.test(t))return "ctl";
- if(/\b(coordenador|coordenadora|gestor|gestora|diretor|diretora|supervisor|supervisora|head|superintendente)\b/.test(t))return "coo";
+ if(/\b(coordenador|coordenadora|gestor|gestora|diretor|diretora|supervisor|supervisora|head|superintendente|cfo)\b/.test(t))return "coo";
  if(/\banalista\b/.test(t))return /(financ|fp a|fpa|planejamento|orcament|tesouraria|custos|controladoria|faturamento|contas)/.test(t)?"anf":"ana";return "out"}
 var RN={poa:"Grande Porto Alegre",rs:"Interior do RS",remoto:"Remoto"};
 var LINK={ok:["✓ Link confirmado","ok"],incerto:["⚠ Link não confirmado","md"],login:["⚠ Link pede login","md"],nao_abre:["Link não abriu","md"],nao_testado:["Link não testado",""],alerta:["📧 Vem de e-mail",""]};
@@ -283,6 +290,12 @@ function drawAud(){var A=D.auditoria,F=D.fontes||[],T={total:0,com:0,sem:0,js:0,
   '<div class="tw"><table><tr><th>Fonte</th><th>Grupo</th><th>Situação</th><th>Detalhe</th><th>Vagas</th></tr>'+F.map(function(r){var c=r.status.indexOf("OK")==0?"ok":(r.status=="Falhou"?"er":"");return '<tr><td>'+(r.url?'<a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.nome)+'</a>':esc(r.nome))+'</td><td>'+esc(r.grupo)+'</td><td class="'+c+'">'+esc(r.status)+'</td><td>'+esc(r.detalhe)+'</td><td>'+(r.vagas||0)+'</td></tr>'}).join("")+'</table></div>';
  var AL=D.auditoria_links||[];
  h+='<h2>🔗 Auditoria de links</h2>'+(AL.length?'<div class="tw"><table><tr><th>Fonte</th><th>Vagas</th><th>Confirmados</th><th>Não confirmados</th><th>Página inicial</th><th>Pedem login</th><th>Exemplos</th></tr>'+AL.map(function(a){return '<tr><td>'+esc(a.fonte)+'</td><td>'+a.total+'</td><td>'+a.ok+'</td><td>'+a.incerto+'</td><td>'+a.geral+'</td><td>'+a.login+'</td><td>'+a.exemplos.map(function(x){return '<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.titulo)+'</a>'}).join("<br>")+'</td></tr>'}).join("")+'</table></div>':'<div class="box sub">Todos os links desta rodada foram confirmados.</div>');
+ var AP=A.aprendizado;if(AP&&AP.lista&&AP.lista.length){var rs=AP.resumo,cats={ajuda:"🆘 Preciso da sua ajuda",excluir:"🗑 Sugiro excluir",observando:"🔎 Em observação",aprendendo:"📚 Aprendendo",ok:"✅ Funcionando"};
+  h+='<h2>🧠 Aprendizado por fonte</h2><div class="sub">O robô não desiste no primeiro erro: tenta formas diferentes de abrir cada página, guarda o que funcionou e onde fica a lista de vagas, e começa por isso na rodada seguinte. Só sugere excluir uma fonte depois de '+AP.dias_regra+' dias de observação, e a decisão é sua. Dias de observação até agora: '+AP.dia_max+'.</div><div class="resumo">'+["ok","aprendendo","observando","excluir","ajuda"].map(function(k){return '<span class="pill'+(k=="ok"?" ok":k=="ajuda"?" er":k=="excluir"?" md":"")+'"><b>'+(rs[k]||0)+'</b> '+cats[k].replace(/^\S+\s/,"")+'</span>'}).join("")+'</div>';
+  ["ajuda","excluir","observando"].forEach(function(k){var L=AP.lista.filter(function(x){return x.cat===k});if(!L.length)return;
+   h+='<h3 style="margin:14px 0 6px">'+cats[k]+' ('+L.length+')</h3><div class="tw"><table><tr><th>Fonte</th><th>Situação</th><th>Dias</th><th>O que aprendi</th></tr>'+L.map(function(x){return '<tr><td><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.nome)+'</a>'+(x.minha_lista?' <span class="tag">sua lista</span>':'')+'</td><td>'+esc(x.veredito)+'</td><td>'+x.dias+'</td><td>'+((x.erros.length?'Erros: '+x.erros.map(esc).join(", ")+'<br>':'')+(x.licoes.length?x.licoes.map(esc).join('<br>'):'ainda sem lições'))+'</td></tr>'}).join("")+'</table></div>'});
+  var AA=AP.lista.filter(function(x){return x.cat==="aprendendo"||x.cat==="ok"});
+  if(AA.length)h+='<details class="rx"><summary>Ver as outras '+AA.length+' fontes (aprendendo ou funcionando)</summary><div class="tw"><table><tr><th>Fonte</th><th>Situação</th><th>Dias</th><th>Lições</th></tr>'+AA.map(function(x){return '<tr><td>'+esc(x.nome)+'</td><td>'+esc(x.veredito)+'</td><td>'+x.dias+'</td><td>'+(x.licoes.length?x.licoes.map(esc).join('<br>'):'—')+'</td></tr>'}).join("")+'</table></div></details>'}
  if(D.limpeza&&D.limpeza.length)h+='<h2>🧹 Sugestão de limpeza</h2><div class="sub">Carregam, mas não trouxeram vaga em 15 rodadas ou mais. Vale tirar do fontes.json.</div><div class="tw"><table><tr><th>Fonte</th><th>Grupo</th><th>Rodadas sem vaga</th></tr>'+D.limpeza.map(function(r){return '<tr><td><a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.nome)+'</a></td><td>'+esc(r.grupo)+'</td><td>'+r.rodadas+'</td></tr>'}).join("")+'</table></div>';
  h+='<h2>🕒 Últimas rodadas</h2><div class="tw"><table><tr><th>Quando</th><th>Vagas</th><th>Fontes que carregaram</th></tr>'+(D.execucoes||[]).slice().reverse().map(function(e){return '<tr><td>'+esc(e.quando)+'</td><td>'+e.vagas+'</td><td>'+e.fontes_ok+'</td></tr>'}).join("")+'</table></div>';
  $("aud").innerHTML=h;drawDesc();drawTrilhas()}
@@ -455,9 +468,29 @@ function hsDraw(){$("hsuglista").innerHTML=HS.map(hsCard).join("")||'<div class=
 $("hsug").addEventListener("click",function(){$("hsugmsg").textContent="Carregando...";fetch("headhunters.json?"+Date.now()).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){HS=(d.contatos||[]).filter(function(c){return c.emails.length||c.whatsapp.length||c.telefones.length});var ok=(d.relatorio||[]).filter(function(x){return x.paginas>0}).length;$("hsugmsg").textContent=HS.length+" contatos · "+ok+" de "+(d.sites_visitados||0)+" sites abriram · gerado em "+d.gerado;$("hsugall").hidden=!HS.length;hsDraw()}).catch(function(){$("hsugmsg").textContent="Ainda não há resultado. Rode no GitHub: Actions > Buscar contatos de head hunters > Run workflow."})});
 $("hsuglista").addEventListener("click",function(e){var b=e.target.closest("[data-a=add]");if(!b)return;var i=+b.closest("[data-s]").getAttribute("data-s");if(hsAdd(HS[i])){hhSave();hhDraw();hsDraw()}});
 $("hsugall").addEventListener("click",function(){var n=0;HS.forEach(function(c){if((c.emails.length||c.whatsapp.length)&&hsAdd(c))n++});hhSave();hhDraw();hsDraw();$("hsugmsg").textContent=n+" adicionados à sua lista."});
-function aba(n){["vagas","candidaturas","auditoria","spam","hh","fx"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
+/* ---------- aba Hoje ---------- */
+var DSEM=["domingo","segunda","terça","quarta","quinta","sexta","sábado"],MES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+function nBadge(v){return (v.nota!=null&&!v.prov)?'<span class="hj-n'+(v.nota>=80?'':' md')+'">'+v.nota+'</span>':'<span class="hj-n md">e-mail</span>'}
+function drawHoje(){var L=[];D.vagas.forEach(function(v,i){if(vista(v)==="")L.push([v,i])});
+ var B=L.filter(function(x){return x[0].nova||(x[0].nota>=80&&!x[0].prov)});if(!B.length)B=L.slice();
+ B.sort(function(a,b){return notaDe(b[0])-notaDe(a[0])||(b[0].nova?1:0)-(a[0].nova?1:0)});
+ var d=new Date(),dev=(HH&&HH.ok)?HH.lista.filter(hhDevido).length:0,h='<p class="hj-d">'+DSEM[d.getDay()]+", "+d.getDate()+" de "+MES[d.getMonth()]+'</p>';
+ if(!B.length){h+='<div class="hj-t">Nenhuma vaga nova para ver hoje</div><div class="box sub">Quando o robô achar vagas compatíveis, as melhores aparecem aqui. Toque em “Buscar agora” lá em cima para atualizar.</div>'}
+ else{h+='<div class="hj-t">'+(B.length===1?"1 vaga boa para ver hoje":B.length+" vagas boas para ver hoje")+'</div>';
+  var m=B[0],v=m[0],i=m[1];
+  h+='<div class="hj-main"><div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><h3>'+esc(v.titulo)+'</h3>'+nBadge(v)+'</div><div class="meta">'+esc(v.empresa||v.fonte)+'</div><div class="meta">'+(v.local?"📍 "+esc(v.local):"📍 Local não informado")+(v.nova?" · Nova":"")+'</div>'+
+  '<div class="acts"><a class="go" href="'+esc(v.url)+'" target="_blank" rel="noopener">Abrir vaga →</a><button class="tg c" data-hi="'+i+'" data-t="c">✓ Me candidatei</button><button class="tg n" data-hi="'+i+'" data-t="n">✕ Não aplicável</button></div></div>';
+  B.slice(1,4).forEach(function(x){var w=x[0];h+='<a class="hj-row" href="'+esc(w.url)+'" target="_blank" rel="noopener"><div><h3>'+esc(w.titulo)+'</h3><div class="meta">'+esc(w.empresa||w.fonte)+(w.local?" · "+esc(w.local):"")+'</div></div>'+nBadge(w)+'</a>'});
+  if(B.length>4)h+='<div class="sub">+ '+(B.length-4)+' outras na aba Vagas</div>'}
+ h+='<div class="hj-b"><button data-go="hh">✉ '+(dev?"Hoje: "+dev+(dev===1?" head hunter":" head hunters"):"Head hunters")+'</button><button data-go="vagas">☰ Ver tudo ('+L.length+')</button></div>';
+ $("hoje").innerHTML=h}
+$("hoje").addEventListener("click",function(e){var g=e.target.closest("[data-go]");if(g){aba(g.getAttribute("data-go"));return}
+ var b=e.target.closest("[data-hi]");if(!b)return;var v=D.vagas[b.getAttribute("data-hi")];marcar(v,b.getAttribute("data-t"));salvar();draw();drawCand()});
+var _draw=draw;draw=function(){_draw();drawHoje()};
+var _hhDraw=hhDraw;hhDraw=function(){_hhDraw();drawHoje()};
+function aba(n){["hoje","vagas","candidaturas","auditoria","spam","hh","fx"].forEach(function(x){$("t-"+x).hidden=(x!==n)});document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")===n)})}
 document.querySelector(".tabs").addEventListener("click",function(e){var n=e.target.getAttribute("data-t");if(n){aba(n);try{history.replaceState(null,"","#"+n)}catch(x){}}});
-var h0=location.hash.slice(1);if(["vagas","candidaturas","auditoria","spam","hh","fx"].indexOf(h0)>=0)aba(h0);
+var h0=location.hash.slice(1);if(["hoje","vagas","candidaturas","auditoria","spam","hh","fx"].indexOf(h0)>=0)aba(h0);else aba("hoje");drawHoje();
 $("bcfg").addEventListener("click",function(){$("cfg").hidden=!$("cfg").hidden});
 var dp=null;window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;$("binst").hidden=false});
 $("binst").addEventListener("click",function(){if(dp){dp.prompt();dp=null;$("binst").hidden=true}});
