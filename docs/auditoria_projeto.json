@@ -1,5 +1,5 @@
 {
- "gerado": "28/11/2026 10:09",
+ "gerado": "28/11/2026 12:58",
  "modo_corrigir": true,
  "resumo": {
   "ok": 20,
@@ -89,7 +89,7 @@
    "grupo": "Painel publicado",
    "titulo": "docs/index.html",
    "status": "ok",
-   "detalhe": "painel gerado (1306 KB)",
+   "detalhe": "painel gerado (1314 KB)",
    "corrigido": false
   },
   {
@@ -103,7 +103,7 @@
    "grupo": "Painel publicado",
    "titulo": "Última rodada",
    "status": "ok",
-   "detalhe": "há 0 h (28/11/2026 10:09), 87 vaga(s)",
+   "detalhe": "há 0 h (28/11/2026 12:58), 87 vaga(s)",
    "corrigido": false
   },
   {
