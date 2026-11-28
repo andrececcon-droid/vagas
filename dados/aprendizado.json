@@ -4,10 +4,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 54,
+  "candidatos": 108,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -24,8 +24,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -39,8 +39,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -54,11 +54,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 45,
-  "aceitos": 2,
+  "candidatos": 90,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/all → próxima vez abro direto"
@@ -74,11 +74,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 19,
-  "aceitos": 1,
+  "candidatos": 38,
+  "aceitos": 2,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.michaelpage.com.br/jobs/rio-grande-do-sul → próxima vez abro direto"
@@ -94,8 +94,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -109,10 +109,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 2,
-  "lidas_ok": 2,
+  "rodadas": 4,
+  "lidas_ok": 4,
   "dias_lista": 1,
-  "candidatos": 14,
+  "candidatos": 28,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -130,11 +130,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 19,
-  "aceitos": 1,
+  "candidatos": 38,
+  "aceitos": 2,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://solucionarerh.pandape.infojobs.com.br/ → próxima vez abro direto"
@@ -150,8 +150,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -165,26 +165,33 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 1,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
-  "erros": {},
-  "licoes": [],
+  "erros": {
+   "Erro de rede: Page.evaluate: Execution context was destroyed, mo": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Erro de rede: Page.evaluate: Execution context was destroyed, mo) e funcionou no modo “direto” → agora começo por ele"
+  ],
   "dias_lista_set": [],
-  "melhor": "navegador"
+  "melhor": "direto"
  },
  "Engenha": {
   "primeiro": "2026-11-28",
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 2,
-  "lidas_ok": 2,
+  "rodadas": 4,
+  "lidas_ok": 4,
   "dias_lista": 1,
-  "candidatos": 100,
-  "aceitos": 4,
+  "candidatos": 182,
+  "aceitos": 8,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://engenha.com/ → próxima vez abro direto",
@@ -201,11 +208,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 9,
-  "aceitos": 1,
+  "candidatos": 18,
+  "aceitos": 2,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://vagas.bmvagas.com.br/ → próxima vez abro direto"
@@ -221,11 +228,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 3,
-  "aceitos": 1,
+  "candidatos": 6,
+  "aceitos": 2,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://vagascorsanaegea.gupy.io/ → próxima vez abro direto"
@@ -241,8 +248,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -256,10 +263,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 9,
+  "candidatos": 18,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -276,11 +283,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 11,
-  "aceitos": 1,
+  "candidatos": 22,
+  "aceitos": 2,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://rhftalentos.pandape.infojobs.com.br/?PageNumber=1&PageSize=20&Salary=600 → próxima vez abro direto"
@@ -296,8 +303,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -311,10 +318,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 53,
+  "candidatos": 106,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -331,14 +338,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 500 (site com problema)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -352,11 +359,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 12,
-  "aceitos": 2,
+  "candidatos": 24,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.tkrh.com.br/#oportunidades → próxima vez abro direto"
@@ -372,19 +379,20 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 3,
+    "n": 6,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Endereço não existe (DNS)) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Endereço não existe (DNS)) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Endereço não existe (DNS); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -394,10 +402,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 31,
+  "candidatos": 62,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -414,10 +422,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 9,
+  "candidatos": 18,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -434,8 +442,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -449,23 +457,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 404 (endereço mudou)": {
-    "n": 4,
+    "n": 8,
     "ultimo": "2026-11-28"
    },
    "Endereço não existe (DNS)": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (HTTP 404 (endereço mudou)) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (HTTP 404 (endereço mudou)) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: HTTP 404 (endereço mudou); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -475,10 +484,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 8,
+  "candidatos": 16,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -495,10 +504,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 11,
+  "candidatos": 22,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -515,10 +524,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 5,
+  "candidatos": 10,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -535,14 +544,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -556,14 +565,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -577,20 +586,21 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {
    "HTTP 522 (site com problema)": {
-    "n": 3,
+    "n": 6,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
    "28/11: falhou (HTTP 522 (site com problema)) e funcionou no modo “navegador” → agora começo por ele",
-   "28/11: achei a lista de vagas em http://rhcursor.com.br/ → próxima vez abro direto"
+   "28/11: achei a lista de vagas em http://rhcursor.com.br/ → próxima vez abro direto",
+   "28/11: HTTP 522 (site com problema); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [
    "2026-11-28"
@@ -603,10 +613,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 16,
+  "candidatos": 32,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -623,11 +633,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 5,
-  "aceitos": 2,
+  "candidatos": 10,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-analista-financeiro-em-porto-alegre → próxima vez abro direto"
@@ -643,11 +653,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 4,
-  "aceitos": 2,
+  "candidatos": 8,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-gerente-financeiro-em-porto-alegre → próxima vez abro direto"
@@ -663,11 +673,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 4,
-  "aceitos": 3,
+  "candidatos": 8,
+  "aceitos": 6,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-coordenador-financeiro-em-porto-alegre → próxima vez abro direto"
@@ -683,10 +693,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 6,
+  "candidatos": 12,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -703,11 +713,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 4,
-  "aceitos": 3,
+  "candidatos": 8,
+  "aceitos": 6,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-controller-em-porto-alegre → próxima vez abro direto"
@@ -723,10 +733,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 19,
+  "candidatos": 20,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -743,8 +753,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -758,10 +768,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 3,
+  "candidatos": 6,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -778,8 +788,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -793,10 +803,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -813,10 +823,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -833,10 +843,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -853,8 +863,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -868,10 +878,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 32,
+  "candidatos": 64,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -888,8 +898,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -903,11 +913,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 165,
-  "aceitos": 2,
+  "candidatos": 330,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://remotar.com.br/ → próxima vez abro direto"
@@ -923,14 +933,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -944,23 +954,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    },
    "Certificado/SSL": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht; outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -970,14 +981,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -991,23 +1002,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at http": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    },
    "Certificado/SSL": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at http) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at http) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Erro de rede: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at http; outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -1017,8 +1029,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -1032,24 +1044,25 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 138,
+  "candidatos": 276,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    },
    "Certificado/SSL": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
    "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele",
-   "28/11: achei a lista de vagas em https://sistema.neotempus.com.br/vagas → próxima vez abro direto"
+   "28/11: achei a lista de vagas em https://sistema.neotempus.com.br/vagas → próxima vez abro direto",
+   "28/11: Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht; outra forma de abrir resolveu"
   ],
   "dias_lista_set": [
    "2026-11-28"
@@ -1062,8 +1075,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -1077,14 +1090,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1098,14 +1111,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1119,10 +1132,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 12,
+  "candidatos": 24,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1139,14 +1152,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1160,14 +1173,20 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 1,
   "dias_lista": 1,
   "candidatos": 2,
   "aceitos": 0,
-  "erros": {},
+  "erros": {
+   "Demorou demais (timeout)": {
+    "n": 3,
+    "ultimo": "2026-11-28"
+   }
+  },
   "licoes": [
-   "28/11: achei a lista de vagas em https://www.fgtas.rs.gov.br → próxima vez abro direto"
+   "28/11: achei a lista de vagas em https://www.fgtas.rs.gov.br → próxima vez abro direto",
+   "28/11: ainda falha (Demorou demais (timeout)) depois de 3 tentativa(s) com formas diferentes"
   ],
   "dias_lista_set": [
    "2026-11-28"
@@ -1180,10 +1199,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 22,
+  "candidatos": 44,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1200,8 +1219,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -1215,14 +1234,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1236,10 +1255,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 10,
+  "candidatos": 20,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1256,8 +1275,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -1271,14 +1290,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1292,14 +1311,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1313,14 +1332,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1334,8 +1353,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -1349,10 +1368,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 22,
+  "candidatos": 44,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1369,10 +1388,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 9,
+  "candidatos": 18,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1389,26 +1408,26 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_TOO_MANY_REDIRECTS at https://": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    },
    "Erro de rede: Exceeded 30 redirects.": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    },
    "Erro de rede: Page.goto: net::ERR_TOO_MANY_REDIRECTS at http://w": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    },
    "Erro de rede: Page.goto: net::ERR_TOO_MANY_REDIRECTS at http://g": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -1422,7 +1441,7 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
@@ -1437,14 +1456,20 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
   "candidatos": 1,
   "aceitos": 0,
-  "erros": {},
+  "erros": {
+   "HTTP 429 (bloqueio ao robô)": {
+    "n": 13,
+    "ultimo": "2026-11-28"
+   }
+  },
   "licoes": [
-   "28/11: achei a lista de vagas em https://employer.com.br/oportunidades-de-emprego-em-campinas-vagas-abertas-para- → próxima vez abro direto"
+   "28/11: achei a lista de vagas em https://employer.com.br/oportunidades-de-emprego-em-campinas-vagas-abertas-para- → próxima vez abro direto",
+   "28/11: HTTP 429 (bloqueio ao robô); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [
    "2026-11-28"
@@ -1457,14 +1482,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1478,14 +1503,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1499,14 +1524,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1520,14 +1545,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1541,14 +1566,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1562,14 +1587,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1583,10 +1608,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 6,
+  "candidatos": 12,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1603,18 +1628,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Certificado/SSL": {
-    "n": 4,
+    "n": 8,
     "ultimo": "2026-11-28"
    },
    "HTTP 409": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
@@ -1628,14 +1653,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1649,23 +1674,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    },
    "Certificado/SSL": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht; outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -1675,10 +1701,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1695,10 +1721,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 7,
+  "candidatos": 14,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1715,10 +1741,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 6,
+  "candidatos": 12,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1735,10 +1761,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1755,8 +1781,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -1770,14 +1796,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -1791,8 +1817,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -1806,19 +1832,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 525 (site com problema)": {
-    "n": 3,
+    "n": 6,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 500 (site com problema)": {
+    "n": 1,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (HTTP 525 (site com problema)) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (HTTP 525 (site com problema)) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: HTTP 525 (site com problema); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -1828,10 +1859,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 16,
+  "candidatos": 32,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1848,10 +1879,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1868,10 +1899,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 7,
+  "candidatos": 14,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1888,10 +1919,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 9,
+  "candidatos": 18,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1908,10 +1939,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 9,
+  "candidatos": 18,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -1928,11 +1959,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 7,
-  "aceitos": 1,
+  "candidatos": 14,
+  "aceitos": 2,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.ghc.com.br/ → próxima vez abro direto"
@@ -1948,29 +1979,40 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 0,
-  "dias_lista": 0,
-  "candidatos": 0,
+  "rodadas": 2,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
-  "licoes": [],
-  "dias_lista_set": [],
-  "melhor": "navegador"
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.cardiologia.org.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.cardiologia.org.br/"
  },
  "Unimed Porto Alegre": {
   "primeiro": "2026-11-28",
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 8,
+  "candidatos": 16,
   "aceitos": 0,
-  "erros": {},
+  "erros": {
+   "Demorou demais (timeout)": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
   "licoes": [
-   "28/11: achei a lista de vagas em https://unimedpoa.gupy.io/ → próxima vez abro direto"
+   "28/11: achei a lista de vagas em https://unimedpoa.gupy.io/ → próxima vez abro direto",
+   "28/11: Demorou demais (timeout); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [
    "2026-11-28"
@@ -1983,11 +2025,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 5,
-  "aceitos": 1,
+  "candidatos": 10,
+  "aceitos": 2,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.pucrs.br/ → próxima vez abro direto"
@@ -2003,10 +2045,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2023,19 +2065,20 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Demorou demais (timeout)": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Demorou demais (timeout)) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Demorou demais (timeout)) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Demorou demais (timeout); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -2045,8 +2088,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2060,10 +2103,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2080,23 +2123,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 3,
+    "n": 6,
     "ultimo": "2026-11-28"
    },
    "Demorou demais (timeout)": {
-    "n": 3,
+    "n": 6,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Endereço não existe (DNS)) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Endereço não existe (DNS)) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Endereço não existe (DNS); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -2106,23 +2150,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Conexão recusada": {
-    "n": 4,
+    "n": 8,
     "ultimo": "2026-11-28"
    },
    "Erro de rede: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at http": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Conexão recusada) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Conexão recusada) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Conexão recusada; outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -2132,10 +2177,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 6,
+  "candidatos": 12,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2152,10 +2197,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 4,
+  "candidatos": 8,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2172,14 +2217,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Demorou demais (timeout)": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
@@ -2193,10 +2238,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2213,10 +2258,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 10,
+  "candidatos": 20,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2233,10 +2278,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2253,10 +2298,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2273,10 +2318,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 3,
+  "candidatos": 6,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2293,10 +2338,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 3,
+  "candidatos": 6,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2313,10 +2358,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2333,8 +2378,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2348,10 +2393,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2368,14 +2413,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 404 (endereço mudou)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2389,10 +2434,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 6,
+  "candidatos": 12,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2409,11 +2454,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 22,
-  "aceitos": 2,
+  "candidatos": 44,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://melnick.inhire.app/vagas/ → próxima vez abro direto"
@@ -2429,27 +2474,28 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
-    "n": 1,
-    "ultimo": "2026-11-28"
-   },
-   "Certificado/SSL": {
     "n": 2,
     "ultimo": "2026-11-28"
    },
+   "Certificado/SSL": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
    "Endereço não existe (DNS)": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht; outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -2459,8 +2505,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2474,10 +2520,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 4,
+  "candidatos": 8,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2494,10 +2540,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 4,
+  "candidatos": 8,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2514,30 +2560,30 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at https://w": {
-    "n": 1,
-    "ultimo": "2026-11-28"
-   },
-   "Certificado/SSL": {
     "n": 2,
     "ultimo": "2026-11-28"
    },
+   "Certificado/SSL": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
    "Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at https://s": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    },
    "Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at http://ww": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    },
    "Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at http://su": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -2551,8 +2597,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2566,19 +2612,20 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 4,
+    "n": 8,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (HTTP 403 (bloqueio ao robô)) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (HTTP 403 (bloqueio ao robô)) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: HTTP 403 (bloqueio ao robô); outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -2588,8 +2635,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2603,8 +2650,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2618,10 +2665,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2638,10 +2685,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 9,
+  "candidatos": 18,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2658,11 +2705,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 9,
-  "aceitos": 2,
+  "candidatos": 15,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.pageexecutive.com → próxima vez abro direto"
@@ -2678,8 +2725,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2693,8 +2740,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2708,8 +2755,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2723,11 +2770,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
-  "aceitos": 1,
+  "candidatos": 2,
+  "aceitos": 2,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.stantonchase.com → próxima vez abro direto"
@@ -2743,14 +2790,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2764,8 +2811,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -2779,23 +2826,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    },
    "Certificado/SSL": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht; outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -2805,14 +2853,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2826,14 +2874,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2847,14 +2895,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2868,14 +2916,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2889,14 +2937,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2910,10 +2958,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 3,
+  "candidatos": 6,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -2930,14 +2978,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Demorou demais (timeout)": {
-    "n": 3,
+    "n": 6,
     "ultimo": "2026-11-28"
    }
   },
@@ -2951,14 +2999,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2972,14 +3020,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -2993,8 +3041,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -3008,10 +3056,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -3028,7 +3076,7 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
@@ -3043,8 +3091,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -3058,14 +3106,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3079,8 +3127,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -3094,14 +3142,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3115,14 +3163,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3136,8 +3184,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -3151,8 +3199,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 0,
+  "rodadas": 2,
+  "lidas_ok": 1,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -3166,14 +3214,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3187,23 +3235,24 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    },
    "Certificado/SSL": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
   "licoes": [
-   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht; outra forma de abrir resolveu"
   ],
   "dias_lista_set": [],
   "melhor": "navegador"
@@ -3213,14 +3262,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 502 (site com problema)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3234,10 +3283,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 75,
+  "candidatos": 150,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -3254,14 +3303,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3275,14 +3324,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3296,8 +3345,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -3311,14 +3360,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3332,14 +3381,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3353,14 +3402,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3374,10 +3423,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 3,
+  "candidatos": 6,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -3394,14 +3443,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3415,10 +3464,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -3435,10 +3484,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 2,
+  "candidatos": 4,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -3455,14 +3504,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "Endereço não existe (DNS)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3476,18 +3525,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 5,
+    "n": 10,
     "ultimo": "2026-11-28"
    },
    "HTTP 405": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -3501,18 +3550,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 5,
+    "n": 10,
     "ultimo": "2026-11-28"
    },
    "HTTP 405": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -3526,18 +3575,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 5,
+    "n": 10,
     "ultimo": "2026-11-28"
    },
    "HTTP 405": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -3551,18 +3600,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 5,
+    "n": 10,
     "ultimo": "2026-11-28"
    },
    "HTTP 405": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -3576,18 +3625,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 5,
+    "n": 10,
     "ultimo": "2026-11-28"
    },
    "HTTP 405": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -3601,18 +3650,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 5,
+    "n": 10,
     "ultimo": "2026-11-28"
    },
    "HTTP 405": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -3626,18 +3675,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 5,
+    "n": 10,
     "ultimo": "2026-11-28"
    },
    "HTTP 405": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -3651,18 +3700,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 5,
+    "n": 10,
     "ultimo": "2026-11-28"
    },
    "HTTP 405": {
-    "n": 1,
+    "n": 2,
     "ultimo": "2026-11-28"
    }
   },
@@ -3676,11 +3725,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 97,
-  "aceitos": 12,
+  "candidatos": 194,
+  "aceitos": 24,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-gerente-financeiro-em-porto-alegre,-rs.aspx → próxima vez abro direto"
@@ -3696,11 +3745,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 62,
-  "aceitos": 4,
+  "candidatos": 124,
+  "aceitos": 8,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-gerente-administrativo-em-porto-alegre,-rs. → próxima vez abro direto"
@@ -3716,11 +3765,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 97,
-  "aceitos": 20,
+  "candidatos": 194,
+  "aceitos": 40,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-coordenador-financeiro-em-porto-alegre,-rs. → próxima vez abro direto"
@@ -3736,11 +3785,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 76,
-  "aceitos": 14,
+  "candidatos": 152,
+  "aceitos": 28,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-coordenador-administrativo-em-porto-alegre, → próxima vez abro direto"
@@ -3756,11 +3805,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 18,
-  "aceitos": 7,
+  "candidatos": 32,
+  "aceitos": 13,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-controller-em-porto-alegre,-rs.aspx → próxima vez abro direto"
@@ -3776,11 +3825,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 130,
-  "aceitos": 38,
+  "candidatos": 260,
+  "aceitos": 76,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-analista-financeiro-em-porto-alegre,-rs.asp → próxima vez abro direto"
@@ -3796,11 +3845,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 3,
-  "aceitos": 3,
+  "candidatos": 6,
+  "aceitos": 6,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.catho.com.br/vagas/gerente-financeiro-e-controller/porto-alegre-rs/ → próxima vez abro direto"
@@ -3816,11 +3865,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 13,
-  "aceitos": 11,
+  "candidatos": 26,
+  "aceitos": 22,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.catho.com.br/vagas/coordenador-financeiro/porto-alegre-rs/ → próxima vez abro direto"
@@ -3836,11 +3885,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 11,
-  "aceitos": 6,
+  "candidatos": 22,
+  "aceitos": 12,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.catho.com.br/vagas/gerente-administrativo-financeiro/porto-alegre-rs → próxima vez abro direto"
@@ -3856,18 +3905,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 4,
+    "n": 8,
     "ultimo": "2026-11-28"
    },
    "Endereço não existe (DNS)": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
@@ -3881,18 +3930,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 4,
+    "n": 8,
     "ultimo": "2026-11-28"
    },
    "Endereço não existe (DNS)": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
@@ -3906,18 +3955,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 4,
+    "n": 8,
     "ultimo": "2026-11-28"
    },
    "Endereço não existe (DNS)": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
@@ -3931,18 +3980,18 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 4,
+    "n": 8,
     "ultimo": "2026-11-28"
    },
    "Endereço não existe (DNS)": {
-    "n": 2,
+    "n": 4,
     "ultimo": "2026-11-28"
    }
   },
@@ -3956,14 +4005,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3977,14 +4026,14 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
+  "rodadas": 2,
   "lidas_ok": 0,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
   "erros": {
    "HTTP 403 (bloqueio ao robô)": {
-    "n": 6,
+    "n": 12,
     "ultimo": "2026-11-28"
    }
   },
@@ -3998,8 +4047,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -4013,11 +4062,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 7,
-  "aceitos": 2,
+  "candidatos": 14,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/gerente-financeiro → próxima vez abro direto"
@@ -4033,11 +4082,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 33,
-  "aceitos": 5,
+  "candidatos": 66,
+  "aceitos": 10,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/financas → próxima vez abro direto"
@@ -4053,11 +4102,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 7,
-  "aceitos": 2,
+  "candidatos": 14,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/diretor-financeiro → próxima vez abro direto"
@@ -4073,11 +4122,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 5,
-  "aceitos": 2,
+  "candidatos": 10,
+  "aceitos": 4,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/gerente-controladoria → próxima vez abro direto"
@@ -4093,11 +4142,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 39,
-  "aceitos": 5,
+  "candidatos": 78,
+  "aceitos": 10,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/financeiro → próxima vez abro direto"
@@ -4113,10 +4162,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 28,
+  "candidatos": 56,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -4133,8 +4182,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
@@ -4148,10 +4197,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -4168,10 +4217,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 5,
+  "candidatos": 10,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -4188,26 +4237,31 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 0,
-  "dias_lista": 0,
-  "candidatos": 0,
+  "rodadas": 2,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
   "aceitos": 0,
   "erros": {},
-  "licoes": [],
-  "dias_lista_set": [],
-  "melhor": "navegador"
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.solucionare.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.solucionare.com.br/"
  },
  "Muvrh": {
   "primeiro": "2026-11-28",
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 2,
-  "lidas_ok": 2,
+  "rodadas": 4,
+  "lidas_ok": 4,
   "dias_lista": 1,
-  "candidatos": 12,
-  "aceitos": 3,
+  "candidatos": 24,
+  "aceitos": 6,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://muvrh.com.br/ → próxima vez abro direto",
@@ -4224,11 +4278,11 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 21,
-  "aceitos": 3,
+  "candidatos": 42,
+  "aceitos": 6,
   "erros": {},
   "licoes": [
    "28/11: achei a lista de vagas em https://www.placerh.com.br/oportunidades → próxima vez abro direto"
@@ -4244,10 +4298,10 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 1,
-  "candidatos": 8,
+  "candidatos": 16,
   "aceitos": 0,
   "erros": {},
   "licoes": [
@@ -4264,8 +4318,8 @@
   "dias": [
    "2026-11-28"
   ],
-  "rodadas": 1,
-  "lidas_ok": 1,
+  "rodadas": 2,
+  "lidas_ok": 2,
   "dias_lista": 0,
   "candidatos": 0,
   "aceitos": 0,
