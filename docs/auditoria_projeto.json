@@ -1,11 +1,11 @@
 {
- "gerado": "28/11/2026 09:57",
+ "gerado": "28/11/2026 10:09",
  "modo_corrigir": true,
  "resumo": {
-  "ok": 23,
+  "ok": 20,
   "aviso": 2,
   "erro": 1,
-  "corrigidos": 4
+  "corrigidos": 0
  },
  "verificacoes": [
   {
@@ -73,31 +73,10 @@
   },
   {
    "grupo": "Arquivos fora do lugar",
-   "titulo": "icon-192.png",
+   "titulo": "Nada solto ou repetido na raiz",
    "status": "ok",
-   "detalhe": "arquivo do aplicativo solto na raiz: tirei do caminho",
-   "corrigido": true
-  },
-  {
-   "grupo": "Arquivos fora do lugar",
-   "titulo": "icon-512.png",
-   "status": "ok",
-   "detalhe": "arquivo do aplicativo solto na raiz: tirei do caminho",
-   "corrigido": true
-  },
-  {
-   "grupo": "Arquivos fora do lugar",
-   "titulo": "manifest.webmanifest",
-   "status": "ok",
-   "detalhe": "arquivo do aplicativo solto na raiz: tirei do caminho",
-   "corrigido": true
-  },
-  {
-   "grupo": "Arquivos fora do lugar",
-   "titulo": "sw.js",
-   "status": "ok",
-   "detalhe": "arquivo do aplicativo solto na raiz: tirei do caminho",
-   "corrigido": true
+   "detalhe": "a raiz está limpa",
+   "corrigido": false
   },
   {
    "grupo": "Arquivos fora do lugar",
@@ -110,7 +89,7 @@
    "grupo": "Painel publicado",
    "titulo": "docs/index.html",
    "status": "ok",
-   "detalhe": "painel gerado (1311 KB)",
+   "detalhe": "painel gerado (1306 KB)",
    "corrigido": false
   },
   {
@@ -124,7 +103,7 @@
    "grupo": "Painel publicado",
    "titulo": "Última rodada",
    "status": "ok",
-   "detalhe": "há 0 h (28/11/2026 09:48), 87 vaga(s)",
+   "detalhe": "há 0 h (28/11/2026 10:09), 87 vaga(s)",
    "corrigido": false
   },
   {
@@ -159,7 +138,7 @@
    "grupo": "Execução no GitHub Actions",
    "titulo": "Buscar vagas: última rodada",
    "status": "ok",
-   "detalhe": "deu certo; 7 rodada(s) bem-sucedida(s) nas últimas 24 h",
+   "detalhe": "deu certo; 8 rodada(s) bem-sucedida(s) nas últimas 24 h",
    "corrigido": false
   },
   {
@@ -191,24 +170,7 @@
    "corrigido": false
   }
  ],
- "correcoes": [
-  {
-   "o_que": "Tirei “icon-192.png” do caminho",
-   "como": "o painel só usa a versão que fica em docs/. Guardei em _lixeira/20261128-095752-icon-192.png (nada foi apagado)."
-  },
-  {
-   "o_que": "Tirei “icon-512.png” do caminho",
-   "como": "o painel só usa a versão que fica em docs/. Guardei em _lixeira/20261128-095752-icon-512.png (nada foi apagado)."
-  },
-  {
-   "o_que": "Tirei “manifest.webmanifest” do caminho",
-   "como": "o painel só usa a versão que fica em docs/. Guardei em _lixeira/20261128-095752-manifest.webmanifest (nada foi apagado)."
-  },
-  {
-   "o_que": "Tirei “sw.js” do caminho",
-   "como": "o painel só usa a versão que fica em docs/. Guardei em _lixeira/20261128-095752-sw.js (nada foi apagado)."
-  }
- ],
+ "correcoes": [],
  "pendencias": [
   {
    "titulo": "Buscar contatos de head hunters: última rodada",
