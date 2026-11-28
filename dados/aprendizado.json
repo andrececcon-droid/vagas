@@ -1,0 +1,4277 @@
+{
+ "Recrutei – Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 54,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://empregos.recrutei.com.br/vagas/em/porto-alegre-rs?regime=2 → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://empregos.recrutei.com.br/vagas/em/porto-alegre-rs?regime=2"
+ },
+ "Randstad": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Hays": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Robert Half – Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 45,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/all → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/all"
+ },
+ "Michael Page – Rio Grande do Sul": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 19,
+  "aceitos": 1,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.michaelpage.com.br/jobs/rio-grande-do-sul → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.michaelpage.com.br/jobs/rio-grande-do-sul"
+ },
+ "Metta": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Peopleware RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 2,
+  "lidas_ok": 2,
+  "dias_lista": 1,
+  "candidatos": 14,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.peoplewarerh.com.br/ → próxima vez abro direto",
+   "28/11: achei a lista de vagas em https://peopleware-recursos-humanos.tunni.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://peopleware-recursos-humanos.tunni.com.br/"
+ },
+ "Solucionare RH (Pandapé)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 19,
+  "aceitos": 1,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://solucionarerh.pandape.infojobs.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://solucionarerh.pandape.infojobs.com.br/"
+ },
+ "Efetivar": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Portal de Talentos Senior": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Engenha": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 2,
+  "lidas_ok": 2,
+  "dias_lista": 1,
+  "candidatos": 100,
+  "aceitos": 4,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://engenha.com/ → próxima vez abro direto",
+   "28/11: achei a lista de vagas em https://engenha.com/vagas → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://engenha.com/vagas"
+ },
+ "BM Vagas": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 9,
+  "aceitos": 1,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://vagas.bmvagas.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://vagas.bmvagas.com.br/"
+ },
+ "Corsan / Aegea (Gupy)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 3,
+  "aceitos": 1,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://vagascorsanaegea.gupy.io/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://vagascorsanaegea.gupy.io/"
+ },
+ "InNova RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Acessa RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 9,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.acessarh.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.acessarh.com.br/"
+ },
+ "RHF Talentos (Pandapé)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 11,
+  "aceitos": 1,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://rhftalentos.pandape.infojobs.com.br/?PageNumber=1&PageSize=20&Salary=600 → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://rhftalentos.pandape.infojobs.com.br/?PageNumber=1&PageSize=20&Salary=6000&SalaryUpper=True&Deficiency=2&IdLocation2List=184"
+ },
+ "DNA Human Resources (Solides)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Recrutei – busca Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 53,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://empregos.recrutei.com.br/busca?keyword=&city=Porto+Alegre&state=rs&setor → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://empregos.recrutei.com.br/busca?keyword=&city=Porto+Alegre&state=rs&setor=&regime=&model="
+ },
+ "Viver RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 500 (site com problema)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 500 (site com problema)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "TKRH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 12,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.tkrh.com.br/#oportunidades → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.tkrh.com.br/#oportunidades"
+ },
+ "DRH RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 3,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Endereço não existe (DNS)) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Morbach RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 31,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://morbachrh.com.br/vagas-de-emprego → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://morbachrh.com.br/vagas-de-emprego"
+ },
+ "VIP Desenvolvimento Humano": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 9,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vipdh.com.br/painel-de-vagas → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vipdh.com.br/painel-de-vagas"
+ },
+ "Recrutei – Prime RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Place RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 404 (endereço mudou)": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
+   "Endereço não existe (DNS)": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (HTTP 404 (endereço mudou)) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Conecta Talentos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 8,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://vagas.conectatalentos.com/vaga/lista/inicio → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://vagas.conectatalentos.com/vaga/lista/inicio"
+ },
+ "Datum (Recrut.ai)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 11,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://datum.jobs.recrut.ai/#openings → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://datum.jobs.recrut.ai/#openings"
+ },
+ "Holden RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 5,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://holdenrh.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://holdenrh.com.br/"
+ },
+ "Gelre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Grupo Foco": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Cursor RH (antigo)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 522 (site com problema)": {
+    "n": 3,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (HTTP 522 (site com problema)) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: achei a lista de vagas em http://rhcursor.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "http://rhcursor.com.br/"
+ },
+ "META Assessoria Empresarial (Solides)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 16,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://metassessoriaempresarial.vagas.solides.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://metassessoriaempresarial.vagas.solides.com.br/"
+ },
+ "Vagas.com – analista financeiro POA": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 5,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-analista-financeiro-em-porto-alegre → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vagas.com.br/vagas-de-analista-financeiro-em-porto-alegre"
+ },
+ "Vagas.com – gerente financeiro POA": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 4,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-gerente-financeiro-em-porto-alegre → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vagas.com.br/vagas-de-gerente-financeiro-em-porto-alegre"
+ },
+ "Vagas.com – coordenador financeiro POA": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 4,
+  "aceitos": 3,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-coordenador-financeiro-em-porto-alegre → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vagas.com.br/vagas-de-coordenador-financeiro-em-porto-alegre"
+ },
+ "Vagas.com – controladoria POA": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 6,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-controladoria-em-porto-alegre → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vagas.com.br/vagas-de-controladoria-em-porto-alegre"
+ },
+ "Vagas.com – controller POA": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 4,
+  "aceitos": 3,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-controller-em-porto-alegre → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vagas.com.br/vagas-de-controller-em-porto-alegre"
+ },
+ "Vagas.com – Adecco": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 19,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-adecco → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vagas.com.br/vagas-de-adecco"
+ },
+ "Abler": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "99jobs": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 3,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.99jobs.com/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.99jobs.com/"
+ },
+ "Yellow.rec": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Resch RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://resch.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://resch.com.br/"
+ },
+ "INTRA": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://intra.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://intra.com.br/"
+ },
+ "Adecco Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.adecco.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.adecco.com.br"
+ },
+ "ManpowerGroup Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Grupo Cia de Talentos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 32,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://vagas.ciadetalentos.com.br/applicant/#/opportunities?rc=https:%2F%2Fwww. → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://vagas.ciadetalentos.com.br/applicant/#/opportunities?rc=https:%2F%2Fwww.ciadetalentos.com.br&gct-site-key=ct-brasil"
+ },
+ "Sólides Vagas (portal)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Remotar (vagas remotas)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 165,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://remotar.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://remotar.com.br/"
+ },
+ "Funcional RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Peopleware RH (site)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   },
+   "Certificado/SSL": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Cursor RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Personal RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at http": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   },
+   "Certificado/SSL": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at http) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Interlig RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Neo Tempus RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 138,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   },
+   "Certificado/SSL": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele",
+   "28/11: achei a lista de vagas em https://sistema.neotempus.com.br/vagas → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://sistema.neotempus.com.br/vagas"
+ },
+ "Staff RH (site)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Camilla Terra Consultoria": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Quartz RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Avante RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 12,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.avanterh.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.avanterh.com.br"
+ },
+ "AP RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "SINE Porto Alegre / FGTAS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.fgtas.rs.gov.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.fgtas.rs.gov.br"
+ },
+ "Vagas POA": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 22,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vagaspoa.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vagaspoa.com.br/"
+ },
+ "Metta Capital Humano": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Rhizoma RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Grupo Selpe": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 10,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.gruposelpe.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.gruposelpe.com.br"
+ },
+ "Ponto Currículo": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Serh Consultoria": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "RPO Talentos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Talentos do Sul": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Lydians RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "CIEE-RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 22,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.cieers.org.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.cieers.org.br"
+ },
+ "Randstad Brasil (POA)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 9,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.randstad.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.randstad.com.br"
+ },
+ "Gi Group Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_TOO_MANY_REDIRECTS at https://": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   },
+   "Erro de rede: Exceeded 30 redirects.": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   },
+   "Erro de rede: Page.goto: net::ERR_TOO_MANY_REDIRECTS at http://w": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   },
+   "Erro de rede: Page.goto: net::ERR_TOO_MANY_REDIRECTS at http://g": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Erro de rede: Page.goto: net::ERR_TOO_MANY_REDIRECTS at http://g) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Luandre RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Employer RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://employer.com.br/oportunidades-de-emprego-em-campinas-vagas-abertas-para- → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://employer.com.br/oportunidades-de-emprego-em-campinas-vagas-abertas-para-analista-e-estagiario-de-folha-de-pagamento/"
+ },
+ "Gruphet RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "RH Desenvolvimento": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Capta RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Base RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Lopes RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Desenvolver RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Humanos RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 6,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.humanosrh.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.humanosrh.com.br"
+ },
+ "Solução RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Certificado/SSL": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 409": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 409) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Rede Sul RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Integra RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   },
+   "Certificado/SSL": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Hunt RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://huntrh.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://huntrh.com.br/"
+ },
+ "deBernt": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 7,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://debernt.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://debernt.com.br/"
+ },
+ "Wide": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 6,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://wide.works/oportunidades/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://wide.works/oportunidades/"
+ },
+ "Page Personnel": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.pagepersonnel.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.pagepersonnel.com.br/"
+ },
+ "LHH Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Talenses Group": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Exec": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Mindsearch": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 525 (site com problema)": {
+    "n": 3,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (HTTP 525 (site com problema)) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Hospital Moinhos de Vento": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 16,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.hospitalmoinhos.org.br/carreiras → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.hospitalmoinhos.org.br/carreiras"
+ },
+ "Hospital Mãe de Deus": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.maededeus.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.maededeus.com.br/"
+ },
+ "Hospital de Clínicas de Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 7,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.hcpa.edu.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.hcpa.edu.br/"
+ },
+ "Santa Casa de Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 9,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.santacasa.org.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.santacasa.org.br/"
+ },
+ "Hospital Ernesto Dornelles": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 9,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.hed.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.hed.com.br/"
+ },
+ "Grupo Hospitalar Conceição": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 7,
+  "aceitos": 1,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.ghc.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.ghc.com.br/"
+ },
+ "Instituto de Cardiologia (ICFUC)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Unimed Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 8,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://unimedpoa.gupy.io/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://unimedpoa.gupy.io/"
+ },
+ "PUCRS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 5,
+  "aceitos": 1,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.pucrs.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.pucrs.br/"
+ },
+ "Unisinos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://carreiras.unisinos.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://carreiras.unisinos.br"
+ },
+ "Feevale": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Demorou demais (timeout)": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Demorou demais (timeout)) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "ULBRA": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "UniRitter": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://trabalheconosco.vagas.com.br/animaeducacao → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://trabalheconosco.vagas.com.br/animaeducacao"
+ },
+ "Rede Marista": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 3,
+    "ultimo": "2026-11-28"
+   },
+   "Demorou demais (timeout)": {
+    "n": 3,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Endereço não existe (DNS)) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Rede La Salle": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Conexão recusada": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
+   "Erro de rede: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at http": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Conexão recusada) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Senac RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 6,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.senacrs.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.senacrs.com.br/"
+ },
+ "Sesc RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 4,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.sesc-rs.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.sesc-rs.com.br/"
+ },
+ "Sebrae RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Demorou demais (timeout)": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Demorou demais (timeout)) depois de 2 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Fecomércio-RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.fecomercio-rs.org.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.fecomercio-rs.org.br/"
+ },
+ "CREA-RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 10,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.crea-rs.org.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.crea-rs.org.br/"
+ },
+ "Banrisul": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.banrisul.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.banrisul.com.br/"
+ },
+ "Badesul": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.badesul.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.badesul.com.br/"
+ },
+ "BRDE": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 3,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.brde.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.brde.com.br/"
+ },
+ "Cresol": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 3,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.cresol.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.cresol.com.br/"
+ },
+ "Agibank": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.agibank.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.agibank.com.br/"
+ },
+ "Grupo Zaffari": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Lojas Renner": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.lojasrennersa.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.lojasrennersa.com.br/"
+ },
+ "Gerdau": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 404 (endereço mudou)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 404 (endereço mudou)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Grupo RBS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 6,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.gruporbs.com.br/oportunidades → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.gruporbs.com.br/oportunidades"
+ },
+ "Melnick": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 22,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://melnick.inhire.app/vagas/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://melnick.inhire.app/vagas/"
+ },
+ "Goldsztein": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   },
+   "Certificado/SSL": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   },
+   "Endereço não existe (DNS)": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Dell Technologies (Eldorado do Sul)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "CMPC (Guaíba)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 4,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.cmpc.com/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.cmpc.com/"
+ },
+ "Braskem": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 4,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.braskem.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.braskem.com.br/"
+ },
+ "Sulgás": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at https://w": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   },
+   "Certificado/SSL": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   },
+   "Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at https://s": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   },
+   "Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at http://ww": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   },
+   "Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at http://su": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Erro de rede: Page.goto: net::ERR_CERT_DATE_INVALID at http://su) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Ritter Hotéis": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Iguatemi Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (HTTP 403 (bloqueio ao robô)) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "SC Internacional": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Grêmio": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Evermonte Executive Search": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://evermonte.com/vagas-executivas/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://evermonte.com/vagas-executivas/"
+ },
+ "Agnis Executive Search": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 9,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://agnis.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://agnis.com.br"
+ },
+ "Page Executive": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 9,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.pageexecutive.com → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.pageexecutive.com"
+ },
+ "Boyden Executive Search": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Korn Ferry Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Amrop Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Stanton Chase Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 1,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.stantonchase.com → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.stantonchase.com"
+ },
+ "Fesa Group (.com.br)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Flow Executive Finders": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Signium Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   },
+   "Certificado/SSL": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Asset Recruitment": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Fortus Group RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Scheffel RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Guma Gestão Estratégica": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Incentiva Recursos Humanos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "HUNT IT": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 3,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://huntit.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://huntit.com.br"
+ },
+ "RHF Talentos Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Demorou demais (timeout)": {
+    "n": 3,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Demorou demais (timeout)) depois de 3 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Cabalheiro Consultores": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Resilience Assessoria": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Right Management Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Mercer Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.mercer.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.mercer.com.br"
+ },
+ "RH Canoas": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Meta Recursos Humanos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Lippia RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Conexão RH Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Ser Recursos Humanos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "RH Estratégico RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Solução Serviços Terceirizados e RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Exclusiva RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Grupo Razão RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Wyser (Gi Group)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   },
+   "Certificado/SSL": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: falhou (Erro de rede: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at ht) e funcionou no modo “navegador” → agora começo por ele"
+  ],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Experis Brasil": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 502 (site com problema)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 502 (site com problema)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Talent Group": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 75,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.talentgroup.com.br/vagas/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.talentgroup.com.br/vagas/"
+ },
+ "Profit RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Premium RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Target Recursos Humanos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Foco em Pessoas RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Talentos & Carreiras RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Sul Empregos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Valor Humano Consultoria": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 3,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.valorhumano.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.valorhumano.com.br"
+ },
+ "Desenvolver Talentos RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Estágio Sul": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.estagiosul.com.br → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.estagiosul.com.br"
+ },
+ "Proativa RH": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 2,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://proativarh.com.br/vagascabreuva/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://proativarh.com.br/vagascabreuva/"
+ },
+ "Seleção Humana RS": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "Endereço não existe (DNS)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Adzuna POA – Gerente financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 5,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 405": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Adzuna POA – Gerente adm-financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 5,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 405": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Adzuna POA – Coordenador financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 5,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 405": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Adzuna POA – Coord. adm-financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 5,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 405": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Adzuna POA – Controller": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 5,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 405": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Adzuna POA – Analista financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 5,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 405": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Adzuna POA – FP&A": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 5,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 405": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Adzuna RS – Controller": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 5,
+    "ultimo": "2026-11-28"
+   },
+   "HTTP 405": {
+    "n": 1,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Infojobs POA – Gerente financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 97,
+  "aceitos": 12,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-gerente-financeiro-em-porto-alegre,-rs.aspx → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.infojobs.com.br/vagas-de-gerente-financeiro-em-porto-alegre,-rs.aspx"
+ },
+ "Infojobs POA – Gerente administrativo": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 62,
+  "aceitos": 4,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-gerente-administrativo-em-porto-alegre,-rs. → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.infojobs.com.br/vagas-de-gerente-administrativo-em-porto-alegre,-rs.aspx"
+ },
+ "Infojobs POA – Coordenador financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 97,
+  "aceitos": 20,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-coordenador-financeiro-em-porto-alegre,-rs. → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.infojobs.com.br/vagas-de-coordenador-financeiro-em-porto-alegre,-rs.aspx"
+ },
+ "Infojobs POA – Coord. administrativo": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 76,
+  "aceitos": 14,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-coordenador-administrativo-em-porto-alegre, → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.infojobs.com.br/vagas-de-coordenador-administrativo-em-porto-alegre,-rs.aspx"
+ },
+ "Infojobs POA – Controller": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 18,
+  "aceitos": 7,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-controller-em-porto-alegre,-rs.aspx → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.infojobs.com.br/vagas-de-controller-em-porto-alegre,-rs.aspx"
+ },
+ "Infojobs POA – Analista financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 130,
+  "aceitos": 38,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.infojobs.com.br/vagas-de-analista-financeiro-em-porto-alegre,-rs.asp → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.infojobs.com.br/vagas-de-analista-financeiro-em-porto-alegre,-rs.aspx"
+ },
+ "Catho POA – Gerente financeiro e controller": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 3,
+  "aceitos": 3,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.catho.com.br/vagas/gerente-financeiro-e-controller/porto-alegre-rs/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.catho.com.br/vagas/gerente-financeiro-e-controller/porto-alegre-rs/"
+ },
+ "Catho POA – Coordenador financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 13,
+  "aceitos": 11,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.catho.com.br/vagas/coordenador-financeiro/porto-alegre-rs/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.catho.com.br/vagas/coordenador-financeiro/porto-alegre-rs/"
+ },
+ "Catho POA – Gerente adm-financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 11,
+  "aceitos": 6,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.catho.com.br/vagas/gerente-administrativo-financeiro/porto-alegre-rs → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.catho.com.br/vagas/gerente-administrativo-financeiro/porto-alegre-rs/"
+ },
+ "Indeed POA – Gerente financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
+   "Endereço não existe (DNS)": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Indeed POA – Gerente adm-financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
+   "Endereço não existe (DNS)": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Indeed POA – Controller": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
+   "Endereço não existe (DNS)": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Indeed POA – Coordenador financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 4,
+    "ultimo": "2026-11-28"
+   },
+   "Endereço não existe (DNS)": {
+    "n": 2,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (Endereço não existe (DNS)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Glassdoor POA – Gerente adm-financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Glassdoor POA – Controller": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {
+   "HTTP 403 (bloqueio ao robô)": {
+    "n": 6,
+    "ultimo": "2026-11-28"
+   }
+  },
+  "licoes": [
+   "28/11: ainda falha (HTTP 403 (bloqueio ao robô)) depois de 6 tentativa(s) com formas diferentes"
+  ],
+  "dias_lista_set": []
+ },
+ "Tunni (vagas, salário a partir de R$ 7 mil)": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Robert Half POA – Gerente financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 7,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/gerente-financeiro → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/gerente-financeiro"
+ },
+ "Robert Half POA – Finanças": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 33,
+  "aceitos": 5,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/financas → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/financas"
+ },
+ "Robert Half POA – Diretor financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 7,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/diretor-financeiro → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/diretor-financeiro"
+ },
+ "Robert Half POA – Gerente controladoria": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 5,
+  "aceitos": 2,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/gerente-controladoria → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/gerente-controladoria"
+ },
+ "Robert Half POA – Financeiro": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 39,
+  "aceitos": 5,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.roberthalf.com/br/pt/vagas/porto-alegre/financeiro → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.roberthalf.com/br/pt/vagas/porto-alegre/financeiro"
+ },
+ "Vagas.com.br – Porto Alegre": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 28,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.vagas.com.br/vagas-de-porto-alegre → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.vagas.com.br/vagas-de-porto-alegre"
+ },
+ "Talentosdosul": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Santannaagenciadeempregos": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 1,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.santannaagenciadeempregos.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.santannaagenciadeempregos.com.br/"
+ },
+ "Agenciapublicoalvo": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 5,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://agenciapublicoalvo.com.br/vagas/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://agenciapublicoalvo.com.br/vagas/"
+ },
+ "Solucionare": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 0,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ },
+ "Muvrh": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 2,
+  "lidas_ok": 2,
+  "dias_lista": 1,
+  "candidatos": 12,
+  "aceitos": 3,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://muvrh.com.br/ → próxima vez abro direto",
+   "28/11: achei a lista de vagas em https://muvrh.pandape.infojobs.com.br/ → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://muvrh.pandape.infojobs.com.br/"
+ },
+ "Placerh": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 21,
+  "aceitos": 3,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://www.placerh.com.br/oportunidades → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://www.placerh.com.br/oportunidades"
+ },
+ "Safehire": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 1,
+  "candidatos": 8,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [
+   "28/11: achei a lista de vagas em https://safehire.doc9hub.com/vagas → próxima vez abro direto"
+  ],
+  "dias_lista_set": [
+   "2026-11-28"
+  ],
+  "melhor": "navegador",
+  "lista_url": "https://safehire.doc9hub.com/vagas"
+ },
+ "Irigarayguindastesetransportes": {
+  "primeiro": "2026-11-28",
+  "dias": [
+   "2026-11-28"
+  ],
+  "rodadas": 1,
+  "lidas_ok": 1,
+  "dias_lista": 0,
+  "candidatos": 0,
+  "aceitos": 0,
+  "erros": {},
+  "licoes": [],
+  "dias_lista_set": [],
+  "melhor": "navegador"
+ }
+}
